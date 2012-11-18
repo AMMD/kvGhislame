@@ -10,7 +10,7 @@
     mute: mute
     name_s: name_s
 
-    padding: 3, 3, 3, 3
+#    padding: 3, 3, 3, 3
 
     canvas:
         Color: 
@@ -20,7 +20,7 @@
 
     Label:
         id: name_s
-        font_size: 12
+        font_size: 10
         color: 1, 1, 1, 1
         text: root.name
 
@@ -35,11 +35,11 @@
         text_size: self.width, 18
 
         halign: 'center'
-        valign: 'bottom'
+        valign: 'top'
 
         canvas:
             Color:
-                rgb: 0.4, 0.4, 0.4
+                rgb: 0.2, 0.2, 0.2
             Line:
                 rectangle: self.x, self.y, self.width, self.height
             
@@ -50,9 +50,10 @@
 
     ValueFader:
         id: valuefader
-        center_x: root.center_x
+        x: root.x + 4
         y: root.y + root.mute.height + 35
         height: root.height - root.mute.height - 45
+        width: root.width - 8
         name: root.name
 
 

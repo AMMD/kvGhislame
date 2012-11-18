@@ -37,11 +37,17 @@
         halign: 'center'
         valign: 'bottom'
 
-        text: str(root.name)
+        text: root.name
+
+        canvas:
+            Color:
+                rgb: 0.2, 0.2, 0.2
+            Line:
+                rectangle: self.x, self.y, self.width, self.height
 
     Fader:
         id: fader
-        height: root.height - 35
+        height: root.height - 20
         y: root.y
         center_x: root.center_x
 
