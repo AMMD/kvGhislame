@@ -10,7 +10,7 @@
         halign: 'left'
         valign: 'middle'
         text_size: 30, 20
-        text: str(root.value)
+        text: str(round(root.value,2))
 
         center_y: root.value_pos[1]
         center_x: root.center_x+30
@@ -39,11 +39,11 @@
 
         text: root.name
 
-        canvas:
-            Color:
-                rgb: 0.2, 0.2, 0.2
-            Line:
-                rectangle: self.x, self.y, self.width, self.height
+#        canvas:
+#            Color:
+#                rgb: 0.2, 0.2, 0.2
+#            Line:
+#                rectangle: self.x, self.y, self.width, self.height
 
     Fader:
         id: fader

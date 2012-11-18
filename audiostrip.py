@@ -4,6 +4,7 @@ kivy.require('1.4.1')
 from kivy.app import App
 from kivy.uix.widget import Widget
 from valuefader import ValueFader
+from valuepanner import ValuePanner
 from kivy.uix.togglebutton import ToggleButton
 from kivy.properties import ObjectProperty, StringProperty
 from kivy.factory import Factory
@@ -17,7 +18,8 @@ class Mute(ToggleButton):
 class AudioStrip(Widget):
     path = StringProperty('Strip')
     name = StringProperty()
-    valuefader = ObjectProperty(None)
+    gainfader = ObjectProperty(None)
+    panfader = ObjectProperty(None)
     mute = ObjectProperty(None)
     name_s = ObjectProperty(None)
 
@@ -29,6 +31,8 @@ class AudioStripApp(App):
 
 Builder.load_file('valuefader.kv')
 Factory.register('ValueFader', ValueFader)
+Builder.load_file('valuepanner.kv')
+Factory.register('ValuePanner', ValuePanner)
 Factory.register('Mute', Mute)
 if __name__ == '__main__':
     AudioStripApp().run()

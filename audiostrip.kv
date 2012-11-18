@@ -6,11 +6,10 @@
     width: 35
 
 <AudioStrip>:
-    valuefader: valuefader
+    gainfader: gainfader
+    panfader: panfader
     mute: mute
     name_s: name_s
-
-#    padding: 3, 3, 3, 3
 
     canvas:
         Color: 
@@ -49,12 +48,23 @@
         y: root.y + 25
 
     ValueFader:
-        id: valuefader
+        id: gainfader
         x: root.x + 4
         y: root.y + root.mute.height + 35
-        height: root.height - root.mute.height - 45
+        height: root.height - root.mute.height - root.panfader.height - 25
         width: root.width - 8
         name: root.name
+
+    ValuePanner:
+        id: panfader
+        x: root.x + 4
+        height: 60
+        y: root.height - self.height - 10
+        width: root.width - 8
+        name: ''
+        p_max: 1
+        p_min: -1
+        p_step: 0.01
 
 
 
