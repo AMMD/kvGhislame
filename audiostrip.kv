@@ -1,0 +1,33 @@
+#:kivy 1.4
+
+<Mute>:
+    text: 'M'
+    height: 35
+    width: 35
+
+<AudioStrip>:
+    fader: fader
+    mute: mute
+    padding: 3, 3, 3, 3
+    canvas:
+        Color: 
+            hsv: 1, 0.5, 0.5
+        Line:
+            rectangle: self.x+1, self.y+1, self.width-2, self.height-2
+            
+    Mute:
+        id: mute
+        center_x: root.center_x
+        y: root.y + 5
+
+    Fader:
+        id: fader
+        center_x: root.center_x
+        y: root.y + root.mute.height + 20
+        height: root.height - root.mute.height - 30
+
+
+
+
+
+
