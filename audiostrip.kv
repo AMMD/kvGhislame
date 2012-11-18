@@ -14,8 +14,12 @@
     canvas:
         Color: 
             hsv: 1, 0.5, 0.5
-        Line:
-            rectangle: self.x+1, self.y+1, self.width-2, self.height-2
+#        Line:
+#            rectangle: self.x+1, self.y+1, self.width-2, self.height-2
+#        Rectangle: 
+#            pos: root.gainfader.x + 25, self.y + 22
+#            size: self.width - 50, self.height - 22
+
 
     Label:
         id: name_s
@@ -38,9 +42,12 @@
 
         canvas:
             Color:
-                rgb: 0.2, 0.2, 0.2
+                hsv: 1, 0.5, 0.5
             Line:
                 rectangle: self.x, self.y, self.width, self.height
+#            Rectangle:
+#                pos: self.x + 5, self.y
+#                size: 5, 60
             
     Mute:
         id: mute
@@ -62,9 +69,10 @@
         y: root.height - self.height - 10
         width: root.width - 8
         name: ''
-        p_min: -1
-        p_max: 1
-        p_step: 0.01
+        min: -1
+        max: 1
+        step: 0.01
+        color: root.color
 
 
 

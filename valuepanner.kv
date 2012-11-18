@@ -4,9 +4,16 @@
 <Panner>:
     orientation: 'horizontal'
 
+    canvas:
+        Color:
+            rgba: self.r, self.g, self.b, 0.3
+        Ellipse:
+            size: 28, 28
+            pos: root.value_pos[0] - 14, self.center_y - 15
+
     Label:
         font_size: 10
-        color: 1, 1, 1, 1
+        color: root.r, root.g, root.b, 1
         halign: 'center'
         valign: 'bottom'
         text_size: 30, 20
@@ -23,7 +30,7 @@
     Label:
         id: name_p
         font_size: 10
-        color: 1, 1, 1, 1
+        color: root.r, root.g, root.b, 1
 
         height: self.texture_size[1]
         width: root.width - 2
@@ -46,8 +53,8 @@
         height: 60
         y: root.y + 11
         x: root.x
-        max: root.p_max
-        min: root.p_min
+        max: root.max
+        min: root.min
+        color: root.color
 #        step: root.p_step
-
 
