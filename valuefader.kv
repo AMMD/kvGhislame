@@ -16,10 +16,22 @@
         center_x: root.center_x+30
 
 
+
+
+
 <ValueFader>:
-    fader: fader
+#    fader: fader
     name_f: name_f
 
+#    padding: 35
+
+    canvas:
+        Color:
+            rgba: 0, 0, 0, 0.8
+        Rectangle:
+            pos: root.x, root.height - 20
+            size: root.width, 20
+        
     Label:
         id: name_f
         font_size: 10
@@ -28,7 +40,8 @@
         height: self.texture_size[1]
         width: root.width - 2
 
-        y: fader.height + fader.y + 5
+        top: root.top - 20
+#        y: root.height + root.y + 5
         x: root.x + 1
 
         shorten: 'true'
@@ -39,16 +52,17 @@
 
         text: root.name
 
+
 #        canvas:
 #            Color:
 #                rgb: 0.2, 0.2, 0.2
 #            Line:
 #                rectangle: self.x, self.y, self.width, self.height
 
-    Fader:
-        id: fader
-        height: root.height - 20
-        y: root.y
-        center_x: root.center_x
+#    Fader:
+#        id: fader
+#        height: root.height - 20
+#        y: root.y
+#        center_x: root.center_x
 
 

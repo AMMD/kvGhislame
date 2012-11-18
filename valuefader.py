@@ -13,8 +13,8 @@ class Fader(Slider):
 #        app = App.get_running_app()
 #        app.send_message()
 
-class ValueFader(Widget):
-    fader = ObjectProperty(None)
+class ValueFader(Fader):
+#    fader = ObjectProperty(None)
     name_f = ObjectProperty(None)
     name = StringProperty()
 
