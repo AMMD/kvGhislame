@@ -1,0 +1,53 @@
+#:kivy 1.4
+
+
+<Panner>:
+    orientation: 'horizontal'
+
+    Label:
+        font_size: 10
+        color: 1, 1, 1, 1
+        halign: 'center'
+        valign: 'bottom'
+        text_size: 30, 20
+        text: str(round(root.value, 2))
+
+        center_x: root.value_pos[0]
+        y: root.value_pos[1] + 5
+
+
+<ValuePanner>:
+    panner: panner
+    name_p: name_p
+
+    Label:
+        id: name_p
+        font_size: 10
+        color: 1, 1, 1, 1
+
+        height: self.texture_size[1]
+        width: root.width - 2
+
+        y: root.y + 1
+        x: root.x + 1
+
+        shorten: 'true'
+        text_size: self.width, 15
+
+        halign: 'center'
+        valign: 'top'
+
+        text: root.name
+
+
+    Panner:
+        id: panner
+        width: root.width
+        height: 60
+        y: root.y + 11
+        x: root.x
+        max: root.p_max
+        min: root.p_min
+#        step: root.p_step
+
+
