@@ -1,7 +1,7 @@
 #:kivy 1.4
 
 
-<ValueFader>:
+<Fader>:
     orientation: 'vertical'
 
     Label:
@@ -14,4 +14,35 @@
 
         center_y: root.value_pos[1]
         center_x: root.center_x+30
+
+
+<ValueFader>:
+    fader: fader
+    name_f: name_f
+
+    Label:
+        id: name_f
+        font_size: 10
+        color: 1, 1, 1, 1
+
+        height: self.texture_size[1]
+        width: root.width - 2
+
+        y: fader.height + fader.y + 5
+        x: root.x + 1
+
+        shorten: 'true'
+        text_size: self.width, 15
+
+        halign: 'center'
+        valign: 'bottom'
+
+        text: str(root.name)
+
+    Fader:
+        id: fader
+        height: root.height - 35
+        y: root.y
+        center_x: root.center_x
+
 

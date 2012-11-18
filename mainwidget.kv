@@ -1,10 +1,13 @@
 #:kivy 1.4
 
 <MainWidget>:
+    mystrip1: mystrip1
     AudioStrip:
+        id: mystrip1
+        name: 'My Strip 1'
         x: root.x
         y: root.y
-        width: 50
+        width: 70
         height: root.height
 
     OscSendingService:

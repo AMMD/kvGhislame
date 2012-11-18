@@ -16,12 +16,16 @@ class Mute(ToggleButton):
 
 class AudioStrip(Widget):
     path = StringProperty('Strip')
+    name = StringProperty()
     valuefader = ObjectProperty(None)
     mute = ObjectProperty(None)
+    name_s = ObjectProperty(None)
+
+
 
 class AudioStripApp(App):
     def build(self):
-        return AudioStrip()
+        return AudioStrip(name="My Strip")
 
 Builder.load_file('valuefader.kv')
 Factory.register('ValueFader', ValueFader)

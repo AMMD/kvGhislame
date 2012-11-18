@@ -15,7 +15,7 @@ class OscSendingService(Widget):
         print('Message sent')
 
 class MainWidget(Widget):
-    mystrip = ObjectProperty(None)
+    mystrip1 = ObjectProperty(None)
 
 class MainWidgetApp(App):
     def build(self):
