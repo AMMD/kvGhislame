@@ -4,7 +4,7 @@ kivy.require('1.4.1')
 from kivy.app import App
 from kivy.uix.slider import Slider
 from kivy.uix.widget import Widget
-from kivy.properties import StringProperty, ObjectProperty
+from kivy.properties import StringProperty, ObjectProperty, OptionProperty
 from kivy.factory import Factory
 
 class Fader(Slider):
@@ -13,10 +13,11 @@ class Fader(Slider):
 #        app = App.get_running_app()
 #        app.send_message()
 
-class ValueFader(Fader):
-#    fader = ObjectProperty(None)
+class ValueFader(Widget):
+    fader = ObjectProperty(None)
     name_f = ObjectProperty(None)
     name = StringProperty()
+    orientation = OptionProperty('horizontal', options=('vertical', 'horizontal'))
 
 class ValueFaderApp(App):
     def build(self):

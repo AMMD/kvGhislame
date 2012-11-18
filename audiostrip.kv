@@ -56,14 +56,16 @@
 
     ValueFader:
         id: gainfader
+        orientation: 'vertical'
         x: root.x + 4
         y: root.y + root.mute.height + 35
         height: root.height - root.mute.height - root.panfader.height - 25
         width: root.width - 8
         name: root.name
 
-    ValuePanner:
+    ValueFader:
         id: panfader
+        orientation: 'horizontal'
         x: root.x + 4
         height: 60
         y: root.height - self.height - 10
