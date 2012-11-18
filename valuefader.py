@@ -5,15 +5,15 @@ from kivy.app import App
 from kivy.uix.slider import Slider
 from kivy.properties import StringProperty
 
-class Fader(Slider):
+class ValueFader(Slider):
     path = StringProperty('Fader')
 #    def on_touch_move(self, touch):
 #        app = App.get_running_app()
 #        app.send_message()
 
-class FaderApp(App):
+class ValueFaderApp(App):
     def build(self):
-        return Fader()
+        return ValueFader()
 
 if __name__ == "__main__":
-    FaderApp().run()
+    ValueFaderApp().run()

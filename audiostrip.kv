@@ -6,7 +6,7 @@
     width: 35
 
 <AudioStrip>:
-    fader: fader
+    valuefader: valuefader
     mute: mute
     padding: 3, 3, 3, 3
     canvas:
@@ -20,8 +20,8 @@
         center_x: root.center_x
         y: root.y + 5
 
-    Fader:
-        id: fader
+    ValueFader:
+        id: valuefader
         center_x: root.center_x
         y: root.y + root.mute.height + 20
         height: root.height - root.mute.height - 30
