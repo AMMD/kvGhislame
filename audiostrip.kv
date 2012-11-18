@@ -13,7 +13,7 @@
 
     canvas:
         Color: 
-            hsv: root.color
+            rgb: root.color
 #        Line:
 #            rectangle: self.x+1, self.y+1, self.width-2, self.height-2
 #        Rectangle: 
@@ -24,12 +24,12 @@
     Label:
         id: name_s
         font_size: 10
-        color: 1, 1, 1, 1
+        color: root.r, root.g, root.b, 1
         text: root.name
 
         height: self.texture_size[1]
         width: root.width - 8
-        padding: 5, 3
+#        padding: 5, 3
 
         x: root.x + 4
         y: root.y + 4
@@ -42,7 +42,7 @@
 
         canvas:
             Color:
-                hsv: root.color
+                rgba: root.r, root.g, root.b, 0.3
             Line:
                 rectangle: self.x, self.y, self.width, self.height
 #            Rectangle:
