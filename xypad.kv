@@ -3,12 +3,12 @@
 <InnerBox>:
     canvas:
         Color:
-            hsv: 1, 1, 1
+            rgb: root.color
         Line:
             rectangle: root.x + 2, root.y + 2, root.width - 4, root.height - 4
 
         Color:
-            hsv: 3, 1, 1
+            hsv: root.i_color
 
         Rectangle:
             pos: root.x + 4, root.y + 4 
@@ -16,6 +16,40 @@
 
 <XyPad>:
     innerbox: innerbox
+    xname_w: xname_w
+    yname_w: yname_w
+    name_w: name_w
 
     InnerBox:
         id: innerbox
+        color: root.color
+        i_color: 4, 1, 0.2
+        x: root.x + yname_w.height + 5
+        y: root.y + xname_w.height + name_w.height + 10
+        width: root.width - yname_w.height - 5
+        height: root.height - xname_w.height - name_w.height - 10
+
+    Label:
+        id: xname_w
+        font_size: 10
+        text: root.x_name
+        color: root.r, root.g, root.b, 1
+        size: self.texture_size
+        center_x: root.center_x + yname_w.height + 5
+        y: root.y + name_w.height + 5
+
+    Label:
+        id: yname_w
+        font_size: 10
+        text: root.y_name
+        color: root.r, root.g, root.b, 1
+        size: self.texture_size
+        angle: 90
+
+    Label:
+        id: name_w
+        font_size: 15
+        text: root.name
+        color: root.r, root.g, root.b, 1
+        size: self.texture_size
+        center_x: root.center_x
