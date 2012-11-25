@@ -1,1 +1,21 @@
-#
+#:kivy 1.4
+
+<InnerBox>:
+    canvas:
+        Color:
+            hsv: 1, 1, 1
+        Line:
+            rectangle: root.x + 2, root.y + 2, root.width - 4, root.height - 4
+
+        Color:
+            hsv: 3, 1, 1
+
+        Rectangle:
+            pos: root.x + 4, root.y + 4 
+            size: root.width - 9, root.height - 9
+
+<XyPad>:
+    innerbox: innerbox
+
+    InnerBox:
+        id: innerbox
