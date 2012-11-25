@@ -9,59 +9,52 @@
     gainfader: gainfader
     panfader: panfader
     mute: mute
-    name_s: name_s
+#    name_s: name_s
 
     canvas:
         Color: 
             rgb: root.color
-#        Line:
-#            rectangle: self.x+1, self.y+1, self.width-2, self.height-2
-#        Rectangle: 
-#            pos: root.gainfader.x + 25, self.y + 22
-#            size: self.width - 50, self.height - 22
 
+    # Label:
+    #     id: name_s
+    #     font_size: 10
+    #     color: root.r, root.g, root.b, 1
+    #     text: root.name
 
-    Label:
-        id: name_s
-        font_size: 10
-        color: root.r, root.g, root.b, 1
-        text: root.name
+    #     height: self.texture_size[1]
+    #     width: root.width - 8
 
-        height: self.texture_size[1]
-        width: root.width - 8
-#        padding: 5, 3
+    #     x: root.x + 4
+    #     y: root.y + 4
 
-        x: root.x + 4
-        y: root.y + 4
+    #     shorten: 'true'
+    #     text_size: self.width, 18
 
-        shorten: 'true'
-        text_size: self.width, 18
+    #     halign: 'center'
+    #     valign: 'top'
 
-        halign: 'center'
-        valign: 'top'
-
-        canvas:
-            Color:
-                rgba: root.r, root.g, root.b, 0.3
-            Line:
-                rectangle: self.x, self.y, self.width, self.height
-#            Rectangle:
-#                pos: self.x + 5, self.y
-#                size: 5, 60
+    #     canvas:
+    #         Color:
+    #             rgba: root.r, root.g, root.b, 0.3
+    #         Line:
+    #             rectangle: self.x, self.y, self.width, self.height
             
     Mute:
         id: mute
         center_x: root.center_x
-        y: root.y + 25
+        y: root.y + 5
 
     ValueFader:
         id: gainfader
         orientation: 'vertical'
         x: root.x + 4
-        y: root.y + root.mute.height + 35
+        y: root.y + root.mute.height + 10
         height: root.height - root.mute.height - root.panfader.height - 25
         width: root.width - 8
         name: root.name
+        color: root.color
+        max: 100
+        min: 0
 
     ValueFader:
         id: panfader
@@ -70,10 +63,10 @@
         height: 60
         y: root.height - self.height - 10
         width: root.width - 8
-        name: ''
+        name: root.name
         min: -1
         max: 1
-        step: 0.01
+#        step: 0.01
         color: root.color
 
 

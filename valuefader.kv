@@ -7,7 +7,7 @@
             rgba: self.r, self.g, self.b, 0.3
         Ellipse:
             size: 28, 28
-            pos: root.value_pos[0] - 14, self.center_y - 15
+            pos: root.value_pos[0] - 14 if root.orientation == 'horizontal' else self.center_x - 14, self.center_y -14 if root.orientation == 'horizontal' else root.value_pos[1] - 14
 
     Label:
         font_size: 10
