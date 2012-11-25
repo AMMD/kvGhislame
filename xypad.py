@@ -36,7 +36,7 @@ class XyPad(Widget):
     x_name_w = ObjectProperty(None)
     y_name = StringProperty()
     y_name_w = ObjectProperty(None)
-
+    y_name_s = ObjectProperty(None)
 
 
 class XyPadApp(App):

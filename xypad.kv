@@ -38,13 +38,29 @@
         center_x: root.center_x + yname_w.height + 5
         y: root.y + name_w.height + 5
 
-    Label:
-        id: yname_w
-        font_size: 10
-        text: root.y_name
-        color: root.r, root.g, root.b, 1
-        size: self.texture_size
-        angle: 90
+    Scatter:
+        id: yname_s
+
+        center_y: root.innerbox.center_y
+        height: root.innerbox.height
+        rotation: 90
+
+        canvas:
+            Color:
+                rgb: 0, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            id: yname_w
+            font_size: 10
+            text: root.y_name
+            color: root.r, root.g, root.b, 1
+            size: self.texture_size
+            valign: 'top'
+            halign: 'center'
+
 
     Label:
         id: name_w
