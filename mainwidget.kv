@@ -2,14 +2,45 @@
 
 <MainWidget>:
     mystrip1: mystrip1
+    mystrip2: mystrip2
+
     AudioStrip:
         id: mystrip1
         name: 'My Strip 1'
         x: root.x
         y: root.y
-        width: 70
+        width: root.stripwidth
         height: root.height
         color: 0.5, 0.5, 1
+
+
+    AudioStrip:
+        id: mystrip2
+        name: 'My Strip 2'
+        x: root.x + self.width
+        y: root.y
+        width: root.stripwidth
+        height: root.height
+        color: 1, 0.5, 0.5
+
+    AudioStrip:
+        id: mystrip3
+        name: 'My Strip 3'
+        x: root.x + self.width * 2
+        y: root.y
+        width: root.stripwidth
+        height: root.height
+        color: 0.5, 1, 1
+
+
+    AudioStrip:
+        id: mystrip4
+        name: 'My Strip 4'
+        x: root.x + self.width * 3
+        y: root.y
+        width: root.stripwidth
+        height: root.height
+        color: 1, 0.5, 1
 
     OscSendingService:
         center_x: root.width - 3

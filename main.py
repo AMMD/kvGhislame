@@ -16,6 +16,8 @@ class OscSendingService(Widget):
 
 class MainWidget(Widget):
     mystrip1 = ObjectProperty(None)
+    mystrip2 = ObjectProperty(None)
+    stripwidth = NumericProperty(70)
 
 class MainWidgetApp(App):
     def build(self):
