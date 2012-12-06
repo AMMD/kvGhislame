@@ -43,26 +43,29 @@
     Scatter:
         id: y_name_s
 
-        y: root.innerbox.y + 2
+        y: root.innerbox.y+2
         height: root.innerbox.height - 4
         width: y_name_w.height
         rotation: 90
+        x: root.x
 
         canvas:
             Color:
                 rgb: 1, 0, 1
-            Rectangle:
-                pos: self.parent.pos
-                size: self.parent.size
+            Line:
+                rectangle: 0, 0, self.height, self.width
+        #     Rectangle:
+        #         pos: self.parent.pos
+        #         size: self.parent.size
 
         Label:
             id: y_name_w
             font_size: 10
-            text: root.y_name
+            text: str(root.x) #root.y_name
             color: root.r, root.g, root.b, 1
             width: self.parent.height
             height: self.texture_size[1]
-            valign: 'bottom'
+            valign: 'top'
             halign: 'center'
 
 
@@ -70,7 +73,7 @@
     Label:
         id: name_w
         font_size: 15
-        text: root.name
+        text: str(innerbox.height) #root.name
         color: root.r, root.g, root.b, 1
         size: self.texture_size
         center_x: root.center_x
