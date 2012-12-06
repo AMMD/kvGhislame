@@ -56,30 +56,27 @@
 
         rotation: 90
 
+        canvas:
+            Color:
+                rgba: 1, .1, .1, 1
+
+                Rectangle:
+                    pos: 0, 0
+                    size: self.size
+
         Label:
             id: y_name_w
 
             x: root.innerbox.y + 2
-            y: 0
+            y: self.parent.height - self.height
             width: root.innerbox.height - 4 - 15
             height: self.texture_size[1]
+
+            color: root.r, root.g, root.b, 1
             font_size: 10
+            valign: 'top'
+            halign: 'center'
             text: root.y_name
-
-            canvas:
-                Color:
-                    rgb: 0, 1, 0
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-
-
-            # color: root.r, root.g, root.b, 1
-            # width: self.parent.width
-            # height: self.texture_size[1]
-            # y: self.parent.y #self.parent.height - self.height
-            # valign: 'top'
-            # halign: 'center'
 
     Label:
         id: name_w
