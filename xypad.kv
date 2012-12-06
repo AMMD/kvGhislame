@@ -27,7 +27,7 @@
         i_color: 4, 1, 0.2
         x: root.x + y_name_w.height + 15
         y: root.y + x_name_w.height + name_w.height + 10
-        width: root.width - y_name_w.height - 5
+        width: root.width - y_name_s.width - 5
         height: root.height - x_name_w.height - name_w.height - 10
 
     Label:
@@ -35,8 +35,9 @@
         font_size: 10
         text: root.x_name
         color: root.r, root.g, root.b, 1
-        size: self.texture_size
-        center_x: root.center_x + y_name_w.height + 5
+        height: self.texture_size[1]
+        width: root.innerbox.width
+        center_x: root.innerbox.center_x
         y: root.y + name_w.height + 5
 
     Scatter:
@@ -44,7 +45,7 @@
 
         y: root.innerbox.y + 2
         height: root.innerbox.height - 4
-        width: y_name_w.texture_size[1]
+        width: y_name_w.height
         rotation: 90
 
         canvas:
