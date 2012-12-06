@@ -5,14 +5,25 @@
         Color:
             rgb: root.color
         Line:
-            rectangle: root.x + 2, root.y + 2, root.width - 4, root.height - 4
+            rectangle: root.x + 2, root.y + 2, root.width - 4 - 16, root.height - 4 - 16
 
         Color:
             hsv: root.i_color
 
         Rectangle:
             pos: root.x + 4, root.y + 4 
-            size: root.width - 9, root.height - 9
+            size: root.width - 9 - 16, root.height - 9 - 16
+
+    Widget:
+        id: pointer
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                pos: (root.x - 15, root.y - 15)
+                size: (32, 32)
+                source: 'atlas://data/images/defaulttheme/slider_cursor'
+
 
 <XyPad>:
     innerbox: innerbox
@@ -28,7 +39,7 @@
         x: root.x + y_name_w.height + 5
         y: root.y + x_name_w.height + name_w.height + 10
         width: root.width - y_name_w.height - 5
-        height: root.height - x_name_w.height - name_w.height - 10
+        height: root.height - self.y
 
     Label:
         id: x_name_w
@@ -43,33 +54,32 @@
     Scatter:
         id: y_name_s
 
-        y: root.innerbox.y+2
-        height: root.innerbox.height - 4
-        width: 100
         rotation: 90
-        x: root.x
-
-        # canvas:
-        #     Color:
-        #         rgb: 1, 0, 1
-        #     Line:
-        #         rectangle: 0, self.width, self.height, self.width
-        #     Rectangle:
-        #         pos: self.parent.pos
-        #         size: self.parent.size
 
         Label:
             id: y_name_w
+
+            x: root.innerbox.y + 2
+            y: 0
+            width: root.innerbox.height - 4 - 15
+            height: self.texture_size[1]
             font_size: 10
             text: root.y_name
-            color: root.r, root.g, root.b, 1
-            width: self.parent.height
-            height: self.texture_size[1]
-            y: self.parent.width - self.height
-            valign: 'top'
-            halign: 'center'
+
+            canvas:
+                Color:
+                    rgb: 0, 1, 0
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
 
 
+            # color: root.r, root.g, root.b, 1
+            # width: self.parent.width
+            # height: self.texture_size[1]
+            # y: self.parent.y #self.parent.height - self.height
+            # valign: 'top'
+            # halign: 'center'
 
     Label:
         id: name_w

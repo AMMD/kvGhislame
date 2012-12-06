@@ -19,6 +19,12 @@ class InnerBox(Widget):
     b = NumericProperty()
     color = ReferenceListProperty(r, g, b)
 
+    # Curseur
+    pointer = ObjectProperty(None)
+    x_value = NumericProperty()
+    y_value = NumericProperty()
+    value = ReferenceListProperty(x_value, y_value)
+
 class XyPad(Widget):
     innerbox = ObjectProperty(None)
     path = StringProperty('xypad')
@@ -37,6 +43,7 @@ class XyPad(Widget):
     y_name = StringProperty()
     y_name_w = ObjectProperty(None)
     y_name_s = ObjectProperty(None)
+
 
 
 class XyPadApp(App):
