@@ -46,7 +46,6 @@
         y: root.innerbox.y+2
         height: root.innerbox.height - 4
         width: 100
-#        width: y_name_w.height
         rotation: 90
         x: root.x
 
@@ -76,6 +75,9 @@
         id: name_w
         font_size: 15
         text: root.name
+        halign: 'center'
         color: root.r, root.g, root.b, 1
-        size: self.texture_size
-        center_x: root.center_x
+        height: self.texture_size[1]
+        width: root.width
+        x: root.x
+
