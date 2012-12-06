@@ -16,13 +16,34 @@
 
     Widget:
         id: pointer
+
+        x: root.x + root.x_value * self.width
+        y: root.y + root.y_value * self.height
+        width: root.width - 1 - 4 - 16
+        height: root.height - 1 - 4 - 16
+
         canvas:
+            Color:
+                rgba: 1, 1, 1, 0.3
+            Line:
+                rectangle: root.x + 1, self.y + 1, self.width, 0
+            Line:
+                rectangle: self.x + 1, root.y + 1, 0, self.height
             Color:
                 rgb: 1, 1, 1
             Rectangle:
-                pos: (root.x - 15, root.y - 15)
-                size: (32, 32)
-                source: 'atlas://data/images/defaulttheme/slider_cursor'
+                pos: self.x - 15, self.y - 15
+                size: 32, 32
+                source:  'atlas://data/images/defaulttheme/slider_cursor'
+
+        Label:
+            font_size: 10
+            text: str(root.x_value) + ', ' + str(root.y_value)
+            size: self.texture_size
+            x: self.parent.x + 18 if self.parent.x < self.parent.width/2 - root.x else self.parent.x - 18 - self.width
+            y: self.parent.y if self.parent.y < self.parent.height/2 - root.y else self.parent.y - self.height
+
+
 
 
 <XyPad>:

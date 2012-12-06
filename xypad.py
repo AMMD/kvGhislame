@@ -21,8 +21,8 @@ class InnerBox(Widget):
 
     # Curseur
     pointer = ObjectProperty(None)
-    x_value = NumericProperty()
-    y_value = NumericProperty()
+    x_value = NumericProperty(0)
+    y_value = NumericProperty(0)
     value = ReferenceListProperty(x_value, y_value)
 
 class XyPad(Widget):
