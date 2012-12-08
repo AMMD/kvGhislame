@@ -1,14 +1,16 @@
 #:kivy 1.4
 
 <ExtendedXyPad>:
+    ibox_padding: yfader.width * 1.5, xfader.height * 1.5
+
     Fader:
         id: xfader
         orientation: 'horizontal'
         color: root.color
         width: root.innerbox.width
-        height: 32
+        height: 50
         x: root.innerbox.x
-        y: root.y
+        y: root.innerbox.height + root.innerbox.y + 5
         padding: root.innerbox.padding
         value_pos: (root.innerbox.value_pos[0], self.value_pos[1])
 
@@ -16,12 +18,10 @@
         id: yfader
         orientation: 'vertical'
         color: root.color
-        width: 32
+        width: 50
         height: root.innerbox.height
-        x: root.width - self.width / 2
+        x: root.innerbox.x + root.innerbox.width
         y: root.innerbox.y
         padding: root.innerbox.padding
         value_pos: (self.value_pos[0], root.innerbox.value_pos[1])
-
-
 

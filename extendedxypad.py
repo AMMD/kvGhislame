@@ -15,6 +15,7 @@ class ExtendedXyPad(XyPad):
     xfader = ObjectProperty(None)
     yfader = ObjectProperty(None)
 
+    
 
 class ExtendedXyPadApp(App):
     def build(self):

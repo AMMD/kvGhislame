@@ -12,8 +12,9 @@
         id: x_name_w
         font_size: 10
         text: root.x_name
-        color: 1, 1, 1, 0.5
+        color: 0.8, 0.8, 0.8, 1
         height: self.texture_size[1]
+        valign: 'top'
         width: root.innerbox.width
         center_x: root.innerbox.center_x
         y: root.y + name_w.height + 5
@@ -36,11 +37,10 @@
             x: root.innerbox.y + 2
             y: self.parent.height - self.height
             width: root.innerbox.height - 4 - 15
-            height: self.texture_size[1] + root.ibox_x_padding
-
-            color: 1, 1, 1, 0.5
+            height: self.texture_size[1]
+            color: 0.8, 0.8, 0.8, 1
             font_size: 10
-            valign: 'top'
+            valign: 'bottom'
             halign: 'center'
             text: root.y_name
 
@@ -50,7 +50,7 @@
         text: root.name
         halign: 'center'
         color: root.r, root.g, root.b, 1
-        height: self.texture_size[1] + root.ibox_y_padding
+        height: self.texture_size[1]
         width: root.width
         x: root.x
 
@@ -59,8 +59,8 @@
         id: innerbox
         color: root.color
 #        i_color: 4, 1, 0.2
-        x: root.x + y_name_w.height + 5
-        y: root.y + x_name_w.height + name_w.height + 10
-        width: root.width - y_name_w.height - 5 
-        height: root.height - self.y
+        x: root.x + y_name_w.height + 5 # + root.ibox_x_padding
+        y: root.y + x_name_w.height + name_w.height + 10 # + root.ibox_y_padding
+        width: root.width - y_name_w.height - 5 - root.ibox_x_padding
+        height: root.height - self.y - root.ibox_y_padding
         padding: 15
