@@ -1,0 +1,28 @@
+#:kivy 1.4
+
+<Pad>:
+    canvas:
+        Color:
+            rgb: root.color
+        Line:
+            rectangle: self.x + self.padding, self.y + self.padding, self.width - 2 * self.padding, self.height - 2 * self.padding
+
+        Color:
+            rgba: 1, 1, 1, 0.3
+        Line:
+            rectangle: self.value_pos[0] + 1, self.padding + 1, 0, self.height - 2 * self.padding - 2
+        Line:
+            rectangle: self.padding + 1, self.value_pos[1] + 1, self.width - 2 * self.padding - 2, 0
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            pos: self.value_pos[0] - self.padding, self.value_pos[1] - self.padding
+            size: 32, 32
+            source:  'atlas://data/images/defaulttheme/slider_cursor'
+
+    Label:
+        font_size: 10
+        text: str(root.value)
+        size: self.texture_size
+        x: root.value_pos[0] + root.padding if root.value_pos[0] < (root.width / 2 - root.padding - root.x) else root.value_pos[0] - root.padding - self.width 
+        y: root.value_pos[1] + root.padding if root.value_pos[1] < (root.height / 2 - root.padding - root.y) else root.value_pos[1] - root.padding - self.height

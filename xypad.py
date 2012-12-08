@@ -25,6 +25,32 @@ class InnerBox(Widget):
     y_value = NumericProperty(0)
     value = ReferenceListProperty(x_value, y_value)
 
+    x_min = NumericProperty()
+    y_min = NumericProperty()
+    min = ReferenceListProperty(x_min, y_min)
+
+    x_max = NumericProperty()
+    y_max = NumericProperty()
+    max = ReferenceListProperty(x_max, y_max)
+
+
+    def get_norm_value(self):
+        vmin = self.min
+        vmax = self.max
+        d = self.max - vmin
+        return (self.value - vmin) / float(d)
+
+    def set_norm_value(self, value):
+        vmin = self.min
+
+    def on_touch_down(self, touch):
+        self.value = (self.x_coef * touch.x + self.x_ord, self.y_coef * touch.y + self.y_ord)
+
+    def on_touch_move(self, touch):
+        self.value = (self.x_coef * touch.x + self.y_ord, self.y_coef * touch.y + self.y_ord)
+
+        
+
 class XyPad(Widget):
     innerbox = ObjectProperty(None)
     path = StringProperty('xypad')

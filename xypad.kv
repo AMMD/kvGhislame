@@ -1,6 +1,8 @@
 #:kivy 1.4
 
 <InnerBox>:
+
+
     canvas:
         Color:
             rgb: root.color
@@ -22,6 +24,8 @@
         width: root.width - 1 - 4 - 16
         height: root.height - 1 - 4 - 16
 
+
+
         canvas:
             Color:
                 rgba: 1, 1, 1, 0.3
@@ -38,10 +42,10 @@
 
         Label:
             font_size: 10
-            text: str(root.x_value) + ', ' + str(root.y_value)
+            text: str(root.x_coef) + ', ' + str(root.y_coef)
             size: self.texture_size
-            x: self.parent.x + 18 if self.parent.x < self.parent.width/2 - root.x else self.parent.x - 18 - self.width
-            y: self.parent.y if self.parent.y < self.parent.height/2 - root.y else self.parent.y - self.height
+            x: 10 #self.parent.x + 18 if self.parent.x < self.parent.width/2 - root.x else self.parent.x - 18 - self.width
+            y: 10 #self.parent.y if self.parent.y < self.parent.height/2 - root.y else self.parent.y - self.height
 
 
 
