@@ -12,7 +12,7 @@
         id: x_name_w
         font_size: 10
         text: root.x_name
-        color: root.r, root.g, root.b, 1
+        color: 1, 1, 1, 0.5
         height: self.texture_size[1]
         width: root.innerbox.width
         center_x: root.innerbox.center_x
@@ -33,13 +33,12 @@
 
         Label:
             id: y_name_w
-
             x: root.innerbox.y + 2
             y: self.parent.height - self.height
             width: root.innerbox.height - 4 - 15
             height: self.texture_size[1]
 
-            color: root.r, root.g, root.b, 1
+            color: 1, 1, 1, 0.5
             font_size: 10
             valign: 'top'
             halign: 'center'
