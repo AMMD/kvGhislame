@@ -15,6 +15,10 @@ class XyPad(Widget):
     name = StringProperty()
     name_w = ObjectProperty(None)
 
+    ibox_x_padding = NumericProperty(0)
+    ibox_y_padding = NumericProperty(0)
+    ibox_padding = ReferenceListProperty(ibox_x_padding, ibox_y_padding)
+
     # Outer Color
     r = NumericProperty()
     g = NumericProperty()
