@@ -31,7 +31,7 @@ class XyPad(Widget):
 
 class XyPadApp(App):
     def build(self):
-        return XyPad(color=(1, 1, 1), name='My XY Pad', x_name='X', y_name='Y');
+        return XyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y');
 
 Factory.register('Pad', Pad)
 Builder.load_file('pad.kv')

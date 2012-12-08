@@ -8,7 +8,7 @@
             rectangle: self.x + self.padding, self.y + self.padding, self.width - 2 * self.padding, self.height - 2 * self.padding
 
         Color:
-            rgba: 1, 1, 1, 0.3
+            rgba: self.r, self.g, self.b, 0.3
         Line:
             rectangle: self.value_pos[0] + 1, self.y + self.padding + 1, 0, self.height - 2 * self.padding - 2
         Line:
@@ -19,9 +19,16 @@
             pos: self.value_pos[0] - self.padding, self.value_pos[1] - self.padding
             size: 32, 32
             source:  'atlas://data/images/defaulttheme/slider_cursor'
+        Color:
+            rgba: self.r, self.g, self.b, 0.3
+        Ellipse:
+            size: 28, 28
+            pos: root.value_pos[0] - 13, root.value_pos[1] - 13
+
 
     Label:
         font_size: 10
+        color: root.r, root.g, root.b, 1
         text: str(root.value)
         size: self.texture_size
         x: root.value_pos[0] + root.padding if root.value_pos[0] < (root.width / 2 - root.padding - root.x) else root.value_pos[0] - root.padding - self.width 
