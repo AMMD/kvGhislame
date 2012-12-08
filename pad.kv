@@ -3,16 +3,16 @@
 <Pad>:
     canvas:
         Color:
-            rgb: root.color
+            rgb: self.color
         Line:
             rectangle: self.x + self.padding, self.y + self.padding, self.width - 2 * self.padding, self.height - 2 * self.padding
 
         Color:
             rgba: 1, 1, 1, 0.3
         Line:
-            rectangle: self.value_pos[0] + 1, self.padding + 1, 0, self.height - 2 * self.padding - 2
+            rectangle: self.value_pos[0] + 1, self.y + self.padding + 1, 0, self.height - 2 * self.padding - 2
         Line:
-            rectangle: self.padding + 1, self.value_pos[1] + 1, self.width - 2 * self.padding - 2, 0
+            rectangle: self.x + self.padding + 1, self.value_pos[1] + 1, self.width - 2 * self.padding - 2, 0
         Color:
             rgb: 1, 1, 1
         Rectangle:
