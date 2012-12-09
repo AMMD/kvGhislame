@@ -3,7 +3,6 @@ kivy.require('1.4.1')
 
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.uix.slider import Slider
 from kivy.factory import Factory
 from kivy.lang import Builder
 from kivy.properties import ObjectProperty, NumericProperty, ReferenceListProperty, AliasProperty
