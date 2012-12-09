@@ -20,7 +20,6 @@
 #        padding: root.innerbox.padding
         on_touch_move:
             root.innerbox.value_pos = (self.value_pos[0], root.innerbox.value_pos[1])
-
         step: root.innerbox.step[0]
 
     Fader:
@@ -34,6 +33,5 @@
 #        padding: root.innerbox.padding
         on_touch_move:
             root.innerbox.value_pos = (root.innerbox.value_pos[0], self.value_pos[1])
-
         step: root.innerbox.step[1]
 

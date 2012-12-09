@@ -14,9 +14,6 @@ class Fader(Slider):
     g = NumericProperty()
     b = NumericProperty()
     color = ReferenceListProperty(r, g, b)
-#    def on_touch_move(self, touch):
-#        app = App.get_running_app()
-#        app.send_message()
 
 class ValueFader(Widget):
     fader = ObjectProperty(None)
