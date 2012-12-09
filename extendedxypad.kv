@@ -6,33 +6,34 @@
 
     ibox_padding: yfader.width * 1.5, xfader.height * 1.5
 
-
     on_parent:
         self.innerbox.bind(on_touch_move=root.update_cursor_from_pad)
-        
 
     Fader:
         id: xfader
         orientation: 'horizontal'
         color: root.color
-        width: root.innerbox.width
+        width: root.innerbox.width #+ 2 * self.padding
         height: 50
-        x: root.innerbox.x
+        x: root.innerbox.x #- self.padding
         y: root.innerbox.height + root.innerbox.y + 5
-        padding: root.innerbox.padding
+#        padding: root.innerbox.padding
         on_touch_move:
             root.innerbox.value_pos = (self.value_pos[0], root.innerbox.value_pos[1])
+
+        step: root.innerbox.step[0]
 
     Fader:
         id: yfader
         orientation: 'vertical'
         color: root.color
         width: 50
-        height: root.innerbox.height
+        height: root.innerbox.height # + 2 * self.padding
         x: root.innerbox.x + root.innerbox.width
-        y: root.innerbox.y
-        padding: root.innerbox.padding
+        y: root.innerbox.y #- self.padding
+#        padding: root.innerbox.padding
         on_touch_move:
             root.innerbox.value_pos = (root.innerbox.value_pos[0], self.value_pos[1])
 
+        step: root.innerbox.step[1]
 
