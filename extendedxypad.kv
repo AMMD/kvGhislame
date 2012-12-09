@@ -3,6 +3,10 @@
 <ExtendedXyPad>:
     ibox_padding: yfader.width * 1.5, xfader.height * 1.5
 
+    on_parent:
+        self.innerbox.bind(on_touch_move=root.update_cursor_from_pad)
+        
+
     Fader:
         id: xfader
         orientation: 'horizontal'
@@ -12,7 +16,9 @@
         x: root.innerbox.x
         y: root.innerbox.height + root.innerbox.y + 5
         padding: root.innerbox.padding
-        value_pos: (root.innerbox.value_pos[0], self.value_pos[1])
+#        value_pos: root.x_value, self.value_pos[1]
+        on_touch_move:
+            root.innerbox.value_pos = (self.value_pos[0], root.innerbox.value_pos[1])
 
     Fader:
         id: yfader
@@ -23,5 +29,7 @@
         x: root.innerbox.x + root.innerbox.width
         y: root.innerbox.y
         padding: root.innerbox.padding
-        value_pos: (self.value_pos[0], root.innerbox.value_pos[1])
+        on_touch_move:
+            root.innerbox.value_pos = (root.innerbox.value_pos[0], self.value_pos[1])
+#        value_pos: (self.value_pos[0], root.innerbox.value_pos[1])
 
