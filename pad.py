@@ -94,7 +94,7 @@ class Pad(Widget):
     def set_value_pos(self, pos):
         x = min(self.right, max(pos[0], self.x))
         y = min(self.top, max(pos[1], self.y))
-        self.value_normalized = ((x - self.x) / float(self.width) , (y - self.y) / float(self.height))
+        self.value_normalized = ((x - self.x - self.padding) / float(self.width - 2 * self.padding) , (y - self.y - self.padding) / float(self.height - 2 * self.padding))
     value_pos = AliasProperty(get_value_pos, set_value_pos,
                               bind=('x', 'y', 'width', 'height', 'min',
                                     'max', 'value_normalized'))
