@@ -15,10 +15,10 @@ class ExtendedXyPad(XyPad):
     yfader = ObjectProperty(Fader)
                     
     def update_cursor_from_pad(self, obj, touch):
-        if touch.x < obj.x + obj.width + 5:
+        if (touch.x < obj.x + obj.width + 5) & (touch.x > obj.x + 5) & (touch.y < obj.y + obj.height + 5) & (touch.y > obj.y - 5):
             self.xfader.value_pos = touch.pos
-        if touch.y < obj.y + obj.height + 5:
             self.yfader.value_pos = touch.pos
+
 
 class ExtendedXyPadApp(App):
     def build(self):

@@ -13,12 +13,14 @@
         id: xfader
         orientation: 'horizontal'
         color: root.color
+        padding: 15
         width: root.innerbox.width #+ 2 * self.padding
         height: 50
         x: root.innerbox.x #- self.padding
         y: root.innerbox.height + root.innerbox.y + 5
 #        padding: root.innerbox.padding
         on_touch_move:
+            print self.value_pos
             root.innerbox.value_pos = (self.value_pos[0], root.innerbox.value_pos[1])
         step: root.innerbox.step[0]
 
@@ -27,6 +29,7 @@
         orientation: 'vertical'
         color: root.color
         width: 50
+        padding: 15
         height: root.innerbox.height # + 2 * self.padding
         x: root.innerbox.x + root.innerbox.width
         y: root.innerbox.y #- self.padding

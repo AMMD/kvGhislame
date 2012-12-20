@@ -42,6 +42,15 @@ class Fader(Slider):
                               bind=('x', 'y', 'width', 'height', 'min',
                                     'max', 'value_normalized', 'orientation'))
 
+    def on_touch_down(self, touch):
+        if self.collide_point(*touch.pos):
+            touch.grab(self)
+            return True
+
+    def on_touch_up(self, touch):
+        if touch.grab_current == self:
+            return True
+
 
 
 class ValueFader(Widget):
