@@ -59,22 +59,22 @@ class Fader(Slider):
 
 
 
-class ValueFader(Widget):
-    fader = ObjectProperty(None)
+class ValueFader(Fader):
+#    fader = ObjectProperty(None)
     name_f = ObjectProperty(None)
     name = StringProperty()
 
     # Couleur
-    r = NumericProperty()
-    g = NumericProperty()
-    b = NumericProperty()
-    color = ReferenceListProperty(r, g, b)
+    # r = NumericProperty()
+    # g = NumericProperty()
+    # b = NumericProperty()
+    # color = ReferenceListProperty(r, g, b)
     
     # Fader settings
-    orientation = OptionProperty('horizontal', options=('vertical', 'horizontal'))
-    max = NumericProperty()
-    min = NumericProperty()
-    # (require 1.4.2) step = NumericProperty()    
+    # orientation = OptionProperty('horizontal', options=('vertical', 'horizontal'))
+    # max = NumericProperty()
+    # min = NumericProperty()
+    # # (require 1.4.2) step = NumericProperty()    
 
 class ValueFaderApp(App):
     def build(self):

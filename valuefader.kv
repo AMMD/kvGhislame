@@ -2,7 +2,6 @@
 
 
 <Fader>:
-    subpad: 0
     canvas:
         Clear
         Color:
@@ -38,7 +37,8 @@
 
 <ValueFader>:
     name_f: name_f
-    fader: fader
+
+    subpad: name_f.height + 5
 
     Label:
         id: name_f
@@ -58,18 +58,5 @@
         valign: 'bottom'
 
         text: root.name
-
-    Fader:
-        id: fader
-
-        height: root.height - name_f.height - 10 if self.orientation == 'vertical' else 60
-        y: root.y + name_f.height + 10 if self.orientation == 'vertical' else root.y + 11
-        x: root.x
-        width: root.width
-        color: root.color
-
-        max: root.max
-        min: root.min
-        orientation: root.orientation
 
 
