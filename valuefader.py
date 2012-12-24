@@ -15,7 +15,7 @@ class Fader(Slider):
     b = NumericProperty()
     color = ReferenceListProperty(r, g, b)
 
-    subpad = NumericProperty()
+    subpad = NumericProperty(20)
 
     def get_value_pos(self):
         padding = self.padding
