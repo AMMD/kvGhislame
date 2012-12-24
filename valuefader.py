@@ -31,8 +31,8 @@ class Fader(Slider):
     def set_value_pos(self, pos):
         padding = self.padding
         subpad = self.subpad
-        x = min(self.right, max(pos[0], self.x + padding))
-        y = min(self.top, max(pos[1], self.y + padding + subpad))
+        x = min(self.right - padding, max(pos[0], self.x + padding))
+        y = min(self.top - padding, max(pos[1], self.y + padding + subpad))
         if self.orientation == 'horizontal':
             if self.width == 0:
                 self.value_normalized = 0

@@ -40,6 +40,9 @@
 
     subpad: name_f.height + 5
 
+    on_touch_move:
+        print str(self.value_pos) + ' ' + str(name_f.height)
+
     Label:
         id: name_f
         font_size: 10
