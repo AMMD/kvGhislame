@@ -2,7 +2,21 @@
 
 
 <Fader>:
+    subpad: 0
     canvas:
+        Clear
+        Color:
+            rgb: 1, 1, 1
+        BorderImage:
+            border: (0, 18, 0, 18) if self.orientation == 'horizontal' else (18, 0, 18, 0)
+            pos: (self.x, self.center_y - 18) if self.orientation == 'horizontal' else (self.center_x - 18, self.y + self.subpad)
+            size: (self.width, 37) if self.orientation == 'horizontal' else (37, self.height - self.subpad)
+            source: 'atlas://data/images/defaulttheme/slider%s_background' % self.orientation[0]
+        Rectangle:
+            pos: (self.value_pos[0] - 16, self.center_y - 17) if self.orientation == 'horizontal' else (self.center_x - 16, self.value_pos[1] - 16)
+            size: (32, 32)
+            source: 'atlas://data/images/defaulttheme/slider_cursor'
+
         Color:
             rgba: self.r, self.g, self.b, 0.3
         Ellipse:
