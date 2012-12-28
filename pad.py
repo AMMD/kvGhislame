@@ -5,7 +5,7 @@ __all__ = ('Pad',)
 
 from kivy.app import App
 from kivy.uix.slider import Slider, Widget
-from kivy.properties import NumericProperty, ReferenceListProperty, AliasProperty
+from kivy.properties import NumericProperty, ReferenceListProperty, AliasProperty, OptionProperty
 
 class Pad(Widget):
 
@@ -16,6 +16,11 @@ class Pad(Widget):
     color = ReferenceListProperty(r, g, b)
 
     padding = NumericProperty(15)
+    x_subpad = NumericProperty()
+    y_subpad = NumericProperty()
+    subpad = ReferenceListProperty(x_subpad, y_subpad)
+    x_sp_align = OptionProperty('left', options=('left', 'right'))
+    y_sp_align = OptionProperty('top', options=('top', 'bottom'))
 
     x_value = NumericProperty(0.)
     y_value = NumericProperty(0.)
@@ -86,15 +91,36 @@ class Pad(Widget):
 
     def get_value_pos(self):
         padding = self.padding
+        subpad = self.subpad
         x = self.x
         y = self.y
         nval = self.value_normalized
-        return (x + padding + nval[0] * (self.width - 2 * padding), y + padding + nval[1] * (self.height - 2 * padding))
+        if self.x_sp_align == 'left':
+            xpos = x + padding + subpad[0]
+        else:
+            xpos = x + padding
+        if self.y_sp_align == 'bottom':
+            ypos = y + padding + subpad[1]
+        else:
+            ypos = y + padding
+        return (xpos + nval[0] * (self.width - 2 * padding - subpad[0]), ypos + nval[1] * (self.height - 2 * padding - subpad[1]))
 
     def set_value_pos(self, pos):
-        x = min(self.right - self.padding, max(pos[0], self.x + self.padding))
-        y = min(self.top - self.padding, max(pos[1], self.y + self.padding))
-        self.value_normalized = ((x - self.x - self.padding) / float(self.width - 2 * self.padding) , (y - self.y - self.padding) / float(self.height - 2 * self.padding))
+        padding = self.padding
+        subpad = self.subpad
+        if self.x_sp_align == 'left':
+            x = min(self.right - padding, max(pos[0], self.x + padding + subpad[0]))
+            xpos = self.x + padding + subpad[0]
+        else:
+            x = min(self.right - padding, max(pos[0], self.x + padding))
+            xpos = self.x + padding
+        if self.y_sp_align == 'bottom':
+            y = min(self.top - padding, max(pos[1], self.y + padding + subpad[1]))
+            ypos = self.y + padding + subpad[1]
+        else:
+            y = min(self.top - padding, max(pos[1], self.y + padding))
+            ypos = self.y + padding
+        self.value_normalized = ((x - xpos) / float(self.width - 2 * padding - subpad[0]) , (y - ypos) / float(self.height - 2 * padding - subpad[1]))
     value_pos = AliasProperty(get_value_pos, set_value_pos,
                               bind=('x', 'y', 'width', 'height', 'min',
                                     'max', 'value_normalized'))
@@ -123,7 +149,7 @@ class Pad(Widget):
 
 class PadApp(App):
     def build(self):
-        return Pad(color=(1, 1, 0))
+        return Pad(color=(1, 1, 0), subpad=(100, 100))
 
 if __name__ == '__main__':
     PadApp().run()
