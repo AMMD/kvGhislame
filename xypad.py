@@ -32,14 +32,14 @@ class XyPad(Pad):
     y_name_w = ObjectProperty(None)
     y_name_s = ObjectProperty(None)
 
-
-    subpad = (100,100)
+#    x_sp_align = 'right'
+#    y_sp_align = 'top'
 
 class XyPadApp(App):
     def build(self):
         return XyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y');
 
-Factory.register('Pad', Pad)
+#Factory.register('Pad', Pad)
 Builder.load_file('pad.kv')
 if __name__ == '__main__':
     XyPadApp().run()

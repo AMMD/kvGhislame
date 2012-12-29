@@ -1,12 +1,17 @@
 #:kivy 1.4
 
 <XyPad>:
-    innerbox: innerbox
+#    innerbox: innerbox
     x_name_w: x_name_w
     y_name_w: y_name_w
     y_name_s: y_name_s
     name_w: name_w
 
+    padding: 15
+    x_subpad: y_name_w.height + 5
+    y_subpad: x_name_w.height + name_w.height + 10
+    x_sp_align: 'left'
+    y_sp_align: 'bottom'
 
     Label:
         id: x_name_w
@@ -15,8 +20,9 @@
         color: 0.8, 0.8, 0.8, 1
         height: self.texture_size[1]
         valign: 'top'
-        width: root.innerbox.width
-        center_x: root.innerbox.center_x
+        halign: 'center'
+        width: root.width - root.subpad[0]
+        x: root.subpad[0]
         y: root.y + name_w.height + 5
 
     Scatter:
@@ -34,9 +40,9 @@
 
         Label:
             id: y_name_w
-            x: root.innerbox.y + 2
+            x: root.y + root.subpad[1] + 2
             y: self.parent.height - self.height
-            width: root.innerbox.height - 4 - 15
+            width: root.height - root.subpad[1] - 4 - 15
             height: self.texture_size[1]
             color: 0.8, 0.8, 0.8, 1
             font_size: 10
@@ -55,12 +61,12 @@
         x: root.x
 
 
-    Pad:
-        id: innerbox
-        color: root.color
+#    Pad:
+#        id: innerbox
+#        color: root.color
 #        i_color: 4, 1, 0.2
-        x: root.x + y_name_w.height + 5 # + root.ibox_x_padding
-        y: root.y + x_name_w.height + name_w.height + 10 # + root.ibox_y_padding
-        width: root.width - y_name_w.height - 5 - root.ibox_x_padding
-        height: root.height - self.y - root.ibox_y_padding
-        padding: 15
+#        x: root.x + y_name_w.height + 5 # + root.ibox_x_padding
+#        y: root.y + x_name_w.height + name_w.height + 10 # + root.ibox_y_padding
+#        width: root.width - y_name_w.height - 5 - root.ibox_x_padding
+#        height: root.height - self.y - root.ibox_y_padding
+
