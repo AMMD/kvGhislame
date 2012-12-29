@@ -24,7 +24,7 @@ class XyPad(Pad):
 
 class XyPadApp(App):
     def build(self):
-        return XyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y');
+        return XyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', subpad=(200,200));
 
 Builder.load_file('pad.kv')
 if __name__ == '__main__':
