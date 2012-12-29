@@ -17,7 +17,7 @@ class LightXyPad(ExtendedXyPad):
         return(self.hue_w.value)
     def set_hue(self, value):
         self.hue_w.value = value
-    value = AliasProperty(get_hue, set_hue)
+    hue = AliasProperty(get_hue, set_hue)
 
     def get_hsv_triplet(self):
         return(self.hue_w.value, self.value[0], self.value[1])
