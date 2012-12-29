@@ -16,8 +16,8 @@ class Pad(Widget):
     color = ReferenceListProperty(r, g, b)
 
     padding = NumericProperty(15)
-    x_subpad = NumericProperty()
-    y_subpad = NumericProperty()
+    x_subpad = NumericProperty(0)
+    y_subpad = NumericProperty(0)
     subpad = ReferenceListProperty(x_subpad, y_subpad)
     x_sp_align = OptionProperty('left', options=('left', 'right'))
     y_sp_align = OptionProperty('top', options=('top', 'bottom'))

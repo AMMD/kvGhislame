@@ -4,27 +4,23 @@
     xfader: xfader
     yfader: yfader
 
-    subpad: 180, 180
     x_sp_align: 'left'
     y_sp_align: 'bottom'
 
-#    ibox_padding: yfader.width * 1.5, xfader.height * 1.5
-
-    on_parent:
-        self.bind(on_touch_move=root.update_cursor_from_pad)
-
+ #   on_parent:
+ #       self.bind(on_touch_move=root.update_cursor_from_pad)
+ #   on_touch_move:
+ #       root.update_cursor_from_pad(touch.pos)
     Fader:
         id: xfader
         orientation: 'horizontal'
         color: root.color
         padding: 15
-        width: root.width - root.subpad[0] #+ 2 * self.padding
+        width: root.width - root.subpad[0]
         height: 50
-        x: root.x + root.subpad[0] #- self.padding
-        y: root.height - root.subpad[1] + 5
-#        padding: root.innerbox.padding
+        x: root.x  + root.subpad[0]
+        y: 10 
         on_touch_move:
-            print self.value_pos
             root.value_pos = (self.value_pos[0], root.value_pos[1])
         step: root.step[0]
 
@@ -34,10 +30,9 @@
         color: root.color
         width: 50
         padding: 15
-        height: root.height - root.subpad[1]  # + 2 * self.padding
-        x: root.x - root.subpad[0] + root.width
-        y: root.y #- self.padding
-#        padding: root.innerbox.padding
+        subpad: root.subpad[1]
+        height: root.height
+        pos: root.pos 
         on_touch_move:
             root.value_pos = (root.value_pos[0], self.value_pos[1])
         step: root.step[1]

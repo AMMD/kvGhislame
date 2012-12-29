@@ -12,12 +12,17 @@ from pad import Pad
 class XyPad(Pad):
     name = StringProperty()
     name_w = ObjectProperty(None)
+    name_pad = NumericProperty(0)
+
+    subpad = (20, 40)
 
     # Axes
     x_name = StringProperty()
     x_name_w = ObjectProperty(None)
+    x_name_pad = NumericProperty(0)
     y_name = StringProperty()
     y_name_w = ObjectProperty(None)
+    y_name_pad = NumericProperty(0)
     y_name_s = ObjectProperty(None)
 
 
