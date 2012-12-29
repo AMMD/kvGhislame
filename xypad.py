@@ -9,21 +9,21 @@ from kivy.lang import Builder
 
 from pad import Pad
 
-class XyPad(Widget):
-    innerbox = ObjectProperty(None)
-    path = StringProperty('xypad')
+class XyPad(Pad):
+#    innerbox = ObjectProperty(None)
+#    path = StringProperty('xypad')
     name = StringProperty()
     name_w = ObjectProperty(None)
 
-    ibox_x_padding = NumericProperty(0)
-    ibox_y_padding = NumericProperty(0)
-    ibox_padding = ReferenceListProperty(ibox_x_padding, ibox_y_padding)
+#    ibox_x_padding = NumericProperty(0)
+#    ibox_y_padding = NumericProperty(0)
+#    ibox_padding = ReferenceListProperty(ibox_x_padding, ibox_y_padding)
 
     # Outer Color
-    r = NumericProperty()
-    g = NumericProperty()
-    b = NumericProperty()
-    color = ReferenceListProperty(r, g, b)
+#    r = NumericProperty()
+#    g = NumericProperty()
+#    b = NumericProperty()
+#    color = ReferenceListProperty(r, g, b)
 
     # Axes
     x_name = StringProperty()
@@ -32,6 +32,8 @@ class XyPad(Widget):
     y_name_w = ObjectProperty(None)
     y_name_s = ObjectProperty(None)
 
+
+    subpad = (100,100)
 
 class XyPadApp(App):
     def build(self):
