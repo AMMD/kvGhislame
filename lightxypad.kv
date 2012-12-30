@@ -17,12 +17,16 @@
 #        self.change_bg()
 
 
-    canvas:
+    canvas.before:
     	Color:
-    	    hsv: self.hue, 1, 1
+    	    hsv: self.value_normalized[0], 1, 1 #self.hue, 1, 1
     	Rectangle:
     	    pos: self.x, 20
     	    size: self.width, 60
+        Rectangle:
+            pos: self.subpad[0] + self.padding + 1, self.subpad[1] + self.padding + 1
+            size: self.width - self.subpad[0] - 2 * self.padding - 3, self.height - self.subpad[1] - 2 * self.padding - 3
+            source: './data/chroma.png'
 
     ValueFader:
         id: hue_w
