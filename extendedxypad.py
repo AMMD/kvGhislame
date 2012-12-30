@@ -22,20 +22,24 @@ class ExtendedXyPad(XyPad):
     x_name_pad = 40
     y_name_pad = 40
 
-    x_limit = NumericProperty()
-    y_limit = NumericProperty()
+    x_limit = NumericProperty(0)
+    y_limit = NumericProperty(0)
     limits = ReferenceListProperty(x_limit, y_limit)
                     
     def on_touch_move(self, touch):
+        print "touch.pos" + str(touch.pos)
         new_value_x = self.value_pos[0]
         new_value_y = self.value_pos[1]
-        if touch.x > self.subpad[0] + self.padding:
-            self.xfader.value_pos = touch.pos
-            new_value_x = touch.x
-        if touch.y > self.subpad[1] + self.padding:
-            self.yfader.value_pos = touch.pos
-            new_value_y = touch.y
-        self.value_pos = (new_value_x, new_value_y)
+        if (touch.x < self.x_limit) | (touch.y < self.y_limit):
+            self.hue_w.value_pos = touch.pos
+        else:
+            if touch.x > self.subpad[0] + self.padding:
+                self.xfader.value_pos = touch.pos
+                new_value_x = touch.x
+            if touch.y > self.subpad[1] + self.padding:
+                self.yfader.value_pos = touch.pos
+                new_value_y = touch.y
+            self.value_pos = (new_value_x, new_value_y)
 
 class ExtendedXyPadApp(App):
     def build(self):
