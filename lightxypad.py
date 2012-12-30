@@ -7,11 +7,11 @@ from kivy.properties import ObjectProperty, AliasProperty, ReferenceListProperty
 from kivy.factory import Factory
 from kivy.lang import Builder
 
-from valuefader import Fader
+from valuefader import ValueFader
 from extendedxypad import ExtendedXyPad
 
 class LightXyPad(ExtendedXyPad):
-    hue_w = ObjectProperty(Fader)
+    hue_w = ObjectProperty(ValueFader)
 
     def get_hue(self):
         return(self.hue_w.value)
@@ -25,7 +25,6 @@ class LightXyPad(ExtendedXyPad):
     def set_hsv_triplet(self, value):
         self.hue_w.value = value[0]
         self.value = (value[1], value[2])
-
     hsv = AliasProperty(get_hsv_triplet, set_hsv_triplet, 
                         bind=('value', 'hue'))
 
@@ -33,6 +32,7 @@ class LightXyPadApp(App):
     def build(self):
         return LightXyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y');
 
+Builder.load_file('valuefader.kv')
 Builder.load_file('extendedxypad.kv')
 if __name__ == '__main__':
     LightXyPadApp().run()

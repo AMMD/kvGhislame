@@ -1,3 +1,11 @@
 #:kivy 1.4
 
 <LightXyPad>:
+    hue_w: hue_w
+    x_name: 'saturation'
+    y_name: 'value'
+
+    ValueFader:
+        id: hue_w
+        name: 'hue'
+        color: root.color
