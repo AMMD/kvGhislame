@@ -5,7 +5,7 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.factory import Factory
 from kivy.lang import Builder
-from kivy.properties import ObjectProperty
+from kivy.properties import ObjectProperty, NumericProperty, ReferenceListProperty
 
 from valuefader import Fader
 from xypad import XyPad
@@ -14,16 +14,18 @@ class ExtendedXyPad(XyPad):
     xfader = ObjectProperty(Fader)
     yfader = ObjectProperty(Fader)
 
+    x_fader_subpad = NumericProperty(0)
+    y_fader_subpad = NumericProperty(0)
+    faders_subpad = ReferenceListProperty(x_fader_subpad, y_fader_subpad)
+
     subpad = (60, 80)
     x_name_pad = 40
     y_name_pad = 40
-                    
-    def update_cursor_from_pad(self, touch):
-#        if (touch.x < obj.x + obj.width + 5) & (touch.x > obj.x + 5) & (touch.y < obj.y + obj.height + 5) & (touch.y > obj.y - 5):
-        if touch.pos > self.subpad:
-            self.xfader.value_pos = touch.pos
-            self.yfader.value_pos = touch.pos
 
+    x_limit = NumericProperty()
+    y_limit = NumericProperty()
+    limits = ReferenceListProperty(x_limit, y_limit)
+                    
     def on_touch_move(self, touch):
         new_value_x = self.value_pos[0]
         new_value_y = self.value_pos[1]
