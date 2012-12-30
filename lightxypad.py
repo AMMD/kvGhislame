@@ -5,7 +5,6 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty, AliasProperty, ReferenceListProperty
 from kivy.graphics import Color, Rectangle
-from kivy.factory import Factory
 from kivy.lang import Builder
 
 from valuefader import ValueFader
@@ -46,6 +45,7 @@ class LightXyPad(ExtendedXyPad):
 class LightXyPadApp(App):
     def build(self):
         return LightXyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', step=(0.01, 0.01));
+
 
 Builder.load_file('valuefader.kv')
 Builder.load_file('extendedxypad.kv')

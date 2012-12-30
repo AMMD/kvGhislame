@@ -13,15 +13,13 @@
     y_limit: 80
 
     on_touch_move:
-        print self.value, self.value_normalized, self.value_pos
+        print type(self.hue), self.hue #, self.value, self.value_normalized, self.value_pos
 #        self.change_bg()
 
 
     canvas.before:
     	Color:
-    	    #hsv: self.hue, 1, 1
-            rgb: 1, 0, 0
-            a: 1
+    	    hsv: self.hue, 1, 1
         Rectangle:
             pos: self.subpad[0] + self.padding + 1, self.subpad[1] + self.padding + 1
             size: self.width - self.subpad[0] - 2 * self.padding - 3, self.height - self.subpad[1] - 2 * self.padding - 3
