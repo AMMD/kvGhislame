@@ -38,10 +38,10 @@ class LightXyPad(ExtendedXyPad):
     hsv = AliasProperty(get_hsv_triplet, set_hsv_triplet, 
                         bind=('value', 'hue'))
 
-    def change_bg(self):
-        with self.canvas:
-            Color(self.hue, self.hsv[1], self.hsv[2], mode='hsv')
-            Rectangle(pos=(self.x, 20), size=(self.width, 60))
+#    def change_bg(self):
+#        with self.canvas:
+#            Color(self.hue, self.hsv[1], self.hsv[2], mode='hsv')
+#            Rectangle(pos=(self.x, 20), size=(self.width, 60))
 
 class LightXyPadApp(App):
     def build(self):
