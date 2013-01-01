@@ -6,11 +6,17 @@
     y_name_s: y_name_s
     name_w: name_w
 
+    path: "/truc/" + str(self.name) + "/" + str(self.x_name) + "_" + str(self.y_name)
+    args: self.value
+
+
     padding: 15
-#    x_subpad: 20 # y_name_w.height + 5
-#    y_subpad: 40 # x_name_w.height + name_w.height + 10
     x_sp_align: 'left'
     y_sp_align: 'bottom'
+
+    on_touch_move:
+        self.send_message()
+
 
     Label:
         id: x_name_w

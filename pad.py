@@ -1,11 +1,11 @@
 import kivy
 kivy.require('1.4.1')
 
-__all__ = ('Pad',)
-
 from kivy.app import App
 from kivy.uix.slider import Slider, Widget
 from kivy.properties import NumericProperty, ReferenceListProperty, AliasProperty, OptionProperty
+
+from osc import OscSender
 
 class Pad(Widget):
 

@@ -8,8 +8,9 @@ from kivy.factory import Factory
 from kivy.lang import Builder
 
 from pad import Pad
+from osc import OscSender
 
-class XyPad(Pad):
+class XyPad(Pad, OscSender):
     name = StringProperty()
     name_w = ObjectProperty(None)
     name_pad = NumericProperty(0)
