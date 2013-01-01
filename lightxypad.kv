@@ -20,13 +20,18 @@
         Rectangle:
             pos: self.subpad[0] + self.padding + 1, self.subpad[1] + self.padding + 1
             size: self.width - self.subpad[0] - 2 * self.padding - 3, self.height - self.subpad[1] - 2 * self.padding - 3
-    	Rectangle:
-    	    pos: self.x, 20
-    	    size: self.width, 60
+
 
     	Color:
             rgb: 1, 1, 1
             a: 1
+        # Rectangle:
+        #     pos: self.x, 18
+        #     size: self.width, 59
+    	Rectangle:
+    	    pos: self.x + 9, 20
+    	    size: self.width - 19, 55
+            source: './data/teinte.png'
         Rectangle:
             pos: self.subpad[0] + self.padding + 1, self.subpad[1] + self.padding + 1
             size: self.width - self.subpad[0] - 2 * self.padding - 3, self.height - self.subpad[1] - 2 * self.padding - 3
@@ -35,7 +40,7 @@
     ValueFader:
         id: hue_w
         name: 'hue'
-        color: root.color
+        color: (1, 1, 1)
         width: root.width
         height: 50
         x: root.x
