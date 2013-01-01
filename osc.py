@@ -4,17 +4,16 @@ import kivy
 kivy.require('1.4.1')
 from kivy.app import App
 from kivy.uix.widget import Widget
+from kivy.properties import StringProperty, ListProperty
 
 class OscSender(Widget):
-#    def send_message(self, host, path, *args):
+    target = StringProperty("osc.udp://localhost:1234")
+    path = StringProperty()
+    args = ListProperty()
 
-    def __init__(self, target, path, args):
-        self.target = target
-        self.path = path
-        self.args = args
 
     def send_message(self):
-        _liblo.send(self.target, self.path, *args)
+        _liblo.send(self.target, self.path, *self.args)
         print('Message sent')
 
 class OscSenderApp(App):
