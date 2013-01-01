@@ -3,7 +3,7 @@ kivy.require('1.5.1')
 
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty, AliasProperty, ReferenceListProperty
+from kivy.properties import ObjectProperty, AliasProperty, ReferenceListProperty, NumericProperty
 from kivy.graphics import Color, Rectangle
 from kivy.lang import Builder
 
@@ -12,6 +12,7 @@ from extendedxypad import ExtendedXyPad
 
 class LightXyPad(ExtendedXyPad):
     hue_w = ObjectProperty(ValueFader)
+    hue = NumericProperty(0)
 
     subpad = (60, 160)
     x_name_pad = 120
@@ -22,11 +23,14 @@ class LightXyPad(ExtendedXyPad):
     # i_v = NumericProperty()
     # i_color = ReferenceListProperty(i_h, i_s, i_v)
 
-    def get_hue(self):
-        return(self.hue_w.value)
-    def set_hue(self, value):
-        self.hue_w.value = value
-    hue = AliasProperty(get_hue, set_hue)
+    # def on_hue_w(self, *args):
+    #     self.hue_w.bind(value=self.setter('hue'))
+
+    # def get_hue(self):
+    #     return(self.hue_w.value)
+    # def set_hue(self, value):
+    #     self.hue_w.value = value
+    # hue = AliasProperty(get_hue, set_hue)
 
     def get_hsv_triplet(self):
         return(self.hue_w.value, self.value[0], self.value[1])
@@ -45,7 +49,6 @@ class LightXyPad(ExtendedXyPad):
 class LightXyPadApp(App):
     def build(self):
         return LightXyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', step=(0.01, 0.01));
-
 
 Builder.load_file('valuefader.kv')
 Builder.load_file('extendedxypad.kv')
