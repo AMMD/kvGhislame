@@ -7,7 +7,9 @@ from kivy.uix.widget import Widget
 from kivy.properties import StringProperty, ObjectProperty, OptionProperty, NumericProperty, ReferenceListProperty, AliasProperty
 from kivy.factory import Factory
 
-class Fader(Slider):
+from osc import OscSender
+
+class Fader(Slider, OscSender):
     path = StringProperty('Fader')
     # Couleur
     r = NumericProperty()
