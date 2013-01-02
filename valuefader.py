@@ -11,7 +11,7 @@ from kivy.factory import Factory
 
 from osc import OscSender, OscServer
 
-class Fader(Slider, OscSender, OscServer):
+class Fader(Slider, OscSender):
     path = "/Fader"
 
     # Couleur
@@ -54,6 +54,9 @@ class Fader(Slider, OscSender, OscServer):
 
 
     def on_touch_down(self, touch):
+        print touch.profile
+        if ('button' in touch.profile) & ('right' in touch.profile):
+            print "clic droit"
         if self.collide_point(*touch.pos):
             touch.grab(self)
             return True
@@ -62,9 +65,9 @@ class Fader(Slider, OscSender, OscServer):
         if touch.grab_current == self:
             return True
 
-    @_liblo.make_method('/kvGhislame/truc' , 'i')
-    def truc_cb(self, path, args):
-        print "youpi"
+    @_liblo.make_method('/Fader/value' , 'i')
+    def vf_value_cb(self, path, args):
+        print  '/' + self.app_name + '/Fader/' + self.name
         self.value = float(args[0])
 
 
@@ -74,8 +77,10 @@ class ValueFader(Fader):
     name = StringProperty()
 
 class ValueFaderApp(OscServer, App):
+    name = NumericProperty()
+    name = "kvGhislame"
     def build(self):
-        valuefader = ValueFader(name='My Fader', orientation='vertical', color=(1,0.5,0.5))
+        valuefader = ValueFader(name='My Fader', orientation='vertical', color=(1,0.5,0.5), app_name=self.name)
         self.server.register_methods(valuefader)
         return valuefader
 

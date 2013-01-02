@@ -10,7 +10,7 @@ class OscSender(Widget):
     target = StringProperty("osc.udp://localhost:1234")
     path = StringProperty()
     args = ListProperty()
-
+    app_name = StringProperty()
 
     def send_message(self):
         _liblo.send(self.target, self.path, *self.args)
