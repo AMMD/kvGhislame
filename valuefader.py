@@ -1,3 +1,5 @@
+import liblo as _liblo
+
 import kivy
 kivy.require('1.4.1')
 
@@ -7,9 +9,9 @@ from kivy.uix.widget import Widget
 from kivy.properties import StringProperty, ObjectProperty, OptionProperty, NumericProperty, ReferenceListProperty, AliasProperty
 from kivy.factory import Factory
 
-from osc import OscSender
+from osc import OscSender, OscServer
 
-class Fader(Slider, OscSender):
+class Fader(Slider, OscSender, OscServer):
     path = "/Fader"
 
     # Couleur
@@ -60,15 +62,22 @@ class Fader(Slider, OscSender):
         if touch.grab_current == self:
             return True
 
+    @_liblo.make_method('/kvGhislame/truc' , 'i')
+    def truc_cb(self, path, args):
+        print "youpi"
+        self.value = float(args[0])
+
 
 
 class ValueFader(Fader):
     name_f = ObjectProperty(None)
     name = StringProperty()
 
-class ValueFaderApp(App):
+class ValueFaderApp(OscServer, App):
     def build(self):
-        return ValueFader(name='My Fader', orientation='vertical', color=(1,0.5,0.5))
+        valuefader = ValueFader(name='My Fader', orientation='vertical', color=(1,0.5,0.5))
+        self.server.register_methods(valuefader)
+        return valuefader
 
 Factory.register('Fader', Fader)
 if __name__ == "__main__":
