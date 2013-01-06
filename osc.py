@@ -9,7 +9,7 @@ from kivy.properties import StringProperty, ListProperty, NumericProperty, Boole
 from time import time
 
 class OscSender(Widget):
-    target = StringProperty("osc.udp://localhost:9999")
+    target = StringProperty("osc.udp://localhost:1234")
     path = StringProperty()
     control_path = StringProperty()
     args = ListProperty()
@@ -19,8 +19,6 @@ class OscSender(Widget):
 
     def send_message(self):
         _liblo.send(self.target, self.path, *self.args)
-        self.mutex = True
-        print "Sent"
 
 
 class OscServer(Widget):

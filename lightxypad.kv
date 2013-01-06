@@ -4,6 +4,13 @@
     hue: hue_w.value
     hue_w: hue_w
 
+
+    args_pattern: "fff"
+    args: self.hue, 1, 1
+
+    path: "/" + self.app_name.replace(" ", "_") + "/LightXYpad/hsv" 
+    control_path: self.path
+
     x_name: 'saturation'
     y_name: 'value'
 
@@ -13,6 +20,9 @@
 
     x_limit: 0
     y_limit: 80
+
+    on_touch_move:
+        print self.hsv
 
 
     canvas.before:
