@@ -5,6 +5,9 @@
     on_touch_move:
         self.send_message()
 
+#    on_touch_down:
+#        print self.path if 'right' in touch.button
+
     canvas:
         Clear
         Color:
@@ -41,7 +44,9 @@
 <ValueFader>:
     name_f: name_f
 
-    path: "/machin/" + root.name
+    path: "/" + self.app_name.replace(" ", "_") + "/Fader/" + root.name.replace(" ", "_")
+#    control_path: self.path + "/update"
+    args_pattern: 'i'
     args: [self.value]
 
     Label:

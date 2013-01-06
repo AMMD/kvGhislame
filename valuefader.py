@@ -1,4 +1,6 @@
-import liblo as _liblo
+#import liblo as _liblo
+
+import re
 
 import kivy
 kivy.require('1.4.1')
@@ -53,9 +55,9 @@ class Fader(Slider, OscSender):
 
 
     def on_touch_down(self, touch):
-#        if ('button' in touch.profile) & ('right' in touch.button):
-#            print "sending path: " + self.path
-#            print "control path: " + self.control_path
+        if ('button' in touch.profile) & ('right' in touch.button):
+            print "sending path: " + self.path
+            print "control path: " + self.control_path
         if self.collide_point(*touch.pos):
             touch.grab(self)
             return True
@@ -64,10 +66,12 @@ class Fader(Slider, OscSender):
         if touch.grab_current == self:
             return True
 
-    @_liblo.make_method('/truc/machin', 'i')
-    def vf_value_cb(self, path, args):
-        print "moncul"
-
+    def control_cb(self, path, args, types, src):
+        if re.search('127.0.0.1', src.get_url()):
+            print "self-incoming message"
+        else:
+            print "OSC controlled"
+            self.value = float(args[0])
 
 
 class ValueFader(Fader):
@@ -79,14 +83,8 @@ class ValueFaderApp(OscServer, App):
     name = "kvGhislame"
     def build(self):
         valuefader = ValueFader(name='My Fader', orientation='vertical', color=(1,0.5,0.5), app_name=self.name)
-
-        @_liblo.make_method('/truc/machin', 'i')
-        def vf_value_cb(self, path, args):
-            print "moncul"
-#            print  '/' + valuefader.app_name + '/Fader/' + valuefader.name
-#            valuefader.value = float(args[0])
-
-        self.server.register_methods(valuefader)
+        print valuefader.control_path
+        self.server.add_method(valuefader.path, valuefader.args_pattern, valuefader.control_cb)
         return valuefader
 
 Factory.register('Fader', Fader)

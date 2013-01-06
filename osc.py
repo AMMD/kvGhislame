@@ -6,12 +6,16 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import StringProperty, ListProperty, NumericProperty
 
+from time import time
+
 class OscSender(Widget):
-    target = StringProperty("osc.udp://localhost:1234")
+    target = StringProperty("osc.udp://localhost:9999")
     path = StringProperty()
     control_path = StringProperty()
     args = ListProperty()
+    args_pattern = StringProperty()
     app_name = StringProperty()
+    timestamp = NumericProperty()
 
     def send_message(self):
         _liblo.send(self.target, self.path, *self.args)
