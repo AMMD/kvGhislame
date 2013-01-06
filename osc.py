@@ -9,6 +9,7 @@ from kivy.properties import StringProperty, ListProperty, NumericProperty
 class OscSender(Widget):
     target = StringProperty("osc.udp://localhost:1234")
     path = StringProperty()
+    control_path = StringProperty()
     args = ListProperty()
     app_name = StringProperty()
 
