@@ -9,7 +9,7 @@ from kivy.properties import StringProperty, NumericProperty, ReferenceListProper
 from kivy.factory import Factory
 from kivy.lang import Builder
 
-
+from time import time
 
 from pad import Pad
 from osc import OscSender, OscServer

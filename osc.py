@@ -4,20 +4,23 @@ import kivy
 kivy.require('1.4.1')
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.properties import StringProperty, ListProperty, NumericProperty
+from kivy.properties import StringProperty, ListProperty, NumericProperty, BooleanProperty
 
 from time import time
 
 class OscSender(Widget):
-    target = StringProperty("osc.udp://localhost:1234")
+    target = StringProperty("osc.udp://localhost:9999")
     path = StringProperty()
     control_path = StringProperty()
     args = ListProperty()
     args_pattern = StringProperty()
     app_name = StringProperty()
+    mutex = BooleanProperty(True)
 
     def send_message(self):
         _liblo.send(self.target, self.path, *self.args)
+        self.mutex = True
+        print "Sent"
 
 
 class OscServer(Widget):
