@@ -56,6 +56,7 @@ class Fader(Slider, OscSender):
 
     def on_touch_down(self, touch):
         if ('button' in touch.profile) & ('right' in touch.button):
+            print "[Fader " + self.name + "] OSC control:"
             print "sending path: " + self.path
             print "control path: " + self.control_path
         if self.collide_point(*touch.pos):
