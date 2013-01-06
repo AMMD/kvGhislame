@@ -80,11 +80,10 @@ class ValueFader(Fader):
     name = StringProperty()
 
 class ValueFaderApp(OscServer, App):
-    name = NumericProperty()
+    name = StringProperty()
     name = "kvGhislame"
     def build(self):
         valuefader = ValueFader(name='My Fader', orientation='vertical', color=(1,0.5,0.5), app_name=self.name)
-        print valuefader.control_path
         self.server.add_method(valuefader.path, valuefader.args_pattern, valuefader.control_cb)
         return valuefader
 

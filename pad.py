@@ -5,8 +5,6 @@ from kivy.app import App
 from kivy.uix.slider import Slider, Widget
 from kivy.properties import NumericProperty, ReferenceListProperty, AliasProperty, OptionProperty
 
-from osc import OscSender
-
 class Pad(Widget):
 
     # Outer Color
@@ -131,7 +129,6 @@ class Pad(Widget):
     def on_touch_down(self, touch):
         if self.collide_point(*touch.pos):
             touch.grab(self)
-#            self.value_pos = touch.pos
             return True
 
     def on_touch_move(self, touch):
@@ -141,11 +138,7 @@ class Pad(Widget):
 
     def on_touch_up(self, touch):
         if touch.grab_current == self:
-#            self.value_pos = touch.pos
             return True
-
-
-
 
 class PadApp(App):
     def build(self):
