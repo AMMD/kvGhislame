@@ -5,7 +5,7 @@
     hue_w: hue_w
 
     value_type: 'alternate'
-    alt_value: self.hsv
+    alt_value: self.hsv if self.mode == 'hsv' else self.rgb
 
     args_pattern: "fff"
 

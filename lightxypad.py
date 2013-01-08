@@ -5,7 +5,7 @@ kivy.require('1.5.1')
 
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty, AliasProperty, ReferenceListProperty, NumericProperty, StringProperty
+from kivy.properties import ObjectProperty, AliasProperty, NumericProperty, StringProperty, OptionProperty
 from kivy.lang import Builder
 
 from valuefader import ValueFader
@@ -18,6 +18,8 @@ class LightXyPad(ExtendedXyPad):
     subpad = (60, 160)
     x_name_pad = 120
     faders_subpad = (80, 0)
+
+    mode = OptionProperty('hsv', options=('hsv', 'rgb'))
 
     def get_hsv_triplet(self):
         return(self.hue, self.value[0], self.value[1])
@@ -34,19 +36,13 @@ class LightXyPad(ExtendedXyPad):
         self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[3])
     rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet)
 
-    def hsv_to_value(self, obj, hsv):
-        print 'hsv to value (hsv, self.hsv, self.value):' 
-        print hsv
-        print self.hsv
-        print self.value
-        self.value = hsv[0], self.value[:]
 
 
 class LightXyPadApp(App):
     name = StringProperty()
     name = "kvGhislame"
     def build(self):
-        return LightXyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', step=(0.01, 0.01), app_name=self.name);
+        return LightXyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', step=(0.01, 0.01), app_name=self.name, mode='rgb');
 
 Builder.load_file('valuefader.kv')
 Builder.load_file('extendedxypad.kv')
