@@ -12,7 +12,7 @@
     control_path: self.path
 
     args_pattern: "ff"
-    args: self.value
+    args: self.value if self.value_type == 'normal' else self.alt_value
 
 
     padding: 15

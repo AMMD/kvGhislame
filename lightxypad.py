@@ -1,10 +1,11 @@
+import colorsys
+
 import kivy
 kivy.require('1.5.1')
 
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty, AliasProperty, ReferenceListProperty, NumericProperty, StringProperty
-from kivy.graphics import Color, Rectangle
 from kivy.lang import Builder
 
 from valuefader import ValueFader
@@ -24,9 +25,21 @@ class LightXyPad(ExtendedXyPad):
     def set_hsv_triplet(self, value):
         self.hue_w.value = value[0]
         self.value = (value[1], value[2])
-    hsv = AliasProperty(get_hsv_triplet, set_hsv_triplet, 
-                        bind=('value', 'hue'))
+    hsv = AliasProperty(get_hsv_triplet, set_hsv_triplet, bind=('value', 'hue'))
 
+    def get_rgb_triplet(self):
+        return(colorsys.hsv_to_rgb(self.hsv[0], self.hsv[1], self.hsv[2]))
+
+    def set_rgb_triplet(self, value):
+        self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[3])
+    rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet)
+
+    def hsv_to_value(self, obj, hsv):
+        print 'hsv to value (hsv, self.hsv, self.value):' 
+        print hsv
+        print self.hsv
+        print self.value
+        self.value = hsv[0], self.value[:]
 
 
 class LightXyPadApp(App):

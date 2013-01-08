@@ -3,7 +3,7 @@ kivy.require('1.4.1')
 
 from kivy.app import App
 from kivy.uix.slider import Slider, Widget
-from kivy.properties import NumericProperty, ReferenceListProperty, AliasProperty, OptionProperty
+from kivy.properties import NumericProperty, ReferenceListProperty, AliasProperty, OptionProperty, ListProperty
 
 class Pad(Widget):
 
@@ -23,6 +23,9 @@ class Pad(Widget):
     x_value = NumericProperty(0.)
     y_value = NumericProperty(0.)
     value = ReferenceListProperty(x_value, y_value)
+
+    alt_value = ListProperty()
+    value_type = OptionProperty('normal', options=('normal', 'alternate'))
 
     x_min = NumericProperty(0.)
     y_min = NumericProperty(0.)

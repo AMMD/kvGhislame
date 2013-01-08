@@ -4,9 +4,10 @@
     hue: hue_w.value
     hue_w: hue_w
 
+    value_type: 'alternate'
+    alt_value: self.hsv
 
     args_pattern: "fff"
-    args: self.hsv
 
     path: "/" + self.app_name.replace(" ", "_") + "/LightXYpad/hsv" 
     control_path: self.path
@@ -20,9 +21,6 @@
 
     x_limit: 0
     y_limit: 80
-
-    on_touch_move:
-        print self.hsv
 
 
     canvas.before:
