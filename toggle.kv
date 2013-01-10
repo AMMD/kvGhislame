@@ -1,8 +1,13 @@
 #!kivy 1.5
 
 <Toggle>:
-    text: self.name + " " + self.state
-    background_color: self.r, self.g, self.b, 1
+    text: self.name
+    background_color: (self.r, self.g, self.b, 1) # if self.state == 'normal' else (1, 1, 1, 1)
+    color: (self.r, self.g, self.b, 1) if self.state == 'normal' else (1, 1, 1, 1)
+
+    background_normal: 'data/button_normal.png'
+    background_down: 'data/button_down.png'
+    border: 0, 0, 0, 0
 
     path: "/" + self.app_name + "/Toggle/" + self.name
     control_path: self.path
@@ -12,4 +17,6 @@
 
     on_press:
         self.send_message()
+
+     
 
