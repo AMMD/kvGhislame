@@ -39,9 +39,9 @@ class LightXyPad(ExtendedXyPad):
     rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet)
 
     def control_cb(self, path, args, types, src):
-#        if re.search('127.0.0.1', src.get_url()):
-#            print "self-incoming message"
-#        else:
+        if re.search('127.0.0.1', src.get_url()):
+            print "self-incoming message"
+        else:
             print "OSC controlled"
             if self.mode == 'hsv':
                 self.hsv = (float(args[0]), float(args[1]), float(args[2]))
