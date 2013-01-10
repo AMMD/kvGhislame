@@ -11,6 +11,8 @@ from kivy.lang import Builder
 from valuefader import ValueFader
 from extendedxypad import ExtendedXyPad
 
+from osc import OscServer
+
 class LightXyPad(ExtendedXyPad):
     hue_w = ObjectProperty(ValueFader)
     hue = NumericProperty(0)
@@ -36,13 +38,33 @@ class LightXyPad(ExtendedXyPad):
         self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[3])
     rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet)
 
+    def control_cb(self, path, args, types, src):
+#        if re.search('127.0.0.1', src.get_url()):
+#            print "self-incoming message"
+#        else:
+            print "OSC controlled"
+            if self.mode == 'hsv':
+                self.hsv = (float(args[0]), float(args[1]), float(args[2]))
+                self.xfader.value = float(args[1])
+                self.yfader.value = float(args[2])
+                self.hue = float(args[0])
+                self.hue_w.value = float(args[0])
+            else:
+                self.rgb = (float(args[0]), float(args[1]), float(args[2]))
+                self.xfader.value = self.hsv[1]
+                self.yfader.value = self.hsv[2]
+                            
 
 
-class LightXyPadApp(App):
+
+class LightXyPadApp(OscServer, App):
     name = StringProperty()
     name = "kvGhislame"
     def build(self):
-        return LightXyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', step=(0.01, 0.01), app_name=self.name, mode='rgb');
+        xypad = LightXyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', step=(0.01, 0.01), app_name=self.name);
+        self.server.add_method(xypad.path, xypad.args_pattern, xypad.control_cb)
+        return xypad
+
 
 Builder.load_file('valuefader.kv')
 Builder.load_file('extendedxypad.kv')
