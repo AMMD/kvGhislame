@@ -4,7 +4,7 @@ kivy.require('1.5.1')
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.togglebutton import ToggleButton
-from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ReferenceListProperty
+from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ReferenceListProperty, BooleanProperty
 from kivy.lang import Builder
 
 from osc import OscSender
@@ -16,6 +16,8 @@ class Toggle(ToggleButton, OscSender):
     b = NumericProperty()
     main_color = ReferenceListProperty(r, g, b)
 
+    one_on_down = BooleanProperty()
+
     def control_cb(self, path, args, types, src):
         if re.search('127.0.0.1', src.get_url()):
             print "self-incoming message"
@@ -25,6 +27,19 @@ class Toggle(ToggleButton, OscSender):
                 self.state = 'down'
             else:
                 self.state = 'normal'
+
+    def state_to_args(self):
+        print self.one_on_down
+        if self.one_on_down == True:
+            if self.state == 'down':
+                self.args = [1]
+            else:
+                self.args = [0]
+        else:
+            if self.state == 'down':
+                self.args = [0]
+            else:
+                self.args = [1]            
 
 class ToggleApp(App):
     name = StringProperty()

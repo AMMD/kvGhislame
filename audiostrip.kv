@@ -1,51 +1,24 @@
 #:kivy 1.4
 
-#<Mute>:
-#    text: 'M'
-#    height: 35
-#    width: 35
-
 <AudioStrip>:
     gainfader: gainfader
     panfader: panfader
     mute: mute
-#    name_s: name_s
 
     canvas:
         Color: 
             rgb: root.color
 
-    # Label:
-    #     id: name_s
-    #     font_size: 10
-    #     color: root.r, root.g, root.b, 1
-    #     text: root.name
-
-    #     height: self.texture_size[1]
-    #     width: root.width - 8
-
-    #     x: root.x + 4
-    #     y: root.y + 4
-
-    #     shorten: 'true'
-    #     text_size: self.width, 18
-
-    #     halign: 'center'
-    #     valign: 'top'
-
-    #     canvas:
-    #         Color:
-    #             rgba: root.r, root.g, root.b, 0.3
-    #         Line:
-    #             rectangle: self.x, self.y, self.width, self.height
-            
     Toggle:
         id: mute
         center_x: root.center_x
         y: root.y + 5
         size: 34, 34
         main_color: root.r, root.g, root.b
-        name: 'M'
+        text: 'M' if root.mute_mode == 'mute' else 'ON'
+        one_on_down: False if root.mute_mode == 'mute' else True
+        path: "/" + root.app_name.replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/On"
+        control_path: self.path
 
     ValueFader:
         id: gainfader
@@ -58,6 +31,8 @@
         color: root.color
         max: 100
         min: 0
+        path: "/" + root.app_name.replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Gain"
+        control_path: self.path
 
     ValueFader:
         id: panfader
@@ -71,6 +46,9 @@
         max: 1
 #        step: 0.01
         color: root.color
+#        app_name: root.app_name
+        path: "/" + root.app_name.replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Pan"
+        control_path: self.path
 
 
 

@@ -4,7 +4,7 @@ kivy.require('1.5.1')
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.togglebutton import ToggleButton
-from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ReferenceListProperty
+from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ReferenceListProperty, OptionProperty
 from kivy.factory import Factory
 from kivy.lang import Builder
 
@@ -20,6 +20,10 @@ class AudioStrip(Widget):
     gainfader = ObjectProperty(None)
     panfader = ObjectProperty(None)
     mute = Toggle()
+    app_name = StringProperty()
+
+    mute_mode = OptionProperty('mute', options=('on', 'mute'))
+
 #    mute = ObjectProperty(None)
 #    name_s = ObjectProperty(None)
     r = NumericProperty()
@@ -30,8 +34,10 @@ class AudioStrip(Widget):
 
 
 class AudioStripApp(App):
+    name = StringProperty()
+    name = 'kvGhislame'
     def build(self):
-        return AudioStrip(name="My Strip", color = (1, 0.5, 0.5))
+        return AudioStrip(name="My Strip", color = (1, 0.5, 0.5), app_name=self.name)
 
 Builder.load_file('toggle.kv')
 Builder.load_file('valuefader.kv')
