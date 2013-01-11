@@ -30,7 +30,7 @@ class ToggleApp(App):
     name = StringProperty()
     name = "kvGhislame"
     def build(self):
-        return Toggle(name="My Toggle", color=(1,0,0,1), app_name=self.name)
+        return Toggle(name="My Toggle", main_color=(1,0,0), app_name=self.name)
 
 if __name__ == "__main__":
     ToggleApp().run()
