@@ -19,7 +19,7 @@ class XyPad(Pad, OscSender):
     name_w = ObjectProperty(None)
     name_pad = NumericProperty(0)
 
-    subpad = (20, 40)
+#    subpad = (20, 40)
 
     # Axes
     x_name = StringProperty()

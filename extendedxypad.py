@@ -22,9 +22,9 @@ class ExtendedXyPad(XyPad):
     y_fader_subpad = NumericProperty(0)
     faders_subpad = ReferenceListProperty(x_fader_subpad, y_fader_subpad)
 
-    subpad = (60, 80)
-    x_name_pad = 40
-    y_name_pad = 40
+    # subpad = (60, 80)
+    # x_name_pad = 40
+    # y_name_pad = 40
 
     x_limit = NumericProperty(0)
     y_limit = NumericProperty(0)

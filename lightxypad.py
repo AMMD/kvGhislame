@@ -17,9 +17,9 @@ class LightXyPad(ExtendedXyPad):
     hue_w = ObjectProperty(ValueFader)
     hue = NumericProperty(0)
 
-    subpad = (60, 160)
-    x_name_pad = 120
-    faders_subpad = (80, 0)
+    # subpad = (60, 160)
+    # x_name_pad = 120
+    # faders_subpad = (80, 0)
 
     mode = OptionProperty('hsv', options=('hsv', 'rgb'))
 
