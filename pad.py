@@ -14,11 +14,11 @@ class Pad(Widget):
     color = ReferenceListProperty(r, g, b)
 
     padding = NumericProperty(15)
-    x_subpad = NumericProperty(0)
-    y_subpad = NumericProperty(0)
-    subpad = ReferenceListProperty(x_subpad, y_subpad)
-    x_sp_align = OptionProperty('left', options=('left', 'right'))
-    y_sp_align = OptionProperty('top', options=('top', 'bottom'))
+    # x_subpad = NumericProperty(0)
+    # y_subpad = NumericProperty(0)
+    # subpad = ReferenceListProperty(x_subpad, y_subpad)
+    # x_sp_align = OptionProperty('left', options=('left', 'right'))
+    # y_sp_align = OptionProperty('top', options=('top', 'bottom'))
 
     pad_width = NumericProperty()
     '''Width of the XY Pad'''
@@ -122,14 +122,14 @@ class Pad(Widget):
         padding = self.padding
 #        subpad = self.subpad
 #        if self.x_sp_align == 'left':
-            x = min(self.right - padding, max(pos[0], self.pad_x + padding))
-            xpos = self.pad_x + padding
+        x = min(self.right - padding, max(pos[0], self.pad_x + padding))
+        xpos = self.pad_x + padding
 #        else:
 #            x = min(self.right - padding, max(pos[0], self.x + padding))
 #            xpos = self.x + padding
 #        if self.y_sp_align == 'bottom':
-            y = min(self.top - padding, max(pos[1], self.pad_y + padding))
-            ypos = self.pad_y + padding
+        y = min(self.top - padding, max(pos[1], self.pad_y + padding))
+        ypos = self.pad_y + padding
 #        else:
 #            y = min(self.top - padding, max(pos[1], self.y + padding))
 #            ypos = self.y + padding
@@ -157,7 +157,7 @@ class Pad(Widget):
 
 class PadApp(App):
     def build(self):
-        return Pad(color=(1, 1, 0))
+        return Pad(color=(1, 1, 0), pad_size=(300, 200), pad_pos=(50, 150))
 
 if __name__ == '__main__':
     PadApp().run()

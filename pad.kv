@@ -1,22 +1,18 @@
 #:kivy 1.4
 
 <Pad>:
-
-    pad_size: self.size
-    pad_pos: self.pos
-
     canvas:
         Color:
             rgba: 1, 1, 1, 0.5
         Line:
-            rectangle: self.x + self.padding + self.subpad[0] if self.x_sp_align == 'left' else self.x + self.padding, self.y + self.padding + self.subpad[1] if self.y_sp_align == 'bottom' else self.y + self.padding, self.width - 2 * self.padding - self.subpad[0], self.height - 2 * self.padding - self.subpad[1]
+            rectangle: self.pad_x + self.padding, self.pad_y + self.padding, self.pad_width - 2 * self.padding, self.pad_height - 2 * self.padding
 
         Color:
             rgba: self.r, self.g, self.b, 0.3
         Line:
-            rectangle: self.value_pos[0], self.y + self.padding + self.subpad[1] if self.y_sp_align == 'bottom' else self.y + self.padding, 0, self.height - 2 * self.padding - self.subpad[1] - 2
+            rectangle: self.value_pos[0], self.pad_y + self.padding, 0, self.pad_height - 2 * self.padding - 2
         Line:
-            rectangle: self.x + self.padding + self.subpad[0] if self.x_sp_align == 'left' else self.x + self.padding, self.value_pos[1], self.width - 2 * self.padding - self.subpad[0] - 2, 0
+            rectangle: self.pad_x + self.padding, self.value_pos[1], self.pad_width - 2 * self.padding - 2, 0
         Color:
             rgb: 1, 1, 1
         Rectangle:
@@ -35,5 +31,5 @@
         color: root.r, root.g, root.b, 1
         text: str(round(root.value[0], 2)) + ", " + str(round(root.value[1], 2))
         size: self.texture_size
-        x: root.value_pos[0] + root.padding if root.value_pos[0] < (root.width / 2 + root.padding + root.x) else root.value_pos[0] - root.padding - self.width 
-        y: root.value_pos[1] + root.padding if root.value_pos[1] < (root.height / 2 + root.padding + root.y) else root.value_pos[1] - root.padding - self.height
+        x: root.value_pos[0] + root.padding if root.value_pos[0] < (root.pad_width / 2 + root.padding + root.pad_x) else root.value_pos[0] - root.padding - self.width 
+        y: root.value_pos[1] + root.padding if root.value_pos[1] < (root.pad_height / 2 + root.padding + root.pad_y) else root.value_pos[1] - root.padding - self.height
