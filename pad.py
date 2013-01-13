@@ -14,11 +14,6 @@ class Pad(Widget):
     color = ReferenceListProperty(r, g, b)
 
     padding = NumericProperty(15)
-    # x_subpad = NumericProperty(0)
-    # y_subpad = NumericProperty(0)
-    # subpad = ReferenceListProperty(x_subpad, y_subpad)
-    # x_sp_align = OptionProperty('left', options=('left', 'right'))
-    # y_sp_align = OptionProperty('top', options=('top', 'bottom'))
 
     pad_width = NumericProperty(100)
     '''Width of the XY Pad'''
@@ -104,35 +99,19 @@ class Pad(Widget):
 
     def get_value_pos(self):
         padding = self.padding
-#        subpad = self.subpad
         x = self.pad_x
         y = self.pad_y
         nval = self.value_normalized
-#        if self.x_sp_align == 'left':
-        xpos = x + padding # + subpad[0]
-#        else:
-#            xpos = x + padding
-#        if self.y_sp_align == 'bottom':
-        ypos = y + padding #+ subpad[1]
-#        else:
-#            ypos = y + padding
+        xpos = x + padding
+        ypos = y + padding
         return (xpos + nval[0] * (self.pad_width - 2 * padding), ypos + nval[1] * (self.pad_height - 2 * padding))
 
     def set_value_pos(self, pos):
         padding = self.padding
-#        subpad = self.subpad
-#        if self.x_sp_align == 'left':
         x = min(self.right - padding, max(pos[0], self.pad_x + padding))
         xpos = self.pad_x + padding
-#        else:
-#            x = min(self.right - padding, max(pos[0], self.x + padding))
-#            xpos = self.x + padding
-#        if self.y_sp_align == 'bottom':
         y = min(self.top - padding, max(pos[1], self.pad_y + padding))
         ypos = self.pad_y + padding
-#        else:
-#            y = min(self.top - padding, max(pos[1], self.y + padding))
-#            ypos = self.y + padding
         self.value_normalized = ((x - xpos) / float(self.pad_width - 2 * padding) , (y - ypos) / float(self.pad_height - 2 * padding))
     value_pos = AliasProperty(get_value_pos, set_value_pos,
                               bind=('x', 'y', 'width', 'height', 'min',
