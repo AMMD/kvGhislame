@@ -23,6 +23,7 @@
     y_limit: self.y + 80
     subpad: 60, 160
     x_name_pad: 120
+    y_name_pad: 0
     faders_subpad: 80, 0
 
     canvas.before:
@@ -52,7 +53,7 @@
         width: root.width
         height: 50
         x: root.x
-        y: 20
+        y: root.y + 20
         min: 0
         max: 1
         step: root.step[0]

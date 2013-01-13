@@ -33,21 +33,19 @@
         valign: 'top'
         halign: 'center'
         width: root.width - root.subpad[0]
-        x: root.subpad[0]
+        x: root.x + root.subpad[0]
         y: root.y + name_w.height + 5 + root.x_name_pad
 
     Scatter:
         id: y_name_s
+
+        pos: root.pos
 
         rotation: 90
 
         canvas:
             Color:
                 rgba: 1, .1, .1, 1
-
-                Rectangle:
-                    pos: 0, 0
-                    size: self.size
 
         Label:
             id: y_name_w

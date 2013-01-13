@@ -19,7 +19,7 @@
         width: root.width - root.subpad[0]
         height: 50
         x: root.x  + root.subpad[0]
-        y: 10 + root.faders_subpad[0]
+        y: root.y + 10 + root.faders_subpad[0]
         on_touch_move:
             root.value_pos = (self.value_pos[0], root.value_pos[1])
         step: root.step[0]
@@ -34,7 +34,7 @@
         padding: 15
         subpad: root.subpad[1]
         height: root.height
-        x: root.faders_subpad[1]
+        x: root.x + root.faders_subpad[1]
         pos: root.pos 
         on_touch_move:
             root.value_pos = (root.value_pos[0], self.value_pos[1])
