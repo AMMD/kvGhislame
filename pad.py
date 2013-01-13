@@ -20,15 +20,15 @@ class Pad(Widget):
     # x_sp_align = OptionProperty('left', options=('left', 'right'))
     # y_sp_align = OptionProperty('top', options=('top', 'bottom'))
 
-    pad_width = NumericProperty()
+    pad_width = NumericProperty(100)
     '''Width of the XY Pad'''
-    pad_height = NumericProperty()
+    pad_height = NumericProperty(100)
     '''Height of the XY Pad'''
     pad_size = ReferenceListProperty(pad_width, pad_height)
     '''Size of the XY Pad (tuple: (pad_width, pad_height))'''
-    pad_x = NumericProperty()
+    pad_x = NumericProperty(0)
     '''X position of the XY Pad'''
-    pad_y = NumericProperty()
+    pad_y = NumericProperty(0)
     '''Y position of the XY Pad'''
     pad_pos = ReferenceListProperty(pad_x, pad_y)
     '''Position of the XY Pad (tuple: (pad_x, pad_y))'''
