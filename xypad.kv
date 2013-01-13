@@ -32,8 +32,8 @@
     y_name_pad_pos: root.y + root.pad_y, root.x + root.pad_x - root.y_name_w.height - 5
     y_name_pad_size: root.pad_height, root.y_name_w.texture_size[1]
 
-    name_pad_pos: root.x + root.pad_x - root.y_name_w.height - 5, x_name_pad_y - root.y_name_w.height - 5
-    name_pad_size: root.pad_width + root.y_name_height + 5, root.name_w.texture_size[1]
+    name_pad_pos: root.x + root.pad_x - root.y_name_w.height - 5, root.x_name_pad_y - root.y_name_w.height - 5
+    name_pad_size: root.pad_width + root.y_name_w.height + 5, root.y_name_w.texture_size[1]
 
     Label:
         id: x_name_w
@@ -52,19 +52,15 @@
     Scatter:
         id: y_name_s
 
-        pos: root.pos
+        pos: root.x, root.y
 
         rotation: 90
-
-        canvas:
-            Color:
-                rgba: 1, .1, .1, 1
 
         Label:
             id: y_name_w
 #            x: root.y + root.subpad[1] + 2
 #            y: self.parent.height - self.height - root.y_name_pad
-            pos: root.y_name_pad_pos
+            pos: root.y_name_pad_x, root.y_name_pad_y + self.parent.height - self.height
             size: root.y_name_pad_size
 #            width: root.height - root.subpad[1] - 4 - 15
 #            height: self.texture_size[1]
