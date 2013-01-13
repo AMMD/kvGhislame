@@ -120,23 +120,23 @@ class Pad(Widget):
 
     def set_value_pos(self, pos):
         padding = self.padding
-        subpad = self.subpad
-        if self.x_sp_align == 'left':
-            x = min(self.right - padding, max(pos[0], self.x + padding + subpad[0]))
-            xpos = self.x + padding + subpad[0]
-        else:
-            x = min(self.right - padding, max(pos[0], self.x + padding))
-            xpos = self.x + padding
-        if self.y_sp_align == 'bottom':
-            y = min(self.top - padding, max(pos[1], self.y + padding + subpad[1]))
-            ypos = self.y + padding + subpad[1]
-        else:
-            y = min(self.top - padding, max(pos[1], self.y + padding))
-            ypos = self.y + padding
-        self.value_normalized = ((x - xpos) / float(self.width - 2 * padding - subpad[0]) , (y - ypos) / float(self.height - 2 * padding - subpad[1]))
+#        subpad = self.subpad
+#        if self.x_sp_align == 'left':
+            x = min(self.right - padding, max(pos[0], self.pad_x + padding))
+            xpos = self.pad_x + padding
+#        else:
+#            x = min(self.right - padding, max(pos[0], self.x + padding))
+#            xpos = self.x + padding
+#        if self.y_sp_align == 'bottom':
+            y = min(self.top - padding, max(pos[1], self.pad_y + padding))
+            ypos = self.pad_y + padding
+#        else:
+#            y = min(self.top - padding, max(pos[1], self.y + padding))
+#            ypos = self.y + padding
+        self.value_normalized = ((x - xpos) / float(self.pad_width - 2 * padding) , (y - ypos) / float(self.pad_height - 2 * padding))
     value_pos = AliasProperty(get_value_pos, set_value_pos,
                               bind=('x', 'y', 'width', 'height', 'min',
-                                    'max', 'value_normalized'))
+                                    'max', 'value_normalized', 'pad_x', 'pad_y', 'pad_width', 'pad_height'))
     '''Position of the internal cursor, based on the normalized value.
 
     :data:`value_pos` is an :class:`~kivy.properties.AliasProperty`.
