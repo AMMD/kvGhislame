@@ -16,9 +16,11 @@
 
 
     padding: 15
-    subpad: 20, 40
-    x_sp_align: 'left'
-    y_sp_align: 'bottom'
+    pad_pos: 20, 40
+    pad_size: self.width - self.pad_x, self.height - self.pad_y
+#    subpad: 20, 40
+#    x_sp_align: 'left'
+#    y_sp_align: 'bottom'
 
     on_touch_move:
         self.send_message()
@@ -32,8 +34,8 @@
         height: self.texture_size[1]
         valign: 'top'
         halign: 'center'
-        width: root.width - root.subpad[0]
-        x: root.x + root.subpad[0]
+        width: root.width - root.pad_x #- root.subpad[0]
+        x: root.x + root.pad_x #+ root.subpad[0]
         y: root.y + name_w.height + 5 + root.x_name_pad
 
     Scatter:

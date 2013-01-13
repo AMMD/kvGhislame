@@ -17,17 +17,31 @@ from osc import OscSender, OscServer
 class XyPad(Pad, OscSender):
     name = StringProperty()
     name_w = ObjectProperty(None)
-    name_pad = NumericProperty(0)
-
-#    subpad = (20, 40)
+    name_pad_x = NumericProperty(0)
+    '''Pad Main Name X position'''
+    name_pad_y = NumericProperty(0)
+    '''Pad Main Name Y position'''
+    name_pad_pos = ReferenceListProperty(name_pad_x, name_pad_y)
+    '''Pad Main Name position'''
 
     # Axes
     x_name = StringProperty()
     x_name_w = ObjectProperty(None)
-    x_name_pad = NumericProperty(0)
+    x_name_pad_x = NumericProperty(0)
+    '''X Axis Name X position'''
+    x_name_pad_y = NumericProperty(0)
+    '''X Axis Name Y position'''
+    x_name_pad_pos = ReferenceListProperty(x_name_pad_x, x_name_pad_y)
+    '''X Axis Name position'''
+
     y_name = StringProperty()
     y_name_w = ObjectProperty(None)
-    y_name_pad = NumericProperty(0)
+    y_name_pad_x = NumericProperty(0)
+    '''Y Axis Name X position'''
+    y_name_pad_y = NumericProperty(0)
+    '''Y Axis Name Y position'''
+    y_name_pad_pos = ReferenceListProperty(y_name_pad_x, y_name_pad_y)
+    '''Y Axis Name position'''
     y_name_s = ObjectProperty(None)
 
 
@@ -62,7 +76,7 @@ class XyPadApp(OscServer, App):
     name = StringProperty()
     name = "kvGhislame"
     def build(self):
-        xypad=XyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', subpad=(200,200), app_name=self.name);
+        xypad=XyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', app_name=self.name);
         self.server.add_method(xypad.path, xypad.args_pattern, xypad.control_cb)
         return xypad
 
