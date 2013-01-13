@@ -23,6 +23,12 @@ class XyPad(Pad, OscSender):
     '''Pad Main Name Y position'''
     name_pad_pos = ReferenceListProperty(name_pad_x, name_pad_y)
     '''Pad Main Name position'''
+    name_pad_width = NumericProperty(0)
+    '''Pad Main Name width'''
+    name_pad_height = NumericProperty(0)
+    '''Pad Main Name height'''
+    name_pad_size = ReferenceListProperty(name_pad_width, name_pad_height)
+    '''Pad Main Name size'''
 
     # Axes
     x_name = StringProperty()
@@ -33,6 +39,12 @@ class XyPad(Pad, OscSender):
     '''X Axis Name Y position'''
     x_name_pad_pos = ReferenceListProperty(x_name_pad_x, x_name_pad_y)
     '''X Axis Name position'''
+    x_name_pad_width = NumericProperty(0)
+    '''X Axis Name width'''
+    x_name_pad_height = NumericProperty(0)
+    '''X Axis Name height'''
+    x_name_pad_size = ReferenceListProperty(x_name_pad_width, x_name_pad_height)
+    '''X Axis Name size'''
 
     y_name = StringProperty()
     y_name_w = ObjectProperty(None)
@@ -42,6 +54,12 @@ class XyPad(Pad, OscSender):
     '''Y Axis Name Y position'''
     y_name_pad_pos = ReferenceListProperty(y_name_pad_x, y_name_pad_y)
     '''Y Axis Name position'''
+    y_name_pad_width = NumericProperty(0)
+    '''Y Axis Name width'''
+    y_name_pad_height = NumericProperty(0)
+    '''Y Axis Name height'''
+    y_name_pad_size = ReferenceListProperty(y_name_pad_width, y_name_pad_height)
+    '''Y Axis Name size'''
     y_name_s = ObjectProperty(None)
 
 

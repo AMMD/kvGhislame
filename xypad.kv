@@ -26,17 +26,28 @@
         self.send_message()
 
 
+    x_name_pad_pos: root.x + root.pad_x, root.y + root.pad_y - x_name_w.height - 5
+    x_name_pad_size: root.pad_width, x_name_w.texture_size[1]
+
+    y_name_pad_pos: root.y + root.pad_y, root.x + root.pad_x - root.y_name_w.height - 5
+    y_name_pad_size: root.pad_height, root.y_name_w.texture_size[1]
+
+    name_pad_pos: root.x + root.pad_x - root.y_name_w.height - 5, x_name_pad_y - root.y_name_w.height - 5
+    name_pad_size: root.pad_width + root.y_name_height + 5, root.name_w.texture_size[1]
+
     Label:
         id: x_name_w
         font_size: 10
         text: root.x_name
         color: 0.8, 0.8, 0.8, 1
-        height: self.texture_size[1]
+        pos: root.x_name_pad_pos
+        size: root.x_name_pad_size
+#        height: self.texture_size[1]
         valign: 'top'
         halign: 'center'
-        width: root.width - root.pad_x #- root.subpad[0]
-        x: root.x + root.pad_x #+ root.subpad[0]
-        y: root.y + name_w.height + 5 + root.x_name_pad
+#        width: root.width - root.pad_x #- root.subpad[0]
+#        x: root.x + root.pad_x #+ root.subpad[0]
+#        y: root.y + name_w.height + 5 + root.x_name_pad
 
     Scatter:
         id: y_name_s
@@ -51,10 +62,12 @@
 
         Label:
             id: y_name_w
-            x: root.y + root.subpad[1] + 2
-            y: self.parent.height - self.height - root.y_name_pad
-            width: root.height - root.subpad[1] - 4 - 15
-            height: self.texture_size[1]
+#            x: root.y + root.subpad[1] + 2
+#            y: self.parent.height - self.height - root.y_name_pad
+            pos: root.y_name_pad_pos
+            size: root.y_name_pad_size
+#            width: root.height - root.subpad[1] - 4 - 15
+#            height: self.texture_size[1]
             color: 0.8, 0.8, 0.8, 1
             font_size: 10
             valign: 'bottom'
@@ -67,9 +80,11 @@
         text: root.name
         halign: 'center'
         color: root.r, root.g, root.b, 1
-        height: self.texture_size[1]
-        width: root.width
-        x: root.x
+#        height: self.texture_size[1]
+#        width: root.width
+        pos: root.name_pad_pos
+        size: root.name_pad_size
+#        x: root.x
 
 
 
