@@ -23,6 +23,10 @@ class LightXyPad(ExtendedXyPad):
 
     mode = OptionProperty('hsv', options=('hsv', 'rgb'))
 
+    x_limit = NumericProperty(0)
+    y_limit = NumericProperty(0)
+    limits = ReferenceListProperty(x_limit, y_limit)
+
     def get_hsv_triplet(self):
         return(self.hue, self.value[0], self.value[1])
 
@@ -37,6 +41,8 @@ class LightXyPad(ExtendedXyPad):
     def set_rgb_triplet(self, value):
         self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[3])
     rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet)
+
+
 
 
     def on_touch_move(self, touch):

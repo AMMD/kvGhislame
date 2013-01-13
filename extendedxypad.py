@@ -16,19 +16,30 @@ from osc import OscServer
 
 class ExtendedXyPad(XyPad):
     xfader = ObjectProperty(Fader)
-    yfader = ObjectProperty(Fader)
+    '''X value Fader'''
+    xfader_x = NumericProperty()
+    '''X value Fader X position'''
+    xfader_y = NumericProperty()
+    '''X value Fader Y position'''
+    xfader_pos = ReferenceListProperty(xfader_x, xfader_y)
+    '''X value Fader position'''
 
-    x_fader_subpad = NumericProperty(0)
-    y_fader_subpad = NumericProperty(0)
-    faders_subpad = ReferenceListProperty(x_fader_subpad, y_fader_subpad)
+    yfader = ObjectProperty(Fader)
+    '''Y value Fader'''
+    yfader_x = NumericProperty()
+    '''Y value Fader X position'''
+    yfader_y = NumericProperty()
+    '''Y value Fader Y position'''
+    Yfader_pos = ReferenceListProperty(xfader_x, xfader_y)
+    '''Y value Fader position'''
+
+    # x_fader_subpad = NumericProperty(0)
+    # y_fader_subpad = NumericProperty(0)
+    # faders_subpad = ReferenceListProperty(x_fader_subpad, y_fader_subpad)
 
     # subpad = (60, 80)
     # x_name_pad = 40
     # y_name_pad = 40
-
-    x_limit = NumericProperty(0)
-    y_limit = NumericProperty(0)
-    limits = ReferenceListProperty(x_limit, y_limit)
 
     def on_touch_move(self, touch):
         new_value_x = self.value_pos[0]

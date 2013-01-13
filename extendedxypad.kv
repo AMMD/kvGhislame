@@ -4,22 +4,30 @@
     xfader: xfader
     yfader: yfader
 
-    x_sp_align: 'left'
-    y_sp_align: 'bottom'
-    subpad: 60, 80
+#    x_sp_align: 'left'
+#    y_sp_align: 'bottom'
+#    subpad: 60, 80
 
-    x_name_pad: 40
-    y_name_pad: 40
+    pad_pos: 60, 80
+
+#    x_name_pad: 40
+#    y_name_pad: 40
+
+    xfader_pos: root.x + root.pad_x, root.y + root.x_name_pad_y - root.xfader.height - 5
+    xfader_size: root.pad_width, 50
+
+    yfader_pos: root.x + root.y_name_pad_y - root.y_name_pad_height, root.y + root.pad_y
+    yfader_size: 50, root.pad_height
 
     Fader:
         id: xfader
         orientation: 'horizontal'
         color: root.color
         padding: 15
-        width: root.width - root.subpad[0]
-        height: 50
-        x: root.x  + root.subpad[0]
-        y: root.y + 10 + root.faders_subpad[0]
+        size: root.xfader_size
+        pos: root.xfader_pos
+#        x: root.x  + root.subpad[0]
+#        y: root.y + 10 + root.faders_subpad[0]
         on_touch_move:
             root.value_pos = (self.value_pos[0], root.value_pos[1])
         step: root.step[0]
@@ -30,12 +38,14 @@
         id: yfader
         orientation: 'vertical'
         color: root.color
-        width: 50
+#        width: 50
         padding: 15
-        subpad: root.subpad[1]
-        height: root.height
-        x: root.x + root.faders_subpad[1]
-        pos: root.pos 
+#        subpad: pad_pos[1] # root.subpad[1]
+ #       height: root.height
+        size: root.yfader_size
+        pos: root.yfader_pos
+#        x: root.x + root.faders_subpad[1]
+#        pos: root.pos 
         on_touch_move:
             root.value_pos = (root.value_pos[0], self.value_pos[1])
         step: root.step[1]
