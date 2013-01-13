@@ -94,7 +94,7 @@ class XyPadApp(OscServer, App):
     name = StringProperty()
     name = "kvGhislame"
     def build(self):
-        xypad=XyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', app_name=self.name);
+        xypad=XyPad(color=(0, 1, 1), name='My XY Pad', x_name='X', y_name='Y', app_name=self.name, pad_size=(30, 50));
         self.server.add_method(xypad.path, xypad.args_pattern, xypad.control_cb)
         return xypad
 
