@@ -157,7 +157,7 @@ class Pad(Widget):
 
 class PadApp(App):
     def build(self):
-        return Pad(color=(1, 1, 0), pad_size=(300, 200), pad_pos=(50, 150))
+        return Pad(color=(1, 1, 0))
 
 if __name__ == '__main__':
     PadApp().run()
