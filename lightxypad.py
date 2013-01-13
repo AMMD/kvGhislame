@@ -38,6 +38,23 @@ class LightXyPad(ExtendedXyPad):
         self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[3])
     rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet)
 
+
+    def on_touch_move(self, touch):
+        new_value_x = self.value_pos[0]
+        new_value_y = self.value_pos[1]
+        if (touch.x < self.x_limit) | (touch.y < self.y_limit):
+            if self.collide_point(touch.x, touch.y):
+                self.hue_w.value_pos = touch.pos
+        else:
+            if touch.x > self.subpad[0] + self.padding:
+                self.xfader.value_pos = touch.pos
+                new_value_x = touch.x
+            if touch.y > self.subpad[1] + self.padding:
+                self.yfader.value_pos = touch.pos
+                new_value_y = touch.y
+            self.value_pos = (new_value_x, new_value_y)
+
+
     def control_cb(self, path, args, types, src):
         if re.search('127.0.0.1', src.get_url()):
             print "self-incoming message"
