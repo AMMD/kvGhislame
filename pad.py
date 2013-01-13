@@ -39,7 +39,6 @@ class Pad(Widget):
     y_step = NumericProperty(1)
     step = ReferenceListProperty(x_step, y_step)
 
-
     def get_norm_value(self):
         vmin = self.min
         d = self.max
