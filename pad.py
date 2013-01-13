@@ -20,6 +20,19 @@ class Pad(Widget):
     x_sp_align = OptionProperty('left', options=('left', 'right'))
     y_sp_align = OptionProperty('top', options=('top', 'bottom'))
 
+    pad_width = NumericProperty()
+    '''Width of the XY Pad'''
+    pad_height = NumericProperty()
+    '''Height of the XY Pad'''
+    pad_size = ReferenceListProperty(pad_width, pad_height)
+    '''Size of the XY Pad (tuple: (pad_width, pad_height))'''
+    pad_x = NumericProperty()
+    '''X position of the XY Pad'''
+    pad_y = NumericProperty()
+    '''Y position of the XY Pad'''
+    pad_pos = ReferenceListProperty(pad_x, pad_y)
+    '''Position of the XY Pad (tuple: (pad_x, pad_y))'''
+
     x_value = NumericProperty(0.)
     y_value = NumericProperty(0.)
     value = ReferenceListProperty(x_value, y_value)
@@ -91,19 +104,19 @@ class Pad(Widget):
 
     def get_value_pos(self):
         padding = self.padding
-        subpad = self.subpad
-        x = self.x
-        y = self.y
+#        subpad = self.subpad
+        x = self.pad_x
+        y = self.pad_y
         nval = self.value_normalized
-        if self.x_sp_align == 'left':
-            xpos = x + padding + subpad[0]
-        else:
-            xpos = x + padding
-        if self.y_sp_align == 'bottom':
-            ypos = y + padding + subpad[1]
-        else:
-            ypos = y + padding
-        return (xpos + nval[0] * (self.width - 2 * padding - subpad[0]), ypos + nval[1] * (self.height - 2 * padding - subpad[1]))
+#        if self.x_sp_align == 'left':
+        xpos = x + padding # + subpad[0]
+#        else:
+#            xpos = x + padding
+#        if self.y_sp_align == 'bottom':
+        ypos = y + padding #+ subpad[1]
+#        else:
+#            ypos = y + padding
+        return (xpos + nval[0] * (self.pad_width - 2 * padding), ypos + nval[1] * (self.pad_height - 2 * padding))
 
     def set_value_pos(self, pos):
         padding = self.padding
