@@ -33,20 +33,9 @@ class ExtendedXyPad(XyPad):
     yfader_pos = ReferenceListProperty(yfader_x, yfader_y)
     '''Y value Fader position'''
 
-    # x_fader_subpad = NumericProperty(0)
-    # y_fader_subpad = NumericProperty(0)
-    # faders_subpad = ReferenceListProperty(x_fader_subpad, y_fader_subpad)
-
-    # subpad = (60, 80)
-    # x_name_pad = 40
-    # y_name_pad = 40
-
     def on_touch_move(self, touch):
         new_value_x = self.value_pos[0]
         new_value_y = self.value_pos[1]
-        # if (touch.x < self.x_limit) | (touch.y < self.y_limit):
-        #     self.hue_w.value_pos = touch.pos
-        # else:
         if touch.x > self.x + self.pad_x + self.padding:
             self.xfader.value_pos = touch.pos
             new_value_x = touch.x
