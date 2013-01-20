@@ -16,7 +16,7 @@
     xfader_pos: root.x + root.pad_x, root.y + root.x_name_pad_y - root.xfader.height - 5
     xfader_size: root.pad_width, 50
 
-    yfader_pos: root.x + root.y_name_pad_y - root.y_name_pad_height, root.y + root.pad_y
+    yfader_pos: root.x + root.pad_y - root.y_name_pad_height - yfader.width - 10, root.y + root.pad_y
     yfader_size: 50, root.pad_height
 
     Fader:
@@ -40,6 +40,7 @@
         color: root.color
 #        width: 50
         padding: 15
+        subpad: 0
 #        subpad: pad_pos[1] # root.subpad[1]
  #       height: root.height
         size: root.yfader_size

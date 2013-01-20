@@ -30,7 +30,7 @@ class ExtendedXyPad(XyPad):
     '''Y value Fader X position'''
     yfader_y = NumericProperty()
     '''Y value Fader Y position'''
-    Yfader_pos = ReferenceListProperty(xfader_x, xfader_y)
+    yfader_pos = ReferenceListProperty(yfader_x, yfader_y)
     '''Y value Fader position'''
 
     # x_fader_subpad = NumericProperty(0)
