@@ -5,14 +5,14 @@
         Color:
             rgba: 1, 1, 1, 0.5
         Line:
-            rectangle: self.pad_x + self.padding, self.pad_y + self.padding, self.pad_width - 2 * self.padding, self.pad_height - 2 * self.padding
+            rectangle: self.x + self.pad_x + self.padding, self.y + self.pad_y + self.padding, self.pad_width - 2 * self.padding, self.pad_height - 2 * self.padding
 
         Color:
             rgba: self.r, self.g, self.b, 0.3
         Line:
-            rectangle: self.value_pos[0], self.pad_y + self.padding, 0, self.pad_height - 2 * self.padding - 2
+            rectangle: self.value_pos[0], self.y + self.pad_y + self.padding, 0, self.pad_height - 2 * self.padding - 2
         Line:
-            rectangle: self.pad_x + self.padding, self.value_pos[1], self.pad_width - 2 * self.padding - 2, 0
+            rectangle: self.x + self.pad_x + self.padding, self.value_pos[1], self.pad_width - 2 * self.padding - 2, 0
         Color:
             rgb: 1, 1, 1
         Rectangle:
