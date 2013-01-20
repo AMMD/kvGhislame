@@ -47,10 +47,10 @@ class ExtendedXyPad(XyPad):
         # if (touch.x < self.x_limit) | (touch.y < self.y_limit):
         #     self.hue_w.value_pos = touch.pos
         # else:
-        if touch.x > self.subpad[0] + self.padding:
+        if touch.x > self.x + self.pad_x + self.padding:
             self.xfader.value_pos = touch.pos
             new_value_x = touch.x
-        if touch.y > self.subpad[1] + self.padding:
+        if touch.y > self.y + self.pad_y + self.padding:
             self.yfader.value_pos = touch.pos
             new_value_y = touch.y
         self.value_pos = (new_value_x, new_value_y)
