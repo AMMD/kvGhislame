@@ -31,5 +31,5 @@
         color: root.r, root.g, root.b, 1
         text: str(round(root.value[0], 2)) + ", " + str(round(root.value[1], 2))
         size: self.texture_size
-        x: root.value_pos[0] + root.padding if root.value_pos[0] < (root.pad_width / 2 + root.padding + root.pad_x) else root.value_pos[0] - root.padding - self.width 
-        y: root.value_pos[1] + root.padding if root.value_pos[1] < (root.pad_height / 2 + root.padding + root.pad_y) else root.value_pos[1] - root.padding - self.height
+        x: root.value_pos[0] + root.padding if root.value_pos[0] < (root.x + root.pad_width / 2 + root.padding + root.pad_x) else root.value_pos[0] - root.padding - self.width 
+        y: root.value_pos[1] + root.padding if root.value_pos[1] < (root.y + root.pad_height / 2 + root.padding + root.pad_y) else root.value_pos[1] - root.padding - self.height

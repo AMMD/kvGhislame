@@ -26,7 +26,7 @@
     x_name_pad_pos: root.x + root.pad_x, root.y + root.pad_y - x_name_w.height - 5
     x_name_pad_size: root.pad_width, x_name_w.texture_size[1]
 
-    y_name_pad_pos: root.y + root.pad_y, root.x + root.pad_x - 5
+    y_name_pad_pos: root.y + root.pad_y, root.pad_x
     y_name_pad_size: root.pad_height, root.y_name_w.texture_size[1]
 
     name_pad_pos: root.x + root.pad_x - root.y_name_w.height - 5, root.y + root.x_name_pad_y - root.x_name_w.height - 5
@@ -44,14 +44,13 @@
 
     Scatter:
         id: y_name_s
-
-        pos: root.x, root.y
+        pos: self.parent.x, self.parent.y
 
         rotation: 90
 
         Label:
             id: y_name_w
-            pos: root.y_name_pad_x, self.parent.height - root.y_name_pad_y
+            pos: root.y_name_pad_x, self.parent.height - root.y_name_pad_y + self.height
             size: root.y_name_pad_size
             color: 0.8, 0.8, 0.8, 1
             font_size: 10
