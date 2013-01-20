@@ -17,6 +17,14 @@ class LightXyPad(ExtendedXyPad):
     hue_w = ObjectProperty(ValueFader)
     hue = NumericProperty(0)
 
+    hfader_x = NumericProperty()
+    hfader_y = NumericProperty()
+    hfader_pos = ReferenceListProperty(hfader_x, hfader_y)
+
+    hfader_width = NumericProperty()
+    hfader_height = NumericProperty()
+    hfader_size = ReferenceListProperty(hfader_width, hfader_height)
+
     # subpad = (60, 160)
     # x_name_pad = 120
     # faders_subpad = (80, 0)
@@ -52,10 +60,10 @@ class LightXyPad(ExtendedXyPad):
             if self.collide_point(touch.x, touch.y):
                 self.hue_w.value_pos = touch.pos
         else:
-            if touch.x > self.x + self.subpad[0] + self.padding:
+            if touch.x > self.x + self.pad_x:
                 self.xfader.value_pos = touch.pos
                 new_value_x = touch.x
-            if touch.y > self.y + self.subpad[1] + self.padding:
+            if touch.y > self.y + self.pad_y:
                 self.yfader.value_pos = touch.pos
                 new_value_y = touch.y
             self.value_pos = (new_value_x, new_value_y)
