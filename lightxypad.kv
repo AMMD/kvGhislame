@@ -28,8 +28,11 @@
 #    y_name_pad: 0
 #    faders_subpad: 80, 0
 
-    hfader_pos: root.x + root.yfader_x, root.y + root.name_pad_y - root.hfader_height - 30
-    hfader_size: root.width - root.yfader_x, 50
+    hfader_pos: root.x + root.yfader.x, root.y + root.xfader_y - root.hfader_height - 10
+    hfader_size: root.pad_x + root.pad_width - root.yfader.x, 50
+
+#    name_pad_pos: root.x, root.y
+#    name_pad_width: root.width
 
     canvas.before:
     	Color:
@@ -43,8 +46,8 @@
             rgb: 1, 1, 1
             a: 1
     	Rectangle:
-    	    pos: root.hfader_x + 10, root.hfader_y
-    	    size: root.hfader_width - 21, root.hfader_height + 5
+    	    pos: root.hfader_x + 10, root.hfader_y + (root.hfader_height - 20) / 2
+    	    size: root.hfader_width - 21, 20
             source: './data/teinte.png'
         Rectangle:
             pos: root.x + root.pad_x +1 + root.padding, root.y + root.pad_y + 1 + root.padding #self.x + self.subpad[0] + self.padding + 1, self.y + self.subpad[1] + self.padding + 1
