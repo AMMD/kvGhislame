@@ -19,14 +19,17 @@
     min: 0, 0
     step: 0.001, 0.001
 
-    x_limit: self.x
-    y_limit: self.y + 80
+    x_limit: root.x + root.hfader_x # self.x
+    y_limit: root.y + root.hfader_y + root.hfader_height + 20 # self.y + 80
 
     pad_pos: 60, 160
 #    subpad: 60, 160
 #    x_name_pad: 120
 #    y_name_pad: 0
 #    faders_subpad: 80, 0
+
+    hfader_pos: root.x + root.yfader_x, root.y + root.name_pad_y - root.hfader_height - 30
+    hfader_size: root.width - root.yfader_x, 50
 
     canvas.before:
     	Color:
@@ -40,8 +43,8 @@
             rgb: 1, 1, 1
             a: 1
     	Rectangle:
-    	    pos: self.x + 10, 20
-    	    size: self.width - 21, 55
+    	    pos: root.hfader_x + 10, root.hfader_y
+    	    size: root.hfader_width - 21, root.hfader_height + 5
             source: './data/teinte.png'
         Rectangle:
             pos: root.x + root.pad_x +1 + root.padding, root.y + root.pad_y + 1 + root.padding #self.x + self.subpad[0] + self.padding + 1, self.y + self.subpad[1] + self.padding + 1
@@ -52,10 +55,8 @@
         id: hue_w
         name: 'hue'
         color: (1, 1, 1)
-        width: root.width
-        height: 50
-        x: root.x
-        y: root.y + 20
+        pos: root.hfader_pos
+        size: root.hfader_size
         min: 0
         max: 1
         step: root.step[0]
