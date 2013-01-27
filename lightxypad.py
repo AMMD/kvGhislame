@@ -48,7 +48,7 @@ class LightXyPad(ExtendedXyPad):
 
     def set_rgb_triplet(self, value):
         self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[3])
-    rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet)
+    rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet, bind=('hsv',))
 
 
 
@@ -58,7 +58,8 @@ class LightXyPad(ExtendedXyPad):
         new_value_y = self.value_pos[1]
         if (touch.x < self.x_limit) | (touch.y < self.y_limit):
             if self.collide_point(touch.x, touch.y):
-                self.hue_w.value_pos = touch.pos
+                return super(LightXyPad, self).on_touch_move(touch)
+#                self.hue_w.value_pos = touch.pos
         else:
             if touch.x > self.x + self.pad_x:
                 self.xfader.value_pos = touch.pos
@@ -67,6 +68,7 @@ class LightXyPad(ExtendedXyPad):
                 self.yfader.value_pos = touch.pos
                 new_value_y = touch.y
             self.value_pos = (new_value_x, new_value_y)
+            return True
 
 
     def control_cb(self, path, args, types, src):

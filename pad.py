@@ -2,8 +2,9 @@ import kivy
 kivy.require('1.4.1')
 
 from kivy.app import App
+from kivy.uix.layout import Layout
 from kivy.uix.slider import Slider, Widget
-from kivy.properties import NumericProperty, ReferenceListProperty, AliasProperty, OptionProperty, ListProperty
+from kivy.properties import NumericProperty, ReferenceListProperty, AliasProperty, OptionProperty, ListProperty, ObjectProperty
 
 class Pad(Widget):
 

@@ -16,7 +16,7 @@ class LightBox(LightXyPad):
     g_fader = ValueFader()
     b_fader = ValueFader()
 
-    custom_color_a = Toggle()
+    custom_color_1 = Toggle()
     custom_color_2 = Toggle()
     custom_color_3 = Toggle()
     custom_color_4 = Toggle()
