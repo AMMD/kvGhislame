@@ -3,6 +3,7 @@ kivy.require('1.5.1')
 
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.uix.layout import Layout
 
 from lightxypad import LightXyPad
 from valuefader import ValueFader

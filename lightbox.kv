@@ -17,7 +17,7 @@
     custom_color_8: cc8
 
     pad_pos: root.x + main_dimmer_fader.x + main_dimmer_fader.width + root.yfader.width + root.y_name_pad_height + 30, root.y + root.name_pad_height + root.x_name_pad_height + root.xfader.height + root.hfader_height + 30
-    pad_size: root.width / 2, root.height - root.name_pad_height - 10
+    pad_size: root.width / 2, root.width / 2
 
 
     ValueFader:
@@ -26,7 +26,9 @@
         name: root.name
         color: root.color
         pos: root.x, root.y + root.name_pad_height + 10
-        height: root.height
+        height: root.height - root.name_pad_height - 15
+        value: root.hsv[2]
+        max: 1
 
     ValueFader:
         id: r_fader
@@ -37,6 +39,7 @@
         y: root.main_dimmer_fader.y
         width: 50
         height: root.main_dimmer_fader.height
+        value: root.rgb[0]
 
     ValueFader:
         id: g_fader
@@ -47,6 +50,7 @@
         y: root.main_dimmer_fader.y
         width: 50
         height: root.main_dimmer_fader.height
+        value: root.rgb[1]
 
     ValueFader:
         id: b_fader
@@ -57,36 +61,50 @@
         y: root.main_dimmer_fader.y
         width: 50
         height: root.main_dimmer_fader.height
+        value: root.rgb[2]
 
-    Toggle:
-        id: cc1
-        color: 1, 0, 0
-        size: 30, 30
+    BoxLayout:
+        orientation: 'vertical'
+        size: 30, 310
+        pos: root.x, root.main_dimmer_fader.y + 15 # + root.main_dimmer_fader.height - 310
+        spacing: 10 
 
-    Toggle:
-        id: cc2
-        color: 1, 1, 0
+        Toggle:
+            id: cc1
+            main_color: 1, 0, 0
+            size: 30, 30
 
-    Toggle:
-        id: cc3
-        color: 1, 1, 1
+        Toggle:
+            id: cc2
+            main_color: 1, 1, 0
+            size: 30, 30
 
-    Toggle:
-        id: cc4
-        color: 1, 0, 1
+        Toggle:
+            id: cc3
+            main_color: 1, 1, 1
+            size: 30, 30
 
-    Toggle:
-        id: cc5
-        color: 0, 1, 1
+        Toggle:
+            id: cc4
+            main_color: 1, 0, 1
+            size: 30, 30
 
-    Toggle:
-        id: cc6
-        color: 0, 1, 0
+        Toggle:
+            id: cc5
+            main_color: 0, 1, 1
+            size: 30, 30
 
-    Toggle:
-        id: cc7
-        color: 0, 0, 1
+        Toggle:
+            id: cc6
+            main_color: 0, 1, 0
+            size: 30, 30
 
-    Toggle:
-        id: cc8
-        color: 1, 0.5, 1
+        Toggle:
+            id: cc7
+            main_color: 0, 0, 1
+            size: 30, 30
+
+        Toggle:
+            id: cc8
+            main_color: 1, 0.5, 1
+            size: 30, 30
