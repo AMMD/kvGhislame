@@ -1,0 +1,92 @@
+#!kivy 1.5
+
+<LightBox>:
+    main_dimmer_fader: main_dimmer_fader
+
+    r_fader: r_fader
+    g_fader: g_fader
+    b_fader: b_fader
+
+    custom_color_1: cc1
+    custom_color_2: cc2
+    custom_color_3: cc3
+    custom_color_4: cc4
+    custom_color_5: cc5
+    custom_color_6: cc6
+    custom_color_7: cc7
+    custom_color_8: cc8
+
+    pad_pos: root.x + main_dimmer_fader.x + main_dimmer_fader.width + root.yfader.width + root.y_name_pad_height + 30, root.y + root.name_pad_height + root.x_name_pad_height + root.xfader.height + root.hfader_height + 30
+    pad_size: root.width / 2, root.height - root.name_pad_height - 10
+
+
+    ValueFader:
+        id: main_dimmer_fader
+        orientation: 'vertical'
+        name: root.name
+        color: root.color
+        pos: root.x, root.y + root.name_pad_height + 10
+        height: root.height
+
+    ValueFader:
+        id: r_fader
+        orientation: 'vertical'
+        color: 1, 0, 0
+        name: 'red'
+        x: root.pad_x + root.pad_width + 30
+        y: root.main_dimmer_fader.y
+        width: 50
+        height: root.main_dimmer_fader.height
+
+    ValueFader:
+        id: g_fader
+        orientation: 'vertical'
+        color: 0, 1, 0
+        name: 'green'
+        x: root.pad_x + root.pad_width + 30 + root.r_fader.width + 5
+        y: root.main_dimmer_fader.y
+        width: 50
+        height: root.main_dimmer_fader.height
+
+    ValueFader:
+        id: b_fader
+        orientation: 'vertical'
+        color: 0, 0, 1
+        name: 'blue'
+        x: root.pad_x + root.pad_width + 30 + root.r_fader.width + root.g_fader.width + 5 + 5
+        y: root.main_dimmer_fader.y
+        width: 50
+        height: root.main_dimmer_fader.height
+
+    Toggle:
+        id: cc1
+        color: 1, 0, 0
+        size: 30, 30
+
+    Toggle:
+        id: cc2
+        color: 1, 1, 0
+
+    Toggle:
+        id: cc3
+        color: 1, 1, 1
+
+    Toggle:
+        id: cc4
+        color: 1, 0, 1
+
+    Toggle:
+        id: cc5
+        color: 0, 1, 1
+
+    Toggle:
+        id: cc6
+        color: 0, 1, 0
+
+    Toggle:
+        id: cc7
+        color: 0, 0, 1
+
+    Toggle:
+        id: cc8
+        color: 1, 0.5, 1
