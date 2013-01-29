@@ -7,6 +7,7 @@
     g_fader: g_fader
     b_fader: b_fader
 
+
     custom_color_1: cc1
     custom_color_2: cc2
     custom_color_3: cc3
@@ -19,11 +20,10 @@
     pad_pos: root.x + main_dimmer_fader.x + main_dimmer_fader.width + root.yfader.width + root.y_name_pad_height + 30, root.y + root.name_pad_height + root.x_name_pad_height + root.xfader.height + root.hfader_height + 30
     pad_size: root.width / 2, root.width / 2
 
-    on_touch_move:
-        root.main_dimmer_fader.value = root.hsv[2]
-        root.r_fader.value = root.rgb[0]
-        root.g_fader.value = root.rgb[1]
-        root.b_fader.value = root.rgb[2]
+#    on_parent:
+#        root.yfader.on_touch_move:
+#            root.main_dimmer_fader.value = root.
+
 
     ValueFader:
         id: main_dimmer_fader
@@ -33,9 +33,10 @@
         pos: root.x, root.y + root.name_pad_height + 10
         height: root.height - root.name_pad_height - 15
         max: 1
+        value: root.hsv[2]
         on_touch_move:
-            self.value_pos = touch.pos
-            root.hsv = (root.hsv[0], root.hsv[1], self.value)
+            root.value = (root.value[0], self.value)
+#            root.yfader.value = self.value
 
     ValueFader:
         id: r_fader
@@ -47,6 +48,7 @@
         width: 50
         height: root.main_dimmer_fader.height
         max: 1
+        value: root.rgb[0]
 
     ValueFader:
         id: g_fader
@@ -58,6 +60,7 @@
         width: 50
         height: root.main_dimmer_fader.height
         max: 1
+        value: root.rgb[1]
 
     ValueFader:
         id: b_fader
@@ -69,6 +72,7 @@
         width: 50
         height: root.main_dimmer_fader.height
         max: 1
+        value: root.rgb[2]
 
     BoxLayout:
         orientation: 'vertical'

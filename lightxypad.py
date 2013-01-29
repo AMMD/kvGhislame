@@ -47,12 +47,12 @@ class LightXyPad(ExtendedXyPad):
         return(colorsys.hsv_to_rgb(self.hsv[0], self.hsv[1], self.hsv[2]))
 
     def set_rgb_triplet(self, value):
-        self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[3])
+        self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[2])
     rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet, bind=('hsv',))
 
     def on_touch_down(self, touch):
         if ('button' in touch.profile) & ('right' in touch.button):
-            print "[XY Pad " + self.name + "] OSC control:"
+            print "[LightXY Pad " + self.name + "] OSC control:"
             print "sending path: " + self.path
             print "control path: " + self.control_path
         if Widget(pos=(self.x + self.pad_x, self.y + self.pad_y), size=self.pad_size).collide_point(*touch.pos):
