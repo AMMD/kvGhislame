@@ -122,9 +122,11 @@ class Pad(Widget):
     :data:`value_pos` is an :class:`~kivy.properties.AliasProperty`.
     '''
     def on_touch_down(self, touch):
-        if self.collide_point(*touch.pos):
+        if Widget(pos=(self.x + self.pad_x, self.y + self.pad_y), size=self.pad_size).collide_point(*touch.pos):
             touch.grab(self)
             return True
+        else:
+            return super(Pad, self).on_touch_down(touch)
 
     def on_touch_move(self, touch):
         if touch.grab_current == self:

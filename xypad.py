@@ -68,9 +68,11 @@ class XyPad(Pad, OscSender):
             print "[Fader " + self.name + "] OSC control:"
             print "sending path: " + self.path
             print "control path: " + self.control_path
-        if self.collide_point(*touch.pos):
+        if Widget(pos=(self.x + self.pad_x, self.y + self.pad_y), size=self.pad_size).collide_point(*touch.pos):
             touch.grab(self)
             return True
+        else:
+            return super(XyPad, self).on_touch_down(touch)
 
     def on_touch_move(self, touch):
         if touch.grab_current == self:
