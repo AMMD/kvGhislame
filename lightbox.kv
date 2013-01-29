@@ -49,6 +49,8 @@
         height: root.main_dimmer_fader.height
         max: 1
         value: root.rgb[0]
+        on_touch_move:
+            root.rgb = self.value, root.rgb[1], root.rgb[2]
 
     ValueFader:
         id: g_fader
@@ -61,6 +63,9 @@
         height: root.main_dimmer_fader.height
         max: 1
         value: root.rgb[1]
+        on_touch_move:
+            root.rgb = root.rgb[0], self.value, root.rgb[2]
+
 
     ValueFader:
         id: b_fader
@@ -73,6 +78,8 @@
         height: root.main_dimmer_fader.height
         max: 1
         value: root.rgb[2]
+        on_touch_move:
+            root.rgb = root.rgb[0], root.rgb[1], self.value
 
     BoxLayout:
         orientation: 'vertical'
