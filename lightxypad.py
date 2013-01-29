@@ -50,17 +50,27 @@ class LightXyPad(ExtendedXyPad):
         self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[3])
     rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet, bind=('hsv',))
 
-
+    def on_touch_down(self, touch):
+        if ('button' in touch.profile) & ('right' in touch.button):
+            print "[XY Pad " + self.name + "] OSC control:"
+            print "sending path: " + self.path
+            print "control path: " + self.control_path
+        if Widget(pos=(self.x + self.pad_x, self.y + self.pad_y), size=self.pad_size).collide_point(*touch.pos):
+            touch.grab(self)
+            return True
+        else:
+            return super(LightXyPad, self).on_touch_down(touch)
 
 
     def on_touch_move(self, touch):
-        new_value_x = self.value_pos[0]
-        new_value_y = self.value_pos[1]
-        if (touch.x < self.x_limit) | (touch.y < self.y_limit):
-            if self.collide_point(touch.x, touch.y):
-                return super(LightXyPad, self).on_touch_move(touch)
+        if touch.grab_current == self:
+            new_value_x = self.value_pos[0]
+            new_value_y = self.value_pos[1]
+#            if (touch.x < self.x_limit) | (touch.y < self.y_limit):
+#                if self.collide_point(touch.x, touch.y):
+#                    return super(LightXyPad, self).on_touch_move(touch)
 #                self.hue_w.value_pos = touch.pos
-        else:
+#                else:
             if touch.x > self.x + self.pad_x:
                 self.xfader.value_pos = touch.pos
                 new_value_x = touch.x
@@ -68,7 +78,6 @@ class LightXyPad(ExtendedXyPad):
                 self.yfader.value_pos = touch.pos
                 new_value_y = touch.y
             self.value_pos = (new_value_x, new_value_y)
-            return True
 
 
     def control_cb(self, path, args, types, src):

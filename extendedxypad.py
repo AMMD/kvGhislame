@@ -42,7 +42,7 @@ class ExtendedXyPad(XyPad):
             touch.grab(self)
             return True
         else:
-            return super(XyPad, self).on_touch_down(touch)
+            return super(ExtendedXyPad, self).on_touch_down(touch)
 
     def on_touch_move(self, touch):
         if touch.grab_current == self:
