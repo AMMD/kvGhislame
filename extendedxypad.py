@@ -33,16 +33,28 @@ class ExtendedXyPad(XyPad):
     yfader_pos = ReferenceListProperty(yfader_x, yfader_y)
     '''Y value Fader position'''
 
+    def on_touch_down(self, touch):
+        if ('button' in touch.profile) & ('right' in touch.button):
+            print "[Xtended XY Pad " + self.name + "] OSC control:"
+            print "sending path: " + self.path
+            print "control path: " + self.control_path
+        if Widget(pos=(self.x + self.pad_x, self.y + self.pad_y), size=self.pad_size).collide_point(*touch.pos):
+            touch.grab(self)
+            return True
+        else:
+            return super(XyPad, self).on_touch_down(touch)
+
     def on_touch_move(self, touch):
-        new_value_x = self.value_pos[0]
-        new_value_y = self.value_pos[1]
-        if touch.x > self.x + self.pad_x + self.padding:
-            self.xfader.value_pos = touch.pos
-            new_value_x = touch.x
-        if touch.y > self.y + self.pad_y + self.padding:
-            self.yfader.value_pos = touch.pos
-            new_value_y = touch.y
-        self.value_pos = (new_value_x, new_value_y)
+        if touch.grab_current == self:
+            new_value_x = self.value_pos[0]
+            new_value_y = self.value_pos[1]
+            if touch.x > self.x + self.pad_x + self.padding:
+                self.xfader.value_pos = touch.pos
+                new_value_x = touch.x
+            if touch.y > self.y + self.pad_y + self.padding:
+                self.yfader.value_pos = touch.pos
+                new_value_y = touch.y
+            self.value_pos = (new_value_x, new_value_y)
                     
 
     def control_cb(self, path, args, types, src):
@@ -53,6 +65,7 @@ class ExtendedXyPad(XyPad):
             self.value = (float(args[0]), float(args[1]))
             self.xfader.value = self.value[0]
             self.yfader.value = self.value[1]
+
 
 
 

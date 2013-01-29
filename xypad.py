@@ -65,7 +65,7 @@ class XyPad(Pad, OscSender):
 
     def on_touch_down(self, touch):
         if ('button' in touch.profile) & ('right' in touch.button):
-            print "[Fader " + self.name + "] OSC control:"
+            print "[XY Pad " + self.name + "] OSC control:"
             print "sending path: " + self.path
             print "control path: " + self.control_path
         if Widget(pos=(self.x + self.pad_x, self.y + self.pad_y), size=self.pad_size).collide_point(*touch.pos):
