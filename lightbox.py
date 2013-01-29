@@ -46,10 +46,10 @@ class LightBox(LightXyPad):
             new_value_x = self.value_pos[0]
             new_value_y = self.value_pos[1]
             if touch.x > self.x + self.pad_x:
-                self.xfader.value_pos = touch.pos
+#                self.xfader.value_pos = touch.pos
                 new_value_x = touch.x
             if touch.y > self.y + self.pad_y:
-                self.yfader.value_pos = touch.pos
+#                self.yfader.value_pos = touch.pos
 #                self.main_dimmer_fader.value_pos = touch.pos
                 new_value_y = touch.y
             self.value_pos = (new_value_x, new_value_y)
