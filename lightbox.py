@@ -1,3 +1,5 @@
+import colorsys
+
 import kivy
 kivy.require('1.5.1')
 
@@ -60,6 +62,9 @@ class LightBox(LightXyPad):
 #        root.r_fader.value = root.rgb[0]
 #        root.g_fader.value = root.rgb[1]
 #        root.b_fader.value = root.rgb[2]
+
+    def rgb_to_hsv(color):
+        return colorsys.rgb_to_hsv(color)
 
 
 Builder.load_file('valuefader.kv')
