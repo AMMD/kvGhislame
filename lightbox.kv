@@ -7,7 +7,6 @@
     g_fader: g_fader
     b_fader: b_fader
 
-
     custom_color_1: cc1
     custom_color_2: cc2
     custom_color_3: cc3
@@ -16,6 +15,8 @@
     custom_color_6: cc6
     custom_color_7: cc7
     custom_color_8: cc8
+
+    flash: flash
 
     pad_pos: root.x + main_dimmer_fader.x + main_dimmer_fader.width + root.yfader.width + root.y_name_pad_height + 30, root.y + root.name_pad_height + root.x_name_pad_height + root.xfader.height + root.hfader_height + 30
     pad_size: root.width / 2, root.width / 2
@@ -158,3 +159,16 @@
             on_press:
                 root.rgb = self.main_color
                 root.hsv = root.hsv[0], root.hsv[1], 0
+
+
+    Push:
+        id: flash
+#        main_color: 1, 1, 1
+        hsv: root.hsv[0], root.hsv[1], 1
+        size: 30, 30
+        center_x: root.main_dimmer_fader.center_x
+        on_press:
+            root.old_hue = root.hsv[2]
+            root.hsv = root.hsv[0], root.hsv[1], 1
+        on_release:
+            root.hsv = root.hsv[0], root.hsv[1], root.old_hue

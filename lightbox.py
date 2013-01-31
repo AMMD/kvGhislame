@@ -7,6 +7,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.layout import Layout
 from kivy.uix.widget import Widget
+from kivy.properties import NumericProperty
 
 from lightxypad import LightXyPad
 from valuefader import ValueFader
@@ -29,6 +30,9 @@ class LightBox(LightXyPad):
     custom_color_8 = Push()
 
 # TODO Flash
+    flash = Push()
+    old_hue = NumericProperty()
+
 # TODO Link
 # TODO Develop
 
