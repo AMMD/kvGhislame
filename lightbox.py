@@ -68,7 +68,7 @@ class LightBox(LightXyPad):
 
 
 Builder.load_file('valuefader.kv')
-Builder.load_file('toggle.kv')
+Builder.load_file('push.kv')
 Builder.load_file('lightxypad.kv')
 
 class LightBoxApp(App):
