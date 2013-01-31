@@ -8,6 +8,7 @@ from kivy.lang import Builder
 
 from audiostrip import AudioStrip
 from lightxypad import LightXyPad
+from lightstrip import LightStrip
 # from osc import OscSendingService
 
 class OscSendingService(Widget):
@@ -21,7 +22,8 @@ class MainWidget(Widget):
     mystrip3 = ObjectProperty(None)
     mystrip4 = ObjectProperty(None)
     stripwidth = NumericProperty(70)
-    mylightxypad = ObjectProperty(None)
+    mylightstrip1 = ObjectProperty(None)
+    mylightstrip2 = ObjectProperty(None)
 
 class MainWidgetApp(App):
     def build(self):
@@ -37,6 +39,7 @@ class MainWidgetApp(App):
 Builder.load_file('audiostrip.kv')
 Builder.load_file('oscsendingservice.kv')
 Builder.load_file('lightxypad.kv')
+Builder.load_file('lightstrip.kv')
 Factory.register('AudioStrip', AudioStrip)
 Factory.register('OscSendingService', OscSendingService)
 if __name__ == '__main__':

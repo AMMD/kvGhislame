@@ -5,7 +5,8 @@
     mystrip2: mystrip2
     mystrip3: mystrip3
     mystrip4: mystrip4
-    mylightxypad: mylightxypad
+    mylightstrip1: mylightstrip1
+    mylightstrip2: mylightstrip2
 
     AudioStrip:
         id: mystrip1
@@ -15,7 +16,6 @@
         width: root.stripwidth
         height: root.height
         color: 0.5, 0.5, 1
-
 
     AudioStrip:
         id: mystrip2
@@ -35,7 +35,6 @@
         height: root.height
         color: 0.5, 1, 1
 
-
     AudioStrip:
         id: mystrip4
         name: 'My Strip 4'
@@ -45,14 +44,27 @@
         height: root.height
         color: 1, 0.5, 1
 
-    LightXyPad:
-        id: mylightxypad
-        name: 'My Light XY Pad'
+    LightStrip:
+        id: mylightstrip1
+        name: 'My Light 1'
         x: root.x + root.stripwidth * 4 + 10
         y: root.y
         height: root.height
-        width: root.height
+        width: 100
+#        width: root.height
         color: 0.5, 0.5, 1
+
+    LightStrip:
+        id: mylightstrip2
+        name: 'My Light 2'
+        x: root.x + root.stripwidth * 4 + 10 + 200
+        y: root.y
+        height: root.height
+        width: 100
+#        width: root.height
+        color: 1, 0.5, 1
+
+
 
 
     OscSendingService:
