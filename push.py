@@ -3,13 +3,13 @@ kivy.require('1.5.1')
 
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.uix.togglebutton import ToggleButton
+from kivy.uix.button import Button
 from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ReferenceListProperty, BooleanProperty
 from kivy.lang import Builder
 
 from osc import OscSender
 
-class Toggle(ToggleButton, OscSender):
+class Push(Button, OscSender):
     name = StringProperty()
     r = NumericProperty()
     g = NumericProperty()
@@ -29,7 +29,7 @@ class Toggle(ToggleButton, OscSender):
                 self.state = 'normal'
 
     def state_to_args(self):
-        print self.one_on_down
+#        print self.one_on_down
         if self.one_on_down == True:
             if self.state == 'down':
                 self.args = [1]
@@ -41,11 +41,11 @@ class Toggle(ToggleButton, OscSender):
             else:
                 self.args = [1]            
 
-class ToggleApp(App):
+class PushApp(App):
     name = StringProperty()
     name = "kvGhislame"
     def build(self):
-        return Toggle(name="My Toggle", main_color=(1,0,0), app_name=self.name)
+        return Push(name="My Push", main_color=(1,0,0), app_name=self.name)
 
 if __name__ == "__main__":
-    ToggleApp().run()
+    PushApp().run()

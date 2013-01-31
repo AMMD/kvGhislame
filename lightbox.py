@@ -10,7 +10,7 @@ from kivy.uix.widget import Widget
 
 from lightxypad import LightXyPad
 from valuefader import ValueFader
-from toggle import Toggle
+from push import Push
 
 class LightBox(LightXyPad):
     main_dimmer_fader = ValueFader()
@@ -19,14 +19,14 @@ class LightBox(LightXyPad):
     g_fader = ValueFader()
     b_fader = ValueFader()
 
-    custom_color_1 = Toggle()
-    custom_color_2 = Toggle()
-    custom_color_3 = Toggle()
-    custom_color_4 = Toggle()
-    custom_color_5 = Toggle()
-    custom_color_6 = Toggle()
-    custom_color_7 = Toggle()
-    custom_color_8 = Toggle()
+    custom_color_1 = Push()
+    custom_color_2 = Push()
+    custom_color_3 = Push()
+    custom_color_4 = Push()
+    custom_color_5 = Push()
+    custom_color_6 = Push()
+    custom_color_7 = Push()
+    custom_color_8 = Push()
 
 # TODO Flash
 # TODO Link

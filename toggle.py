@@ -29,7 +29,7 @@ class Toggle(ToggleButton, OscSender):
                 self.state = 'normal'
 
     def state_to_args(self):
-        print self.one_on_down
+#        print self.one_on_down
         if self.one_on_down == True:
             if self.state == 'down':
                 self.args = [1]
