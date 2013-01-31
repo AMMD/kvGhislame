@@ -18,7 +18,8 @@ class OscSender(Widget):
     mutex = BooleanProperty(True)
 
     def send_message(self):
-        _liblo.send(self.target, self.path, *self.args)
+        if self.path != '':
+            _liblo.send(self.target, self.path, *self.args)
 
 
 class OscServer(Widget):

@@ -8,6 +8,7 @@ from kivy.lang import Builder
 from kivy.uix.layout import Layout
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 from lightxypad import LightXyPad
 from valuefader import ValueFader
@@ -35,6 +36,10 @@ class LightBox(LightXyPad):
 
 # TODO Link
 # TODO Develop
+    sm = ScreenManager()
+    micro_screen = Screen()
+    main_screen = Screen()
+
 
     def on_touch_down(self, touch):
         if ('button' in touch.profile) & ('right' in touch.button):
