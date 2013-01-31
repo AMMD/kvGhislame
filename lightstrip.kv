@@ -17,13 +17,13 @@
     StencilView:
         id: st
         center_x: root.center_x
-        center_y: root.center_y
+        y: root.y
         height: root.height - root.vb.height - 10
         width: 100
         LightBox:
             id: lb
-            pos: root.pos
-            size: root.size
+            pos: root.center_x, root.y
+            size: root.width, self.parent.height
             name: 'moncul'
             color: 1, 1, 0
 

@@ -22,9 +22,11 @@ class LightStrip(Widget):
 
     def state_to_visible(self):
         if self.vb.state == 'down':
+#            self.remove_widget(self.vb)
             self.st.remove_widget(self.lb)
             self.add_widget(self.bub)
             self.bub.add_widget(self.lb)
+#            self.bub.add_widget(self.vb)
 
 #            Animation(width=500, d=0.3).start(self.st)
         else:
