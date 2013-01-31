@@ -1,6 +1,14 @@
 #!kivy 1.5
 #: import Animation kivy.animation.Animation
 
+<MLightBox>:
+    id: lb
+    rt: self.parent.parent if self.parent else 0
+    pos: (self.rt.center_x, self.rt.y) if self.rt else (0, 0)
+    size: (self.rt.width, self.parent.height) if self.rt else (100, 100)
+    name: 'moncul'
+    color: 1, 1, 0
+
 <LightStrip>:
     lb: lb
     st: st
@@ -19,20 +27,20 @@
         center_x: root.center_x
         y: root.y
         height: root.height - root.vb.height - 10
-        width: 100
-        LightBox:
+        width: 200
+        MLightBox:
             id: lb
-            pos: root.center_x, root.y
-            size: root.width, self.parent.height
-            name: 'moncul'
-            color: 1, 1, 0
+#            pos: root.center_x, root.y
+#            size: root.width, self.parent.height
+#            name: 'moncul'
+#            color: 1, 1, 0
 
 
     Bubble:
         id: bub
         size_hint: (None, None)
-        size: root.width, root.height - root.vb.height - 10
-        pos_hint: {'x': 0, 'y': 0}
+        size: root.width - 2, root.height - root.vb.height - 12
+        pos_hint: {'x': 1, 'y': 1}
         arrow_pos: 'top_mid'
         orientation: 'horizontal'
 
@@ -43,7 +51,7 @@
         main_color: 1, 0, 0
         size: 30, 30
         y: root.y + root.height - self.height
-        x: root.x
+        center_x: root.center_x
         path: ''
         on_press:
             root.state_to_visible()

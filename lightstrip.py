@@ -12,9 +12,12 @@ from kivy.animation import Animation
 from toggle import Toggle
 from lightbox import LightBox
 
+class MLightBox(LightBox):
+    pass
+
 class LightStrip(Widget):
     st = StencilView()
-    lb = LightBox(name="moncul", color=(1, 0, 0))
+    lb = MLightBox(name="moncul", color=(1, 0, 0))
     vb = Toggle(path='')
 
     bub = Bubble()
@@ -22,12 +25,9 @@ class LightStrip(Widget):
 
     def state_to_visible(self):
         if self.vb.state == 'down':
-#            self.remove_widget(self.vb)
             self.st.remove_widget(self.lb)
             self.add_widget(self.bub)
             self.bub.add_widget(self.lb)
-#            self.bub.add_widget(self.vb)
-
 #            Animation(width=500, d=0.3).start(self.st)
         else:
             self.bub.remove_widget(self.lb)
