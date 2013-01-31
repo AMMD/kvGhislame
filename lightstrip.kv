@@ -18,23 +18,14 @@
     on_parent:
         root.remove_widget(root.bub)
 
-
-#    on_visible:
-#        root.st.width = 400
-
     StencilView:
         id: st
         x: root.center_x
         y: root.y
         height: root.height - root.vb.height - 10
-        width: 100
+        width: 200
         MLightBox:
             id: lb
-#            pos: root.center_x, root.y
-#            size: root.width, self.parent.height
-#            name: 'moncul'
-#            color: 1, 1, 0
-
 
     Bubble:
         id: bub
@@ -55,12 +46,6 @@
         path: ''
         on_press:
             root.state_to_visible()
-#            root.st.remove_widget(lb)
-#            root.add_widget(root.bub)
-#            root.bub.add_widget(lb)
-#            root.bub.pos = 300,300
-#            Animation(size=app._app_window.size if self.state == 'down' else (100, 100), d=1, t='in_out_quad').start(root.bub)
-#            root.state_to_visible()
 
 
         

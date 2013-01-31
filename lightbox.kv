@@ -21,11 +21,6 @@
     pad_pos: root.x + main_dimmer_fader.x + main_dimmer_fader.width + root.yfader.width + root.y_name_pad_height + 30, root.y + root.name_pad_height + root.x_name_pad_height + root.xfader.height + root.hfader_height + 30
     pad_size: root.width - 30 - (5 + root.r_fader.width) * 3 - root.pad_x, root.height - root.pad_y - root.y - 5
 
-#    on_parent:
-#        root.yfader.on_touch_move:
-#            root.main_dimmer_fader.value = root.
-
-
 
     ValueFader:
         id: main_dimmer_fader
@@ -38,7 +33,6 @@
         value: root.hsv[2]
         on_touch_move:
             root.value = (root.value[0], self.value)
-#            root.yfader.value = self.value
 
     ValueFader:
         id: r_fader

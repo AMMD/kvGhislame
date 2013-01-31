@@ -28,12 +28,10 @@ class LightStrip(Widget):
             self.st.remove_widget(self.lb)
             self.add_widget(self.bub)
             self.bub.add_widget(self.lb)
-#            Animation(width=500, d=0.3).start(self.st)
         else:
             self.bub.remove_widget(self.lb)
             self.remove_widget(self.bub)
             self.st.add_widget(self.lb)
-#            Animation(width=100, d=0.3).start(self.st)
 
 class LightStripApp(App):
     def build(self):
