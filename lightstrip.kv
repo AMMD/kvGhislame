@@ -1,0 +1,58 @@
+#!kivy 1.5
+#: import Animation kivy.animation.Animation
+
+<LightStrip>:
+    lb: lb
+    st: st
+    vb: vb
+    bub: bub
+
+    on_parent:
+        root.remove_widget(root.bub)
+
+
+#    on_visible:
+#        root.st.width = 400
+
+    StencilView:
+        id: st
+        pos: root.pos
+        height: root.height - root.vb.height - 10
+        width: 100
+        LightBox:
+            id: lb
+            pos: root.pos
+            size: root.size
+            name: 'moncul'
+            color: 1, 1, 0
+
+
+    Bubble:
+        id: bub
+        size_hint: (None, None)
+        size: root.width, root.height - root.vb.height - 10
+        pos_hint: {'x': 0, 'y': 0}
+        arrow_pos: 'top_mid'
+        orientation: 'horizontal'
+
+
+
+    Toggle:
+        id: vb
+        main_color: 1, 0, 0
+        size: 30, 30
+        y: root.y + root.height - self.height
+        x: root.x
+        path: ''
+        on_press:
+            root.state_to_visible()
+#            root.st.remove_widget(lb)
+#            root.add_widget(root.bub)
+#            root.bub.add_widget(lb)
+#            root.bub.pos = 300,300
+#            Animation(size=app._app_window.size if self.state == 'down' else (100, 100), d=1, t='in_out_quad').start(root.bub)
+#            root.state_to_visible()
+
+
+        
+
