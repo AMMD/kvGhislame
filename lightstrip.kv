@@ -1,29 +1,37 @@
 #!kivy 1.5
 #: import Animation kivy.animation.Animation
+#:import Bubble kivy.uix.bubble.Bubble
 
 <MLightBox>:
     id: lb
     rt: self.parent.parent if self.parent else 0
-    pos: (self.rt.center_x, self.rt.y) if self.rt else (0, 0)
+
     size: (self.rt.width, self.parent.height) if self.rt else (100, 100)
-    name: 'moncul'
-    color: 1, 1, 0
+
+    name: 'moncul' # self.rt.name if self.rt else 'moncul'
+    color: (1, 1, 0) #self.rt.color if self.rt else (1, 1, 0)
+
+    on_parent:
+        if((not isinstance(self.parent, Bubble)) & (self.parent != None)): self.pos = (self.rt.center_x, self.parent.y) # if((not isinstance(self.parent, Bubble)) & (self.parent != None))  else (0, 0)
+
+
 
 <LightStrip>:
     lb: lb
     st: st
     vb: vb
     bub: bub
+#    fl: fl
 
     on_parent:
         root.remove_widget(root.bub)
 
     StencilView:
         id: st
-        x: root.center_x
+        x: root.x
         y: root.y
         height: root.height - root.vb.height - 10
-        width: 200
+        width: 100
         MLightBox:
             id: lb
 
@@ -34,18 +42,19 @@
         pos_hint: {'x': 1, 'y': 1}
         arrow_pos: 'right_mid'
         orientation: 'horizontal'
-
-
+#        FloatLayout:
+#            id: fl
 
     Toggle:
         id: vb
         main_color: 1, 0, 0
         size: 30, 30
         y: root.y + root.height - self.height
-        x: root.center_x
+        x: root.x
         path: ''
         on_press:
             root.state_to_visible()
+
 
 
         

@@ -5,8 +5,9 @@ from kivy.uix.stencilview import StencilView
 from kivy.uix.bubble import Bubble
 from kivy.uix.widget import Widget
 from kivy.uix.label import Label
+from kivy.uix.floatlayout import FloatLayout
 from kivy.app import App
-from kivy.properties import BooleanProperty
+from kivy.properties import BooleanProperty, StringProperty, ObjectProperty
 from kivy.animation import Animation
 
 from toggle import Toggle
@@ -21,7 +22,11 @@ class LightStrip(Widget):
     vb = Toggle(path='')
 
     bub = Bubble()
-    
+
+    name = StringProperty()
+
+#    fl = FloatLayout()
+
 
     def state_to_visible(self):
         if self.vb.state == 'down':

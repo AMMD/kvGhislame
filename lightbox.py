@@ -8,7 +8,6 @@ from kivy.lang import Builder
 from kivy.uix.layout import Layout
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty
-from kivy.uix.screenmanager import ScreenManager, Screen
 
 from lightxypad import LightXyPad
 from valuefader import ValueFader
@@ -36,10 +35,6 @@ class LightBox(LightXyPad):
 
 # TODO Link
 # TODO Develop
-    sm = ScreenManager()
-    micro_screen = Screen()
-    main_screen = Screen()
-
 
     def on_touch_down(self, touch):
         if ('button' in touch.profile) & ('right' in touch.button):
@@ -57,20 +52,10 @@ class LightBox(LightXyPad):
             new_value_x = self.value_pos[0]
             new_value_y = self.value_pos[1]
             if touch.x > self.x + self.pad_x:
-#                self.xfader.value_pos = touch.pos
                 new_value_x = touch.x
             if touch.y > self.y + self.pad_y:
-#                self.yfader.value_pos = touch.pos
-#                self.main_dimmer_fader.value_pos = touch.pos
                 new_value_y = touch.y
             self.value_pos = (new_value_x, new_value_y)
-#            self.r_fader.value = self.rgb[0]
-#            self.g_fader.value = self.rgb[1]
-#            self.b_fader.value = self.rgb[2]
-#        root.main_dimmer_fader.value = root.hsv[2]
-#        root.r_fader.value = root.rgb[0]
-#        root.g_fader.value = root.rgb[1]
-#        root.b_fader.value = root.rgb[2]
 
     def rgb_to_hsv(color):
         return colorsys.rgb_to_hsv(color)

@@ -1,5 +1,5 @@
 import kivy
-kivy.require('1.4.1')
+kivy.require('1.5.1')
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty, NumericProperty
@@ -22,8 +22,8 @@ class MainWidget(Widget):
     mystrip3 = ObjectProperty(None)
     mystrip4 = ObjectProperty(None)
     stripwidth = NumericProperty(70)
-    mylightstrip1 = ObjectProperty(None)
-    mylightstrip2 = ObjectProperty(None)
+    mlstrip1 = LightStrip()
+    mlstrip2 = LightStrip()
 
 class MainWidgetApp(App):
     def build(self):
@@ -38,7 +38,6 @@ class MainWidgetApp(App):
 
 Builder.load_file('audiostrip.kv')
 Builder.load_file('oscsendingservice.kv')
-Builder.load_file('lightxypad.kv')
 Builder.load_file('lightstrip.kv')
 Factory.register('AudioStrip', AudioStrip)
 Factory.register('OscSendingService', OscSendingService)
