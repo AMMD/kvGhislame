@@ -22,14 +22,17 @@ class MultipleLightStrips(ScreenManager):
     tmp_s = ObjectProperty(StencilView)
     st1 = ObjectProperty(StencilView)
     st2 = ObjectProperty(StencilView)
+    st3 = ObjectProperty(StencilView)
     stf = ObjectProperty(StencilView)
 
     lb1 = ObjectProperty(LightBox)
     lb2 = ObjectProperty(LightBox)
+    lb3 = ObjectProperty(LightBox)
 
     name = StringProperty()
     name1 = StringProperty()
     name2 = StringProperty()
+    name3 = StringProperty()
     app_name = StringProperty()
 
     main_s = ObjectProperty(Screen)
@@ -44,7 +47,7 @@ class MultipleLightStrips(ScreenManager):
 
 class MultipleLightStripsApp(App):
     def build(self):
-        return MultipleLightStrips(name1="machin", name2="chose", app_name="yihi")
+        return MultipleLightStrips(name1="machin", name2="chose", name3="truc", app_name="yihi")
 
 
 #Builder.load_file('lightxypad.kv')

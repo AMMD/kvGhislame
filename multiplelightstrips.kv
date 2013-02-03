@@ -15,6 +15,8 @@
     st1: st1
     lb2: lb2
     st2: st2
+    lb3: lb3
+    st3: st3
     stf: stf
     main_s: ms
     front_s: fs
@@ -33,6 +35,9 @@
             size: root.size
             BoxLayout:
                 orientation: 'vertical'
+                canvas:
+                    Line:
+                        rectangle: self.x, self.y, self.width, self.height
                 Button:
                     canvas:
                         Clear
@@ -71,6 +76,9 @@
 
             BoxLayout:
                 orientation: 'vertical'
+                canvas:
+                    Line:
+                        rectangle: self.x, self.y, self.width, self.height
                 Button:
                     color: 0, 1, 1
                     text: 'D'
@@ -94,6 +102,37 @@
                         size_hint: (None, None)
                         color: 1, 0, 0
                         name: root.name2
+                        size: root.width, self.parent.height
+                        pos: self.parent.pos
+
+            BoxLayout:
+                orientation: 'vertical'
+                canvas:
+                    Line:
+                        rectangle: self.x, self.y, self.width, self.height
+                Button:
+                    color: 0, 1, 1
+                    text: 'D'
+                    size_hint: (None, None)
+                    y: self.parent.height - self.height
+                    size: 30, 30
+                    on_press: 
+                        root.st3.remove_widget(root.lb3)
+                        root.stf.add_widget(root.lb3)
+                        root.tmp_s = root.st3
+                        root.lb3.width = root.width
+                        root.lb3.x = root.lb3.parent.x
+                        root.current = 'front'
+                StencilView:
+                    id: st3
+                    size_hint: (None, None)
+                    height: root.height - 30
+                    width: 90
+                    LightBox:
+                        id: lb3
+                        size_hint: (None, None)
+                        color: 1, 0, 0
+                        name: root.name3
                         size: root.width, self.parent.height
                         pos: self.parent.pos
 
