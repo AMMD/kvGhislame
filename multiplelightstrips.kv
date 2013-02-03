@@ -17,6 +17,7 @@
     stf: stf
     main_s: ms
     front_s: fs
+    bl2: bl2
 
 
     Screen:
@@ -69,6 +70,7 @@
                         size: root.width, self.parent.height
 
             BoxLayout:
+                id: bl2
                 orientation: 'vertical'
                 Button:
                     color: 0, 1, 1
@@ -81,7 +83,7 @@
                         root.stf.add_widget(root.lb2)
                         root.tmp_s = root.st2
                         root.lb2.width = root.width
-                        root.lb2.x = root.x
+                        root.lb2.x = root.lb2.parent.x
                         root.current = 'front'
                 StencilView:
                     id: st2
@@ -89,12 +91,17 @@
                     height: root.height - 30 # - root.vb.height - 10
                     width: 90
                     LightBox:
-                        size_hint: (None, None)
                         id: lb2
+                        size_hint: (None, None)
                         color: 1, 0, 0
                         name: root.name2
                         size: root.width, self.parent.height
-                        pos: self.parent.pos if self.parent else 0, 20 #st2 and st2.pos or 0, 0
+                        pos: bl2.pos if bl2 else 0, 20 #st2 and st2.pos or 0, 0
+                        on_parent: 
+                            self.pos = self.parent.pos
+                            print "je suis un fiston"
+                            if self.parent: print str(type(self.parent)) + ": " + str(self.parent.pos)
+                            if (not self.parent): print 'pas de parent'
 
     Screen:
         id: fs
