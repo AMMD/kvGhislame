@@ -3,6 +3,8 @@
 <LightBox>:
     main_dimmer_fader: main_dimmer_fader
 
+    xypad: xypad
+
     r_fader: r_fader
     g_fader: g_fader
     b_fader: b_fader
@@ -40,7 +42,7 @@
             root.value = (root.value[0], self.value)
 
     LightXyPad:
-        xypad:
+        id: xypad
         name: root.name
 
     ValueFader:
@@ -61,7 +63,7 @@
 
     ValueFader:
         id: g_fader
-        size_hint: (None, None)
+#        size_hint: (None, None)
         orientation: 'vertical'
         color: 0, 1, 0
         name: 'green'
@@ -78,7 +80,7 @@
 
     ValueFader:
         id: b_fader
-        size_hint: (None, None)
+#        size_hint: (None, None)
         orientation: 'vertical'
         color: 0, 0, 1
         name: 'blue'
@@ -95,8 +97,9 @@
     BoxLayout:
         orientation: 'vertical'
         size_hint: (None, None)
+        pos_hint: {'x': 0}
         size: 30, 310
-        pos: root.x, main_dimmer_fader.y + 15 # + main_dimmer_fader.height - 310
+#        pos: root.x, main_dimmer_fader.y + 15 # + main_dimmer_fader.height - 310
         spacing: 10 
 
         Push:
@@ -107,7 +110,7 @@
             path: ''
             on_press:
                 root.rgb = self.main_color
-                root.hsv = root.hsv[0], root.hsv[1], 0
+                root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
 
         Push:
             id: cc2
@@ -117,7 +120,7 @@
             path: ''
             on_press:
                 root.rgb = self.main_color
-                root.hsv = root.hsv[0], root.hsv[1], 0
+                root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
 
         Push:
             id: cc3
@@ -127,7 +130,7 @@
             path: ''
             on_press:
                 root.rgb = self.main_color
-                root.hsv = root.hsv[0], root.hsv[1], 0
+                root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
 
         Push:
             id: cc4
@@ -137,7 +140,7 @@
             path: ''
             on_press:
                 root.rgb = self.main_color
-                root.hsv = root.hsv[0], root.hsv[1], 0
+                root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
 
         Push:
             id: cc5
@@ -147,7 +150,7 @@
             path: ''
             on_press:
                 root.rgb = self.main_color
-                root.hsv = root.hsv[0], root.hsv[1], 0
+                root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
 
         Push:
             id: cc6
@@ -157,7 +160,7 @@
             path: ''
             on_press:
                 root.rgb = self.main_color
-                root.hsv = root.hsv[0], root.hsv[1], 0
+                root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
 
         Push:
             id: cc7
@@ -167,7 +170,7 @@
             path: ''
             on_press:
                 root.rgb = self.main_color
-                root.hsv = root.hsv[0], root.hsv[1], 0
+                root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
 
         Push:
             id: cc8
@@ -177,21 +180,21 @@
             path: ''
             on_press:
                 root.rgb = self.main_color
-                root.hsv = root.hsv[0], root.hsv[1], 0
+                root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
 
 
     Push:
         id: flash
-        hsv: root.hsv[0], root.hsv[1], 1
+        hsv: root.xypad.hsv[0], root.xypad.hsv[1], 1
         size_hint: (None, None)
         size: 30, 30
         center_x: root.main_dimmer_fader.center_x
         path: ''
         on_press:
-            root.old_hue = root.hsv[2]
-            root.hsv = root.hsv[0], root.hsv[1], 1
+            root.old_hue = root.xypad.hsv[2]
+            root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 1
         on_release:
-            root.hsv = root.hsv[0], root.hsv[1], root.old_hue
+            root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], root.old_hue
 
 
 

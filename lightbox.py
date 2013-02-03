@@ -7,7 +7,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
-from kivy.properties import NumericProperty, ObjectProperty
+from kivy.properties import NumericProperty, ObjectProperty, StringProperty, OptionProperty, ReferenceListProperty
 
 from lightxypad import LightXyPad
 from valuefader import ValueFader
@@ -17,6 +17,15 @@ class LightBox(BoxLayout):
     main_dimmer_fader = ObjectProperty(ValueFader)
 
     xypad= ObjectProperty(LightXyPad)
+
+    r = NumericProperty()
+    g = NumericProperty()
+    b = NumericProperty()
+    color = ReferenceListProperty(r, g, b)
+
+    app_name = StringProperty()
+    name = StringProperty()
+    mode = OptionProperty('hsv', options=('hsv', 'rgb'))
 
     r_fader = ObjectProperty(ValueFader)
     g_fader = ObjectProperty(ValueFader)
