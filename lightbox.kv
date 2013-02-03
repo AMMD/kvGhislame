@@ -135,7 +135,7 @@
             ValueFader:
                 id: main_dimmer_fader
                 size_hint: None, 1
-                width: 50
+                width: 40
                 orientation: 'vertical'
                 name: root.name
                 color: root.color
@@ -145,20 +145,30 @@
                 value: root.xypad.hsv[2]
                 path: ''
                 on_touch_move:
-                    root.value = (root.value[0], self.value)
+                    root.xypad.value = (root.xypad.value[0], self.value)
 
-        Push:
-            id: flash
-            hsv: root.xypad.hsv[0], root.xypad.hsv[1], 1
-            size_hint: (None, None)
-            size: 30, 30
-            center_x: root.main_dimmer_fader.center_x
-            path: ''
-            on_press:
-                root.old_hue = root.xypad.hsv[2]
-                root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 1
-            on_release:
-                root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], root.old_hue
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, None
+            height: 30
+            spacing: 5
+            Push:
+                size_hint: (None, None)
+                hsv: 1, 1, 1
+                size: 30, 30
+            Push:
+                id: flash
+                hsv: root.xypad.hsv[0], root.xypad.hsv[1], 1
+                size_hint: (None, None)
+                size: 30, 30
+                x: main_dimmer_fader.x + 5
+                path: ''
+                on_press:
+                    root.old_hue = root.xypad.hsv[2]
+                    root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 1
+                on_release:
+                    root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], root.old_hue
+
 
 
 
@@ -196,7 +206,7 @@
         value: root.xypad.rgb[1]
         path: ''
         on_touch_move:
-            root.rgb = root.xypad.rgb[0], self.value, root.xypad.rgb[2]
+            root.xypad.rgb = root.xypad.rgb[0], self.value, root.xypad.rgb[2]
 
 
     ValueFader:
@@ -213,7 +223,7 @@
         value: root.xypad.rgb[2]
         path: ''
         on_touch_move:
-            root.rgb = root.xypad.rgb[0], root.xypad.rgb[1], self.value
+            root.xypad.rgb = root.xypad.rgb[0], root.xypad.rgb[1], self.value
 
 
 

@@ -6,6 +6,7 @@ kivy.require('1.5.1')
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty, ObjectProperty, StringProperty, OptionProperty, ReferenceListProperty
 
@@ -71,13 +72,13 @@ class LightBox(BoxLayout):
 
     def on_touch_move(self, touch):
         if touch.grab_current == self:
-            new_value_x = self.value_pos[0]
-            new_value_y = self.value_pos[1]
+            new_value_x = self.xypad.value_pos[0]
+            new_value_y = self.xypad.value_pos[1]
             if touch.x > self.x + self.pad_x:
                 new_value_x = touch.x
             if touch.y > self.y + self.pad_y:
                 new_value_y = touch.y
-            self.value_pos = (new_value_x, new_value_y)
+            self.xypad.value_pos = (new_value_x, new_value_y)
 
     def rgb_to_hsv(color):
         return colorsys.rgb_to_hsv(color)
