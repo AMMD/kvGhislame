@@ -21,7 +21,6 @@
     main_s: ms
     front_s: fs
 
-
     Screen:
         id: ms
         name: 'main'
@@ -73,6 +72,11 @@
                         color: 0, 1, 1
                         name: root.name1
                         size: root.width, self.parent.height
+                        args_pattern: "fff"
+                        path: "/" + root.app_name.replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
+                        control_path: self.path
+
+
 
             BoxLayout:
                 orientation: 'vertical'
@@ -104,6 +108,9 @@
                         name: root.name2
                         size: root.width, self.parent.height
                         pos: self.parent.pos
+                        args_pattern: "fff"
+                        path: "/" + root.app_name.replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
+                        control_path: self.path
 
             BoxLayout:
                 orientation: 'vertical'
@@ -128,13 +135,16 @@
                     size_hint: (None, None)
                     height: root.height - 30
                     width: 90
-                    LightBox:
+                    LightXyPad:
                         id: lb3
                         size_hint: (None, None)
                         color: 1, 0, 0
                         name: root.name3
                         size: root.width, self.parent.height
                         pos: self.parent.pos
+                        args_pattern: "fff"
+                        path: "/" + root.app_name.replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
+                        control_path: self.path
 
     Screen:
         id: fs

@@ -25,15 +25,8 @@ class LightXyPad(ExtendedXyPad):
     hfader_height = NumericProperty()
     hfader_size = ReferenceListProperty(hfader_width, hfader_height)
 
-    # subpad = (60, 160)
-    # x_name_pad = 120
-    # faders_subpad = (80, 0)
-
     mode = OptionProperty('hsv', options=('hsv', 'rgb'))
 
-    x_limit = NumericProperty(0)
-    y_limit = NumericProperty(0)
-    limits = ReferenceListProperty(x_limit, y_limit)
 
     def get_hsv_triplet(self):
         return(self.hue, self.value[0], self.value[1])

@@ -5,7 +5,7 @@ kivy.require('1.5.1')
 
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.layout import Layout
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty, ObjectProperty
 
@@ -13,8 +13,10 @@ from lightxypad import LightXyPad
 from valuefader import ValueFader
 from push import Push
 
-class LightBox(LightXyPad):
+class LightBox(BoxLayout):
     main_dimmer_fader = ObjectProperty(ValueFader)
+
+    xypad= ObjectProperty(LightXyPad)
 
     r_fader = ObjectProperty(ValueFader)
     g_fader = ObjectProperty(ValueFader)

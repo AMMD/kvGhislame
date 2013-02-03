@@ -27,7 +27,7 @@ class MultipleLightStrips(ScreenManager):
 
     lb1 = ObjectProperty(LightBox)
     lb2 = ObjectProperty(LightBox)
-    lb3 = ObjectProperty(LightBox)
+    lb3 = ObjectProperty(LightXyPad)
 
     name = StringProperty()
     name1 = StringProperty()
