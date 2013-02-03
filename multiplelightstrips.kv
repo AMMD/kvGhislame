@@ -83,7 +83,7 @@
                 Button:
                     color: 0, 1, 1
                     text: 'D'
-                    size_hint: (None, 1)
+                    size_hint: (None, None)
 #                    y: self.parent.height - self.height
                     size: 30, 30
                     on_press: 
@@ -115,8 +115,8 @@
                 Button:
                     color: 0, 1, 1
                     text: 'D'
-                    size_hint: (None, 1)
-#                    y: self.parent.height - self.height
+                    size_hint: (None, None)
+                    y: self.parent.height - self.height
                     size: 30, 30
                     on_press: 
                         root.st3.remove_widget(root.lb3)
@@ -129,10 +129,11 @@
                     id: st3
                     size_hint: (None, 1)
 #                    height: root.height - 30
+#                    x: self.parent.x
                     width: 90
                     LightBox:
                         id: lb3
-#                        size_hint: (None, 1)
+                        size_hint: (None, 1)
                         color: 1, 0, 0
                         name: root.name3
                         size: root.width, self.parent.height
