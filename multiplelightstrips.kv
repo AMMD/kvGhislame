@@ -27,16 +27,13 @@
 
         BoxLayout:
             orientation: 'horizontal'
-            spacing: 20
-            size_hint: (None, None)
-            pos_hint: {'centerx': 0, 'y': 0}
+#            spacing: 20
+#            size_hint: (None, None)
+#            pos_hint: {'centerx': 0, 'y': 0}
             pos: root.pos
             size: root.size
             BoxLayout:
                 orientation: 'vertical'
-                canvas:
-                    Line:
-                        rectangle: self.x, self.y, self.width, self.height
                 Button:
                     canvas:
                         Clear
@@ -63,8 +60,8 @@
                         root.current = 'front'
                 StencilView:
                     id: st1
-                    size_hint: (None, None)
-                    height: root.height - 15
+                    size_hint: (None, 1)
+#                    height: root.height - 15
                     width: 90
                     LightBox:
                         size_hint: (None, None)
@@ -80,14 +77,11 @@
 
             BoxLayout:
                 orientation: 'vertical'
-                canvas:
-                    Line:
-                        rectangle: self.x, self.y, self.width, self.height
                 Button:
                     color: 0, 1, 1
                     text: 'D'
-                    size_hint: (None, None)
-                    y: self.parent.height - self.height
+                    size_hint: (None, 1)
+#                    y: self.parent.height - self.height
                     size: 30, 30
                     on_press: 
                         root.st2.remove_widget(root.lb2)
@@ -114,14 +108,11 @@
 
             BoxLayout:
                 orientation: 'vertical'
-                canvas:
-                    Line:
-                        rectangle: self.x, self.y, self.width, self.height
                 Button:
                     color: 0, 1, 1
                     text: 'D'
-                    size_hint: (None, None)
-                    y: self.parent.height - self.height
+                    size_hint: (None, 1)
+#                    y: self.parent.height - self.height
                     size: 30, 30
                     on_press: 
                         root.st3.remove_widget(root.lb3)
@@ -135,7 +126,7 @@
                     size_hint: (None, None)
                     height: root.height - 30
                     width: 90
-                    LightXyPad:
+                    LightBox:
                         id: lb3
                         size_hint: (None, None)
                         color: 1, 0, 0
