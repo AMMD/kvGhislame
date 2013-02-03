@@ -8,7 +8,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.app import App
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, ObjectProperty
 
 from push import Push
 from lightbox import LightBox
@@ -17,18 +17,20 @@ class MLightBox(LightBox):
     pass
 
 class MultipleLightStrips(ScreenManager):
-    tmp_s = StencilView()
-    st1 = StencilView()
-    st2 = StencilView()
-    stf = StencilView()
+    tmp_s = ObjectProperty(None)
+    st1 = ObjectProperty(None)
+    st2 = ObjectProperty(None)
+    stf = ObjectProperty(None)
 
-    lb1 = MLightBox(name="Mama", color=(1, 0, 0))
-    lb2 = MLightBox(name="Momol", color=(0, 1, 0))
+    lb1 = ObjectProperty(None)
+    lb2 = ObjectProperty(None)
 
     name = StringProperty()
+    name1 = StringProperty()
+    name2 = StringProperty()
 
-    main_s = Screen(name='main')
-    front_s = Screen(name='front')
+    main_s = ObjectProperty(None)
+    front_s = ObjectProperty(None)
 
     def restore_zoomed_widget(self):
         for child in self.stf.children[:]:
@@ -37,7 +39,7 @@ class MultipleLightStrips(ScreenManager):
 
 class MultipleLightStripsApp(App):
     def build(self):
-        return MultipleLightStrips()
+        return MultipleLightStrips(name1="machin", name2="chose", app_name="yihi")
 
 
 Builder.load_file('lightbox.kv')

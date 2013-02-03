@@ -3,7 +3,7 @@
 #:import Bubble kivy.uix.bubble.Bubble
 
 <MLightBox>:
-#    id: lb
+#    id: lb1
     rt: self.parent.parent if self.parent else 0
     size_hint: (None, None)
     size: (self.rt.width, self.parent.height) if self.rt else (100, 100)
@@ -33,14 +33,22 @@
             BoxLayout:
                 orientation: 'vertical'
                 Button:
-#                    canvas:
-#                        Rectangle:
-#                            source: 
-                    color: 0, 1, 1
-                    text: 'D'
+                    canvas:
+                        Clear
+#                        Color:
+#                            rgb: root.lb1.color
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        Rectangle:
+                            pos: self.width / 2, self.y #self.pos
+                            size: 10, 10 #self.size
+                            source:  'atlas://data/images/defaulttheme/tree_closed'
                     size_hint: (None, None)
                     y: self.parent.height - self.height
-                    size: 30, 30
+                    size: self.width, 10
                     on_press: 
                         root.st1.remove_widget(root.lb1)
                         root.stf.add_widget(root.lb1)
@@ -49,13 +57,13 @@
                 StencilView:
                     id: st1
                     size_hint: (None, None)
-                    height: root.height - 30 # - root.vb.height - 10
+                    height: root.height - 15 # - root.vb.height - 10
                     width: 90
                     MLightBox:
                         size_hint: (None, None)
                         id: lb1
-                        color: 1, 1, 0
-                        name: "Oh"
+                        color: 0, 1, 1
+                        name: root.name1
 
             BoxLayout:
                 orientation: 'vertical'
@@ -79,7 +87,7 @@
                         size_hint: (None, None)
                         id: lb2
                         color: 1, 0, 0
-                        name: "Ah"
+                        name: root.name2
 
     Screen:
         id: fs
