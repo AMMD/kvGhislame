@@ -23,6 +23,19 @@ class LightBox(BoxLayout):
     b = NumericProperty()
     color = ReferenceListProperty(r, g, b)
 
+    pad_width = NumericProperty(100)
+    '''Width of the XY Pad'''
+    pad_height = NumericProperty(100)
+    '''Height of the XY Pad'''
+    pad_size = ReferenceListProperty(pad_width, pad_height)
+    '''Size of the XY Pad (tuple: (pad_width, pad_height))'''
+    pad_x = NumericProperty(0)
+    '''X position of the XY Pad'''
+    pad_y = NumericProperty(0)
+    '''Y position of the XY Pad'''
+    pad_pos = ReferenceListProperty(pad_x, pad_y)
+    '''Position of the XY Pad (tuple: (pad_x, pad_y))'''
+
     app_name = StringProperty()
     name = StringProperty()
     mode = OptionProperty('hsv', options=('hsv', 'rgb'))
