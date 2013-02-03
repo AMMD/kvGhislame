@@ -29,6 +29,7 @@
 
     ValueFader:
         id: main_dimmer_fader
+        size_hint: (None, None)
         orientation: 'vertical'
         name: root.name
         color: root.color
@@ -41,6 +42,7 @@
 
     ValueFader:
         id: r_fader
+        size_hint: (None, None)
         orientation: 'vertical'
         color: 1, 0, 0
         name: 'red'
@@ -55,6 +57,7 @@
 
     ValueFader:
         id: g_fader
+        size_hint: (None, None)
         orientation: 'vertical'
         color: 0, 1, 0
         name: 'green'
@@ -70,6 +73,7 @@
 
     ValueFader:
         id: b_fader
+        size_hint: (None, None)
         orientation: 'vertical'
         color: 0, 0, 1
         name: 'blue'
@@ -84,6 +88,7 @@
 
     BoxLayout:
         orientation: 'vertical'
+        size_hint: (None, None)
         size: 30, 310
         pos: root.x, root.main_dimmer_fader.y + 15 # + root.main_dimmer_fader.height - 310
         spacing: 10 
@@ -91,6 +96,7 @@
         Push:
             id: cc1
             main_color: 1, 0, 0
+            size_hint: (None, None)
             size: 30, 30
 #            group: 'custom_colors'
             on_press:
@@ -100,6 +106,7 @@
         Push:
             id: cc2
             main_color: 1, 1, 0
+            size_hint: (None, None)
             size: 30, 30
 #            group: 'custom_colors'
             on_press:
@@ -109,6 +116,7 @@
         Push:
             id: cc3
             main_color: 1, 1, 1
+            size_hint: (None, None)
             size: 30, 30
 #            group: 'custom_colors'
             on_press:
@@ -118,6 +126,7 @@
         Push:
             id: cc4
             main_color: 1, 0, 1
+            size_hint: (None, None)
             size: 30, 30
 #            group: 'custom_colors'
             on_press:
@@ -127,6 +136,7 @@
         Push:
             id: cc5
             main_color: 0, 1, 1
+            size_hint: (None, None)
             size: 30, 30
 #            group: 'custom_colors'
             on_press:
@@ -136,6 +146,7 @@
         Push:
             id: cc6
             main_color: 0, 1, 0
+            size_hint: (None, None)
             size: 30, 30
 #            group: 'custom_colors'
             on_press:
@@ -145,6 +156,7 @@
         Push:
             id: cc7
             main_color: 0, 0, 1
+            size_hint: (None, None)
             size: 30, 30
 #            group: 'custom_colors'
             on_press:
@@ -154,6 +166,7 @@
         Push:
             id: cc8
             main_color: 1, 0.5, 1
+            size_hint: (None, None)
             size: 30, 30
 #            group: 'custom_colors'
             on_press:
@@ -165,6 +178,7 @@
         id: flash
 #        main_color: 1, 1, 1
         hsv: root.hsv[0], root.hsv[1], 1
+        size_hint: (None, None)
         size: 30, 30
         center_x: root.main_dimmer_fader.center_x
         on_press:

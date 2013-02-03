@@ -6,7 +6,7 @@
     # mystrip3: mystrip3
     # mystrip4: mystrip4
     mlstrip1: mlstrip1
-    mlstrip2: mlstrip2
+#    mlstrip2: mlstrip2
 
     # AudioStrip:
     #     id: mystrip1
@@ -48,12 +48,12 @@
         orientation: 'horizontal'
         size: root.size
         pos: root.pos
-        LightStrip:
+        LightBox:
             id: mlstrip1
             name: 'My Light 1'
-            height: root.height
             size_hint: (None, None)
-            width: 100
+            height: root.height
+#            width: root.width
             pos: 0, 0
 #        x: root.x + root.stripwidth * 2 #+ root.stripwidth * 4 + 10
 #            y: root.y
@@ -61,12 +61,13 @@
 #            width: root.width #- root.stripwidth * 4 - 10
 #        color: 0.5, 0.5, 1
 
-        LightStrip:
-            id: mlstrip2
-            name: 'My Light 2'
-            height: root.height
-            size_hint: (None, None)
-            width: 100
+#        LightStrip:
+        # LightXyPad:
+        #     id: mlstrip2
+        #     name: 'My Light 2'
+        #     height: root.height
+        #     size_hint: (None, None)
+#            width: 100
 #            pos: 0, 0
 
 #    LightStrip:

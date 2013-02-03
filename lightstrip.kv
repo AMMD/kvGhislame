@@ -5,6 +5,7 @@
 <MLightBox>:
     id: lb
     rt: self.parent.parent if self.parent else 0
+    size_hint: (None, None)
     size: (self.rt.width, self.parent.height) if self.rt else (100, 100)
     pos: (self.parent.x, self.parent.y) if self.rt else (0, 0)
     name: 'moncul' # self.rt.name if self.rt else 'moncul'
