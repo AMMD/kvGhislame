@@ -1,57 +1,73 @@
 #:kivy 1.4
 
 <MainWidget>:
-    mystrip1: mystrip1
-    mystrip2: mystrip2
-    mystrip3: mystrip3
-    mystrip4: mystrip4
+    # mystrip1: mystrip1
+    # mystrip2: mystrip2
+    # mystrip3: mystrip3
+    # mystrip4: mystrip4
     mlstrip1: mlstrip1
-#    mylightstrip2: mylightstrip2
+    mlstrip2: mlstrip2
 
-    AudioStrip:
-        id: mystrip1
-        name: 'My Strip 1'
-        x: root.x
-        y: root.y
-        width: root.stripwidth
-        height: root.height
-        color: 0.5, 0.5, 1
+    # AudioStrip:
+    #     id: mystrip1
+    #     name: 'My Strip 1'
+    #     x: root.x
+    #     y: root.y
+    #     width: root.stripwidth
+    #     height: root.height
+    #     color: 0.5, 0.5, 1
 
-    AudioStrip:
-        id: mystrip2
-        name: 'My Strip 2'
-        x: root.x + self.width
-        y: root.y
-        width: root.stripwidth
-        height: root.height
-        color: 1, 0.5, 0.5
+    # AudioStrip:
+    #     id: mystrip2
+    #     name: 'My Strip 2'
+    #     x: root.x + self.width
+    #     y: root.y
+    #     width: root.stripwidth
+    #     height: root.height
+    #     color: 1, 0.5, 0.5
 
-    AudioStrip:
-        id: mystrip3
-        name: 'My Strip 3'
-        x: root.x + self.width * 2
-        y: root.y
-        width: root.stripwidth
-        height: root.height
-        color: 0.5, 1, 1
+    # AudioStrip:
+    #     id: mystrip3
+    #     name: 'My Strip 3'
+    #     x: root.x + self.width * 2
+    #     y: root.y
+    #     width: root.stripwidth
+    #     height: root.height
+    #     color: 0.5, 1, 1
 
-    AudioStrip:
-        id: mystrip4
-        name: 'My Strip 4'
-        x: root.x + self.width * 3
-        y: root.y
-        width: root.stripwidth
-        height: root.height
-        color: 1, 0.5, 1
+    # AudioStrip:
+    #     id: mystrip4
+    #     name: 'My Strip 4'
+    #     x: root.x + self.width * 3
+    #     y: root.y
+    #     width: root.stripwidth
+    #     height: root.height
+    #     color: 1, 0.5, 1
 
-    LightStrip:
-        id: mlstrip1
-        name: 'My Light 1'
-        x: root.x + root.stripwidth * 4 + 10
-        y: root.y
-        height: root.height
-        width: root.height
+    BoxLayout:
+        orientation: 'horizontal'
+        size: root.size
+        pos: root.pos
+        LightStrip:
+            id: mlstrip1
+            name: 'My Light 1'
+            height: root.height
+            size_hint: (None, None)
+            width: 100
+            pos: 0, 0
+#        x: root.x + root.stripwidth * 2 #+ root.stripwidth * 4 + 10
+#            y: root.y
+#            height: root.height
+#            width: root.width #- root.stripwidth * 4 - 10
 #        color: 0.5, 0.5, 1
+
+        LightStrip:
+            id: mlstrip2
+            name: 'My Light 2'
+            height: root.height
+            size_hint: (None, None)
+            width: 100
+#            pos: 0, 0
 
 #    LightStrip:
 #        id: mylightstrip2
