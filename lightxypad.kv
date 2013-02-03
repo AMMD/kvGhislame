@@ -9,7 +9,7 @@
 
     args_pattern: "fff"
 
-    path: "/" + self.app_name.replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
+    path: "/" + self.app_name.replace(" ", "_") + "/LightXYpad/" +  root.name.replace(" ", "_") + "/" + str(self.mode)
     control_path: self.path
 
     x_name: 'saturation'
@@ -19,21 +19,12 @@
     min: 0, 0
     step: 0.001, 0.001
 
-#    x_limit: root.x + root.hfader_x # self.x
-#    y_limit: root.y + root.hfader_y + root.hfader_height + 20 # self.y + 80
-
     pad_pos: 60, 160
     pad_size: root.width - 60, root.height - 160
-#    subpad: 60, 160
-#    x_name_pad: 120
-#    y_name_pad: 0
-#    faders_subpad: 80, 0
 
     hfader_pos: root.x + root.yfader.x, root.y + root.xfader_y - root.hfader_height - 10
     hfader_size: root.pad_x + root.pad_width - root.yfader.x, 50
 
-#    name_pad_pos: root.x, root.y
-#    name_pad_width: root.width
 
     canvas.before:
     	Color:

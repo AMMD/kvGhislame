@@ -8,15 +8,6 @@
     size_hint: (None, None)
     size: (self.rt.width, self.parent.height) if self.rt else (100, 100)
     pos: (self.parent.x, self.parent.y) if self.rt else (0, 0)
-#    name: 'moncul' # self.rt.name if self.rt else 'moncul'
-#    color: (1, 1, 0) #self.rt.color if self.rt else (1, 1, 0)
-
-    on_parent:
-        if self.parent: print "pos: " + str(self.parent.pos) + ", size: " + str(self.parent.size)
-        if self.parent: print type(self.parent)
-        print "size: " + str(self.size)
-#        if((not isinstance(self.parent, Bubble)) & (self.parent != None)): self.pos = (self.rt.center_x, self.parent.y) # if((not isinstance(self.parent, Bubble)) & (self.parent != None))  else (0, 0)
-
 
 
 <MultipleLightStrips>:
@@ -61,8 +52,8 @@
                     MLightBox:
                         size_hint: (None, None)
                         id: lb1
-                        color: 1, 1, 0
-                        name: "Oh"
+#                        color: 1, 1, 0
+#                        name: "Oh"
             BoxLayout:
                 orientation: 'vertical'
                 Button:
@@ -84,8 +75,8 @@
                     MLightBox:
                         size_hint: (None, None)
                         id: lb2
-                        color: 1, 0, 0
-                        name: "Ah"
+#                        color: 1, 0, 0
+#                        name: "Ah"
 
     Screen:
         id: fs
@@ -98,8 +89,6 @@
             text: 'E'
             on_press: 
                 root.restore_zoomed_widget()
-#                root.stf.remove_widget(root.lb2)
-#                root.tmp_s.add_widget(root.lb2)
                 root.current = 'main'
         StencilView:
             id: stf

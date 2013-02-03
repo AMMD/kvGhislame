@@ -18,14 +18,13 @@
 
     flash: flash
 
+    args_pattern: "fff"
+
+    path: "/" + self.app_name.replace(" ", "_") + "/LightXYpad/" +  root.name.replace(" ", "_") + "/" + str(self.mode)
+    control_path: self.path
+
     pad_pos: 160, 156 #root.x + main_dimmer_fader.x + main_dimmer_fader.width + root.yfader.width + root.y_name_pad_height + 30, root.y + root.name_pad_height + root.x_name_pad_height + root.xfader.height + root.hfader_height + 30
     pad_size: self.pad_height, root.height - root.pad_y - root.y - 5 #root.width - 30 - (5 + root.r_fader.width) * 3 - root.pad_x, root.height - root.pad_y - root.y - 5
-
-    on_parent:
-        print "mdf : " + str(root.main_dimmer_fader.x) + " / " + str(root.main_dimmer_fader.width)
-
-#    pos: self.pos
-#    size: self.size
 
     ValueFader:
         id: main_dimmer_fader
@@ -37,6 +36,7 @@
         height: root.height - root.name_pad_height - 15
         max: 1
         value: root.hsv[2]
+        path: ''
         on_touch_move:
             root.value = (root.value[0], self.value)
 
@@ -52,6 +52,7 @@
         height: root.main_dimmer_fader.height
         max: 1
         value: root.rgb[0]
+        path: ''
         on_touch_move:
             root.rgb = self.value, root.rgb[1], root.rgb[2]
 
@@ -67,6 +68,7 @@
         height: root.main_dimmer_fader.height
         max: 1
         value: root.rgb[1]
+        path: ''
         on_touch_move:
             root.rgb = root.rgb[0], self.value, root.rgb[2]
 
@@ -83,6 +85,7 @@
         height: root.main_dimmer_fader.height
         max: 1
         value: root.rgb[2]
+        path: ''
         on_touch_move:
             root.rgb = root.rgb[0], root.rgb[1], self.value
 
@@ -98,7 +101,7 @@
             main_color: 1, 0, 0
             size_hint: (None, None)
             size: 30, 30
-#            group: 'custom_colors'
+            path: ''
             on_press:
                 root.rgb = self.main_color
                 root.hsv = root.hsv[0], root.hsv[1], 0
@@ -108,7 +111,7 @@
             main_color: 1, 1, 0
             size_hint: (None, None)
             size: 30, 30
-#            group: 'custom_colors'
+            path: ''
             on_press:
                 root.rgb = self.main_color
                 root.hsv = root.hsv[0], root.hsv[1], 0
@@ -118,7 +121,7 @@
             main_color: 1, 1, 1
             size_hint: (None, None)
             size: 30, 30
-#            group: 'custom_colors'
+            path: ''
             on_press:
                 root.rgb = self.main_color
                 root.hsv = root.hsv[0], root.hsv[1], 0
@@ -128,7 +131,7 @@
             main_color: 1, 0, 1
             size_hint: (None, None)
             size: 30, 30
-#            group: 'custom_colors'
+            path: ''
             on_press:
                 root.rgb = self.main_color
                 root.hsv = root.hsv[0], root.hsv[1], 0
@@ -138,7 +141,7 @@
             main_color: 0, 1, 1
             size_hint: (None, None)
             size: 30, 30
-#            group: 'custom_colors'
+            path: ''
             on_press:
                 root.rgb = self.main_color
                 root.hsv = root.hsv[0], root.hsv[1], 0
@@ -148,7 +151,7 @@
             main_color: 0, 1, 0
             size_hint: (None, None)
             size: 30, 30
-#            group: 'custom_colors'
+            path: ''
             on_press:
                 root.rgb = self.main_color
                 root.hsv = root.hsv[0], root.hsv[1], 0
@@ -158,7 +161,7 @@
             main_color: 0, 0, 1
             size_hint: (None, None)
             size: 30, 30
-#            group: 'custom_colors'
+            path: ''
             on_press:
                 root.rgb = self.main_color
                 root.hsv = root.hsv[0], root.hsv[1], 0
@@ -168,7 +171,7 @@
             main_color: 1, 0.5, 1
             size_hint: (None, None)
             size: 30, 30
-#            group: 'custom_colors'
+            path: ''
             on_press:
                 root.rgb = self.main_color
                 root.hsv = root.hsv[0], root.hsv[1], 0
@@ -176,11 +179,11 @@
 
     Push:
         id: flash
-#        main_color: 1, 1, 1
         hsv: root.hsv[0], root.hsv[1], 1
         size_hint: (None, None)
         size: 30, 30
         center_x: root.main_dimmer_fader.center_x
+        path: ''
         on_press:
             root.old_hue = root.hsv[2]
             root.hsv = root.hsv[0], root.hsv[1], 1
