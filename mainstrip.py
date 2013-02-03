@@ -23,8 +23,8 @@ class MainWidget(Widget):
     mystrip3 = ObjectProperty(None)
     mystrip4 = ObjectProperty(None)
     stripwidth = NumericProperty(70)
-    mlstrip1 = LightStrip()
-    mlstrip2 = LightStrip()
+    mlstrip1 = ObjectProperty(LightBox)
+    mlstrip2 = ObjectProperty(LightBox)
 
 class MainWidgetApp(App):
     def build(self):
