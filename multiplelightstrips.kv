@@ -28,12 +28,14 @@
         BoxLayout:
             orientation: 'horizontal'
 #            spacing: 20
-#            size_hint: (None, None)
-#            pos_hint: {'centerx': 0, 'y': 0}
-            pos: root.pos
-            size: root.size
+            size_hint: (1, 1)
+            pos_hint: {'x': 0, 'y': 0}
+#            pos: root.pos
+#            size: root.size
+
             BoxLayout:
                 orientation: 'vertical'
+                size_hint: (1, 1)
                 Button:
                     canvas:
                         Clear
@@ -64,7 +66,7 @@
 #                    height: root.height - 15
                     width: 90
                     LightBox:
-                        size_hint: (None, None)
+#                        size_hint: (None, 1)
                         id: lb1
                         color: 0, 1, 1
                         name: root.name1
@@ -77,6 +79,7 @@
 
             BoxLayout:
                 orientation: 'vertical'
+                size_hint: (1, 1)
                 Button:
                     color: 0, 1, 1
                     text: 'D'
@@ -92,12 +95,12 @@
                         root.current = 'front'
                 StencilView:
                     id: st2
-                    size_hint: (None, None)
-                    height: root.height - 30
+                    size_hint: (None, 1)
+#                    height: root.height - 30
                     width: 90
                     LightBox:
                         id: lb2
-                        size_hint: (None, None)
+#                        size_hint: (None, 1)
                         color: 1, 0, 0
                         name: root.name2
                         size: root.width, self.parent.height
@@ -108,6 +111,7 @@
 
             BoxLayout:
                 orientation: 'vertical'
+                size_hint: (1, 1)
                 Button:
                     color: 0, 1, 1
                     text: 'D'
@@ -123,12 +127,12 @@
                         root.current = 'front'
                 StencilView:
                     id: st3
-                    size_hint: (None, None)
-                    height: root.height - 30
+                    size_hint: (None, 1)
+#                    height: root.height - 30
                     width: 90
                     LightBox:
                         id: lb3
-                        size_hint: (None, None)
+#                        size_hint: (None, 1)
                         color: 1, 0, 0
                         name: root.name3
                         size: root.width, self.parent.height

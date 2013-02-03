@@ -27,14 +27,12 @@
     path: "/" + self.app_name.replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
     control_path: self.path
 
-#    pad_pos: 160, 160 #root.x + main_dimmer_fader.x + main_dimmer_fader.width + root.yfader.width + root.y_name_pad_height + 30, root.y + root.name_pad_height + root.x_name_pad_height + root.xfader.height + root.hfader_height + 30
-#    pad_size: root.width - 160 - 35 - (50 + 5) * 3, root.height - 160 #root.height - root.pad_pos[1] - root.y - 5, root.height - root.pad_pos[1] - root.y - 5 #root.width - 30 - (5 + root.r_fader.width) * 3 - root.pad_x, root.height - root.pad_y - root.y - 5
     spacing: 10
 
     BoxLayout:
         orientation: 'vertical'
         size_hint: None, 1
-        pos_hint: {'x': root.x}
+        x: root.x
 
         BoxLayout:
             orientation: 'horizontal'
@@ -47,8 +45,6 @@
                 size_hint: None, 1
                 pos_hint: {'x': 0, 'y': 0.1}
                 width: 30
-                height: 30
-#        pos: root.x, main_dimmer_fader.y + 15 # + main_dimmer_fader.height - 310
                 spacing: 10 
 
                 Push:
