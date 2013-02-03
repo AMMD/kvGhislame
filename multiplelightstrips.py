@@ -24,8 +24,8 @@ class MultipleLightStrips(ScreenManager):
     st2 = ObjectProperty(StencilView)
     stf = ObjectProperty(StencilView)
 
-    lb1 = ObjectProperty(LightBox)
-    lb2 = ObjectProperty(LightBox)
+    lb1 = ObjectProperty(MLightBox)
+    lb2 = ObjectProperty(MLightBox)
 
     name = StringProperty()
     name1 = StringProperty()
@@ -47,7 +47,7 @@ class MultipleLightStripsApp(App):
         return MultipleLightStrips(name1="machin", name2="chose", app_name="yihi")
 
 
-Builder.load_file('lightxypad.kv')
+#Builder.load_file('lightxypad.kv')
 Builder.load_file('lightbox.kv')
 Builder.load_file('toggle.kv')
 
