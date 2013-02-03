@@ -45,10 +45,10 @@
         orientation: 'vertical'
         color: 1, 0, 0
         name: 'red'
-        x: root.pad_x + root.pad_width + 30
-        y: root.main_dimmer_fader.y
+        x: root.x + root.pad_x + root.pad_width + 30
+        y: main_dimmer_fader.y
         width: 50
-        height: root.main_dimmer_fader.height
+        height: main_dimmer_fader.height
         max: 1
         value: root.rgb[0]
         path: ''
@@ -61,10 +61,10 @@
         orientation: 'vertical'
         color: 0, 1, 0
         name: 'green'
-        x: root.pad_x + root.pad_width + 30 + root.r_fader.width + 5
-        y: root.main_dimmer_fader.y
+        x: root.x + root.pad_x + root.pad_width + 30 + root.r_fader.width + 5
+        y: main_dimmer_fader.y
         width: 50
-        height: root.main_dimmer_fader.height
+        height: main_dimmer_fader.height
         max: 1
         value: root.rgb[1]
         path: ''
@@ -78,10 +78,10 @@
         orientation: 'vertical'
         color: 0, 0, 1
         name: 'blue'
-        x: root.pad_x + root.pad_width + 30 + root.r_fader.width + root.g_fader.width + 5 + 5
-        y: root.main_dimmer_fader.y
+        x: root.x + root.pad_x + root.pad_width + 30 + root.r_fader.width + root.g_fader.width + 5 + 5
+        y: main_dimmer_fader.y
         width: 50
-        height: root.main_dimmer_fader.height
+        height: main_dimmer_fader.height
         max: 1
         value: root.rgb[2]
         path: ''
@@ -92,7 +92,7 @@
         orientation: 'vertical'
         size_hint: (None, None)
         size: 30, 310
-        pos: root.x, root.main_dimmer_fader.y + 15 # + root.main_dimmer_fader.height - 310
+        pos: root.x, main_dimmer_fader.y + 15 # + main_dimmer_fader.height - 310
         spacing: 10 
 
         Push:
