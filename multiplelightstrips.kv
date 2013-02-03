@@ -32,54 +32,60 @@
     Screen:
         id: ms
         name: 'main'
-        Button:
-            color: 0, 1, 1
-            text: 'D'
-            size_hint: (None, None)
-            pos: 0, root.height - self.height
-            size: 100, 100
-            on_press: 
-                root.st1.remove_widget(root.lb1)
-                root.stf.add_widget(root.lb1)
-                root.tmp_s = root.st1
-                root.current = 'front'
-        StencilView:
-            id: st1
-            x: root.x
-            y: root.y
-            size_hint: (None, None)
-            height: root.height - 100 # - root.vb.height - 10
-            width: 90
-            MLightBox:
-                size_hint: (None, None)
-                id: lb1
-                color: 1, 1, 0
-                name: "Oh"
 
-        Button:
-            color: 0, 1, 1
-            text: 'D'
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 20
             size_hint: (None, None)
-            pos: 200, root.height - self.height
-            size: 100, 100
-            on_press: 
-                root.st2.remove_widget(root.lb2)
-                root.stf.add_widget(root.lb2)
-                root.tmp_s = root.st2
-                root.current = 'front'
-        StencilView:
-            id: st2
-            x: root.x
-            y: root.y
-            size_hint: (None, None)
-            height: root.height - 100 # - root.vb.height - 10
-            width: 90
-            pos: 200, 0
-            MLightBox:
-                size_hint: (None, None)
-                id: lb2
-                color: 1, 0, 0
-                name: "Ah"
+            pos_hint: {'centerx': 0, 'y': 0}
+            pos: root.pos
+            size: root.size
+            BoxLayout:
+                orientation: 'vertical'
+                Button:
+                    color: 0, 1, 1
+                    text: 'D'
+                    size_hint: (None, None)
+                    y: self.parent.height - self.height
+                    size: 30, 30
+                    on_press: 
+                        root.st1.remove_widget(root.lb1)
+                        root.stf.add_widget(root.lb1)
+                        root.tmp_s = root.st1
+                        root.current = 'front'
+                StencilView:
+                    id: st1
+                    size_hint: (None, None)
+                    height: root.height - 30 # - root.vb.height - 10
+                    width: 90
+                    MLightBox:
+                        size_hint: (None, None)
+                        id: lb1
+                        color: 1, 1, 0
+                        name: "Oh"
+            BoxLayout:
+                orientation: 'vertical'
+                Button:
+                    color: 0, 1, 1
+                    text: 'D'
+                    size_hint: (None, None)
+                    y: self.parent.height - self.height
+                    size: 30, 30
+                    on_press: 
+                        root.st2.remove_widget(root.lb2)
+                        root.stf.add_widget(root.lb2)
+                        root.tmp_s = root.st2
+                        root.current = 'front'
+                StencilView:
+                    id: st2
+                    size_hint: (None, None)
+                    height: root.height - 30 # - root.vb.height - 10
+                    width: 90
+                    MLightBox:
+                        size_hint: (None, None)
+                        id: lb2
+                        color: 1, 0, 0
+                        name: "Ah"
 
     Screen:
         id: fs
@@ -88,7 +94,7 @@
             color: 0, 1, 1
             size_hint: (None, None)
             pos: 0, root.height - self.height
-            size: 100, 100
+            size: 30, 30
             text: 'E'
             on_press: 
                 root.restore_zoomed_widget()
@@ -100,7 +106,7 @@
             x: root.x
             y: root.y
             size_hint: (None, None)
-            height: root.height - 100 # - root.vb.height - 10
+            height: root.height - 30 # - root.vb.height - 10
             width: root.width        
 
 
