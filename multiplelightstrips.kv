@@ -53,6 +53,8 @@
                         root.st1.remove_widget(root.lb1)
                         root.stf.add_widget(root.lb1)
                         root.tmp_s = root.st1
+                        root.lb1.width = root.width
+                        root.lb1.x = root.x
                         root.current = 'front'
                 StencilView:
                     id: st1
@@ -64,7 +66,7 @@
                         id: lb1
                         color: 0, 1, 1
                         name: root.name1
-                        size: root.width, self.parent.height
+                        size: self.parent.width, self.parent.height
 
             BoxLayout:
                 orientation: 'vertical'
@@ -78,6 +80,8 @@
                         root.st2.remove_widget(root.lb2)
                         root.stf.add_widget(root.lb2)
                         root.tmp_s = root.st2
+                        root.lb2.width = root.width
+                        root.lb2.x = root.x
                         root.current = 'front'
                 StencilView:
                     id: st2
@@ -89,8 +93,8 @@
                         id: lb2
                         color: 1, 0, 0
                         name: root.name2
-                        size: root.width, self.parent.height
-#                        pos: self.parent.x, self.parent.y
+                        size: self.parent.width, self.parent.height
+                        pos: self.parent.x, self.parent.y
 
     Screen:
         id: fs

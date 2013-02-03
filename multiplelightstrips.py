@@ -35,6 +35,8 @@ class MultipleLightStrips(ScreenManager):
     def restore_zoomed_widget(self):
         for child in self.stf.children[:]:
             self.stf.remove_widget(child)
+            child.width = self.tmp_s.width
+            child.x = self.tmp_s.x
             self.tmp_s.add_widget(child)
 
 class MultipleLightStripsApp(App):
