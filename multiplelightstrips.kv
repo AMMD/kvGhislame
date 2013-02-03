@@ -66,7 +66,7 @@
                         id: lb1
                         color: 0, 1, 1
                         name: root.name1
-                        size: self.parent.width, self.parent.height
+                        size: root.width, self.parent.height
 
             BoxLayout:
                 orientation: 'vertical'
@@ -93,8 +93,8 @@
                         id: lb2
                         color: 1, 0, 0
                         name: root.name2
-                        size: self.parent.width, self.parent.height
-                        pos: st2 and st2.pos or 0, 0
+                        size: root.width, self.parent.height
+                        pos: self.parent.pos if self.parent else 0, 20 #st2 and st2.pos or 0, 0
 
     Screen:
         id: fs
