@@ -7,29 +7,29 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.layout import Layout
 from kivy.uix.widget import Widget
-from kivy.properties import NumericProperty
+from kivy.properties import NumericProperty, ObjectProperty
 
 from lightxypad import LightXyPad
 from valuefader import ValueFader
 from push import Push
 
 class LightBox(LightXyPad):
-    main_dimmer_fader = ValueFader()
+    main_dimmer_fader = ObjectProperty(ValueFader)
 
     r_fader = ValueFader()
     g_fader = ValueFader()
     b_fader = ValueFader()
 
-    custom_color_1 = Push()
-    custom_color_2 = Push()
-    custom_color_3 = Push()
-    custom_color_4 = Push()
-    custom_color_5 = Push()
-    custom_color_6 = Push()
-    custom_color_7 = Push()
-    custom_color_8 = Push()
+    custom_color_1 = ObjectProperty(Push)
+    custom_color_2 = ObjectProperty(Push)
+    custom_color_3 = ObjectProperty(Push)
+    custom_color_4 = ObjectProperty(Push)
+    custom_color_5 = ObjectProperty(Push)
+    custom_color_6 = ObjectProperty(Push)
+    custom_color_7 = ObjectProperty(Push)
+    custom_color_8 = ObjectProperty(Push)
 
-    flash = Push()
+    flash = ObjectProperty(Push)
     old_hue = NumericProperty()
 
 # TODO Link

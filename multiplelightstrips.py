@@ -17,20 +17,20 @@ class MLightBox(LightBox):
     pass
 
 class MultipleLightStrips(ScreenManager):
-    tmp_s = ObjectProperty(None)
-    st1 = ObjectProperty(None)
-    st2 = ObjectProperty(None)
-    stf = ObjectProperty(None)
+    tmp_s = ObjectProperty(StencilView)
+    st1 = ObjectProperty(StencilView)
+    st2 = ObjectProperty(StencilView)
+    stf = ObjectProperty(StencilView)
 
-    lb1 = ObjectProperty(None)
-    lb2 = ObjectProperty(None)
+    lb1 = ObjectProperty(LightBox)
+    lb2 = ObjectProperty(LightBox)
 
     name = StringProperty()
     name1 = StringProperty()
     name2 = StringProperty()
 
-    main_s = ObjectProperty(None)
-    front_s = ObjectProperty(None)
+    main_s = ObjectProperty(Screen)
+    front_s = ObjectProperty(Screen)
 
     def restore_zoomed_widget(self):
         for child in self.stf.children[:]:
