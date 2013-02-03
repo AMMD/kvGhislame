@@ -24,8 +24,8 @@ class MultipleLightStrips(ScreenManager):
     st2 = ObjectProperty(StencilView)
     stf = ObjectProperty(StencilView)
 
-    lb1 = ObjectProperty(MLightBox)
-    lb2 = ObjectProperty(MLightBox)
+    lb1 = ObjectProperty(LightBox)
+    lb2 = ObjectProperty(LightBox)
 
     name = StringProperty()
     name1 = StringProperty()
@@ -38,8 +38,8 @@ class MultipleLightStrips(ScreenManager):
     def restore_zoomed_widget(self):
         for child in self.stf.children[:]:
             self.stf.remove_widget(child)
-#           child.width = self.tmp_s.width
-#            child.x = self.tmp_s.x
+#            child.width = self.tmp_s.width
+            child.x = self.tmp_s.x
             self.tmp_s.add_widget(child)
 
 class MultipleLightStripsApp(App):

@@ -62,12 +62,12 @@
                     size_hint: (None, None)
                     height: root.height - 15
                     width: 90
-                    MLightBox:
+                    LightBox:
                         size_hint: (None, None)
                         id: lb1
                         color: 0, 1, 1
                         name: root.name1
-#                        size: root.width, self.parent.height
+                        size: root.width, self.parent.height
 
             BoxLayout:
                 orientation: 'vertical'
@@ -89,13 +89,13 @@
                     size_hint: (None, None)
                     height: root.height - 30
                     width: 90
-                    MLightBox:
+                    LightBox:
                         id: lb2
                         size_hint: (None, None)
                         color: 1, 0, 0
                         name: root.name2
-#                        size: root.width, self.parent.height
-#                        pos: self.parent.pos
+                        size: root.width, self.parent.height
+                        pos: self.parent.pos
 
     Screen:
         id: fs
