@@ -16,9 +16,9 @@ from push import Push
 class LightBox(LightXyPad):
     main_dimmer_fader = ObjectProperty(ValueFader)
 
-    r_fader = ObjectProperty(ValueFader)
-    g_fader = ObjectProperty(ValueFader)
-    b_fader = ObjectProperty(ValueFader)
+    # r_fader = ObjectProperty(ValueFader)
+    # g_fader = ObjectProperty(ValueFader)
+    # b_fader = ObjectProperty(ValueFader)
 
     custom_color_1 = ObjectProperty(Push)
     custom_color_2 = ObjectProperty(Push)

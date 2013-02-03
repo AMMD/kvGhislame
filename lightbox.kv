@@ -23,7 +23,7 @@
     control_path: self.path
 
     pad_pos: 160, 156 #root.x + main_dimmer_fader.x + main_dimmer_fader.width + root.yfader.width + root.y_name_pad_height + 30, root.y + root.name_pad_height + root.x_name_pad_height + root.xfader.height + root.hfader_height + 30
-    pad_size: self.pad_height, root.height - root.pad_y - root.y - 5 #root.width - 30 - (5 + root.r_fader.width) * 3 - root.pad_x, root.height - root.pad_y - root.y - 5
+    pad_size: root.width - 160 - 35 - (r_fader.width + 5) * 3, root.height - 156 #root.height - root.pad_pos[1] - root.y - 5, root.height - root.pad_pos[1] - root.y - 5 #root.width - 30 - (5 + root.r_fader.width) * 3 - root.pad_x, root.height - root.pad_y - root.y - 5
 
     ValueFader:
         id: main_dimmer_fader
@@ -61,7 +61,7 @@
         orientation: 'vertical'
         color: 0, 1, 0
         name: 'green'
-        x: root.x + root.pad_x + root.pad_width + 30 + root.r_fader.width + 5
+        x: root.x + root.pad_x + root.pad_width + 30 + r_fader.width + 5
         y: main_dimmer_fader.y
         width: 50
         height: main_dimmer_fader.height
@@ -78,7 +78,7 @@
         orientation: 'vertical'
         color: 0, 0, 1
         name: 'blue'
-        x: root.x + root.pad_x + root.pad_width + 30 + root.r_fader.width + root.g_fader.width + 5 + 5
+        x: root.x + root.pad_x + root.pad_width + 30 + r_fader.width + g_fader.width + 5 + 5
         y: main_dimmer_fader.y
         width: 50
         height: main_dimmer_fader.height
