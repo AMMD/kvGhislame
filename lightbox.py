@@ -29,12 +29,10 @@ class LightBox(LightXyPad):
     custom_color_7 = Push()
     custom_color_8 = Push()
 
-# TODO Flash
     flash = Push()
     old_hue = NumericProperty()
 
 # TODO Link
-# TODO Develop
 
     def on_touch_down(self, touch):
         if ('button' in touch.profile) & ('right' in touch.button):
