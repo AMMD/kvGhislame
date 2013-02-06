@@ -8,11 +8,14 @@
 
 <MainKvG>:
     sm: sm
-    mainmix: mainmix
-    organicdrums: organicdrums
     menu: menu
+    mix_b: mix_b
+    mainmix: mainmix
+    odr_b: odr_b
+    organicdrums: organicdrums
+
        
-    BoxLayout:
+    Menu:
         id: menu
         orientation: 'horizontal'
         size_hint: (1, None)
@@ -20,10 +23,12 @@
         height: 30
 
         MenuButton:
+            id: mix_b
             text: "Mix"
             on_parent: self.state = 'down'
 
         MenuButton:
+            id: odr_b
             text: "ODr"
       
     ScreenManager:
@@ -36,8 +41,6 @@
         MainMix:
             id: mainmix
             name: 'Mix'
-            ToggleButton:
-                text: "MainMix"
 
         OrganicDrums:
             id: organicdrums
