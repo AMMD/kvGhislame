@@ -1,0 +1,46 @@
+#!kivy 1.5
+
+<MenuButton>:
+    group: 'tabs'
+    on_press:
+        self.parent.parent.sm.current = self.text
+        self.state = 'down'
+
+<MainKvG>:
+    sm: sm
+    mainmix: mainmix
+    organicdrums: organicdrums
+    menu: menu
+       
+    BoxLayout:
+        id: menu
+        orientation: 'horizontal'
+        size_hint: (1, None)
+        pos: root.x, root.y + root.height - self.height
+        height: 30
+
+        MenuButton:
+            text: "Mix"
+            on_parent: self.state = 'down'
+
+        MenuButton:
+            text: "ODr"
+      
+    ScreenManager:
+        id: sm
+        size_hint: (None, None)
+        height: root.height - menu.height
+        width: root.width
+        pos: root.pos
+
+        MainMix:
+            id: mainmix
+            name: 'Mix'
+            ToggleButton:
+                text: "MainMix"
+
+        OrganicDrums:
+            id: organicdrums
+            name: 'ODr'
+            ToggleButton:
+                text: "OrganicDrums"
