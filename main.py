@@ -92,13 +92,21 @@ class MxSynths(Screen):
     mxchords = ObjectProperty(AudioStrip)
     mxlead = ObjectProperty(AudioStrip)
     mxctlead = ObjectProperty(AudioStrip)
+    mxsamples = ObjectProperty(AudioStrip)
 
     mxsynths = ObjectProperty(AudioStrip)
 
 Builder.load_file('mxsynths.kv')
 
 class MxDrums(Screen):
-    pass
+    mxkicks = ObjectProperty(AudioStrip)
+    mxsnares = ObjectProperty(AudioStrip)
+    mxcymbs = ObjectProperty(AudioStrip)
+    mxcont = ObjectProperty(AudioStrip)
+
+    mxdrums = ObjectProperty(AudioStrip)
+
+Builder.load_file('mxsynths.kv')
 
 class NyComp(Screen):
     pass
