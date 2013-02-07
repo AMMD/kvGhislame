@@ -15,7 +15,7 @@ class OscSender(Widget):
     args = ListProperty()
     args_pattern = StringProperty()
     app_name = StringProperty()
-    mutex = BooleanProperty(True)
+#    mutex = BooleanProperty(True)
 
     def send_message(self):
         if self.path != '':

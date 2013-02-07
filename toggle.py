@@ -1,6 +1,8 @@
 import kivy
 kivy.require('1.5.1')
 
+import re
+
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.togglebutton import ToggleButton
@@ -19,9 +21,9 @@ class Toggle(ToggleButton, OscSender):
     one_on_down = BooleanProperty()
 
     def control_cb(self, path, args, types, src):
-        if re.search('127.0.0.1', src.get_url()):
-            print "self-incoming message"
-        else:
+#        if re.search('127.0.0.1', src.get_url()):
+#            print "self-incoming message"
+#        else:
             print "OSC controlled"
             if float(args[0]):
                 self.state = 'down'

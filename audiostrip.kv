@@ -17,7 +17,7 @@
         main_color: root.r, root.g, root.b
         text: 'M' if root.mute_mode == 'mute' else 'ON'
         one_on_down: False if root.mute_mode == 'mute' else True
-        path: "/" + root.app_name.replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/On"
+        path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/On" if (root.name) else "/missing_name/"
         control_path: self.path
 
     ValueFader:
@@ -31,7 +31,7 @@
         color: root.color
         max: 100
         min: 0
-        path: "/" + root.app_name.replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Gain"
+        path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Gain" if (root.name) else "/missing_name/"
         control_path: self.path
 
     ValueFader:
@@ -45,7 +45,7 @@
         min: -1
         max: 1
         color: root.color
-        path: "/" + root.app_name.replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Pan"
+        path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Pan" if (root.name) else "/missing_name/"
         control_path: self.path
 
 

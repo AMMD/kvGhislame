@@ -8,7 +8,7 @@
     background_down: 'data/button_down.png'
     border: 15, 15, 15, 15
 
-    path: "/" + self.app_name.replace(" ", "_") + "/Toggle/" + self.name.replace(" ", "_")
+    path: "/" + app.get_application_name.replace(" ", "_") + "/Toggle/" + self.name.replace(" ", "_") if (root.name) else "/mssing_name/"
     control_path: self.path
 
     args_pattern: 'i'

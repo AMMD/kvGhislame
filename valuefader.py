@@ -68,9 +68,9 @@ class Fader(Slider, OscSender):
             return True
 
     def control_cb(self, path, args, types, src):
-        if re.search('127.0.0.1', src.get_url()):
-            print "self-incoming message"
-        else:
+#        if re.search('127.0.0.1', src.get_url()):
+#            print "self-incoming message"
+#        else:
             print "OSC controlled"
             self.value = float(args[0])
 

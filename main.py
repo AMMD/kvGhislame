@@ -4,10 +4,11 @@ from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.togglebutton import ToggleButton
-from kivy.properties import ObjectProperty
+from kivy.properties import ObjectProperty, StringProperty
 from kivy.app import App
 from kivy.lang import Builder
 
+from osc import OscServer, OscSender
 from audiostrip import AudioStrip
 Builder.load_file('audiostrip.kv')
 
@@ -31,6 +32,7 @@ class OrganicDrums(Screen):
 
 
 class MainKvG(Widget):
+    app_name = StringProperty()
     sm = ObjectProperty(ScreenManager)
     menu = ObjectProperty(Menu)
     mainmix = ObjectProperty(Screen)
@@ -46,9 +48,20 @@ class MainKvG(Widget):
 
 
 
-class kvGhislame(App):
+class kvGhislame(OscServer, App):
+    title = "kvGhislame"
+
+    def recurse_children(self, obj):
+        for child in obj.children:
+            print "New Child: " + str(type(child))
+            if isinstance(child, OscSender):
+                self.server.add_method(child.path, child.args_pattern, child.control_cb)
+            self.recurse_children(child)
+
     def build(self):
-        return MainKvG()
+        mainkvg = MainKvG()
+        self.recurse_children(mainkvg)
+        return mainkvg
 
 if __name__ == "__main__":
     kvGhislame().run()
