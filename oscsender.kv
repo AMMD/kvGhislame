@@ -1,0 +1,4 @@
+#!kivy 1.5
+
+<OscSender>:
+    target: app.config.get('OSC', 'dest_host') + ":" + str(app.config.get('OSC', 'dest_port'))

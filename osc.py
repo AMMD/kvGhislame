@@ -9,7 +9,7 @@ from kivy.properties import StringProperty, ListProperty, NumericProperty, Boole
 from time import time
 
 class OscSender(Widget):
-    target = StringProperty("osc.udp://localhost:1234")
+    target = StringProperty()
     path = StringProperty()
     control_path = StringProperty()
     args = ListProperty()
@@ -24,7 +24,7 @@ class OscSender(Widget):
 
 class OscServer(Widget):
     port = NumericProperty()
-    port = 9999
+    port = "9999"
     server = _liblo.ServerThread(port)
     
     def on_start(self):
