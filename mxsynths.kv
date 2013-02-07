@@ -1,0 +1,94 @@
+#!kivy 1.5
+
+<MxSynths>:
+    mxbass: mxbass
+    mxchords: mxchords
+    mxlead: mxlead
+    mxctlead: mxctlead
+
+    mxsynths: mxsynths
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: (1, 1)
+        pos_hint: {'x': 0, 'y': 0}
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'MxBass'
+            AudioStrip:
+                id: vocalsfx
+                name: "MxBass"
+                color: 1, 0.5, 0.1
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'MxChords'
+            AudioStrip:
+                id: mxchords
+                name: "MxChords"
+                color: 1, 0.5, 0.15
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'MxLead'
+            AudioStrip:
+                id: mxlead
+                name: "MxLead"
+                color: 1, 0.5, 0.2
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'MxCtLead'
+            AudioStrip:
+                id: mxctlead
+                name: "MxCtLead"
+                color: 1, 0.5, 0.25
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'Main Mix'
+            AudioStrip:
+                id: mxsynths
+                name: "MxSynths"
+                color: 1, 1, 1
+                size_hint: (1, 1)
+                canvas.before:
+                    Color:
+                        rgba: 0.1, 0.1, 0.1, 0.5
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: 0.7, 0.7, 0.7, 0.5
+                    Line:
+                        rectangle: self.x, self.y, self.width - 1, self.height - 1
