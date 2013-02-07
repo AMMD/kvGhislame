@@ -3,7 +3,7 @@
 
 <Fader>:
     on_touch_move:
-        self.send_message()
+        if self.collide_point(args[1].x, args[1].y): self.send_message()
 
     canvas:
         Clear

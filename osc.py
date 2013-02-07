@@ -6,8 +6,6 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import StringProperty, ListProperty, NumericProperty, BooleanProperty
 
-from time import time
-
 class OscSender(Widget):
     target = StringProperty()
     path = StringProperty()
@@ -15,7 +13,6 @@ class OscSender(Widget):
     args = ListProperty()
     args_pattern = StringProperty()
     app_name = StringProperty()
-#    mutex = BooleanProperty(True)
 
     def send_message(self):
         if self.path != '':

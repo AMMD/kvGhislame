@@ -17,9 +17,9 @@ from toggle import Toggle
 class AudioStrip(Widget):
     path = StringProperty('Strip')
     name = StringProperty()
-    gainfader = ObjectProperty(None)
-    panfader = ObjectProperty(None)
-    mute = Toggle()
+    gainfader = ObjectProperty(ValueFader)
+    panfader = ObjectProperty(ValueFader)
+    mute = ObjectProperty(Toggle)
     app_name = StringProperty()
 
     mute_mode = OptionProperty('mute', options=('on', 'mute'))
