@@ -90,6 +90,42 @@ class Fxs(Screen):
 class DrumLoop(Screen):
     pass
 
+class MonitorOrl(Screen):
+    pass
+
+class MonitorSouv(Screen):
+    pass
+
+class MonitorYula(Screen):
+    pass
+
+class MxBass(Screen):
+    pass
+
+class MxChords(Screen):
+    pass
+
+class MxLead(Screen):
+    pass
+
+class MxCtLead(Screen):
+    pass
+
+class SooperLooper(Screen):
+    pass
+
+class BassFx(Screen):
+    pass
+
+class VocalsFx(Screen):
+    pass
+
+class Qlc(Screen):
+    pass
+
+class Lives(Screen):
+    pass
+
 
 class MainKvG(Widget):
     app_name = StringProperty()
@@ -109,9 +145,19 @@ class MainKvG(Widget):
     vocals = ObjectProperty(Vocals)
     mxsynths = ObjectProperty(MxSynths)
     mxdrums = ObjectProperty(MxDrums)
-    nycomp = ObjectProperty(NyComp)
     fxs = ObjectProperty(Fxs)
-    drumloop = ObjectProperty(DrumLoop)
+    monitororl = ObjectProperty(MonitorOrl)
+    monitorsouv = ObjectProperty(MonitorSouv)
+    monitoryula = ObjectProperty(MonitorYula)
+    mxbass = ObjectProperty(MxBass)
+    mxchords = ObjectProperty(MxChords)
+    mxlead = ObjectProperty(MxLead)
+    mxctlead = ObjectProperty(MxCtLead)
+    sooperlooper = ObjectProperty(SooperLooper)
+    bassxx = ObjectProperty(BassFx)
+    vocalsfx = ObjectProperty(VocalsFx)
+    qlc = ObjectProperty(Qlc)
+    lives = ObjectProperty(Lives)
     
 
     def change_tab(self, tab_name):

@@ -1,8 +1,10 @@
 #!kivy 1.5
 
 <MenuButton>:
-    size_hint: (None, 1)
-    width: 50
+    font_size: 10
+    size_hint: (1, None)
+    height: 20
+#    width: 50
     group: 'tabs'
     text_size: self.width - 10, self.texture_size[1]
     texture_size: self.texture_size[0], self.height / 2 + 6
@@ -47,14 +49,50 @@
     mxd_b: mxd_b
     mxdrums: mxdrums
 
-    nyc_b: nyc_b
-    nycomp: nycomp
+#    nyc_b: nyc_b
+#    nycomp: nycomp
 
     fxs_b: fxs_b
     fxs: fxs
 
-    drl_b: drl_b
-    drumloop: drumloop
+#    drl_b: drl_b
+#    drumloop: drumloop
+
+    mno_b: mno_b
+    monitororl: monitororl
+
+    mns_b: mns_b
+    monitorsouv: monitorsouv
+
+    mny_b: mny_b
+    monitoryula: monitoryula
+
+    mxb_b: mxb_b
+    mxbass: mxbass
+
+    mxc_b: mxc_b
+    mxchords: mxchords
+
+    mxl_b: mxl_b
+    mxlead: mxlead
+
+    mxd_b: mxd_b
+    mxctlead: mxlead
+
+    slo_b: slo_b
+    sooperlooper: sooperlooper
+
+    bfx_b: bfx_b
+    bassfx: bassfx
+
+    vfx_b: vfx_b
+    vocalsfx: vocalsfx
+
+    qlc_b: qlc_b
+    qlc: qlc
+
+    liv_b: liv_b
+    lives: lives
 
     BoxLayout:
         id: container
@@ -68,7 +106,7 @@
             text: "Sebkha-Chott Totalizm"
             size_hint: 1, None
             font_size: 30
-            height: 30
+            height: 35
 
         Menu:
             id: menu
@@ -111,16 +149,56 @@
                 text: "MxDrums"
 
             MenuButton:
-                id: nyc_b
-                text: "NY Comp"
-
-            MenuButton:
                 id: fxs_b
                 text: "FXs"
 
             MenuButton:
-                id: drl_b
-                text: "Drum Loop"
+                id: mno_b
+                text: "Monitor ORL"
+
+            MenuButton:
+                id: mns_b
+                text: "Monitor Souv"
+
+            MenuButton:
+                id: mny_b
+                text: "Monitor Yula"
+
+            MenuButton:
+                id: mxb_b
+                text: "MxBass"
+
+            MenuButton:
+                id: mxc_b
+                text: "MxChords"
+
+            MenuButton:
+                id: mxl_b
+                text: "MxLead"
+
+            MenuButton:
+                id: mxd_b
+                text: "MxCtLead"
+
+            MenuButton:
+                id: slo_b
+                text: "SooperLooper"
+
+            MenuButton:
+                id: bfx_b
+                text: "Bass FX"
+
+            MenuButton:
+                id: vfx_b
+                text: "Vocals FX"
+
+            MenuButton:
+                id: qlc_b
+                text: "QLC"
+
+            MenuButton:
+                id: liv_b
+                text: "Lives"
 
       
         ScreenManager:
@@ -159,19 +237,57 @@
                 id: mxdrums
                 name: 'MxDrums'
 
-            NyComp:
-                id: nycomp
-                name: 'NY Comp'
-
             Fxs:
                 id: fxs
                 name: 'FXs'
 
-            DrumLoop:
-                id: drumloop
-                name: 'Drum Loop'
+            MonitorOrl:
+                id: monitororl
+                name: 'Monitor ORL'
 
+            MonitorSouv:
+                id: monitorsouv
+                name: 'Monitor Souv'
 
+            MonitorYula:
+                id: monitoryula
+                name: 'Monitor Yula'
+
+            MxBass:
+                id: mxbass
+                name: 'MxBass'
+
+            MxChords:
+                id: mxchords
+                name: 'MxChords'
+
+            MxLead:
+                id: mxlead
+                name: 'MxLead'
+
+            MxCtLead:
+                id: mxctlead
+                name: 'MxCtLead'
+
+            SooperLooper:
+                id: sooperlooper
+                name: 'SooperLooper'
+
+            BassFx:
+                id: bassfx
+                name: 'Bass FX'
+
+            VocalsFx:
+                id: vocalsfx
+                name: 'Vocals FX'
+
+            Qlc:
+                id: qlc
+                name: 'QLC'
+
+            Lives:
+                id: lives
+                name: "Lives"
             
 
 <kvGhislame>:
