@@ -1,0 +1,30 @@
+#!kivy 1.5
+
+<MainMix>:
+    drums: drums
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: (1, 1)
+        pos_hint: {'x': 0, 'y': 0}
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            ToggleButton:
+                size_hint: 1, None
+                height: 20
+                pos_hint: {'x': 0}
+                y: self.parent.y + self.parent.height - self.height
+                group: 'tabs'
+                text: 'ODr'
+                on_press:
+                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab('ODr')
+            AudioStrip:
+                id: drums
+                name: "ODr"
+                color: 1, 0, 0
+                size_hint: (1, 1)
+
+
+                
