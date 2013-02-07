@@ -1,0 +1,46 @@
+#!kivy 1.5
+
+<Saxophones>:
+    saxophone: saxophone
+    saxfx: saxfx
+
+    saxophones: saxophones
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: (1, 1)
+        pos_hint: {'x': 0, 'y': 0}
+
+        AudioStrip:
+            id: saxophone
+            name: "Saxophone"
+            color: 0.1, 1, 0.1
+
+        AudioStrip:
+            id: saxfx
+            name: "Sax FX"
+            color: 0.1, 1, 0.1
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'Main Mix'
+            AudioStrip:
+                id: basses
+                name: "Saxophones"
+                color: 0, 1, 0
+                size_hint: (1, 1)
+                canvas.before:
+                    Color:
+                        rgba: 0.1, 0.1, 0.1, 0.5
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: 0.7, 0.7, 0.7, 0.5
+                    Line:
+                        rectangle: self.x, self.y, self.width - 1, self.height - 1

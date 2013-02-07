@@ -70,7 +70,12 @@ class Guitares(Screen):
     pass
 
 class Saxophones(Screen):
-    pass
+    saxophone = ObjectProperty(AudioStrip)
+    saxfx = ObjectProperty(AudioStrip)
+
+    saxophones = ObjectProperty(AudioStrip)
+
+Builder.load_file('saxophones.kv')
 
 class Vocals(Screen):
     pass
