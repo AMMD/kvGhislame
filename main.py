@@ -106,7 +106,7 @@ class MxDrums(Screen):
 
     mxdrums = ObjectProperty(AudioStrip)
 
-Builder.load_file('mxsynths.kv')
+Builder.load_file('mxdrums.kv')
 
 class NyComp(Screen):
     pass
