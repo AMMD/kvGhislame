@@ -78,7 +78,14 @@ class Saxophones(Screen):
 Builder.load_file('saxophones.kv')
 
 class Vocals(Screen):
-    pass
+    vocalsorl = ObjectProperty(AudioStrip)
+    vocalssouv = ObjectProperty(AudioStrip)
+    vocalsyula = ObjectProperty(AudioStrip)
+    vocalsfx = ObjectProperty(AudioStrip)
+
+    vocals = ObjectProperty(AudioStrip)
+
+Builder.load_file('vocals.kv')
 
 class MxSynths(Screen):
     pass
