@@ -108,17 +108,24 @@ class MxDrums(Screen):
 
 Builder.load_file('mxdrums.kv')
 
-class NyComp(Screen):
-    pass
+#class NyComp(Screen):
+#    pass
 
 class Fxs(Screen):
     pass
 
-class DrumLoop(Screen):
-    pass
+#class DrumLoop(Screen):
+#    pass
 
 class MonitorOrl(Screen):
-    pass
+    mainmix = ObjectProperty(AudioStrip)
+    basse = ObjectProperty(AudioStrip)
+    guitares = ObjectProperty(AudioStrip)
+    vocals = ObjectProperty(AudioStrip)
+    organicdrums = ObjectProperty(AudioStrip)
+    droiture = ObjectProperty(AudioStrip)
+
+Builder.load_file('monitororl.kv')
 
 class MonitorSouv(Screen):
     pass

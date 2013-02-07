@@ -1,0 +1,92 @@
+#!kivy 1.5
+
+<MonitorOrl>:
+    mainmix: mainmix
+    basse: basse
+    guitares: guitares
+    vocals: vocals
+    organicdrums: organicdrums
+    droiture: droiture
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: (1, 1)
+        pos_hint: {'x': 0, 'y': 0}
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'Main Mix'
+            AudioStrip:
+                id: mainmix
+                name: "Main Mix"
+                color: 1, 0.5, 0.1
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'Basse'
+            AudioStrip:
+                id: basse
+                name: "Basse"
+                color: 1, 0.5, 0.15
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'Guitares'
+            AudioStrip:
+                id: guitares
+                name: "Guitares"
+                color: 1, 0.5, 0.2
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'Vocals'
+            AudioStrip:
+                id: vocals
+                name: "Vocals"
+                color: 1, 0.5, 0.25
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'Organic Drums'
+            AudioStrip:
+                id: organicdrums
+                name: "OrganicDrums"
+                color: 1, 0.5, 0.25
+                size_hint: (1, 1)
+
+        AudioStrip:
+            id: droiture
+            name: "Droiture"
+            color: 1, 0.5, 0.25
+            size_hint: (1, 1)
+
+
