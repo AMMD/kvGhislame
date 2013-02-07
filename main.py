@@ -128,10 +128,22 @@ class MonitorOrl(Screen):
 Builder.load_file('monitororl.kv')
 
 class MonitorSouv(Screen):
-    pass
+    mainmix = ObjectProperty(AudioStrip)
+    saxophones = ObjectProperty(AudioStrip)
+    vocals = ObjectProperty(AudioStrip)
+    organicdrums = ObjectProperty(AudioStrip)
+    droiture = ObjectProperty(AudioStrip)
+
+Builder.load_file('monitorsouv.kv')
+
 
 class MonitorYula(Screen):
-    pass
+    mainmix = ObjectProperty(AudioStrip)
+    kick1 = ObjectProperty(AudioStrip)
+    organicdrums = ObjectProperty(AudioStrip)
+    droiture = ObjectProperty(AudioStrip)
+
+Builder.load_file('monitoryula.kv')
 
 class MxBass(Screen):
     pass

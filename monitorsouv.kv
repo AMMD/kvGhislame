@@ -1,9 +1,8 @@
 #!kivy 1.5
 
-<MonitorOrl>:
+<MonitorSouv>:
     mainmix: mainmix
-    basse: basse
-    guitares: guitares
+    saxophones: saxophones
     vocals: vocals
     organicdrums: organicdrums
     droiture: droiture
@@ -34,25 +33,11 @@
                 size_hint: 1, None
                 height: 20
                 group: 'tabs'
-                text: 'Basses'
+                text: 'Saxophones'
             AudioStrip:
-                id: basse
-                name: "Basse"
+                id: saxophones
+                name: "Saxophones"
                 color: 1, 0.5, 0.15
-                size_hint: (1, 1)
-
-        BoxLayout:
-            orientation: 'vertical'
-            size_hint: (1, 1)
-            MenuButton:
-                size_hint: 1, None
-                height: 20
-                group: 'tabs'
-                text: 'Guitares'
-            AudioStrip:
-                id: guitares
-                name: "Guitares"
-                color: 1, 0.5, 0.2
                 size_hint: (1, 1)
 
         BoxLayout:

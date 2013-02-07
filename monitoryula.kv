@@ -1,0 +1,54 @@
+#!kivy 1.5
+
+<MonitorYula>:
+    mainmix: mainmix
+    kick1: kick1
+    organicdrums: organicdrums
+    droiture: droiture
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: (1, 1)
+        pos_hint: {'x': 0, 'y': 0}
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'Main Mix'
+            AudioStrip:
+                id: mainmix
+                name: "Main Mix"
+                color: 1, 0.5, 0.1
+                size_hint: (1, 1)
+
+        AudioStrip:
+            id: kick1
+            name: "Kick 1"
+            color: 1, 0.5, 0.15
+            size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+                group: 'tabs'
+                text: 'Organic Drums'
+            AudioStrip:
+                id: organicdrums
+                name: "OrganicDrums"
+                color: 1, 0.5, 0.25
+                size_hint: (1, 1)
+
+        AudioStrip:
+            id: droiture
+            name: "Droiture"
+            color: 1, 0.5, 0.25
+            size_hint: (1, 1)
+
+
