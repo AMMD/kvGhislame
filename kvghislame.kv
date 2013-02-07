@@ -49,14 +49,8 @@
     mxd_b: mxd_b
     mxdrums: mxdrums
 
-#    nyc_b: nyc_b
-#    nycomp: nycomp
-
     fxs_b: fxs_b
     fxs: fxs
-
-#    drl_b: drl_b
-#    drumloop: drumloop
 
     mno_b: mno_b
     monitororl: monitororl
@@ -114,6 +108,13 @@
             size_hint: (1, None)
             pos: root.x, root.y + root.height - self.height
             height: 30
+
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.2, 0.2, 0.7
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
 
             MenuButton:
                 id: mix_b
