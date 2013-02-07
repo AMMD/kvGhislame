@@ -1,7 +1,18 @@
 #!kivy 1.5
 
 <MainMix>:
-    drums: drums
+    organicdrums: organicdrums
+    basses: basses
+    guitares: guitares
+    saxophones: saxophones
+    vocals: vocals
+    mxsynths: mxsynths
+    mxdrums: mxdrums
+    nycomp: nycomp
+    fxs: fxs
+    drumloop: drumloop
+
+    mainmix: mainmix
 
     BoxLayout:
         orientation: 'horizontal'
@@ -11,20 +22,207 @@
         BoxLayout:
             orientation: 'vertical'
             size_hint: (1, 1)
-            ToggleButton:
+            MenuButton:
                 size_hint: 1, None
                 height: 20
-                pos_hint: {'x': 0}
-                y: self.parent.y + self.parent.height - self.height
+#                y: self.parent.y + self.parent.height - self.height
                 group: 'tabs'
-                text: 'ODr'
-                on_press:
-                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab('ODr')
+                text: 'Organic Drums'
+#                on_press:
+#                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab(self.text)
             AudioStrip:
-                id: drums
-                name: "ODr"
-                color: 1, 0, 0
+                id: organicdrums
+                name: "Organic Drums"
+                color: 1, 0, 1
                 size_hint: (1, 1)
 
 
-                
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+#                texture_size: self.texture_size[0], self.height / 2 + 10
+#                y: self.parent.y + self.parent.height - self.height
+                group: 'tabs'
+                text: 'Basses'
+#                on_press:
+#                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab(self.text)
+            AudioStrip:
+                id: basses
+                name: "Basses"
+                color: 1, 1, 0
+                size_hint: (1, 1)
+
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+#                y: self.parent.y + self.parent.height - self.height
+                group: 'tabs'
+                text: 'Guitares'
+#                on_press:
+#                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab(self.text)
+            AudioStrip:
+                id: guitares
+                name: "Guitares"
+                color: 0, 0, 1
+                size_hint: (1, 1)
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+#                y: self.parent.y + self.parent.height - self.height
+                group: 'tabs'
+                text: 'Saxophones'
+#                on_press:
+#                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab(self.text)
+            AudioStrip:
+                id: saxophones
+                name: "Saxophones"
+                color: 0, 1, 0
+                size_hint: (1, 1)
+
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+#                y: self.parent.y + self.parent.height - self.height
+                group: 'tabs'
+                text: 'Vocals'
+#                on_press:
+#                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab(self.text)
+            AudioStrip:
+                id: vocals
+                name: "Vocals"
+                color: 1, 1, 1
+                size_hint: (1, 1)
+
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+#                y: self.parent.y + self.parent.height - self.height
+                group: 'tabs'
+                text: 'MxSynths'
+#                on_press:
+#                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab(self.text)
+            AudioStrip:
+                id: mxsynths
+                name: "MxSynths"
+                color: 1, 0.5, 0
+                size_hint: (1, 1)
+
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+#                y: self.parent.y + self.parent.height - self.height
+                group: 'tabs'
+                text: 'MxDrums'
+#                on_press:
+#                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab(self.text)
+            AudioStrip:
+                id: mxdrums
+                name: "MxDrums"
+                color: 1, 0.5, 0
+                size_hint: (1, 1)
+
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+#                y: self.parent.y + self.parent.height - self.height
+                group: 'tabs'
+                text: 'NY Comp'
+#                on_press:
+#                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab(self.text)
+            AudioStrip:
+                id: nycomp
+                name: "NY Comp"
+                color: 1, 0.5, 1
+                size_hint: (1, 1)
+
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+#                y: self.parent.y + self.parent.height - self.height
+                group: 'tabs'
+                text: 'FXs'
+#                on_press:
+#                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab(self.text)
+
+            AudioStrip:
+                id: fxs
+                name: "FXs"
+                color: 1, 0.5, 0
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            MenuButton:
+                size_hint: 1, None
+                height: 20
+#                y: self.parent.y + self.parent.height - self.height
+                group: 'tabs'
+                text: 'Drum Loop'
+#                on_press:
+#                    if app._app_window.children[0].sm: app._app_window.children[0].change_tab(self.text)
+            AudioStrip:
+                id: drumloop
+                name: "Drum Loop"
+                color: 1, 0.3, 1
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 30
+            size_hint: (1, 1)
+            AudioStrip:
+                id: mainmix
+                name: "Main Mix"
+                color: 1, 1, 1
+                size_hint: (1, 1)
+                pos_hint: {'center_x': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0.1, 0.1, 0.1, 0.5
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: 0.7, 0.7, 0.7, 0.5
+                    Line:
+                        rectangle: self.x, self.y, self.width - 1, self.height - 1
+

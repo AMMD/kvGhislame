@@ -4,22 +4,60 @@
     size_hint: (None, 1)
     width: 50
     group: 'tabs'
+    text_size: self.width - 10, self.texture_size[1]
+    texture_size: self.texture_size[0], self.height / 2 + 6
+    valign: 'top'
+    halign: 'center'
+    shorten: True
     on_press:
-        self.parent.parent.sm.current = self.text
+        app._app_window.children[0].change_tab(self.text)
         self.state = 'down'
 
 <MainKvG>:
     target: app.config.get('OSC', 'dest_host') + ":" + str(app.config.get('OSC', 'dest_port'))
 
+    container: container
+
     tunename: tunename
+
     sm: sm
     menu: menu
+
     mix_b: mix_b
     mainmix: mainmix
+
     odr_b: odr_b
     organicdrums: organicdrums
 
+    bss_b: bss_b
+    basses: basses
+
+    gtr_b: gtr_b
+    guitares: guitares
+
+    sax_b: sax_b
+    saxophones: saxophones
+
+    vox_b: vox_b
+    vocals: vocals
+
+    mxs_b: mxs_b
+    mxsynths: mxsynths
+
+    mxd_b: mxd_b
+    mxdrums: mxdrums
+
+    nyc_b: nyc_b
+    nycomp: nycomp
+
+    fxs_b: fxs_b
+    fxs: fxs
+
+    drl_b: drl_b
+    drumloop: drumloop
+
     BoxLayout:
+        id: container
         orientation: 'vertical'
         size_hint: None, None
         pos: root.pos
@@ -41,30 +79,100 @@
 
             MenuButton:
                 id: mix_b
-                text: "Mix"
+                text: "Main Mix"
                 on_parent: self.state = 'down'
 
             MenuButton:
                 id: odr_b
-                text: "ODr"
+                text: "Organic Drums"
+
+            MenuButton:
+                id: bss_b
+                text: "Basses"
+
+            MenuButton:
+                id: gtr_b
+                text: "Guitares"
+
+            MenuButton:
+                id: sax_b
+                text: "Saxophones"
+
+            MenuButton:
+                id: vox_b
+                text: "Vocals"
+
+            MenuButton:
+                id: mxs_b
+                text: "MxSynths"
+
+            MenuButton:
+                id: mxd_b
+                text: "MxDrums"
+
+            MenuButton:
+                id: nyc_b
+                text: "NY Comp"
+
+            MenuButton:
+                id: fxs_b
+                text: "FXs"
+
+            MenuButton:
+                id: drl_b
+                text: "Drum Loop"
+
       
         ScreenManager:
             id: sm
             size_hint: (1, 1)
-#            height: root.height - menu.height
-#            width: root.width
-#            pos: root.pos
 
             MainMix:
                 id: mainmix
-                name: 'Mix'
+                name: 'Main Mix'
 
             OrganicDrums:
                 id: organicdrums
-                name: 'ODr'
-                ToggleButton:
-                    text: "OrganicDrums"
+                name: 'Organic Drums'
 
+            Basses:
+                id: basses
+                name: 'Basses'
+
+            Guitares:
+                id: guitares
+                name: 'Guitares'
+
+            Saxophones:
+                id: saxophones
+                name: 'Saxophones'                
+
+            Vocals:
+                id: vocals
+                name: 'Vocals'
+
+            MxSynths:
+                id: mxsynths
+                name: 'MxSynths'
+
+            MxDrums:
+                id: mxdrums
+                name: 'MxDrums'
+
+            NyComp:
+                id: nycomp
+                name: 'NY Comp'
+
+            Fxs:
+                id: fxs
+                name: 'FXs'
+
+            DrumLoop:
+                id: drumloop
+                name: 'Drum Loop'
+
+
+            
 
 <kvGhislame>:
     port: self.config.get('OSC', 'in_port')

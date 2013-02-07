@@ -27,27 +27,94 @@ class Menu(BoxLayout):
 Builder.load_file('oscsender.kv')
 
 class MainMix(Screen):
-    drums = ObjectProperty(AudioStrip)
+    organicdrums = ObjectProperty(AudioStrip)
+    basses = ObjectProperty(AudioStrip)
+    guitares = ObjectProperty(AudioStrip)
+    saxophones = ObjectProperty(AudioStrip)
+    vocals = ObjectProperty(AudioStrip)
+    mxsynths = ObjectProperty(AudioStrip)
+    mxdrums = ObjectProperty(AudioStrip)
+    nycomp = ObjectProperty(AudioStrip)
+    drloop = ObjectProperty(AudioStrip)
+    fxs = ObjectProperty(AudioStrip)
+    mainmix = ObjectProperty(AudioStrip)
+
 Builder.load_file('mainmix.kv')
 
 
 class OrganicDrums(Screen):
+    kick1 = ObjectProperty(AudioStrip)
+    kick2 = ObjectProperty(AudioStrip)
+    snare_t = ObjectProperty(AudioStrip)
+    tom1 = ObjectProperty(AudioStrip)
+    tom2 = ObjectProperty(AudioStrip)
+    tom3 = ObjectProperty(AudioStrip)
+    tom4 = ObjectProperty(AudioStrip)
+    ohs = ObjectProperty(AudioStrip)
+    toms = ObjectProperty(AudioStrip)
+    organicdrums = ObjectProperty(AudioStrip)
+                             
+Builder.load_file('organicdrums.kv')
+
+class Basses(Screen):
+    basse = ObjectProperty(AudioStrip)
+    grotterie = ObjectProperty(AudioStrip)
+    mxbass = ObjectProperty(AudioStrip)
+    bassfx = ObjectProperty(AudioStrip)
+
+Builder.load_file('organicdrums.kv')
+
+class Guitares(Screen):
     pass
 
+class Saxophones(Screen):
+    pass
+
+class Vocals(Screen):
+    pass
+
+class MxSynths(Screen):
+    pass
+
+class MxDrums(Screen):
+    pass
+
+class NyComp(Screen):
+    pass
+
+class Fxs(Screen):
+    pass
+
+class DrumLoop(Screen):
+    pass
 
 
 class MainKvG(Widget):
     app_name = StringProperty()
 
+    container = ObjectProperty()
+
     tunename = ObjectProperty()
+
     sm = ObjectProperty(ScreenManager)
     menu = ObjectProperty(Menu)
-    mainmix = ObjectProperty(Screen)
-    organicdrums = ObjectProperty(Screen)
+
+    mainmix = ObjectProperty(MainMix)
+    organicdrums = ObjectProperty(OrganicDrums)
+    basses = ObjectProperty(Basses)
+    guitares = ObjectProperty(Guitares)
+    saxophones = ObjectProperty(Saxophones)
+    vocals = ObjectProperty(Vocals)
+    mxsynths = ObjectProperty(MxSynths)
+    mxdrums = ObjectProperty(MxDrums)
+    nycomp = ObjectProperty(NyComp)
+    fxs = ObjectProperty(Fxs)
+    drumloop = ObjectProperty(DrumLoop)
+    
 
     def change_tab(self, tab_name):
         self.sm.current = tab_name
-        for child in self.children[:]:
+        for child in self.children[0].children[:]:
             if isinstance(child, Menu):
                 for kid in child.children[:]:
                     if (kid.text == tab_name) & isinstance(kid, MenuButton):
@@ -60,7 +127,7 @@ class kvGhislame(OscServer, App):
 
     def recurse_children(self, obj):
         for child in obj.children:
-            print "New Child: " + str(type(child))
+#            print "New Child: " + str(type(child))
             if isinstance(child, OscSender):
                 self.server.add_method(child.path, child.args_pattern, child.control_cb)
             self.recurse_children(child)

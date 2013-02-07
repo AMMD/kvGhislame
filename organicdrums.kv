@@ -1,0 +1,103 @@
+#!kivy 1.5
+
+<OrganicDrums>:
+    kick1: kick1
+    kick2:kick2
+    snare_t: snare_t
+    tom1: tom1
+    tom2: tom2
+    tom3: tom3
+    tom4: tom4
+    ohs: ohs
+
+    toms: toms
+    organicdrums: organicdrums
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: (1, 1)
+        pos_hint: {'x': 0, 'y': 0}
+
+        AudioStrip:
+            id: kick1
+            name: "Kick 1"
+            color: 1, 0.1, 1
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: kick2
+            name: "Kick 2"
+            color: 1, 0.15, 1
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: snare_t
+            name: "Snare Top"
+            color: 1, 0.2, 1
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: tom1
+            name: "Tom 1"
+            color: 1, 0.25, 1
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: tom2
+            name: "Tom 2"
+            color: 1, 0.3, 1
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: tom3
+            name: "Tom 3"
+            color: 1, 0.35, 1
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: tom4
+            name: "Tom 4"
+            color: 1, 0.4, 1
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: ohs
+            name: "OHs"
+            color: 1, 0.45, 1
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: toms
+            name: "Toms"
+            color: 1, 0.5, 1
+            size_hint: 1, 1
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.1, 0.1, 0.5
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                Color:
+                    rgba: 0.7, 0.7, 0.7, 0.5
+                Line:
+                    rectangle: self.x, self.y, self.width - 1, self.height - 1
+
+        AudioStrip:
+            id: organicdrums
+            name: "Organic Drums"
+            color: 1, 0, 1
+            size_hint: (1, 1)
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.1, 0.1, 0.5
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                Color:
+                    rgba: 0.7, 0.7, 0.7, 0.5
+                Line:
+                    rectangle: self.x, self.y, self.width - 1, self.height - 1
+            
+
+
+
