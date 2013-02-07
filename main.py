@@ -9,6 +9,9 @@ from kivy.app import App
 from kivy.lang import Builder
 
 from osc import OscServer, OscSender
+
+from osclabel import OscLabel
+Builder.load_file('osclabel.kv')
 from audiostrip import AudioStrip
 Builder.load_file('audiostrip.kv')
 
@@ -35,7 +38,8 @@ class OrganicDrums(Screen):
 
 class MainKvG(Widget):
     app_name = StringProperty()
-    target = StringProperty()
+
+    tunename = ObjectProperty()
     sm = ObjectProperty(ScreenManager)
     menu = ObjectProperty(Menu)
     mainmix = ObjectProperty(Screen)

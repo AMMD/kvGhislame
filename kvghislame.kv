@@ -1,6 +1,8 @@
 #!kivy 1.5
 
 <MenuButton>:
+    size_hint: (None, 1)
+    width: 50
     group: 'tabs'
     on_press:
         self.parent.parent.sm.current = self.text
@@ -9,6 +11,7 @@
 <MainKvG>:
     target: app.config.get('OSC', 'dest_host') + ":" + str(app.config.get('OSC', 'dest_port'))
 
+    tunename: tunename
     sm: sm
     menu: menu
     mix_b: mix_b
@@ -16,38 +19,51 @@
     odr_b: odr_b
     organicdrums: organicdrums
 
-    Menu:
-        id: menu
-        orientation: 'horizontal'
-        size_hint: (1, None)
-        pos: root.x, root.y + root.height - self.height
-        height: 30
-
-        MenuButton:
-            id: mix_b
-            text: "Mix"
-            on_parent: self.state = 'down'
-
-        MenuButton:
-            id: odr_b
-            text: "ODr"
-      
-    ScreenManager:
-        id: sm
-        size_hint: (None, None)
-        height: root.height - menu.height
-        width: root.width
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: None, None
         pos: root.pos
+        size: root.size
 
-        MainMix:
-            id: mainmix
-            name: 'Mix'
+        OscLabel:
+            id: tunename
+            text: "Sebkha-Chott Totalizm"
+            size_hint: 1, None
+            font_size: 30
+            height: 30
 
-        OrganicDrums:
-            id: organicdrums
-            name: 'ODr'
-            ToggleButton:
-                text: "OrganicDrums"
+        Menu:
+            id: menu
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            pos: root.x, root.y + root.height - self.height
+            height: 30
+
+            MenuButton:
+                id: mix_b
+                text: "Mix"
+                on_parent: self.state = 'down'
+
+            MenuButton:
+                id: odr_b
+                text: "ODr"
+      
+        ScreenManager:
+            id: sm
+            size_hint: (1, 1)
+#            height: root.height - menu.height
+#            width: root.width
+#            pos: root.pos
+
+            MainMix:
+                id: mainmix
+                name: 'Mix'
+
+            OrganicDrums:
+                id: organicdrums
+                name: 'ODr'
+                ToggleButton:
+                    text: "OrganicDrums"
 
 
 <kvGhislame>:
