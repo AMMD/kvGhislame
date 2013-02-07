@@ -1,0 +1,58 @@
+#!kivy 1.5
+
+<Basses>:
+    basse: basse
+    grotterie: grotterie
+    mxbass: mxbass
+    bassfx: bassfx
+
+    basses: basses
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: (1, 1)
+        pos_hint: {'x': 0, 'y': 0}
+
+        AudioStrip:
+            id: basse
+            name: "Basse"
+            color: 1, 1, 0.1
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: grotterie
+            name: "Grotterie"
+            color: 1, 1, 0.15
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: mxbass
+            name: "Mx Bass"
+            color: 1, 1, 0.2
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: bassfx
+            name: "Bass FX"
+            color: 1, 1, 0.25
+            size_hint: 1, 1
+
+        AudioStrip:
+            id: basses
+            name: "Basses"
+            color: 1, 1, 0
+            size_hint: 1, 1
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.1, 0.1, 0.5
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                Color:
+                    rgba: 0.7, 0.7, 0.7, 0.5
+                Line:
+                    rectangle: self.x, self.y, self.width - 1, self.height - 1
+            
+
+
+

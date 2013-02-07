@@ -62,7 +62,9 @@ class Basses(Screen):
     mxbass = ObjectProperty(AudioStrip)
     bassfx = ObjectProperty(AudioStrip)
 
-Builder.load_file('organicdrums.kv')
+    basses = ObjectProperty(AudioStrip)
+
+Builder.load_file('basses.kv')
 
 class Guitares(Screen):
     pass
