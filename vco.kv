@@ -1,0 +1,132 @@
+#!kivy 1.5
+
+<VCO>:
+    canvas:
+        Color:
+            rgba: self.r, self.g, self.b, 0.3
+        Line:
+            rectangle: self.x - 5, self.y - 5, self.width + 10, self.height + 10
+
+    orientation: 'horizontal'
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: 1, 1
+        spacing: 10
+
+        ValueFader:
+            name: 'Tune'
+            orientation: 'horizontal'
+            color: root.color
+            size_hint: 1, None
+            height: 60
+
+        BoxLayout:
+            size_hint: 1, None
+            height: 30
+            orientation:
+                'horizontal'
+            Toggle:
+                group: 'octave_' + root.name
+                main_color: self.parent.parent.parent.color
+                size_hint: 1, 1
+                text: '1'
+            Toggle:
+                group: 'octave_' + root.name
+                main_color: root.color
+                size_hint: 1, 1
+                text: '2'
+            Toggle:
+                group: 'octave_' + root.name
+                main_color: root.color
+                size_hint: 1, 1
+                text: '3'
+            Toggle:
+                group: 'octave_' + root.name
+                main_color: root.color
+                size_hint: 1, 1
+                text: '4'
+            Toggle:
+                group: 'octave_' + root.name
+                main_color: root.color
+                size_hint: 1, 1
+                text: '5'
+            Toggle:
+                group: 'octave_' + root.name
+                main_color: root.color
+                size_hint: 1, 1
+                text: '6'
+            Toggle:
+                group: 'octave_' + root.name
+                main_color: root.color
+                size_hint: 1, 1
+                text: '7'
+
+        ValueFader:
+            name: 'Harmonics'
+            orientation: 'horizontal'
+            color: self.parent.parent.color
+            size_hint: 1, None
+            height: 60
+
+        ValueFader:
+            name: 'SubHarmonics'
+            orientation: 'horizontal'
+            color: self.parent.parent.color
+            size_hint: 1, None
+            height: 60
+
+        BoxLayout:
+            size_hint: 1, 1
+            orientation: 'horizontal'
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: None, 1
+                width: 30
+                Toggle:
+                    size_hint: None, None
+                    size: 30, 30
+                    text: 'sin'
+                    main_color: root.color
+                    group: 'oscshape_' + root.name
+                Toggle:
+                    size_hint: None, None
+                    size: 30, 30
+                    text: 'tri'
+                    main_color: root.color
+                    group: 'oscshape_' + root.name
+                Toggle:
+                    size_hint: None, None
+                    size: 30, 30
+                    text: 'saw'
+                    main_color: root.color
+                    group: 'oscshape_' + root.name
+                Toggle:
+                    size_hint: None, None
+                    size: 30, 30
+                    text: 'sqr'
+                    main_color: root.color
+                    group: 'oscshape_' + root.name
+
+            XyPad:
+                x_name: 'PW Gain'
+                y_name: 'PW Width'
+                color: root.color
+                size_hint: 1, 1
+
+            XyPad:
+                x_name: 'Exp FM'
+                y_name: 'Lin FM'
+                color: root.color
+                size_hint: 1, 1
+
+    ValueFader:
+        name: self.parent.name
+        orientation: 'vertical'
+        color: self.parent.color
+        size_hint: None, 1
+        width: 50
+
+
+

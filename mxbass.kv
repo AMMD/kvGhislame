@@ -1,136 +1,6 @@
 #!kivy 1.5
 
 
-<VCO>:
-    canvas:
-        Color:
-            rgba: self.r, self.g, self.b, 0.5
-        Line:
-            rectangle: self.x, self.y, self.width, self.height
-
-    orientation: 'horizontal'
-
-    BoxLayout:
-        orientation: 'vertical'
-        size_hint: 1, 1
-        spacing: 10
-
-        ValueFader:
-            name: 'Tune'
-            orientation: 'horizontal'
-            color: self.parent.parent.color
-            size_hint: 1, None
-            height: 60
-
-        BoxLayout:
-            size_hint: 1, None
-            height: 30
-            orientation:
-                'horizontal'
-            Toggle:
-                group: 'octave_' + self.parent.parent.parent.name
-                main_color: self.parent.parent.parent.color
-                size_hint: 1, 1
-                text: '1'
-            Toggle:
-                group: 'octave_' + self.parent.parent.parent.name
-                main_color: self.parent.parent.parent.color
-                size_hint: 1, 1
-                text: '2'
-            Toggle:
-                group: 'octave_' + self.parent.parent.parent.name
-                main_color: self.parent.parent.parent.color
-                size_hint: 1, 1
-                text: '3'
-            Toggle:
-                group: 'octave_' + self.parent.parent.parent.name
-                main_color: self.parent.parent.parent.color
-                size_hint: 1, 1
-                text: '4'
-            Toggle:
-                group: 'octave_' + self.parent.parent.parent.name
-                main_color: self.parent.parent.parent.color
-                size_hint: 1, 1
-                text: '5'
-            Toggle:
-                group: 'octave_' + self.parent.parent.parent.name
-                main_color: self.parent.parent.parent.color
-                size_hint: 1, 1
-                text: '6'
-            Toggle:
-                group: 'octave_' + self.parent.parent.parent.name
-                main_color: self.parent.parent.parent.color
-                size_hint: 1, 1
-                text: '7'
-
-        ValueFader:
-            name: 'Harmonics'
-            orientation: 'horizontal'
-            color: self.parent.parent.color
-            size_hint: 1, None
-            height: 60
-
-        ValueFader:
-            name: 'SubHarmonics'
-            orientation: 'horizontal'
-            color: self.parent.parent.color
-            size_hint: 1, None
-            height: 60
-
-        BoxLayout:
-            size_hint: 1, 1
-            orientation: 'horizontal'
-
-            BoxLayout:
-                orientation: 'vertical'
-                size_hint: None, 1
-                width: 30
-                Toggle:
-                    size_hint: None, None
-                    size: 30, 30
-                    text: 'sin'
-                    main_color: self.parent.parent.parent.parent.color
-                    group: 'oscshape_' + self.parent.parent.parent.parent.name
-                Toggle:
-                    size_hint: None, None
-                    size: 30, 30
-                    text: 'tri'
-                    main_color: self.parent.parent.parent.parent.color
-                    group: 'oscshape_' + self.parent.parent.parent.parent.name
-                Toggle:
-                    size_hint: None, None
-                    size: 30, 30
-                    text: 'saw'
-                    main_color: self.parent.parent.parent.parent.color
-                    group: 'oscshape_' + self.parent.parent.parent.parent.name
-                Toggle:
-                    size_hint: None, None
-                    size: 30, 30
-                    text: 'sqr'
-                    main_color: self.parent.parent.parent.parent.color
-                    group: 'oscshape_' + self.parent.parent.parent.parent.name
-
-            XyPad:
-                x_name: 'PW Gain'
-                y_name: 'PW Width'
-                color: self.parent.parent.parent.color
-                size_hint: 1, 1
-
-            XyPad:
-                x_name: 'Exp FM'
-                y_name: 'Lin FM'
-                color: self.parent.parent.parent.color
-                size_hint: 1, 1
-
-    ValueFader:
-        name: self.parent.name
-        orientation: 'vertical'
-        color: self.parent.color
-        size_hint: None, 1
-        width: 50
-
-
-
 <MxBass>:
     vco1: vco1
     vco2: vco2
@@ -151,8 +21,8 @@
             width: root.width / 2
             rows: 2
             cols: 2
-            padding: 2
-            spacing: 2
+            padding: 10
+            spacing: 15
 
             VCO:
                 id: vco1

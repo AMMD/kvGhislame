@@ -154,6 +154,8 @@ class VCO(BoxLayout):
     b = NumericProperty()
     color = ReferenceListProperty(r, g, b)
 
+Builder.load_file('vco.kv')
+
 class VCF(BoxLayout):
     name = StringProperty()
 
