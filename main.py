@@ -228,8 +228,44 @@ class MxCtLead(Screen):
 Builder.load_file('mxctlead.kv')
 
 
+class Loop(BoxLayout):
+    play = ObjectProperty(Toggle)
+    record = ObjectProperty(Toggle)
+    overdub = ObjectProperty(Toggle)
+    pause = ObjectProperty(Toggle)
+    multiply = ObjectProperty(Toggle)
+    reverse = ObectProperty(Toggle)
+    undo = ObjectProperty(Push)
+    redo = ObjectProperty(Push)
+    mute = ObjectProperty(Toggle)
+    once = ObjectProperty(Toggle)
+    twice = ObjectProperty(Toggle)
+    halfth = ObjectProperty(Toggle)
+    play_sync = ObjectProperty(Toggle)
+    sync = ObjectProperty(Toggle)
+    trig = ObjectProperty(Toggle)
+    wet = ObjectProperty(ValueFader)
+    dry = ObjectProperty(ValueFader)
+    rate = ObjectProperty(ValueFader)
+
+    name = StringProperty()
+    r = NumericProperty()
+    g = NumericProperty()
+    b = NumericProperty()
+    color = ReferenceListProperty(r, g, b)
+
+Builder.load_file('loop.kv')
+
+
 class SooperLooper(Screen):
-    pass
+    drums = ObjectProperty(Loop)
+    bass = ObjectProperty(Loop)
+    guitar = ObjectProperty(Loop)
+    vocals = ObjectProperty(Loop)
+    bpm = ObjectProperty(ValueFader)
+
+Builder.load_file('sooperlooper.kv')
+
 
 class BassFx(Screen):
     pass

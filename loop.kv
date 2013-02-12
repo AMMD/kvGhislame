@@ -1,0 +1,126 @@
+#!kivy 1.5
+<Loop>:
+    play: play
+    record: record
+    trig: trig
+    once: once
+    twice: twice
+    halfth: halfth
+    overdub: overdub
+    multiply: multiply
+    pause: pause
+    mute: mute
+    reverse: reverse
+    dry: dry
+    wet: wet
+    rate: rate
+    undo: undo
+    redo: redo
+    sync: sync
+    play_sync: play_sync
+
+        
+    orientation: 'horizontal'
+    size_hint: 1, 1
+
+    BoxLayout:
+        orientation: 'vertical'
+        Toggle:
+            id: play
+            text: 'Play'
+            color: root.color
+        Toggle:
+            id: record
+            text: 'Record'
+            color: root.color
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: None, 1
+        width: root.width * 2 / 3
+
+        GridLayout:
+            cols: 4
+            rows: 2
+            size_hint: 1, 1
+
+            Toggle:
+                id: overdub
+                text: 'Overdub'
+                color: root.color
+            Toggle:
+                id: multiply
+                text: 'Multiply'
+                color: root.color
+            Toggle:
+                id: reverse
+                text: 'Reverse'
+                color: root.color
+            Toggle:
+                id: undo
+                text: 'Undo'
+                color: root.color
+
+            Toggle:
+                id: trig
+                text: 'Trig'
+                color: root.color
+            Toggle:
+                id: pause
+                text: 'Pause'
+                color: root.color
+            Toggle:
+                id: mute
+                text: 'Mute'
+                color: root.color
+            Toggle:
+                id: redo
+                text: 'Redo'
+                color: root.color
+
+        BoxLayout:
+            size_hint: 1, 1
+            orientation: 'vertical'
+
+            ValueFader:
+                id: wet
+                name: 'Wet'
+                color: root.color
+                orientation: 'horizontal'
+            ValueFader:
+                id: dry
+                name: 'Dry'
+                color: root.color
+                orientation: 'horizontal'
+
+        ValueFader:
+            id: rate
+            name: 'Rate'
+            color: root.color
+            orientation: 'vertical'
+
+        BoxLayout:
+            orientation: 'vertical'
+            Toggle:
+                id: play_sync
+                text: 'Play Sync'
+                color: root.color
+            Toggle:
+                id: sync
+                text: 'Sync'
+                color: root.color
+            Toggle:
+                id: halfth
+                text: 'x1/2'
+                color: root.color
+            Toggle:
+                id: once
+                text: 'x1'
+                color: root.color
+            Toggle:
+                id: twice
+                text: 'x2'
+                color: root.color            
+
+            
+            

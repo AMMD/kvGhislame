@@ -1,0 +1,39 @@
+#!kivy 1.5
+
+<SooperLooper>:
+    drums: drums
+    guitar: guitar
+    bass: bass
+    vocals: vocals
+    bpm: bpm
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, 1
+        GridLayout:
+            cols: 2
+            rows: 2
+            size_hint: 1, 1
+            Loop:
+                id: drums
+                name: "Drums"
+                color: 1, 0, 0
+            Loop:
+                id: bass
+                name: "Bass"
+                color: 0, 1, 0
+            Loop:
+                id: guitar
+                name: "Guitar"
+                color: 0, 0, 1
+            Loop:
+                id: vocals
+                name: "Vocals"
+                color: 1, 1, 0
+
+        ValueFader:
+            id: bpm
+            name: 'BPM'
+            color: 1, 1, 1
+            size_hint: None, 1
+            width: 60
