@@ -284,7 +284,13 @@ Builder.load_file('bassfx.kv')
 
 
 class VocalsFx(Screen):
-    pass
+    pitchshifter_left = ObjectProperty(BoxLayout)
+    pitchshifter_right = ObjectProperty(BoxLayout)
+    disintegrator = ObjectProperty(BoxLayout)
+    cscape = ObjectProperty(BoxLayout)
+
+Builder.load_file('vocalsfx.kv')
+
 
 class Qlc(Screen):
     pass

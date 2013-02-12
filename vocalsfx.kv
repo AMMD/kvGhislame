@@ -1,0 +1,166 @@
+#!kivy 1.5
+
+<VocalsFx>:
+    pitchshifter_left: pitchshifter_left
+    pitchshifter_right: pitchshifter_right
+    disintegrator: disintegrator
+    cscape: cscape
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, 1
+        spacing: 20
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, 1
+            spacing: 20
+            BoxLayout:
+                id: pitchshifter_left
+                orientation: 'vertical'
+                size_hint: 1, None
+                height: 180
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint: 1, None
+                    height: 30
+                    Toggle:
+                        text: '8dw'
+                        main_color: 1, 0, 1
+                    Toggle:
+                        text: '5dw'
+                        main_color: 1, 0, 1
+                    Toggle:
+                        text: '4dw'
+                        main_color: 1, 0, 1
+                    Toggle:
+                        text: 'uni'
+                        main_color: 1, 0, 1
+                    Toggle:
+                        text: '4up'
+                        main_color: 1, 0, 1
+                    Toggle:
+                        text: '5up'
+                        main_color: 1, 0, 1
+                    Toggle:
+                        text: '8up'
+                        main_color: 1, 0, 1
+                ValueFader:
+                    color: 1, 0, 1
+                    name: 'Pitch'
+                    size_hint: 1, None
+                    height: 60
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: 1, None
+                    height: 60
+                    ValueFader:
+                        name: 'Level'
+                        size_hint: 1, 1
+                        color: 1, 0, 1
+                    Toggle:
+                        main_color: 1, 0, 1
+                        text: 'M'
+                        size_hint: None, 1
+                        width: 30
+            BoxLayout:
+                id: pitchshifter_right
+                orientation: 'vertical'
+                size_hint: 1, None
+                height: 180
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint: 1, None
+                    height: 30
+                    Toggle:
+                        text: '8dw'
+                        main_color: 1, 1, 0
+                    Toggle:
+                        text: '5dw'
+                        main_color: 1, 1, 0
+                    Toggle:
+                        text: '4dw'
+                        main_color: 1, 1, 0
+                    Toggle:
+                        text: 'uni'
+                        main_color: 1, 1, 0
+                    Toggle:
+                        text: '4up'
+                        main_color: 1, 1, 0
+                    Toggle:
+                        text: '5up'
+                        main_color: 1, 1, 0
+                    Toggle:
+                        text: '8up'
+                        main_color: 1, 1, 0
+                ValueFader:
+                    color: 1, 1, 0
+                    name: 'Pitch'
+                    size_hint: 1, None
+                    height: 60
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: 1, None
+                    height: 60
+                    ValueFader:
+                        name: 'Level'
+                        size_hint: 1, 1
+                        color: 1, 1, 0
+                    Toggle:
+                        main_color: 1, 1, 0
+                        text: 'M'
+                        size_hint: None, 1
+                        width: 30
+            BoxLayout:
+                id: disintegrator
+                orientation: 'horizontal'
+                XyPad:
+                    x_name: 'Probability'
+                    y_name: 'X'
+                    color: 0, 1, 1
+                XyPad:
+                    x_name: 'Probability'
+                    y_name: 'X'
+                    color: 0, 1, 1
+            BoxLayout:
+                id: cscape
+                orientation: 'vertical'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    XyPad:
+                        x_name: 'Probability'
+                        y_name: 'X'
+                        color: 1, 0, 0
+                    XyPad:
+                        x_name: 'Probability'
+                        y_name: 'X'
+                        color: 1, 0, 0
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: 1, None
+                    height: 60
+                    ValueFader:
+                        name: 'Level'
+                        size_hint: 1, 1
+                        color: 1, 0, 0
+                    Toggle:
+                        main_color: 1, 0, 0
+                        text: 'M'
+                        size_hint: None, 1
+                        width: 30
+                
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            AudioStrip:
+                name: 'Pitchshifter Left'
+                color: 1, 0, 1
+            AudioStrip:
+                name: 'Pitchshifter Right'
+                color: 1, 1, 0
+            AudioStrip:
+                name: 'Cscape'
+                color: 1, 0, 0
