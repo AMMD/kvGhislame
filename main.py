@@ -194,7 +194,16 @@ class MxBass(Screen):
 Builder.load_file('mxbass.kv')
 
 class MxChords(Screen):
-    pass
+    vco1 = ObjectProperty(VCO)
+    vco2 = ObjectProperty(VCO)
+    vco3 = ObjectProperty(VCO)
+    vcf = ObjectProperty(VCF)
+    advenv1 = ObjectProperty(AdvEnvelop)
+    advenv2 = ObjectProperty(AdvEnvelop)
+    noise = ObjectProperty(XyPad)
+
+Builder.load_file('mxchords.kv')
+
 
 class MxLead(Screen):
     pass

@@ -1,0 +1,60 @@
+#!kivy 1.5
+
+<AdvEnvelop>:
+    orientation: 'horizontal'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: None, 1
+        width: root.width *2 / 3
+        Label:
+            text: 'Times 1 Levels'
+            size_hint: 1, None
+            height: 20
+        BoxLayout:
+            orientation: 'horizontal'
+            XyPad:
+                x_name: 'Attack'
+                y_name: 'Release'
+                color: root.color
+            XyPad:
+                x_name: 'Attack'
+                y_name: 'Release'
+                color: root.color
+        Label:
+            text: 'Times 2 Levels'
+            size_hint: 1, None
+            height: 20
+        BoxLayout:
+            orientation: 'horizontal'
+            XyPad:
+                x_name: 'Attack'
+                y_name: 'Release'
+                color: root.color
+            XyPad:
+                x_name: 'Attack'
+                y_name: 'Release'
+                color: root.color
+        Label:
+            text: 'Times 3 Levels'
+            size_hint: 1, None
+            height: 20
+        BoxLayout:
+            orientation: 'horizontal'
+            XyPad:
+                x_name: 'Attack'
+                y_name: 'Release'
+                color: root.color
+            XyPad:
+                x_name: 'Attack'
+                y_name: 'Release'
+                color: root.color
+
+    BoxLayout:
+        orientation: 'vertical'
+        XyPad:
+            x_name: 'Sustain'
+            y_name: 'Delay'
+            color: root.color
+        ValueFader:
+            color: root.color
+            orientation: 'vertical'
