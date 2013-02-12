@@ -3,8 +3,9 @@ import kivy
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.togglebutton import ToggleButton
-from kivy.properties import ObjectProperty, StringProperty
+from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ReferenceListProperty
 from kivy.app import App
 from kivy.lang import Builder
 
@@ -145,8 +146,32 @@ class MonitorYula(Screen):
 
 Builder.load_file('monitoryula.kv')
 
+class VCO(BoxLayout):
+    name = StringProperty()
+    r = NumericProperty()
+    g = NumericProperty()
+    b = NumericProperty()
+    color = ReferenceListProperty(r, g, b)
+
+class VCF(BoxLayout):
+    name = StringProperty()
+
+class Envelop(BoxLayout):
+    name = StringProperty()
+
+class AdvEnvelop(BoxLayout):
+    name = StringProperty()
+
 class MxBass(Screen):
-    pass
+    vco1 = ObjectProperty(VCO)
+    vco2 = ObjectProperty(VCO)
+    vco3 = ObjectProperty(VCO)
+    vco4 = ObjectProperty(VCO)
+    vcf = ObjectProperty(VCF)
+    env = ObjectProperty(Envelop)
+    advenv = ObjectProperty(AdvEnvelop)
+
+Builder.load_file('mxbass.kv')
 
 class MxChords(Screen):
     pass
