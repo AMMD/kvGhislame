@@ -1,0 +1,17 @@
+#!kivy 1.5
+
+<LightFader>:
+    flash: flash
+
+    subpad: 34
+
+    Push:
+        id: flash
+        size_hint: None, None
+        size: 34, 34
+        center_x: root.center_x
+        on_press:
+            root.old_value = root.value
+            root.value_normallized = 1
+        on_release:
+            root.value = root.old_value

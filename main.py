@@ -296,7 +296,23 @@ Builder.load_file('vocalsfx.kv')
 
 class Qlc(Screen):
     barres = ObjectProperty(LightBox)
-
+    orl64 = ObjectProperty(LightBox)
+    souv64 = ObjectProperty(LightBox)
+    yula64 = ObjectProperty(LightBox)
+    orl36top = ObjectProperty(LightBox)
+    orl36bottom = ObjectProperty(LightBox)
+    lointains = ObjectProperty(LightBox)
+    occuloques = ObjectProperty(LightBox)
+    yula36tub = ObjectProperty(LightBox)
+    yula36ext = ObjectProperty(LightBox)
+    yula36int = ObjectProperty(LightBox)
+    smoke = ObjectProperty(Push)
+    grada1 = ObjectProperty(LightFader)
+    grada2 = ObjectProperty(LightFader)
+    grada3 = ObjectProperty(LightFader)
+    grada4 = ObjectProperty(LightFader)
+    grada5 = ObjectProperty(LightFader)
+    grada6 = ObjectProperty(LightFader)
 
 Builder.load_file('qlc.kv')
 
