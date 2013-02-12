@@ -1,0 +1,62 @@
+#!kivy 1.5
+
+
+<MxCtLead>:
+    vco1: vco1
+    vco2: vco2
+    vco3: vco3
+    vco4: vco4
+    vcf: vcf
+    slew: slew
+
+    size_hint: 1, 1
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, 1
+
+        GridLayout:
+            size_hint: None, 1
+            width: root.width / 2
+            rows: 2
+            cols: 2
+            padding: 10
+            spacing: 15
+
+            VCO:
+                id: vco1
+                name: 'VCO1'
+                color: 1, 0, 0
+                size_hint: 1, 1
+
+            VCO:
+                id: vco2
+                name: 'VCO2'
+                color: 0, 1, 0
+                size_hint: 1, 1
+
+            VCO:
+                id: vco3
+                name: 'VCO3'
+                color: 0, 0, 1
+                size_hint: 1, 1
+
+            VCO:
+                id: vco4
+                name: 'VCO4'
+                color: 1, 1, 0
+                size_hint: 1, 1
+
+        VCF:
+            id: vcf
+            size_hint: 1, 1
+            color: 0, 1, 1
+
+        XyPad:
+            id: slew
+            size_hint: 1, 1
+            color: 1, 0, 1
+            name: 'Slew'
+            x_name: 'Up'
+            y_name: 'Down'
+

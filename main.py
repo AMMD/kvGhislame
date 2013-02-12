@@ -206,10 +206,27 @@ Builder.load_file('mxchords.kv')
 
 
 class MxLead(Screen):
-    pass
+    vco1 = ObjectProperty(VCO)
+    vco2 = ObjectProperty(VCO)
+    vco3 = ObjectProperty(VCO)
+    vcf = ObjectProperty(VCF)
+    advenv1 = ObjectProperty(AdvEnvelop)
+    advenv2 = ObjectProperty(AdvEnvelop)
+    noise = ObjectProperty(XyPad)
+
+Builder.load_file('mxlead.kv')
+
 
 class MxCtLead(Screen):
-    pass
+    vco1 = ObjectProperty(VCO)
+    vco2 = ObjectProperty(VCO)
+    vco3 = ObjectProperty(VCO)
+    vco4 = ObjectProperty(VCO)
+    vcf = ObjectProperty(VCF)
+    slew = ObjectProperty(XyPad)
+
+Builder.load_file('mxctlead.kv')
+
 
 class SooperLooper(Screen):
     pass

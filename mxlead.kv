@@ -1,0 +1,62 @@
+#!kivy 1.5
+
+<MxLead>:
+    vco1: vco1
+    vco2: vco2
+    vco3: vco3
+    vcf: vcf
+    advenv1: advenv1
+    advenv2: advenv2
+    noise: noise
+    
+    BoxLayout:
+        size_hint: 1, 1
+        orientation: 'horizontal'
+    
+        GridLayout:
+            cols: 2
+            rows: 2
+            spacing: 15
+            padding: 10
+            size_hint: None, 1
+            width: root.width / 2
+            VCO:
+                id: vco1
+                size_hint: 1, 1
+                name: 'VCO1'
+                color: 1, 0, 0
+            VCO:
+                id: vco2
+                size_hint: 1, 1
+                name: 'VCO2'
+                color: 0, 1, 0
+            VCO:
+                id: vco3
+                size_hint: 1, 1
+                name: 'VCO3'
+                color: 0, 0, 1
+            XyPad:
+                id: noise
+                size_hint: 1, 1
+                name: 'Noise'
+                x_name: 'Ratio'
+                y_name: 'Level'
+                color: 1, 1, 0
+
+        VCF:
+            id: vcf
+            size_hint: 1, 1
+            name: 'VCF'
+            color: 1, 0, 1
+
+        BoxLayout:
+            orientation: 'vertical'
+            AdvEnvelop:
+                id: advenv1
+                size_hint: 1, 1
+                color: 0, 1, 1
+            AdvEnvelop:
+                id: advenv2
+                size_hint: 1, 1
+                color: 1, 1, 1
+
