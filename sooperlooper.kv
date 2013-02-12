@@ -11,6 +11,8 @@
         orientation: 'horizontal'
         size_hint: 1, 1
         GridLayout:
+            spacing: 5
+            padding: 5
             cols: 2
             rows: 2
             size_hint: 1, 1
@@ -33,6 +35,7 @@
 
         ValueFader:
             id: bpm
+            orientation: 'vertical'
             name: 'BPM'
             color: 1, 1, 1
             size_hint: None, 1

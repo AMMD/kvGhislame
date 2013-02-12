@@ -24,15 +24,18 @@
     size_hint: 1, 1
 
     BoxLayout:
+        size_hint: 1, 1
         orientation: 'vertical'
         Toggle:
             id: play
             text: 'Play'
-            color: root.color
+            main_color: root.color
+            group: 'sl_transport_' + root.name
         Toggle:
             id: record
             text: 'Record'
-            color: root.color
+            main_color: root.color
+            group: 'sl_transport_' + root.name
 
     BoxLayout:
         orientation: 'vertical'
@@ -47,36 +50,40 @@
             Toggle:
                 id: overdub
                 text: 'Overdub'
-                color: root.color
+                main_color: root.color
+                group: 'sl_overdub_' + root.name
             Toggle:
                 id: multiply
                 text: 'Multiply'
-                color: root.color
+                main_color: root.color
+                group: 'sl_overdub_' + root.name
             Toggle:
                 id: reverse
                 text: 'Reverse'
-                color: root.color
-            Toggle:
+                main_color: root.color
+            Push:
                 id: undo
                 text: 'Undo'
-                color: root.color
+                main_color: root.color
 
-            Toggle:
+            Push:
                 id: trig
                 text: 'Trig'
-                color: root.color
+                main_color: root.color
+                group: 'sl_overdub_' + root.name
             Toggle:
                 id: pause
                 text: 'Pause'
-                color: root.color
+                main_color: root.color
+                group: 'sl_transport_' + root.name
             Toggle:
                 id: mute
                 text: 'Mute'
-                color: root.color
-            Toggle:
+                main_color: root.color
+            Push:
                 id: redo
                 text: 'Redo'
-                color: root.color
+                main_color: root.color
 
         BoxLayout:
             size_hint: 1, 1
@@ -93,34 +100,37 @@
                 color: root.color
                 orientation: 'horizontal'
 
-        ValueFader:
-            id: rate
-            name: 'Rate'
-            color: root.color
-            orientation: 'vertical'
+    ValueFader:
+        id: rate
+        name: 'Rate'
+        color: root.color
+        orientation: 'vertical'
 
-        BoxLayout:
-            orientation: 'vertical'
-            Toggle:
-                id: play_sync
-                text: 'Play Sync'
-                color: root.color
-            Toggle:
-                id: sync
-                text: 'Sync'
-                color: root.color
-            Toggle:
-                id: halfth
-                text: 'x1/2'
-                color: root.color
-            Toggle:
-                id: once
-                text: 'x1'
-                color: root.color
-            Toggle:
-                id: twice
-                text: 'x2'
-                color: root.color            
+    BoxLayout:
+        orientation: 'vertical'
+        Toggle:
+            id: play_sync
+            text: 'Play Sync'
+            main_color: root.color
+        Toggle:
+            id: sync
+            text: 'Sync'
+            main_color: root.color
+        Toggle:
+            id: halfth
+            text: 'x1/2'
+            main_color: root.color
+            group: 'sl_rate_' + root.name
+        Toggle:
+            id: once
+            text: 'x1'
+            main_color: root.color
+            group: 'sl_rate_' + root.name
+        Toggle:
+            id: twice
+            text: 'x2'
+            main_color: root.color
+            group: 'sl_rate_' + root.name
 
             
             

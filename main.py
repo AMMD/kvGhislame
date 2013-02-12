@@ -17,6 +17,12 @@ from audiostrip import AudioStrip
 Builder.load_file('audiostrip.kv')
 from xypad import XyPad
 Builder.load_file('xypad.kv')
+from toggle import Toggle
+Builder.load_file('toggle.kv')
+from push import Push
+Builder.load_file('push.kv')
+from valuefader import ValueFader
+Builder.load_file('valuefader.kv')
 
 class MenuButton(ToggleButton):
     pass
@@ -234,7 +240,7 @@ class Loop(BoxLayout):
     overdub = ObjectProperty(Toggle)
     pause = ObjectProperty(Toggle)
     multiply = ObjectProperty(Toggle)
-    reverse = ObectProperty(Toggle)
+    reverse = ObjectProperty(Toggle)
     undo = ObjectProperty(Push)
     redo = ObjectProperty(Push)
     mute = ObjectProperty(Toggle)
