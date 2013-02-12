@@ -138,7 +138,6 @@ class MonitorSouv(Screen):
 
 Builder.load_file('monitorsouv.kv')
 
-
 class MonitorYula(Screen):
     mainmix = ObjectProperty(AudioStrip)
     kick1 = ObjectProperty(AudioStrip)
@@ -158,6 +157,12 @@ Builder.load_file('vco.kv')
 
 class VCF(BoxLayout):
     name = StringProperty()
+    r = NumericProperty()
+    g = NumericProperty()
+    b = NumericProperty()
+    color = ReferenceListProperty(r, g, b)
+
+Builder.load_file('vcf.kv')
 
 class Envelop(BoxLayout):
     name = StringProperty()
