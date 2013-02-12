@@ -23,6 +23,8 @@ from push import Push
 Builder.load_file('push.kv')
 from valuefader import ValueFader
 Builder.load_file('valuefader.kv')
+from lightbox import LightBox
+Builder.load_file('lightbox.kv')
 
 class MenuButton(ToggleButton):
     pass
@@ -293,7 +295,10 @@ Builder.load_file('vocalsfx.kv')
 
 
 class Qlc(Screen):
-    pass
+    barres = ObjectProperty(LightBox)
+
+
+Builder.load_file('qlc.kv')
 
 class Lives(Screen):
     pass
