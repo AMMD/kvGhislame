@@ -15,7 +15,8 @@ from osclabel import OscLabel
 Builder.load_file('osclabel.kv')
 from audiostrip import AudioStrip
 Builder.load_file('audiostrip.kv')
-
+from xypad import XyPad
+Builder.load_file('xypad.kv')
 
 class MenuButton(ToggleButton):
     pass

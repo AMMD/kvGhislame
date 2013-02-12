@@ -4,36 +4,128 @@
 <VCO>:
     canvas:
         Color:
-            rgb: self.r, self.g, self.b
+            rgba: self.r, self.g, self.b, 0.5
         Line:
             rectangle: self.x, self.y, self.width, self.height
 
     orientation: 'horizontal'
-    size_hint: 1, 1
-
-    BoxLayout:
-        orientation: 'vertical'
-        size_hint: 1, 1
-
-        ValueFader:
-            name: 'Tune'
-            orientation: 'horizontal'
-            color: self.parent.parent.color
-
-        ValueFader:
-            name: 'Harmonics'
-            orientation: 'horizontal'
-            color: self.parent.parent.color
-
-        ValueFader:
-            name: 'SubHarmonics'
-            orientation: 'horizontal'
-            color: self.parent.parent.color
 
     ValueFader:
         name: self.parent.name
         orientation: 'vertical'
         color: self.parent.color
+        size_hint: None, 1
+        width: 50
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: 1, 1
+        spacing: 10
+
+        ValueFader:
+            name: 'Tune'
+            orientation: 'horizontal'
+            color: self.parent.parent.color
+            size_hint: 1, None
+            height: 60
+
+        BoxLayout:
+            size_hint: 1, None
+            height: 30
+            orientation:
+                'horizontal'
+            Toggle:
+                group: 'octave_' + self.parent.parent.parent.name
+                main_color: self.parent.parent.parent.color
+                size_hint: 1, 1
+                text: '1'
+            Toggle:
+                group: 'octave_' + self.parent.parent.parent.name
+                main_color: self.parent.parent.parent.color
+                size_hint: 1, 1
+                text: '2'
+            Toggle:
+                group: 'octave_' + self.parent.parent.parent.name
+                main_color: self.parent.parent.parent.color
+                size_hint: 1, 1
+                text: '3'
+            Toggle:
+                group: 'octave_' + self.parent.parent.parent.name
+                main_color: self.parent.parent.parent.color
+                size_hint: 1, 1
+                text: '4'
+            Toggle:
+                group: 'octave_' + self.parent.parent.parent.name
+                main_color: self.parent.parent.parent.color
+                size_hint: 1, 1
+                text: '5'
+            Toggle:
+                group: 'octave_' + self.parent.parent.parent.name
+                main_color: self.parent.parent.parent.color
+                size_hint: 1, 1
+                text: '6'
+            Toggle:
+                group: 'octave_' + self.parent.parent.parent.name
+                main_color: self.parent.parent.parent.color
+                size_hint: 1, 1
+                text: '7'
+
+        ValueFader:
+            name: 'Harmonics'
+            orientation: 'horizontal'
+            color: self.parent.parent.color
+            size_hint: 1, None
+            height: 60
+
+        ValueFader:
+            name: 'SubHarmonics'
+            orientation: 'horizontal'
+            color: self.parent.parent.color
+            size_hint: 1, None
+            height: 60
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: 1, 1
+                Toggle:
+                    size_hint: None, None
+                    size: 30, 30
+                    text: 'sin'
+                    main_color: self.parent.parent.parent.parent.color
+                    group: 'oscshape_' + self.parent.parent.parent.parent.name
+                Toggle:
+                    size_hint: None, None
+                    size: 30, 30
+                    text: 'tri'
+                    main_color: self.parent.parent.parent.parent.color
+                    group: 'oscshape_' + self.parent.parent.parent.parent.name
+                Toggle:
+                    size_hint: None, None
+                    size: 30, 30
+                    text: 'saw'
+                    main_color: self.parent.parent.parent.parent.color
+                    group: 'oscshape_' + self.parent.parent.parent.parent.name
+                Toggle:
+                    size_hint: None, None
+                    size: 30, 30
+                    text: 'sqr'
+                    main_color: self.parent.parent.parent.parent.color
+                    group: 'oscshape_' + self.parent.parent.parent.parent.name
+
+
+            XyPad:
+                x_name: 'PW Gain'
+                y_name: 'PW Width'
+                color: self.parent.parent.parent.color
+
+            XyPad:
+                x_name: 'Exp FM'
+                y_name: 'Lin FM'
+                color: self.parent.parent.parent.color
+
 
 
 
@@ -53,30 +145,36 @@
         size_hint: 1, 1
 
         GridLayout:
-            size_hint: 1, 1
+            size_hint: None, 1
+            width: root.width / 2
             rows: 2
             cols: 2
-            padding: 5
-            spacing: 5
+            padding: 2
+            spacing: 2
+
             VCO:
                 id: vco1
                 name: 'VCO1'
                 color: 1, 0, 0
+                size_hint: 1, 1
 
             VCO:
                 id: vco2
                 name: 'VCO2'
                 color: 0, 1, 0
+                size_hint: 1, 1
 
             VCO:
                 id: vco3
                 name: 'VCO3'
                 color: 0, 0, 1
+                size_hint: 1, 1
 
             VCO:
                 id: vco4
                 name: 'VCO4'
                 color: 1, 1, 0
+                size_hint: 1, 1
 
         VCF:
             id: vcf
