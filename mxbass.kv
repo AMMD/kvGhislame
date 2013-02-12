@@ -10,13 +10,6 @@
 
     orientation: 'horizontal'
 
-    ValueFader:
-        name: self.parent.name
-        orientation: 'vertical'
-        color: self.parent.color
-        size_hint: None, 1
-        width: 50
-
     BoxLayout:
         orientation: 'vertical'
         size_hint: 1, 1
@@ -85,11 +78,13 @@
             height: 60
 
         BoxLayout:
+            size_hint: 1, 1
             orientation: 'horizontal'
 
             BoxLayout:
                 orientation: 'vertical'
-                size_hint: 1, 1
+                size_hint: None, 1
+                width: 30
                 Toggle:
                     size_hint: None, None
                     size: 30, 30
@@ -120,12 +115,21 @@
                 x_name: 'PW Gain'
                 y_name: 'PW Width'
                 color: self.parent.parent.parent.color
+                size_hint: 1, 1
 
             XyPad:
                 x_name: 'Exp FM'
                 y_name: 'Lin FM'
                 color: self.parent.parent.parent.color
+                size_hint: 1, 1
 
+
+    ValueFader:
+        name: self.parent.name
+        orientation: 'vertical'
+        color: self.parent.color
+        size_hint: None, 1
+        width: 50
 
 
 
