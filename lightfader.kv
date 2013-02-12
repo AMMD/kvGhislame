@@ -3,12 +3,14 @@
 <LightFader>:
     flash: flash
 
-    subpad: 34
+    subpad: 40
 
     Push:
         id: flash
         size_hint: None, None
         size: 34, 34
+        main_color: root.color
+        text: 'flash'
         center_x: root.center_x
         on_press:
             root.old_value = root.value

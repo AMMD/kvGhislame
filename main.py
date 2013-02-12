@@ -25,6 +25,8 @@ from valuefader import ValueFader
 Builder.load_file('valuefader.kv')
 from lightbox import LightBox
 Builder.load_file('lightbox.kv')
+from lightfader import LightFader
+Builder.load_file('lightfader.kv')
 
 class MenuButton(ToggleButton):
     pass

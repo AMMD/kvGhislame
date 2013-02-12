@@ -59,9 +59,11 @@ class Fader(Slider, OscSender):
             print "[Fader " + self.name + "] OSC control:"
             print "sending path: " + self.path
             print "control path: " + self.control_path
-        if self.collide_point(*touch.pos):
+        if Widget(pos=(self.x, self.y + self.subpad), size=(self.width, self.height - self.subpad)).collide_point(*touch.pos):
             touch.grab(self)
             return True
+        else:
+            return super(Slider, self).on_touch_down(touch)
 
     def on_touch_up(self, touch):
         if touch.grab_current == self:

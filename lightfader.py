@@ -1,7 +1,7 @@
 import kivy
-kivy.require('1.5')
+kivy.require('1.5.1')
 
-from kivy.properties import NumericProperty
+from kivy.properties import NumericProperty, ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
 
 from valuefader import ValueFader
