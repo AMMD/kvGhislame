@@ -4,6 +4,8 @@ kivy.require('1.5.1')
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.togglebutton import ToggleButton
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
 from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ReferenceListProperty, OptionProperty
 from kivy.factory import Factory
 from kivy.lang import Builder

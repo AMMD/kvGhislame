@@ -9,44 +9,62 @@
         Color: 
             rgb: root.color
 
-    Toggle:
-        id: mute
-        center_x: root.center_x
-        y: root.y + 5
-        size: 34, 34
-        main_color: root.r, root.g, root.b
-        text: 'M' if root.mute_mode == 'mute' else 'ON'
-        one_on_down: False if root.mute_mode == 'mute' else True
-        path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/On" if (root.name) else "/missing_name/"
-        control_path: self.path
-
-    ValueFader:
-        id: gainfader
+    BoxLayout:
+        size_hint: 1, None
         orientation: 'vertical'
-        x: root.x + 4
-        y: root.y + root.mute.height + 10
-        height: root.height - root.mute.height - root.panfader.height - 25
-        width: root.width - 8
-        name: root.name
-        color: root.color
-        max: 100
-        min: 0
-        path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Gain" if (root.name) else "/missing_name/"
-        control_path: self.path
+        pos: root.pos
+#        pos_hint: {'x': 0}
+        size: root.size
 
-    ValueFader:
-        id: panfader
-        orientation: 'horizontal'
-        x: root.x + 4
-        height: 60
-        y: root.height - self.height - 10
-        width: root.width - 8
-        name: root.name
-        min: -1
-        max: 1
-        color: root.color
-        path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Pan" if (root.name) else "/missing_name/"
-        control_path: self.path
+        ValueFader:
+            id: panfader
+            orientation: 'horizontal'
+    #        x: root.x + 4
+            size_hint: 1, None
+            height: 60
+#            y: root.height - self.height - 10
+#            width: root.width - 8
+            name: root.name
+            min: -1
+            max: 1
+            color: root.color
+            path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Pan" if (root.name) else "/missing_name/"
+            control_path: self.path
+
+        ValueFader:
+            id: gainfader
+            orientation: 'vertical'
+            size_hint: 1, 1
+  #          x: root.x + 4
+#            y: root.y + root.mute.height + 10
+#            height: root.height - root.mute.height - root.panfader.height - 25
+#            width: root.width - 8
+            name: root.name
+            color: root.color
+            max: 100
+            min: 0
+            path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Gain" if (root.name) else "/missing_name/"
+            control_path: self.path
+
+        FloatLayout:
+            size_hint: 1, None
+            height: 34
+            Toggle:
+                id: mute
+                center_x: root.center_x
+#            pos_hint: {'center_x': 0.5}
+#            y: root.y + 5
+                size_hint: None, None
+                size: 34, 34
+                main_color: root.r, root.g, root.b
+                text: 'M' if root.mute_mode == 'mute' else 'ON'
+                one_on_down: False if root.mute_mode == 'mute' else True
+                path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/On" if (root.name) else "/missing_name/"
+                control_path: self.path
+
+
+
+
 
 
 
