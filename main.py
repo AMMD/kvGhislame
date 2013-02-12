@@ -166,9 +166,21 @@ Builder.load_file('vcf.kv')
 
 class Envelop(BoxLayout):
     name = StringProperty()
+    r = NumericProperty()
+    g = NumericProperty()
+    b = NumericProperty()
+    color = ReferenceListProperty(r, g, b)
+
+Builder.load_file('env.kv')
 
 class AdvEnvelop(BoxLayout):
     name = StringProperty()
+    r = NumericProperty()
+    g = NumericProperty()
+    b = NumericProperty()
+    color = ReferenceListProperty(r, g, b)
+
+Builder.load_file('advenv.kv')
 
 class MxBass(Screen):
     vco1 = ObjectProperty(VCO)
