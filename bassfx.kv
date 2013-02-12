@@ -1,0 +1,222 @@
+#!kivy 1.5
+
+<BassFx>:
+    chorus: chorus
+#    revdelay: revdelay
+#    pitchshifter: pitchshifter
+#    reverb: reverb
+#     vcf: vcf
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, 1
+        spacing: 20
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, 1
+            spacing: 20
+
+            BoxLayout:
+                id: chorus
+                orientation: 'horizontal'
+                size_hint: 1, 1
+                BoxLayout:
+                    orientation: 'vertical'
+                    ValueFader:
+                        name: 'Chorus Time'
+                        size_hint: 1, None
+                        height: 60
+                        color: 1, 0, 0
+                    ValueFader:
+                        name: 'Chorus Feedback'
+                        size_hint: 1, None
+                        height: 60
+                        color: 1, 0, 0
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 20
+                        XyPad:
+                            size_hint: 1, 1
+                            x_name: 'Rate'
+                            y_name: 'Width'
+                            color: 1, 0, 0
+                        XyPad:
+                            size_hint: 1, 1
+                            x_name: 'Blend'
+                            y_name: 'Feed Fwd'
+                            color: 1, 0, 0
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        size_hint: 1, None
+                        height: 60
+                        ValueFader:
+                            name: 'Level'
+                            size_hint: 1, None
+                            height: 60
+                            color: 1, 0, 0
+                        Toggle:
+                            main_color: 1, 0, 0
+                            text: 'M'
+                            size_hint: None, 1
+                            width: 30
+
+            BoxLayout:
+                id: revdelay
+                orientation: 'vertical'
+                size_hint: 1, None
+                height: 200
+                ValueFader:
+                    name: 'Delay Time'
+                    size_hint: 1, None
+                    height: 60
+                    color: 0, 1, 0
+                ValueFader:
+                    name: 'Delay Feedback'
+                    size_hint: 1, None
+                    height: 60
+                    color: 0, 1, 0                        
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: 1, None
+                    height: 60
+                    ValueFader:
+                        name: 'Level'
+                        size_hint: 1, None
+                        height: 60
+                        color: 0, 1, 0
+                    Toggle:
+                        main_color: 0, 1, 0
+                        text: 'M'
+                        size_hint: None, 1
+                        width: 30
+
+            BoxLayout:
+                id: reverb
+                size_hint: 1, 1
+                BoxLayout:
+                    orientation: 'vertical'
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 20
+                        XyPad:
+                            x_name: 'Tail' 
+                            y_name: 'Blend' 
+                            color: 0, 1, 1
+                        XyPad:
+                            x_name: 'Tail' 
+                            y_name: 'Blend' 
+                            color: 0, 1, 1
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        size_hint: 1, None
+                        height: 60
+                        ValueFader:
+                            name: 'Level'
+                            size_hint: 1, None
+                            height: 60
+                            color: 0, 1, 1
+                        Toggle:
+                            main_color: 0, 1, 1
+                            text: 'M'
+                            size_hint: None, 1
+                            width: 30
+
+        # BoxLayout:
+        #     orientation: 'vertical'
+        #     size_hint: 1, 1
+            # BoxLayout:
+            #     id: pitchshifter
+            #     orientation: 'vertical'
+            #     size_hint: 1, 1
+                # BoxLayout:
+                #     orientation: 'horizontal'
+                #     size_hint: 1, None
+                #     height: 30
+                #     Toggle:
+                #         text: '8dw'
+                #         main_color: 1, 0, 1
+                #     Toggle:
+                #         text: '5dw'
+                #         main_color: 1, 0, 1
+                #     Toggle:
+                #         text: '4dw'
+                #         main_color: 1, 0, 1
+                #     Toggle:
+                #         text: 'uni'
+                #         main_color: 1, 0, 1
+                #     Toggle:
+                #         text: '4up'
+                #         main_color: 1, 0, 1
+                #     Toggle:
+                #         text: '5up'
+                #         main_color: 1, 0, 1
+                #     Toggle:
+                #         text: '8up'
+                #         main_color: 1, 0, 1
+                # ValueFader:
+                #     color: 1, 0, 1
+                #     name: 'Pitch'
+                #     size_hint: 1, None
+                #     height: 60
+                # BoxLayout:
+                #     orientation: 'horizontal'
+                #     spacing: 10
+                #     size_hint: 1, None
+                #     height: 60
+                #     ValueFader:
+                #         name: 'Level'
+                #         size_hint: 1, 1
+                #         color: 1, 0, 1
+                #     Toggle:
+                #         main_color: 1, 0, 1
+                #         text: 'M'
+                #         size_hint: None, 1
+                #         width: 30
+
+        BoxLayout:
+            id: vcf
+            orientation: 'horizontal'
+            size_hint: 1, 1
+            VCF:
+                size_hint: 1, 1
+                color: 1, 1, 0
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: None, 1
+                width: 60
+                spacing: 10
+                ValueFader:
+                    orientation: 'vertical'
+                    color: 1, 1, 0
+                    name: 'LFO'
+                ValueFader:
+                    orientation: 'vertical'
+                    color: 1, 1, 0
+                    name: 'Level'
+                Toggle:
+                    size_hint: 1, None
+                    height: 30
+                    main_color: 1, 1, 0
+                    text: 'M'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            AudioStrip:
+                name: 'Chorus'
+                color: 1, 0, 0
+            AudioStrip:
+                name: 'Reverse Delay'
+                color: 1, 0, 0
+            AudioStrip:
+                name: 'Reverb'
+                color: 1, 0, 0
+            AudioStrip:
+                name: 'Pitch'
+                color: 1, 0, 1
+            AudioStrip:
+                name: 'VCF'
+                color: 1, 1, 0

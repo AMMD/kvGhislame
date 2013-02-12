@@ -274,7 +274,14 @@ Builder.load_file('sooperlooper.kv')
 
 
 class BassFx(Screen):
-    pass
+    chorus = ObjectProperty(BoxLayout)
+    revdelay = ObjectProperty(BoxLayout)
+    pitchshifter = ObjectProperty(BoxLayout)
+    reverb = ObjectProperty(BoxLayout)
+    vcf = ObjectProperty(BoxLayout)
+    
+Builder.load_file('bassfx.kv')
+
 
 class VocalsFx(Screen):
     pass
