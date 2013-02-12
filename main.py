@@ -5,6 +5,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.togglebutton import ToggleButton
+from kivy.uix.stencilview import StencilView
 from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ReferenceListProperty
 from kivy.app import App
 from kivy.lang import Builder
@@ -308,6 +309,17 @@ class Qlc(Screen):
     yula36tub = ObjectProperty(LightBox)
     yula36ext = ObjectProperty(LightBox)
     yula36int = ObjectProperty(LightBox)
+    barres_st = ObjectProperty(StencilView)
+    orl64_st = ObjectProperty(StencilView)
+    souv64_st = ObjectProperty(StencilView)
+    yula64_st = ObjectProperty(StencilView)
+    orl36top_st = ObjectProperty(StencilView)
+    orl36bottom_st = ObjectProperty(StencilView)
+    lointains_st = ObjectProperty(StencilView)
+    occuloques_st = ObjectProperty(StencilView)
+    yula36tub_st = ObjectProperty(StencilView)
+    yula36ext_st = ObjectProperty(StencilView)
+    yula36int_st = ObjectProperty(StencilView)
     smoke = ObjectProperty(Push)
     grada1 = ObjectProperty(LightFader)
     grada2 = ObjectProperty(LightFader)
@@ -315,6 +327,27 @@ class Qlc(Screen):
     grada4 = ObjectProperty(LightFader)
     grada5 = ObjectProperty(LightFader)
     grada6 = ObjectProperty(LightFader)
+    fade = ObjectProperty(ValueFader)
+    hold = ObjectProperty(ValueFader)
+    chase1 = ObjectProperty(Toggle)
+    chase2 = ObjectProperty(Toggle)
+    chase3 = ObjectProperty(Toggle)
+    chase4 = ObjectProperty(Toggle)
+    chase5 = ObjectProperty(Toggle)
+    chase7 = ObjectProperty(Toggle)
+    chase8 = ObjectProperty(Toggle)
+    chase9 = ObjectProperty(Toggle)
+    chase10 = ObjectProperty(Toggle)
+    chase11 = ObjectProperty(Toggle)
+    chase12 = ObjectProperty(Toggle)
+    blackout = ObjectProperty(Toggle)
+
+    stf = ObjectProperty(StencilView)
+    tmp_s = ObjectProperty(StencilView)
+
+    lightsm = ObjectProperty(ScreenManager)
+    main_s = ObjectProperty(Screen)
+    front_s = ObjectProperty(Screen)
 
 Builder.load_file('qlc.kv')
 
