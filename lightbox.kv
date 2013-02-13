@@ -35,7 +35,6 @@
 #        x: root.x
         cols: 2
         rows: 2
-        spacing: 5
 
 #        BoxLayout:
 #            orientation: 'horizontal'
@@ -46,7 +45,7 @@
         BoxLayout:
             orientation: 'vertical'
             size_hint: None, 1
-            pos_hint: {'y': 0.1}
+            pos_hint: {'y': 0.3}
             width: 30
             spacing: 10 
 
@@ -133,8 +132,8 @@
 
         ValueFader:
             id: main_dimmer_fader
-            size_hint: 1, 1
-#        width: 60
+            size_hint: None, 1
+            width: 60
             orientation: 'vertical'
             name: root.name
             color: root.color
