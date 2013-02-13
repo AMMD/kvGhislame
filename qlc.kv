@@ -1,0 +1,132 @@
+#!kivy 1.5
+
+<Qlc>:
+    lightsm: lightsm
+    front_s: front_s
+    main_s: main_s
+    barres: barres
+    barres_st: barres_st
+    stf: stf
+
+    ScreenManager:
+        id: lightsm
+        size_hint: 1, 1
+
+        Screen:
+            id: main_s
+            name: 'main'
+            size_hint: 1, 1
+            BoxLayout:
+                orientation: 'horizontal'
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+    #                width: 110
+                    Button:
+                        canvas:
+                            Clear
+    #                        Color:
+    #                            rgb: root.lb1.color
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            Rectangle:
+                                pos: self.width / 2, self.y
+                                size: 10, 10
+                                source:  'atlas://data/images/defaulttheme/tree_closed'
+                        size_hint: (None, None)
+                        y: self.parent.height - self.height
+                        size: self.width, 10
+                        on_press: 
+                            root.barres_st.remove_widget(root.barres)
+                            root.stf.add_widget(root.barres)
+                            root.tmp_s = root.barres_st
+                            root.barres.width = root.width
+                            root.barres.x = root.x
+                            root.lightsm.current = 'front'
+                    StencilView:
+                        id: barres_st
+                        size_hint: (None, 1)
+    #                    height: root.height - 15
+                        width: 110
+                        LightBox:
+                            size_hint: (None, None)
+                            id: barres
+                            color: 0, 1, 1
+                            name: 'Barres'
+                            size: root.width, self.parent.height
+                            args_pattern: "fff"
+                            path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
+                            control_path: self.path
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+    #                width: 110
+                    Button:
+                        canvas:
+                            Clear
+    #                        Color:
+    #                            rgb: root.lb1.color
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            Rectangle:
+                                pos: self.width / 2, self.y
+                                size: 10, 10
+                                source:  'atlas://data/images/defaulttheme/tree_closed'
+                        size_hint: (None, None)
+                        y: self.parent.height - self.height
+                        size: self.width, 10
+                        on_press: 
+                            root.barres_st.remove_widget(root.barres)
+                            root.stf.add_widget(root.barres)
+                            root.tmp_s = root.barres_st
+                            root.lb1.width = root.width
+                            root.barres.x = root.x
+                            root.lightsm.current = 'front'
+                    StencilView:
+                        id: barres_st
+                        size_hint: (None, 1)
+    #                    height: root.height - 15
+                        width: 110
+                        LightBox:
+                            size_hint: (None, 1)
+                            id: orl64
+                            color: 0, 1, 1
+                            name: 'PAR 64 ORL'
+                            size: root.width, self.parent.height
+                            x: self.parent.x
+                            args_pattern: "fff"
+                            path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
+                            control_path: self.path
+
+           
+#            BoxLayout:
+#                size_hint: 1, 1
+#                orientation: 'horizontal'
+
+
+        Screen:
+            id: front_s
+            size_hint: 1, 1
+            name: 'front'
+            Button:
+                color: 0, 1, 1
+                size_hint: (None, None)
+                pos: 0, root.height - self.height
+                size: 30, 30
+                text: 'E'
+                on_press: 
+                    root.restore_zoomed_widget()
+                    root.current = 'main'
+            StencilView:
+                id: stf
+                x: root.x
+                y: root.y
+                size_hint: (None, None)
+                height: root.height - 30 # - root.vb.height - 10
+                width: root.width        
