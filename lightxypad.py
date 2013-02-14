@@ -40,7 +40,10 @@ class LightXyPad(ExtendedXyPad):
         return(colorsys.hsv_to_rgb(self.hsv[0], self.hsv[1], self.hsv[2]))
 
     def set_rgb_triplet(self, value):
-        self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[2])
+        if(value != (0, 0, 0)):
+            self.hsv = colorsys.rgb_to_hsv(value[0], value[1], value[2])
+        else:
+            self.hsv = self.hsv[0], self.hsv[1], 0
     rgb = AliasProperty(get_rgb_triplet, set_rgb_triplet, bind=('hsv',))
 
     def on_touch_down(self, touch):
