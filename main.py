@@ -5,6 +5,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.togglebutton import ToggleButton
+from kivy.uix.button import Button
 from kivy.uix.stencilview import StencilView
 from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ReferenceListProperty
 from kivy.app import App
@@ -307,6 +308,7 @@ class LightStrip(BoxLayout):
     control_path = StringProperty()
 
     lightbox = ObjectProperty(LightBox)
+    button = ObjectProperty(Button)
 
 class Qlc(Screen):
     barres = ObjectProperty(LightStrip)

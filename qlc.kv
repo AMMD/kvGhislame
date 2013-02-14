@@ -1,44 +1,46 @@
 #!kivy 1.5
 
 <LightStrip>:
-#    button: button
+    button: button
 #    stencil: stencil
     lightbox: lightbox
-     orientation: 'vertical'
-     size_hint: 1, 1
-     spacing: 5
-     Button:
-#                        id: button
-    canvas:
-        Clear
-            Rectangle:
-                pos: self.pos
-                size: self.size
-            Color:
-                rgba: barres.color
-            Rectangle:
-                pos: self.width / 2, self.y
-                size: 10, 10
-                source:  'atlas://data/images/defaulttheme/tree_closed'
-            size_hint: (None, None)
-            y: self.parent.height - self.height
-            size: self.width, 10
-            on_press: 
-                self.parent.zoom_strip(root.lightbox)
-            StencilView:
+    orientation: 'vertical'
+    size_hint: 1, 1
+    spacing: 5
+    Button:
+        id: button
+        canvas:
+            Clear
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                Color:
+                    rgb: root.color
+                    a: 1
+                Rectangle:
+                    pos: self.width / 2, self.y
+                    size: 10, 10
+                    source:  'atlas://data/images/defaulttheme/tree_closed'
+        size_hint: (None, None)
+        y: self.parent.height - self.height
+        size: self.width, 10
+
+    StencilView:
 #                        id: stencil
-                size_hint: (None, 1)
-                width: 110
-                LightBox:
-                    size_hint: (None, 1)
-                    id: lightbox
-                    color: 0, 1, 1
-                    name: 'Barres'
-                    size: root.width, self.parent.height
-                    y: self.parent.y
-                    args_pattern: "fff"
-                    path: root.path # "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  root.name.replace(" ", "_") + "/" + str(self.mode)
-                    control_path: root.control_path # self.path
+        size_hint: (None, 1)
+        width: 110
+        LightBox:
+            size_hint: (None, 1)
+            id: lightbox
+            color: root.color
+            name: root.name
+            size: root.width, self.parent.height
+            y: self.parent.y
+            args_pattern: "fff"
+            path: root.path # "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  root.name.replace(" ", "_") + "/" + str(self.mode)
+            control_path: root.control_path if root.control_path else self.path
+
+
 
 <Qlc>:
     lightsm: lightsm
@@ -47,7 +49,6 @@
     stf: stf
 
     barres: barres
-#    barres_st: barres_st
 
     orl64: orl64
     orl64_st: orl64_st
@@ -66,15 +67,28 @@
                 rows: 2
                 spacing: 5
 
-                LightStrips:
+                LightStrip:
                     id: barres
                     path: '/dummy'
-                    control_ path: self.path
+                    color: 1, 0, 0
+                    name: 'Barres'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
+
+                LightStrip:
+                    id: orl64
+                    path: '/dummy'
+                    color: 1, 0, 0
+                    name: '64 ORL'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
+
+       
 
                 BoxLayout:
                     orientation: 'vertical'
                     size_hint: 1, 1
-		    spacing: 5
+                    spacing: 5
                     Button:
                         canvas:
                             Clear
