@@ -22,14 +22,12 @@
         size_hint: None, None
         size: root.xfader_size
         pos: root.xfader_pos
-        on_touch_down:
-            print "touched"
+        subpad: 0
         on_touch_move:
             root.value_pos = (self.value_pos[0], root.value_pos[1])
         step: root.step[0]
         min: root.min[0]
         max: root.max[0]
-#        value: root.value[0]
 
     Fader:
         id: yfader
@@ -40,10 +38,10 @@
         size_hint: None, None
         size: root.yfader_size
         pos: root.yfader_pos
+        subpad: 0
         on_touch_move:
             root.value_pos = (root.value_pos[0], self.value_pos[1])
         step: root.step[1]
         min: root.min[1]
         max: root.max[1]
-#        value: root.value[1]
 
