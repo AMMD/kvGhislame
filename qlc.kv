@@ -58,6 +58,29 @@
     orl36bottom: orl36bottom
     lointains: lointains
     occuloques: occuloques
+    yula36tub: yula36tub
+    yula36ext: yula36ext
+    yula36int: yula36int
+    grada1: grada1
+    grada2: grada2
+    grada3: grada3
+    grada4: grada4
+    grada5: grada5
+    grada6: grada6
+    hold: hold
+    fade: fade
+    chase1: chase1
+    chase2: chase2
+    chase3: chase3
+    chase4: chase4
+    chase5: chase5
+    chase6: chase6
+    chase7: chase7
+    chase8: chase8
+    chase9: chase9
+    chase10: chase10
+    chase11: chase11
+    chase12: chase12
 
     ScreenManager:
         id: lightsm
@@ -146,14 +169,181 @@
                         if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
 
                 LightStrip:
-                    id: orl36top
+                    id: yula36tub
                     size_hint: 1, 1
                     path: '/dummy'
-                    color: 0, 1, 1
-                    name: '36 ORL Top'
+                    color: 0.1, 1, 1
+                    name: '36 Yula Tub'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
+       
+                LightStrip:
+                    id: yula36ext
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0.15, 1, 1
+                    name: '36 Yula Ext'
                     on_touch_down:
                         if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
 
+                LightStrip:
+                    id: yula36int
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0.2, 1, 1
+                    name: '36 Yula Int'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
+       
+                LightFader:
+                    id: grada1
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0, 1, 1
+                    name: 'G1'
+
+                LightFader:
+                    id: grada2
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0, 1, 1
+                    name: 'G2'
+
+
+                LightFader:
+                    id: grada3
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0, 1, 1
+                    name: 'G3'
+
+                LightFader:
+                    id: grada4
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0, 1, 1
+                    name: 'G4'
+
+                LightFader:
+                    id: grada5
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0, 1, 1
+                    name: 'G5'
+
+                LightFader:
+                    id: grada6
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0, 1, 1
+                    name: 'G6'
+
+                ValueFader:
+                    id: hold
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 1, 1, 1
+                    name: 'Hold'
+
+                ValueFader:
+                    id: fade
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 1, 1, 1
+                    name: 'Fade'
+
+                GridLayout:
+                    cols: 2
+                    rows: 6
+                    size_hint: 1, 1
+                    Toggle:
+                        id: chase1
+                        main_color: 1, 0.5, 0.5
+                        text: 'C1'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase2
+                        main_color: 1, 0.5, 0.5
+                        text: 'C2'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase3
+                        main_color: 1, 0.5, 0.5
+                        text: 'C3'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase4
+                        main_color: 1, 0.5, 0.5
+                        text: 'C4'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase5
+                        main_color: 1, 0.5, 0.5
+                        text: 'C5'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase6
+                        main_color: 1, 0.5, 0.5
+                        text: 'C6'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase7
+                        main_color: 1, 0.5, 0.5
+                        text: 'C7'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase8
+                        main_color: 1, 0.5, 0.5
+                        text: 'C8'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase9
+                        main_color: 1, 0.5, 0.5
+                        text: 'C9'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase10
+                        main_color: 1, 0.5, 0.5
+                        text: 'C10'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase11
+                        main_color: 1, 0.5, 0.5
+                        text: 'C11'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                    Toggle:
+                        id: chase12
+                        main_color: 1, 0.5, 0.5
+                        text: 'C12'
+                        size_hint: 1, 1
+                        # size: 34, 34
+
+                Toggle:
+                    id: blackout
+                    main_color: 1, 1, 1
+                    text: 'Blackout'
+                    size_hint: 1, 1
+
+       
 
 
 #                 BoxLayout:
