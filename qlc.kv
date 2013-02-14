@@ -12,16 +12,16 @@
         id: button
         canvas:
             Clear
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-                Color:
-                    rgb: root.color
-                    a: 1
-                Rectangle:
-                    pos: self.width / 2, self.y
-                    size: 10, 10
-                    source:  'atlas://data/images/defaulttheme/tree_closed'
+            Color:
+                rgb: root.color
+                a: 0.5
+            Rectangle:
+                pos: self.pos
+                size: self.size
+            Rectangle:
+                pos: self.x + self.width / 2, self.y
+                size: 10, 10
+                source:  'atlas://data/images/defaulttheme/tree_closed'
         size_hint: (None, None)
         y: self.parent.height - self.height
         size: self.width, 10
@@ -51,9 +51,9 @@
     stf: stf
 
     barres: barres
-
     orl64: orl64
-#    orl64_st: orl64_st
+    souv64: souv64
+    yula64: yula64
 
 
     ScreenManager:
@@ -67,7 +67,7 @@
             GridLayout:
                 size_hint: 1, 1
                 rows: 2
-                cols: 2
+#                cols: 2
                 spacing: 5
 
                 LightStrip:
@@ -88,79 +88,96 @@
                     on_touch_down:
                         if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
 
+                LightStrip:
+                    id: souv64
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 1, 0, 1
+                    name: 'PARs 64 Souv'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
+
+                LightStrip:
+                    id: yula64
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0, 1, 1
+                    name: 'PARs 64 Yula'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
        
 
-                BoxLayout:
-                    orientation: 'vertical'
-                    size_hint: 1, 1
-                    spacing: 5
-                    Button:
-                        canvas:
-                            Clear
-                            Rectangle:
-                                pos: self.pos
-                                size: self.size
-                            Color:
-                                rgba: 1, 1, 1, 1
-                            Rectangle:
-                                pos: self.width / 2, self.y
-                                size: 10, 10
-                                source:  'atlas://data/images/defaulttheme/tree_closed'
-                        size_hint: (None, None)
-                        y: self.parent.height - self.height
-                        size: self.width, 10
-                        on_press: 
-                            root.zoom_strip(orl64)
-                    StencilView:
-#                        id: orl64_st
-                        size_hint: (None, 1)
-                        width: 110
-                        LightBox:
-                            size_hint: (None, 1)
-#                            id: orl64
-                            color: 0, 1, 1
-                            name: 'PAR 64 ORL'
-                            size: root.width, self.parent.height
-                            x: self.parent.x
-                            args_pattern: "fff"
-                            path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
-                            control_path: self.path
+#                 BoxLayout:
+#                     orientation: 'vertical'
+#                     size_hint: 1, 1
+#                     spacing: 5
+#                     Button:
+#                         canvas:
+#                             Clear
+#                             Rectangle:
+#                                 pos: self.pos
+#                                 size: self.size
+#                             Color:
+#                                 rgba: 1, 1, 1, 1
+#                             Rectangle:
+#                                 pos: self.width / 2, self.y
+#                                 size: 10, 10
+#                                 source:  'atlas://data/images/defaulttheme/tree_closed'
+#                         size_hint: (None, None)
+#                         y: self.parent.height - self.height
+#                         size: self.width, 10
+#                         on_press: 
+#                             root.zoom_strip(orl64)
+#                     StencilView:
+# #                        id: orl64_st
+#                         size_hint: (None, 1)
+#                         width: 110
+#                         LightBox:
+#                             size_hint: (None, 1)
+# #                            id: orl64
+#                             color: 0, 1, 1
+#                             name: 'PAR 64 ORL'
+#                             size: root.width, self.parent.height
+#                             x: self.parent.x
+#                             args_pattern: "fff"
+#                             path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
+#                             control_path: self.path
 
-                BoxLayout:
-                    orientation: 'vertical'
-                    size_hint: 1, 1
-                    spacing: 5
-                    Button:
-                        canvas:
-                            Clear
-                            Rectangle:
-                                pos: self.pos
-                                size: self.size
-                            Color:
-                                rgba: 1, 1, 1, 1
-                            Rectangle:
-                                pos: self.width / 2, self.y
-                                size: 10, 10
-                                source:  'atlas://data/images/defaulttheme/tree_closed'
-                        size_hint: (None, None)
-                        y: self.parent.height - self.height
-                        size: self.width, 10
-                        on_press: 
-                            root.zoom_strip(orl64)
-                    StencilView:
-#                        id: orl64_st
-                        size_hint: (None, 1)
-                        width: 110
-                        LightBox:
-                            size_hint: (None, 1)
-#                            id: orl64
-                            color: 0, 1, 1
-                            name: 'PAR 64 ORL'
-                            size: root.width, self.parent.height
-                            x: self.parent.x
-                            args_pattern: "fff"
-                            path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
-                            control_path: self.path
+#                 BoxLayout:
+#                     orientation: 'vertical'
+#                     size_hint: 1, 1
+#                     spacing: 5
+#                     Button:
+#                         canvas:
+#                             Clear
+#                             Rectangle:
+#                                 pos: self.pos
+#                                 size: self.size
+#                             Color:
+#                                 rgba: 1, 1, 1, 1
+#                             Rectangle:
+#                                 pos: self.width / 2, self.y
+#                                 size: 10, 10
+#                                 source:  'atlas://data/images/defaulttheme/tree_closed'
+#                         size_hint: (None, None)
+#                         y: self.parent.height - self.height
+#                         size: self.width, 10
+#                         on_press: 
+#                             root.zoom_strip(orl64)
+#                     StencilView:
+# #                        id: orl64_st
+#                         size_hint: (None, 1)
+#                         width: 110
+#                         LightBox:
+#                             size_hint: (None, 1)
+# #                            id: orl64
+#                             color: 0, 1, 1
+#                             name: 'PAR 64 ORL'
+#                             size: root.width, self.parent.height
+#                             x: self.parent.x
+#                             args_pattern: "fff"
+#                             path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
+#                             control_path: self.path
 
            
 
