@@ -14,4 +14,9 @@ class OscLabel(Label, OscSender):
             self.text = str(args[0])
 
     def on_touch_down(self, touch):
-        print self.control_path
+        if self.collide_point(*touch.pos):
+            print self.control_path
+            touch.grab(self)
+            return True
+        else:
+            return super(OscLabel, self).on_touch_down(touch)
