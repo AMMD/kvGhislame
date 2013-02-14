@@ -306,8 +306,10 @@ class LightStrip(BoxLayout):
     path = StringProperty()
     control_path = StringProperty()
 
+    lightbox = ObjectProperty(LightBox)
+
 class Qlc(Screen):
-    barres = ObjectProperty(LightBox)
+    barres = ObjectProperty(LightStrip)
     orl64 = ObjectProperty(LightBox)
     souv64 = ObjectProperty(LightBox)
     yula64 = ObjectProperty(LightBox)

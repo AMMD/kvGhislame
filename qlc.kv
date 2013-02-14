@@ -1,6 +1,44 @@
 #!kivy 1.5
 
 <LightStrip>:
+#    button: button
+#    stencil: stencil
+    lightbox: lightbox
+     orientation: 'vertical'
+     size_hint: 1, 1
+     spacing: 5
+     Button:
+#                        id: button
+    canvas:
+        Clear
+            Rectangle:
+                pos: self.pos
+                size: self.size
+            Color:
+                rgba: barres.color
+            Rectangle:
+                pos: self.width / 2, self.y
+                size: 10, 10
+                source:  'atlas://data/images/defaulttheme/tree_closed'
+            size_hint: (None, None)
+            y: self.parent.height - self.height
+            size: self.width, 10
+            on_press: 
+                self.parent.zoom_strip(root.lightbox)
+            StencilView:
+#                        id: stencil
+                size_hint: (None, 1)
+                width: 110
+                LightBox:
+                    size_hint: (None, 1)
+                    id: lightbox
+                    color: 0, 1, 1
+                    name: 'Barres'
+                    size: root.width, self.parent.height
+                    y: self.parent.y
+                    args_pattern: "fff"
+                    path: root.path # "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  root.name.replace(" ", "_") + "/" + str(self.mode)
+                    control_path: root.control_path # self.path
 
 <Qlc>:
     lightsm: lightsm
@@ -9,7 +47,7 @@
     stf: stf
 
     barres: barres
-    barres_st: barres_st
+#    barres_st: barres_st
 
     orl64: orl64
     orl64_st: orl64_st
@@ -27,41 +65,12 @@
                 size_hint: 1, 1
                 rows: 2
                 spacing: 5
-                BoxLayout:
-                    orientation: 'vertical'
-                    size_hint: 1, 1
-		    spacing: 5
-                    Button:
-                        canvas:
-                            Clear
-                            Rectangle:
-                                pos: self.pos
-                                size: self.size
-                            Color:
-                                rgba: barres.color
-                            Rectangle:
-                                pos: self.width / 2, self.y
-                                size: 10, 10
-                                source:  'atlas://data/images/defaulttheme/tree_closed'
-                        size_hint: (None, None)
-                        y: self.parent.height - self.height
-                        size: self.width, 10
-                        on_press: 
-                            root.zoom_strip(root.barres)
-                    StencilView:
-                        id: barres_st
-                        size_hint: (None, 1)
-                        width: 110
-                        LightBox:
-                            size_hint: (None, 1)
-                            id: barres
-                            color: 0, 1, 1
-                            name: 'Barres'
-                            size: root.width, self.parent.height
-                            y: self.parent.y
-                            args_pattern: "fff"
-                            path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
-                            control_path: self.path
+
+                LightStrips:
+                    id: barres
+                    path: '/dummy'
+                    control_ path: self.path
+
                 BoxLayout:
                     orientation: 'vertical'
                     size_hint: 1, 1
