@@ -297,6 +297,15 @@ class VocalsFx(Screen):
 Builder.load_file('vocalsfx.kv')
 
 
+class LightStrip(BoxLayout):
+    name = NumericProperty()
+    r = NumericProperty()
+    g = NumericProperty()
+    b = NumericProperty()
+    color = ReferenceListProperty(r, g, b)
+    path = StringProperty()
+    control_path = StringProperty()
+
 class Qlc(Screen):
     barres = ObjectProperty(LightBox)
     orl64 = ObjectProperty(LightBox)

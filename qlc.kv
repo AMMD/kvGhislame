@@ -1,12 +1,19 @@
 #!kivy 1.5
 
+<LightStrip>:
+
 <Qlc>:
     lightsm: lightsm
     front_s: front_s
     main_s: main_s
+    stf: stf
+
     barres: barres
     barres_st: barres_st
-    stf: stf
+
+    orl64: orl64
+    orl64_st: orl64_st
+
 
     ScreenManager:
         id: lightsm
@@ -23,6 +30,7 @@
                 BoxLayout:
                     orientation: 'vertical'
                     size_hint: 1, 1
+		    spacing: 5
                     Button:
                         canvas:
                             Clear
@@ -30,7 +38,7 @@
                                 pos: self.pos
                                 size: self.size
                             Color:
-                                rgba: 1, 1, 1, 1
+                                rgba: barres.color
                             Rectangle:
                                 pos: self.width / 2, self.y
                                 size: 10, 10
@@ -57,6 +65,7 @@
                 BoxLayout:
                     orientation: 'vertical'
                     size_hint: 1, 1
+		    spacing: 5
                     Button:
                         canvas:
                             Clear
@@ -90,9 +99,6 @@
                             control_path: self.path
 
            
-#            BoxLayout:
-#                size_hint: 1, 1
-#                orientation: 'horizontal'
 
 
         Screen:
