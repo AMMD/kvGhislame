@@ -22,6 +22,8 @@
         size_hint: None, None
         size: root.xfader_size
         pos: root.xfader_pos
+        on_touch_down:
+            print "touched"
         on_touch_move:
             root.value_pos = (self.value_pos[0], root.value_pos[1])
         step: root.step[0]
