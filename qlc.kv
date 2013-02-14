@@ -2,11 +2,16 @@
 
 <LightStrip>:
     button: button
-#    stencil: stencil
+    stencil: stencil
     lightbox: lightbox
+
     orientation: 'vertical'
-    size_hint: 1, 1
     spacing: 5
+
+    canvas:
+        Line:
+            rectangle: self.x, self.y, self.width, self.height
+
     Button:
         id: button
         canvas:
@@ -26,18 +31,21 @@
         size: self.width, 10
 
     StencilView:
-#                        id: stencil
+        id: stencil
         size_hint: (None, 1)
+        x: root.x
         width: 110
         LightBox:
+            ls: self.parent.parent
             size_hint: (None, 1)
             id: lightbox
             color: root.color
             name: root.name
-            size: root.width, self.parent.height
+            size: root.parent.width, self.parent.parent.height
             y: self.parent.y
+            x: self.parent.x
             args_pattern: "fff"
-            path: root.path # "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  root.name.replace(" ", "_") + "/" + str(self.mode)
+            path: self.ls.path # "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.parent.name.replace(" ", "_") + "/" + str(self.mode)
             control_path: root.control_path if root.control_path else self.path
 
 
@@ -51,7 +59,7 @@
     barres: barres
 
     orl64: orl64
-    orl64_st: orl64_st
+#    orl64_st: orl64_st
 
 
     ScreenManager:
@@ -65,10 +73,12 @@
             GridLayout:
                 size_hint: 1, 1
                 rows: 2
+                cols: 2
                 spacing: 5
 
                 LightStrip:
                     id: barres
+                    size_hint: 1, 1
                     path: '/dummy'
                     color: 1, 0, 0
                     name: 'Barres'
@@ -77,9 +87,10 @@
 
                 LightStrip:
                     id: orl64
+                    size_hint: 1, 1
                     path: '/dummy'
-                    color: 1, 0, 0
-                    name: '64 ORL'
+                    color: 1, 1, 0
+                    name: 'PARs 64 ORL'
                     on_touch_down:
                         if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
 
@@ -107,12 +118,48 @@
                         on_press: 
                             root.zoom_strip(orl64)
                     StencilView:
-                        id: orl64_st
+#                        id: orl64_st
                         size_hint: (None, 1)
                         width: 110
                         LightBox:
                             size_hint: (None, 1)
-                            id: orl64
+#                            id: orl64
+                            color: 0, 1, 1
+                            name: 'PAR 64 ORL'
+                            size: root.width, self.parent.height
+                            x: self.parent.x
+                            args_pattern: "fff"
+                            path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
+                            control_path: self.path
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+                    spacing: 5
+                    Button:
+                        canvas:
+                            Clear
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            Rectangle:
+                                pos: self.width / 2, self.y
+                                size: 10, 10
+                                source:  'atlas://data/images/defaulttheme/tree_closed'
+                        size_hint: (None, None)
+                        y: self.parent.height - self.height
+                        size: self.width, 10
+                        on_press: 
+                            root.zoom_strip(orl64)
+                    StencilView:
+#                        id: orl64_st
+                        size_hint: (None, 1)
+                        width: 110
+                        LightBox:
+                            size_hint: (None, 1)
+#                            id: orl64
                             color: 0, 1, 1
                             name: 'PAR 64 ORL'
                             size: root.width, self.parent.height

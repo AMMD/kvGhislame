@@ -304,11 +304,13 @@ class LightStrip(BoxLayout):
     g = NumericProperty()
     b = NumericProperty()
     color = ReferenceListProperty(r, g, b)
+
     path = StringProperty()
     control_path = StringProperty()
 
     lightbox = ObjectProperty(LightBox)
     button = ObjectProperty(Button)
+    stencil = ObjectProperty(StencilView)
 
 class Qlc(Screen):
     barres = ObjectProperty(LightStrip)
