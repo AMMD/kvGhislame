@@ -24,7 +24,7 @@
             min: -1
             max: 1
             color: root.color
-            path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Pan" if (root.name) else "/missing_name/"
+            path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/Pan" if (root.name) else "/missing_name/"
             control_path: self.path
 
         ValueFader:
@@ -35,7 +35,7 @@
             color: root.color
             max: 100
             min: 0
-            path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/Gain" if (root.name) else "/missing_name/"
+            path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/Gain" if (root.name) else "/missing_name/"
             control_path: self.path
 
         FloatLayout:
@@ -49,7 +49,7 @@
                 main_color: root.r, root.g, root.b
                 text: 'M' if root.mute_mode == 'mute' else 'ON'
                 one_on_down: False if root.mute_mode == 'mute' else True
-                path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/" + root.name.replace(" ", "_") + "/On" if (root.name) else "/missing_name/"
+                path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/On" if (root.name) else "/missing_name/"
                 control_path: self.path
 
 

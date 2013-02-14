@@ -41,12 +41,12 @@
 <ValueFader>:
     name_f: name_f
 
-    args_pattern: 'f'
+    args_pattern: 'sf'
 
-    path: "/" + app.get_application_name().replace(" ", "_") + "/Fader/" + root.name.replace(" ", "_") if (root.name) else "/missing_name/"
+    path: "/" + app.get_application_name().replace(" ", "_") + "/Fader/" if (root.name) else "/missing_name/"
     control_path: self.path
 
-    args: [self.value]
+    args: [root.name.replace(" ", "_"), self.value]
 
     Label:
         id: name_f
