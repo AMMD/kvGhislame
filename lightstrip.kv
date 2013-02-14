@@ -1,63 +1,54 @@
 #!kivy 1.5
-#: import Animation kivy.animation.Animation
-#:import Bubble kivy.uix.bubble.Bubble
-
-<MLightBox>:
-    id: lb
-    rt: self.parent.parent if self.parent else 0
-    size_hint: (None, None)
-    size: (self.rt.width, self.parent.height) if self.rt else (100, 100)
-    pos: (self.parent.x, self.parent.y) if self.rt else (0, 0)
-    name: 'moncul' # self.rt.name if self.rt else 'moncul'
-    color: (1, 1, 0) #self.rt.color if self.rt else (1, 1, 0)
-
-    on_parent:
-        if self.parent: print "pos: " + str(self.parent.pos) + ", size: " + str(self.parent.size)
-        if self.parent: print type(self.parent)
-        print "size: " + str(self.size)
-#        if((not isinstance(self.parent, Bubble)) & (self.parent != None)): self.pos = (self.rt.center_x, self.parent.y) # if((not isinstance(self.parent, Bubble)) & (self.parent != None))  else (0, 0)
-
 
 
 <LightStrip>:
-    lb: lb
-    st: st
-    vb: vb
-    bub: bub
-#    fl: fl
+    button: button
+    stencil: stencil
+    lightbox: lightbox
 
-    on_parent:
-        root.remove_widget(root.bub)
+    orientation: 'vertical'
+    spacing: 5
+
+    Button:
+        id: button
+        canvas:
+            Clear
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                Color:
+                    rgb: root.color
+                    a: 1
+                Rectangle:
+                    pos: self.width / 2, self.y
+                    size: 10, 10
+                    source:  'atlas://data/images/defaulttheme/tree_closed'
+        size_hint: (None, None)
+        y: self.parent.height - self.height
+        size: self.width, 10
 
     StencilView:
-        id: st
+        id: stencil
+        size_hint: (None, 1)
         x: root.x
-        y: root.y
-        size_hint: (None, None)
-        height: root.height - root.vb.height - 10
-        width: 90
-        MLightBox:
-            id: lb
+        width: 110
+        LightBox:
+            ls: self.parent.parent
+            size_hint: (None, 1)
+            id: lightbox
+            color: root.color
+            name: root.name
+            size: root.parent.width, self.parent.parent.height
+            y: self.parent.y
+            x: self.parent.x
+            args_pattern: "fff"
+            path: self.ls.path # "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.parent.name.replace(" ", "_") + "/" + str(self.mode)
+            control_path: root.control_path if root.control_path else self.path
 
-    Bubble:
-        id: bub
-        size_hint: (None, None)
-        size: root.width, root.st.height
-        pos_hint: {'x': 1, 'y': 1}
-        arrow_pos: 'right_mid'
-        orientation: 'horizontal'
-#        FloatLayout:
-#            id: fl
 
-    Toggle:
-        id: vb
-        main_color: 1, 0, 0
-        size: 30, 30
-        y: root.y + root.height - self.height
-        x: root.x
-        path: ''
-        on_press:
-            root.state_to_visible()
+
+
+
 
 
 

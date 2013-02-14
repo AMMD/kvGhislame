@@ -29,6 +29,9 @@ from lightbox import LightBox
 Builder.load_file('lightbox.kv')
 from lightfader import LightFader
 Builder.load_file('lightfader.kv')
+#from lightstrip import LightStrip
+#Builder.load_file('lightstrip.kv')
+
 
 class MenuButton(ToggleButton):
     pass
@@ -299,7 +302,7 @@ Builder.load_file('vocalsfx.kv')
 
 
 class LightStrip(BoxLayout):
-    name = NumericProperty()
+    name = StringProperty()
     r = NumericProperty()
     g = NumericProperty()
     b = NumericProperty()
@@ -314,7 +317,7 @@ class LightStrip(BoxLayout):
 
 class Qlc(Screen):
     barres = ObjectProperty(LightStrip)
-    orl64 = ObjectProperty(LightBox)
+    orl64 = ObjectProperty(LightStrip)
     souv64 = ObjectProperty(LightBox)
     yula64 = ObjectProperty(LightBox)
     orl36top = ObjectProperty(LightBox)
