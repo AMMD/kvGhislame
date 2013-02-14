@@ -54,7 +54,10 @@
     orl64: orl64
     souv64: souv64
     yula64: yula64
-
+    orl36top: orl36top
+    orl36bottom: orl36bottom
+    lointains: lointains
+    occuloques: occuloques
 
     ScreenManager:
         id: lightsm
@@ -84,7 +87,7 @@
                     size_hint: 1, 1
                     path: '/dummy'
                     color: 1, 1, 0
-                    name: 'PARs 64 ORL'
+                    name: '64 ORL'
                     on_touch_down:
                         if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
 
@@ -93,7 +96,7 @@
                     size_hint: 1, 1
                     path: '/dummy'
                     color: 1, 0, 1
-                    name: 'PARs 64 Souv'
+                    name: '64 Souv'
                     on_touch_down:
                         if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
 
@@ -102,10 +105,56 @@
                     size_hint: 1, 1
                     path: '/dummy'
                     color: 0, 1, 1
-                    name: 'PARs 64 Yula'
+                    name: '64 Yula'
                     on_touch_down:
                         if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
        
+                LightStrip:
+                    id: orl36top
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 1, 1, 0.2
+                    name: '36 ORL Top'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
+
+                LightStrip:
+                    id: orl36bottom
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 1, 1, 0.2
+                    name: '36 ORL Bottom'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
+       
+                LightStrip:
+                    id: lointains
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0, 0, 1
+                    name: 'Lointains'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
+
+                LightStrip:
+                    id: occuloques
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0, 1, 0
+                    name: 'Occuloques'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
+
+                LightStrip:
+                    id: orl36top
+                    size_hint: 1, 1
+                    path: '/dummy'
+                    color: 0, 1, 1
+                    name: '36 ORL Top'
+                    on_touch_down:
+                        if self.button.collide_point(args[1].x, args[1].y): root.zoom_strip(self.lightbox)
+
+
 
 #                 BoxLayout:
 #                     orientation: 'vertical'
