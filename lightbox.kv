@@ -45,7 +45,7 @@
         BoxLayout:
             orientation: 'vertical'
             size_hint: None, 1
-            pos_hint: {'y': 0.3}
+#            pos_hint: {'y': 0.3}
             width: 30
             spacing: 10 
 
@@ -162,6 +162,7 @@
                 size_hint: (None, None)
                 size: 34, 34
                 center_x: main_dimmer_fader.center_x
+                y: root.y
                 text: 'flash'
 #            x: main_dimmer_fader.x + 5
                 path: ''

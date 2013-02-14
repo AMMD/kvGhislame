@@ -349,6 +349,24 @@ class Qlc(Screen):
     main_s = ObjectProperty(Screen)
     front_s = ObjectProperty(Screen)
 
+    def zoom_strip(self, obj):
+        parent = obj.parent
+        obj.parent.remove_widget(obj)
+        self.stf.add_widget(obj)
+        obj.width = self.width
+        obj.height = self.stf.height
+        obj.x = self.x
+        self.tmp_s = parent
+        self.lightsm.current = 'front'
+
+    def restore_zoomed_strip(self):
+        for child in self.stf.children[:]:
+            self.stf.remove_widget(child)
+#            child.width = self.tmp_s.width
+            child.x = self.tmp_s.x
+            self.tmp_s.add_widget(child)
+            self.lightsm.current = 'main'
+
 Builder.load_file('qlc.kv')
 
 class Lives(Screen):
