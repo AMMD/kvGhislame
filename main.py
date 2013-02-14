@@ -355,7 +355,7 @@ class Qlc(Screen):
         self.stf.add_widget(obj)
         obj.width = self.width
         obj.height = self.stf.height
-        obj.x = self.x
+        obj.pos = self.pos
         self.tmp_s = parent
         self.lightsm.current = 'front'
 
