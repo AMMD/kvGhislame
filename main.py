@@ -363,7 +363,8 @@ class Qlc(Screen):
         for child in self.stf.children[:]:
             self.stf.remove_widget(child)
 #            child.width = self.tmp_s.width
-            child.x = self.tmp_s.x
+            child.pos = self.tmp_s.pos
+            child.height = self.tmp_s.height
             self.tmp_s.add_widget(child)
             self.lightsm.current = 'main'
 
