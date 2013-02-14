@@ -59,26 +59,31 @@ class LightBox(BoxLayout):
 
 # TODO Link
 
-    def on_touch_down(self, touch):
-        if ('button' in touch.profile) & ('right' in touch.button):
-            print "[LightBox " + self.name + "] OSC control:"
-            print "sending path: " + self.path
-            print "control path: " + self.control_path
-        if Widget(pos=(self.x + self.pad_x, self.y + self.pad_y), size=self.pad_size).collide_point(*touch.pos):
-            touch.grab(self)
-            return True
-        else:
-            return super(LightBox, self).on_touch_down(touch)
+    # def on_touch_down(self, touch):
+    #     if ('button' in touch.profile) & ('right' in touch.button):
+    #         print "[LightBox " + self.name + "] OSC control:"
+    #         print "sending path: " + self.path
+    #         print "control path: " + self.control_path
+    #     if Widget(pos=(self.x + self.pad_x, self.y + self.pad_y), size=self.pad_size).collide_point(*touch.pos):
+    #         touch.grab(self)
+    #         return True
+    #     else:
+    #         return super(LightBox, self).on_touch_down(touch)
 
-    def on_touch_move(self, touch):
-        if touch.grab_current == self:
-            new_value_x = self.xypad.value_pos[0]
-            new_value_y = self.xypad.value_pos[1]
-            if touch.x > self.x + self.pad_x:
-                new_value_x = touch.x
-            if touch.y > self.y + self.pad_y:
-                new_value_y = touch.y
-            self.xypad.value_pos = (new_value_x, new_value_y)
+    # def on_touch_move(self, touch):
+    #     if touch.grab_current == self:
+    #         new_value_x = self.xypad.value_pos[0]
+    #         new_value_y = self.xypad.value_pos[1]
+    #         if self.xypad.collide_point(*touch.pos):
+    #             if touch.x > self.xypad.x + self.xypad.pad_x:
+    #                 new_value_x = touch.x
+    #             if touch.y > self.xypad.y + self.xypad.pad_y:
+    #                 new_value_y = touch.y
+    #             self.xypad.value_pos = (new_value_x, new_value_y)
+    #         if self.main_dimmer_fader.collide_point(*touch.pos):
+    #             self.main_dimmer_fader.value_pos = touch.y
+    #             self.xypad.value = self.xypad.value[0], self.main_dimmer_fader.value[1]
+
 
     def rgb_to_hsv(color):
         return colorsys.rgb_to_hsv(color)
