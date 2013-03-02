@@ -33,14 +33,14 @@ class Toggle(ToggleButton, OscSender):
     def state_to_args(self):
         if self.one_on_down == True:
             if self.state == 'down':
-                self.args = [self.name, 1]
+                self.args = [self.name.replace(" ", "_"), 1]
             else:
-                self.args = [self.name, 0]
+                self.args = [self.name.replace(" ", "_"), 0]
         else:
             if self.state == 'down':
-                self.args = [self.name, 0]
+                self.args = [self.name.replace(" ", "_"), 0]
             else:
-                self.args = [self.name, 1]
+                self.args = [self.name.replace(" ", "_"), 1]
 
 
 class ToggleApp(App):
