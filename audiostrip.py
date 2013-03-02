@@ -19,6 +19,7 @@ from toggle import Toggle
 class AudioStrip(Widget):
     path = StringProperty('Strip')
     base_path = StringProperty()
+    osc_name = StringProperty()
     name = StringProperty()
     gainfader = ObjectProperty(ValueFader)
     panfader = ObjectProperty(ValueFader)

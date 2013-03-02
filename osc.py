@@ -12,11 +12,15 @@ class OscSender(Widget):
     control_path = StringProperty()
     args = ListProperty()
     args_pattern = StringProperty()
+    osc_name = StringProperty()
     app_name = StringProperty()
 
     def send_message(self):
         if self.path != '':
-            _liblo.send(self.target, self.path, *self.args)
+            if self.osc_name:
+                _liblo.send(self.target, self.path, self.osc_name, *self.args)
+            else:
+                _liblo.send(self.target, self.path, *self.args)
 
 
 class OscServer(Widget):

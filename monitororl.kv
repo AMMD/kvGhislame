@@ -8,7 +8,7 @@
     organicdrums: organicdrums
     droiture: droiture
 
-    base_path:  "/" + app.get_application_name().replace(" ", "_") + "/MonitorsORL/AudioStrip/"
+    osc_name: "MonitorsORL"
 
     BoxLayout:
         orientation: 'horizontal'
@@ -28,7 +28,7 @@
                 name: "Main Mix"
                 color: 1, 0.5, 0.1
                 size_hint: (1, 1)
-                base_path: root.base_path
+                osc_name: root.osc_name
 
         BoxLayout:
             orientation: 'vertical'
@@ -43,7 +43,7 @@
                 name: "Basse"
                 color: 1, 0.5, 0.15
                 size_hint: (1, 1)
-                base_path: root.base_path
+                osc_name: root.osc_name
 
         BoxLayout:
             orientation: 'vertical'
@@ -58,7 +58,7 @@
                 name: "Guitares"
                 color: 1, 0.5, 0.2
                 size_hint: (1, 1)
-                base_path: root.base_path
+                osc_name: root.osc_name
 
         BoxLayout:
             orientation: 'vertical'
@@ -73,7 +73,7 @@
                 name: "Vocals"
                 color: 1, 0.5, 0.25
                 size_hint: (1, 1)
-                base_path: root.base_path
+                osc_name: root.osc_name
 
         BoxLayout:
             orientation: 'vertical'
@@ -88,13 +88,13 @@
                 name: "OrganicDrums"
                 color: 1, 0.5, 0.25
                 size_hint: (1, 1)
-                base_path: root.base_path
+                osc_name: root.osc_name
 
         AudioStrip:
             id: droiture
             name: "Droiture"
             color: 1, 0.5, 0.25
             size_hint: (1, 1)
-            base_path: root.base_path
+            osc_name: root.osc_name
 
 
