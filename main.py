@@ -18,13 +18,13 @@ Builder.load_file('osclabel.kv')
 from audiostrip import AudioStrip
 Builder.load_file('audiostrip.kv')
 from xypad import XyPad
-Builder.load_file('xypad.kv')
+#Builder.load_file('xypad.kv')
 from toggle import Toggle
-Builder.load_file('toggle.kv')
+#Builder.load_file('toggle.kv')
 from push import Push
 Builder.load_file('push.kv')
 from valuefader import ValueFader
-Builder.load_file('valuefader.kv')
+#Builder.load_file('valuefader.kv')
 from lightbox import LightBox
 Builder.load_file('lightbox.kv')
 from lightfader import LightFader
@@ -392,9 +392,11 @@ class Lives(Screen):
     pass
 Builder.load_string("""
 <Lives>:
-    Toggle:
+    ToggleButton:
         text: "test"
         main_color: 1, 1, 1
+        on_press:
+            print "sent"
 """)
 
 
