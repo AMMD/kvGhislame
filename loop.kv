@@ -31,9 +31,13 @@
             text: 'Play'
             main_color: root.color
             group: 'sl_transport_' + root.name
+            name: 'Play'
+            osc_name: "SooperLooper " + root.name
         Toggle:
             id: record
             text: 'Record'
+            name: 'Record'
+            osc_name: "SooperLooper " + root.name
             main_color: root.color
             group: 'sl_transport_' + root.name
 
@@ -52,38 +56,54 @@
                 text: 'Overdub'
                 main_color: root.color
                 group: 'sl_overdub_' + root.name
+                name: 'Overdub'
+                osc_name: "SooperLooper " + root.name
             Toggle:
                 id: multiply
                 text: 'Multiply'
                 main_color: root.color
                 group: 'sl_overdub_' + root.name
+                name: 'Multiply'
+                osc_name: "SooperLooper " + root.name
             Toggle:
                 id: reverse
                 text: 'Reverse'
                 main_color: root.color
+                name: 'Reverse'
+                osc_name: "SooperLooper " + root.name
             Push:
                 id: undo
                 text: 'Undo'
                 main_color: root.color
+                name: 'Undo'
+                osc_name: "SooperLooper " + root.name
 
             Push:
                 id: trig
                 text: 'Trig'
                 main_color: root.color
                 group: 'sl_overdub_' + root.name
+                name: 'Trig'
+                osc_name: "SooperLooper " + root.name
             Toggle:
                 id: pause
                 text: 'Pause'
                 main_color: root.color
                 group: 'sl_transport_' + root.name
+                name: 'Pause'
+                osc_name: "SooperLooper " + root.name
             Toggle:
                 id: mute
                 text: 'Mute'
                 main_color: root.color
+                name: 'Mute'
+                osc_name: "SooperLooper " + root.name
             Push:
                 id: redo
                 text: 'Redo'
                 main_color: root.color
+                name: 'Redo'
+                osc_name: "SooperLooper " + root.name
 
         BoxLayout:
             size_hint: 1, 1
@@ -94,17 +114,20 @@
                 name: 'Wet'
                 color: root.color
                 orientation: 'horizontal'
+                osc_name: "SooperLooper " + root.name
             ValueFader:
                 id: dry
                 name: 'Dry'
                 color: root.color
                 orientation: 'horizontal'
+                osc_name: "SooperLooper " + root.name
 
     ValueFader:
         id: rate
         name: 'Rate'
         color: root.color
         orientation: 'vertical'
+        osc_name: "SooperLooper " + root.name
 
     BoxLayout:
         orientation: 'vertical'
@@ -112,25 +135,35 @@
             id: play_sync
             text: 'Play Sync'
             main_color: root.color
+            name: "Play Sync"
+            osc_name: "SooperLooper " + root.name
         Toggle:
             id: sync
             text: 'Sync'
             main_color: root.color
+            name: "Sync"
+            osc_name: "SooperLooper " + root.name
         Toggle:
             id: halfth
             text: 'x1/2'
             main_color: root.color
             group: 'sl_rate_' + root.name
+            name: "xdemi"
+            osc_name: "SooperLooper " + root.name
         Toggle:
             id: once
             text: 'x1'
             main_color: root.color
             group: 'sl_rate_' + root.name
+            name: "x1"
+            osc_name: "SooperLooper " + root.name
         Toggle:
             id: twice
             text: 'x2'
             main_color: root.color
             group: 'sl_rate_' + root.name
+            name: "x2"
+            osc_name: "SooperLooper " + root.name
 
             
             
