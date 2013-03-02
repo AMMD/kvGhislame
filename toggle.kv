@@ -8,10 +8,10 @@
     background_down: 'data/button_down.png'
     border: 15, 15, 15, 15
 
-    path: "/" + app.get_application_name.replace(" ", "_") + "/Toggle/" + self.name.replace(" ", "_") if (root.name) else "/missing_name/"
+    path: "/" + app.get_application_name().replace(" ", "_") + "/Toggle/"
     control_path: self.path
 
-    args_pattern: 'i'
+    args_pattern: 'si'
 
     on_press:
         self.state_to_args()

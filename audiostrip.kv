@@ -49,6 +49,7 @@
                 size: 34, 34
                 main_color: root.r, root.g, root.b
                 text: 'M' if root.mute_mode == 'mute' else 'ON'
+                name: root.name
                 one_on_down: False if root.mute_mode == 'mute' else True
                 path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/On" if (root.name) else "/missing_name/"
                 control_path: self.path
