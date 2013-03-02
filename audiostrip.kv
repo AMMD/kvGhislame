@@ -33,8 +33,9 @@
             size_hint: 1, 1
             name: root.name
             color: root.color
-            max: 100
+            max: 1
             min: 0
+            step: 0.001
             path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/Gain" if (root.name) else "/missing_name/"
             control_path: self.path
 
