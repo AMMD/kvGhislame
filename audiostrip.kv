@@ -4,6 +4,7 @@
     gainfader: gainfader
     panfader: panfader
     mute: mute
+    base_path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/"
 
     canvas:
         Color: 
@@ -24,7 +25,7 @@
             min: -1
             max: 1
             color: root.color
-            path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/Pan" if (root.name) else "/missing_name/"
+            path: root.base_path + "Pan" if (root.name) else "/missing_name/"
             control_path: self.path
 
         ValueFader:
@@ -36,7 +37,7 @@
             max: 1
             min: 0
             step: 0.001
-            path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/Gain" if (root.name) else "/missing_name/"
+            path: root.base_path + "Gain" if (root.name) else "/missing_name/"
             control_path: self.path
 
         FloatLayout:
@@ -51,7 +52,7 @@
                 text: 'M' if root.mute_mode == 'mute' else 'ON'
                 name: root.name
                 one_on_down: False if root.mute_mode == 'mute' else True
-                path: "/" + app.get_application_name().replace(" ", "_") + "/AudioStrip/On" if (root.name) else "/missing_name/"
+                path: root.base_path + "On" if (root.name) else "/missing_name/"
                 control_path: self.path
 
 
