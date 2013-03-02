@@ -43,7 +43,7 @@
 
     args_pattern: 'sf'
 
-    path: "/" + app.get_application_name().replace(" ", "_") + "/Fader/" if (root.name) else "/missing_name/"
+    path: "/" + app.get_application_name().replace(" ", "_") + "/Fader"
     control_path: self.path
 
     args: [root.name.replace(" ", "_"), self.value]
