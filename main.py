@@ -390,6 +390,12 @@ Builder.load_file('qlc.kv')
 
 class Lives(Screen):
     pass
+Builder.load_string("""
+<Lives>:
+    Toggle:
+        text: "test"
+        main_color: 1, 1, 1
+""")
 
 
 class MainKvG(Widget):

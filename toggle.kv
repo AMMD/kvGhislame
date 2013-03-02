@@ -8,12 +8,13 @@
     background_down: 'data/button_down.png'
     border: 15, 15, 15, 15
 
-    path: "/" + app.get_application_name().replace(" ", "_") + "/Toggle/"
+    path: "/" + app.get_application_name().replace(" ", "_") + "/Toggle"
     control_path: self.path
 
-    args_pattern: 'si'
+    args_pattern: 'ssi'
 
     on_press:
+        print "sent"
         self.state_to_args()
         self.send_message()
 

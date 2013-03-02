@@ -34,14 +34,14 @@ class Push(Button, OscSender):
 #        print self.one_on_down
         if self.one_on_down == True:
             if self.state == 'down':
-                self.args = [1]
+                self.args = [self.name.replace(" ", "_"), 1]
             else:
-                self.args = [0]
+                self.args = [self.name.replace(" ", "_"), 0]
         else:
             if self.state == 'down':
-                self.args = [0]
+                self.args = [self.name.replace(" ", "_"), 0]
             else:
-                self.args = [1]            
+                self.args = [self.name.replace(" ", "_"), 1]            
 
     def set_hsv_triplet(self, value):
         self.main_color = colorsys.hsv_to_rgb(value[0], value[1], value[2])

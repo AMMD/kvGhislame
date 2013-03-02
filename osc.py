@@ -7,7 +7,7 @@ from kivy.uix.widget import Widget
 from kivy.properties import StringProperty, ListProperty, NumericProperty, BooleanProperty
 
 class OscSender(Widget):
-    target = StringProperty()
+    target = StringProperty("9961")
     path = StringProperty()
     control_path = StringProperty()
     args = ListProperty()

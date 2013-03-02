@@ -8,10 +8,13 @@
     background_down: 'data/button_down.png'
     border: 15, 15, 15, 15
 
-    path: "/" + self.app_name.replace(" ", "_") + "/Toggle/" + self.name.replace(" ", "_")
+    path: "/" + app.get_application_name().replace(" ", "_") + "/Push"
     control_path: self.path
 
-    args_pattern: 'i'
+    args_pattern: 'ssi'
+
+    on_touch_down:
+        print args[1].grab_current
 
     on_press:
         self.state_to_args()
