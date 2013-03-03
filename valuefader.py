@@ -74,7 +74,7 @@ class Fader(Slider, OscSender):
             print "self-incoming message"
         else:
             print "OSC controlled"
-            self.value = float(args[1])
+            self.value = float(args[0])
 
 
 class ValueFader(Fader):
