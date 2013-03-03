@@ -5,6 +5,8 @@ from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.togglebutton import ToggleButton
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.uix.stencilview import StencilView
 from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ReferenceListProperty
@@ -22,7 +24,7 @@ from xypad import XyPad
 from toggle import Toggle
 #Builder.load_file('toggle.kv')
 from push import Push
-Builder.load_file('push.kv')
+#Builder.load_file('push.kv')
 from valuefader import ValueFader
 #Builder.load_file('valuefader.kv')
 from lightbox import LightBox
@@ -408,10 +410,23 @@ Builder.load_string("""
 """)
 
 
+class LoadDialog(FloatLayout):
+    load = ObjectProperty(None)
+    cancel = ObjectProperty(None)
+
+
+class SaveDialog(FloatLayout):
+    save = ObjectProperty(None)
+    text_input = ObjectProperty(None)
+    cancel = ObjectProperty(None)
+
 class MainKvG(Widget):
     app_name = StringProperty()
 
     container = ObjectProperty()
+
+    save = ObjectProperty(Button)
+    load = ObjectProperty(Button)
 
     tunename = ObjectProperty()
 
@@ -448,6 +463,32 @@ class MainKvG(Widget):
                 for kid in child.children[:]:
                     if (kid.text == tab_name) & isinstance(kid, MenuButton):
                         kid.state = 'down'
+
+
+    def dismiss_popup(self):
+        self._popup.dismiss()
+
+    def show_load(self):
+        content = LoadDialog(load=self.load, cancel=self.dismiss_popup)
+        self._popup = Popup(title="Load file", content=content, size_hint=(0.9, 0.9))
+        self._popup.open()
+
+    def show_save(self):
+        content = SaveDialog(save=self.save, cancel=self.dismiss_popup)
+        self._popup = Popup(title="Save file", content=content, size_hint=(0.9, 0.9))
+        self._popup.open()
+
+    def load(self, path, filename):
+        with open(os.path.join(path, filename[0])) as stream:
+            self.text_input.text = stream.read()
+
+        self.dismiss_popup()
+
+    def save(self, path, filename):
+        with open(os.path.join(path, filename), 'w') as stream:
+            stream.write(self.text_input.text)
+
+        self.dismiss_popup()
 
 
 

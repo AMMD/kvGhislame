@@ -15,12 +15,70 @@
         app._app_window.children[0].change_tab(self.text)
         self.state = 'down'
 
+<LoadDialog>:
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        FileChooserListView:
+            id: filechooser
+
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                on_release: root.cancel()
+
+            Button:
+                text: "Load This Tab"
+                on_release: root.load(filechooser.path, filechooser.selection)
+
+            Button:
+                text: "Load All Tabs"
+                on_release: root.load(filechooser.path, filechooser.selection)
+
+<SaveDialog>:
+    text_input: text_input
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        FileChooserListView:
+            id: filechooser
+            on_selection: text_input.text = self.selection and self.selection[0] or ''
+
+        TextInput:
+            id: text_input
+            size_hint_y: None
+            height: 30
+            multiline: False
+
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                on_release: root.cancel()
+
+            Button:
+                text: "Save This Tab"
+                on_release: root.save(filechooser.path, text_input.text)
+
+            Button:
+                text: "Save All Tabs"
+                on_release: root.save(filechooser.path, text_input.text)
+
+
 <MainKvG>:
     target: app.config.get('OSC', 'dest_host') + ":" + str(app.config.get('OSC', 'dest_port'))
 
     container: container
 
     tunename: tunename
+
+    load: load
+    save: save
 
     sm: sm
     menu: menu
@@ -95,12 +153,34 @@
         pos: root.pos
         size: root.size
 
-        OscLabel:
-            id: tunename
-            text: "Sebkha-Chott Totalizm"
+        BoxLayout:
             size_hint: 1, None
-            font_size: 30
             height: 35
+            orientation: 'horizontal'
+            OscLabel:
+                id: tunename
+                text: "Sebkha-Chott Totalizm"
+                size_hint: 1, 1
+                font_size: 30
+#                height: 35
+
+            Button:
+                id: save
+                text: 'Save'
+                size_hint: None, 1
+                width: 80
+#                size: 80, 35
+                on_release:
+                    root.show_save()
+
+            Button:
+                id: load
+                text: 'Load'
+                size_hint: None, 1
+                width: 80
+#                size: 80, 35
+                on_release:
+                    root.show_load()
 
         Menu:
             id: menu
