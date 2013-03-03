@@ -28,6 +28,7 @@
             path: root.base_path + "Pan" if (root.name) else "/missing_name/"
             control_path: self.path
             osc_name: root.osc_name
+            args_pattern: "sf"
 
         ValueFader:
             id: gainfader
@@ -41,6 +42,7 @@
             path: root.base_path + "Gain" if (root.name) else "/missing_name/"
             control_path: self.path
             osc_name: root.osc_name
+            args_pattern: "sf"
 
         FloatLayout:
             size_hint: 1, None
@@ -55,6 +57,7 @@
                 name: root.name
                 one_on_down: False if root.mute_mode == 'mute' else True
                 path: root.base_path + "On" if (root.name) else "/missing_name/"
+                args_pattern: "si"
                 control_path: self.path
                 osc_name: root.osc_name
 

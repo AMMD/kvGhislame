@@ -481,15 +481,25 @@ class MainKvG(Widget):
 
     def load(self, path, filename):
         with open(os.path.join(path, filename)) as stream:
-            print stream.readline().replace("%", "") + "read!"
+            print stream.readline().rstrip('\n').replace("%", "") + "read!"
             header = stream.readline().rstrip('\n').split(" ")
             target_idx = header.index("target")
             path_idx = header.index("path")
+            args_pattern_idx = header.index("args_pattern")
             args_idx = header.index("args")
 
             for line in stream:
-                data = line.rstrip('\n').strip(" ")
-                print "target: " + data[target_idx] + " / path: " + data [path_idx] + " /  args: " + data[args_idx]
+                data = line.rstrip('\n').split(" ")
+                print "target: " + data[target_idx] + " / path: " + data[path_idx] + " / args_pattern: " + data[args_pattern_idx] + " /  args: " + data[args_idx]
+                i = 0
+                format_arg = []
+                for arg in data[args_idx].split(" "):
+                    if data[args_pattern_idx][i] = 's':
+                        format_arg.append(arg)
+                    if data[args_pattern_idx][i] = 'i':               
+                        format_arg.append(int(arg))
+                    if data[args_pattern_idx][i] = 'f':
+                        format_arg.append(float(arg))
 
         self.dismiss_popup()
 
@@ -498,14 +508,20 @@ class MainKvG(Widget):
 #           print "New Child: " + str(type(child))
             if isinstance(child, OscSender):
                 if child.osc_name:
-                    stream.write(child.target + " " + child.path + " " + child.osc_name + " " + str(child.args) + "\n")
+                    stream.write(child.target + " " + child.path + " " + child.args_pattern + " " + child.osc_name + " ")
+                    for a in child.args:
+                        stream.write(str(a) + " ")
+                    stream.write("\n")
                 else:
-                    stream.write(child.target + " " + child.path + " " + str(child.args) + "\n")
+                    stream.write(child.target + " " + child.path + " " + child.args_pattern + " ")
+                    for a in child.args:
+                        stream.write(str(a) + " ")
+                    stream.write("\n")
             self.recursively_save_children(child, stream)
 
     def save(self, path, filename):
         with open(os.path.join(path, filename), 'w') as stream:
-            stream.write("%%% " + filename + " %%%\n" + "target path args\n" )
+            stream.write("%%% " + filename + " %%%\n" + "target path args_pattern args\n" )
             self.recursively_save_children(self, stream)
 
 
