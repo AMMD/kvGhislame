@@ -83,6 +83,8 @@
     chase10: chase10
     chase11: chase11
     chase12: chase12
+    smoke: smoke
+    barled_on: barled_on
 
     target: "osc.udp://SCVideo:56414"
 
@@ -363,6 +365,26 @@
                     size_hint: 1, 1
                     target: root.target
 
+                GridLayout:
+                    cols: 1
+                    rows: 2
+                    size_hint: 1, 1
+                    Toggle:
+                        id: barled_on
+                        main_color: 0.5, 1, 0.5
+                        text: 'Barres On'
+                        name: 'Barres On'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                        target: root.target
+                    Push:
+                        id: smoke
+                        main_color: 0.5, 0.5, 1
+                        text: 'Smoke'
+                        name: 'Smoke'
+                        size_hint: 1, 1
+                        # size: 34, 34
+                        target: root.target
        
 
 

@@ -365,6 +365,8 @@ class Qlc(Screen):
     chase11 = ObjectProperty(Toggle)
     chase12 = ObjectProperty(Toggle)
     blackout = ObjectProperty(Toggle)
+    smoke = ObjectProperty(Push)
+    barled_on = ObjectProperty(Toggle)
 
     stf = ObjectProperty(StencilView)
     tmp_s = ObjectProperty(StencilView)
