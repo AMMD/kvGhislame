@@ -94,13 +94,13 @@ class LightBox(BoxLayout):
         return colorsys.rgb_to_hsv(color)
 
 
-Builder.load_file('valuefader.kv')
+#Builder.load_file('valuefader.kv')
 Builder.load_file('push.kv')
 Builder.load_file('lightxypad.kv')
 
 class LightBoxApp(App):
     def build(self):
-        return LightBox(name="Ducul", color=(1, 1, 0))
+        return LightBox(name="Ducul", color=(1, 1, 0), target="9951")
 
 
 if __name__ == '__main__':

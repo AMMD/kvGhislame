@@ -74,7 +74,7 @@ class ExtendedXyPadApp(OscServer, App):
     name = "kvGhislame"
 
     def build(self):
-        xypad=ExtendedXyPad(color=(1,0,0), name='My Xtended XY Pad', x_name='X', y_name='Y', step=(0.01, 0.01), app_name=self.name)
+        xypad=ExtendedXyPad(color=(1,0,0), name='My Xtended XY Pad', x_name='X', y_name='Y', step=(0.01, 0.01), app_name=self.name, target="9961")
         self.server.add_method(xypad.path, xypad.args_pattern, xypad.control_cb)
         return xypad
 
