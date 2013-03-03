@@ -37,11 +37,12 @@
             id: lightbox
             color: root.color
             name: root.name
+            mode: 'rgb'
             size: root.parent.width, self.parent.parent.height
             y: self.parent.y
             x: self.parent.x
             args_pattern: "fff"
-            path: self.ls.path # "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.parent.name.replace(" ", "_") + "/" + str(self.mode)
+            path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" + str(self.mode)
             control_path: root.control_path if root.control_path else self.path
             target: "osc.udp://SCVideo:56414"
 
@@ -100,7 +101,6 @@
                 LightStrip:
                     id: barres
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 1, 0, 0
                     name: 'Barres'
                     on_touch_down:
@@ -109,7 +109,6 @@
                 LightStrip:
                     id: orl64
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 1, 1, 0
                     name: '64 ORL'
                     on_touch_down:
@@ -118,7 +117,6 @@
                 LightStrip:
                     id: souv64
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 1, 0, 1
                     name: '64 Souv'
                     on_touch_down:
@@ -127,7 +125,6 @@
                 LightStrip:
                     id: yula64
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0, 1, 1
                     name: '64 Yula'
                     on_touch_down:
@@ -136,7 +133,6 @@
                 LightStrip:
                     id: orl36top
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 1, 1, 0.2
                     name: '36 ORL Top'
                     on_touch_down:
@@ -145,7 +141,6 @@
                 LightStrip:
                     id: orl36bottom
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 1, 1, 0.2
                     name: '36 ORL Bottom'
                     on_touch_down:
@@ -154,7 +149,6 @@
                 LightStrip:
                     id: lointains
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0, 0, 1
                     name: 'Lointains'
                     on_touch_down:
@@ -163,7 +157,6 @@
                 LightStrip:
                     id: occuloques
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0, 1, 0
                     name: 'Occuloques'
                     on_touch_down:
@@ -172,7 +165,6 @@
                 LightStrip:
                     id: yula36tub
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0.1, 1, 1
                     name: '36 Yula Tub'
                     on_touch_down:
@@ -181,7 +173,6 @@
                 LightStrip:
                     id: yula36ext
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0.15, 1, 1
                     name: '36 Yula Ext'
                     on_touch_down:
@@ -190,7 +181,6 @@
                 LightStrip:
                     id: yula36int
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0.2, 1, 1
                     name: '36 Yula Int'
                     on_touch_down:
@@ -200,7 +190,6 @@
                     id: grada1
                     orientation: 'vertical'
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0, 1, 1
                     name: 'G1'
 
@@ -208,7 +197,6 @@
                     id: grada2
                     orientation: 'vertical'
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0, 1, 1
                     name: 'G2'
 
@@ -217,7 +205,6 @@
                     id: grada3
                     orientation: 'vertical'
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0, 1, 1
                     name: 'G3'
 
@@ -225,7 +212,6 @@
                     id: grada4
                     orientation: 'vertical'
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0, 1, 1
                     name: 'G4'
 

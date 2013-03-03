@@ -310,10 +310,14 @@ class LightStrip(BoxLayout):
 
     path = StringProperty()
     control_path = StringProperty()
+    target = StringProperty()
+    osc_name = StringProperty()
 
     lightbox = ObjectProperty(LightBox)
     button = ObjectProperty(Button)
     stencil = ObjectProperty(StencilView)
+
+
 
 class Qlc(Screen):
     barres = ObjectProperty(LightStrip)

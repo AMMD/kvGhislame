@@ -99,7 +99,7 @@ class LightXyPadApp(OscServer, App):
         return xypad
 
 
-Builder.load_file('valuefader.kv')
+#Builder.load_file('valuefader.kv')
 Builder.load_file('extendedxypad.kv')
 if __name__ == '__main__':
     LightXyPadApp().run()

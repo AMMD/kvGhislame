@@ -79,7 +79,7 @@ class ExtendedXyPadApp(OscServer, App):
         return xypad
 
 
-Factory.register('Fader', Fader)
+#Factory.register('Fader', Fader)
 Builder.load_file('xypad.kv')
 Builder.load_file('valuefader.kv')
 

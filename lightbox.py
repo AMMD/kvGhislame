@@ -100,7 +100,7 @@ Builder.load_file('lightxypad.kv')
 
 class LightBoxApp(App):
     def build(self):
-        return LightBox(name="Ducul", color=(1, 1, 0), target="9951")
+        return LightBox(name="Ducul", color=(1, 1, 0), target="osc.udp://SCVideo:56414")
 
 
 if __name__ == '__main__':

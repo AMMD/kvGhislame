@@ -5,9 +5,9 @@
     hue_w: hue_w
 
     value_type: 'alternate'
-    alt_value: self.hsv if self.mode == 'hsv' else self.rgb
+    alt_value: [self.name.replace(" ", "_"), self.hsv[0], self.hsv[1], self.hsv[2]] if self.mode == 'hsv' else [self.name.replace(" ", "_"), self.rgb[0], self.rgb[1], self.rgb[2]]
 
-    args_pattern: "fff"
+    args_pattern: "sfff"
 
     path: "/" + self.app_name.replace(" ", "_") + "/LightXYpad/" +  root.name.replace(" ", "_") + "/" + str(self.mode)
     control_path: self.path
@@ -24,7 +24,6 @@
 
     hfader_pos: root.yfader_x + 10, root.y + root.xfader_y - root.hfader_height - 10
     hfader_size: root.x + root.pad_x + root.pad_width - root.yfader_x - 10 , 50
-
 
     canvas.before:
     	Color:

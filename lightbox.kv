@@ -23,8 +23,8 @@
 
     flash: flash
 
-    args_pattern: "fff"
-    path: "/" + self.app_name.replace(" ", "_") + "/LightXYpad/" +  self.name.replace(" ", "_") + "/" + str(self.mode)
+    args_pattern: "sfff"
+    path: "/" + self.app_name.replace(" ", "_") + "/LightXYpad/" + str(self.mode)
     control_path: self.path
 
     spacing: 10
@@ -186,6 +186,8 @@
         control_path: root.control_path if root.control_path else self.path
         target: root.target if root.target else self.target
         osc_name: root.osc_name if root.osc_name else ''
+        mode: root.mode
+
 
     ValueFader:
         id: r_fader
