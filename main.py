@@ -1,5 +1,7 @@
 import os
 
+import liblo as _liblo
+
 import kivy
 
 from kivy.uix.screenmanager import Screen, ScreenManager
@@ -490,32 +492,42 @@ class MainKvG(Widget):
 
             for line in stream:
                 data = line.rstrip('\n').split(" ")
-                print "target: " + data[target_idx] + " / path: " + data[path_idx] + " / args_pattern: " + data[args_pattern_idx] + " /  args: " + data[args_idx]
                 i = 0
-                format_arg = []
-                for arg in data[args_idx].split(" "):
-                    if data[args_pattern_idx][i] = 's':
-                        format_arg.append(arg)
-                    if data[args_pattern_idx][i] = 'i':               
-                        format_arg.append(int(arg))
-                    if data[args_pattern_idx][i] = 'f':
-                        format_arg.append(float(arg))
+                format_args = []
+                for arg in data[args_idx].split(","):
+                    if data[args_pattern_idx][i] == 's':
+                        format_args.append(arg)
+                    if data[args_pattern_idx][i] == 'i':               
+                        format_args.append(int(arg))
+                    if data[args_pattern_idx][i] == 'f':
+                        format_args.append(float(arg))
+                    i = i+1
+                _liblo.send("6666", data[path_idx], *format_args)
 
         self.dismiss_popup()
 
     def recursively_save_children(self, obj, stream):
         for child in obj.children:
-#           print "New Child: " + str(type(child))
             if isinstance(child, OscSender):
-                if child.osc_name:
-                    stream.write(child.target + " " + child.path + " " + child.args_pattern + " " + child.osc_name + " ")
+                if child.osc_name != '':
+                    stream.write(child.target + " " + child.path + " s" + child.args_pattern + " " + child.osc_name + ",")
+                    i = 0
                     for a in child.args:
-                        stream.write(str(a) + " ")
+                        if i != len(child.args) - 1:
+                            stream.write(str(a) + ",")
+                        else:
+                            stream.write(str(a))
+                        i = i+1
                     stream.write("\n")
                 else:
                     stream.write(child.target + " " + child.path + " " + child.args_pattern + " ")
+                    i = 0
                     for a in child.args:
-                        stream.write(str(a) + " ")
+                        if i != len(child.args) - 1:
+                            stream.write(str(a) + ",")
+                        else:
+                            stream.write(str(a))
+                        i = i+1
                     stream.write("\n")
             self.recursively_save_children(child, stream)
 
