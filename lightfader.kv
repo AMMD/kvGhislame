@@ -5,6 +5,13 @@
 
     subpad: 40
 
+    path: "/" + app.get_application_name().replace(" ", "_") + "/LightFader"
+    control_path: self.path
+
+    max: 1
+    min: 0
+    step: 0.001
+
     Push:
         id: flash
         size_hint: None, None
@@ -15,6 +22,7 @@
         on_press:
             root.old_value = root.value
             root.value = root.max
-            print str(root.old_value) + " / " + str(root.value_normalized)
+            root.send_message()
         on_release:
             root.value = root.old_value
+            root.send_message()

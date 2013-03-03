@@ -84,6 +84,8 @@
     chase11: chase11
     chase12: chase12
 
+    target: "osc.udp://SCVideo:56414"
+
     ScreenManager:
         id: lightsm
         size_hint: 1, 1
@@ -192,6 +194,7 @@
                     size_hint: 1, 1
                     color: 0, 1, 1
                     name: 'G1'
+                    target: root.target
 
                 LightFader:
                     id: grada2
@@ -199,6 +202,7 @@
                     size_hint: 1, 1
                     color: 0, 1, 1
                     name: 'G2'
+                    target: root.target
 
 
                 LightFader:
@@ -207,6 +211,7 @@
                     size_hint: 1, 1
                     color: 0, 1, 1
                     name: 'G3'
+                    target: root.target
 
                 LightFader:
                     id: grada4
@@ -214,30 +219,31 @@
                     size_hint: 1, 1
                     color: 0, 1, 1
                     name: 'G4'
+                    target: root.target
 
                 LightFader:
                     id: grada5
                     orientation: 'vertical'
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0, 1, 1
                     name: 'G5'
+                    target: root.target
 
                 LightFader:
                     id: grada6
                     orientation: 'vertical'
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 0, 1, 1
                     name: 'G6'
+                    target: root.target
 
                 ValueFader:
                     id: hold
                     orientation: 'vertical'
                     size_hint: 1, 1
-                    path: '/dummy'
                     color: 1, 1, 1
                     name: 'Hold'
+                    target: root.target
 
                 ValueFader:
                     id: fade
@@ -246,6 +252,7 @@
                     path: '/dummy'
                     color: 1, 1, 1
                     name: 'Fade'
+                    target: root.target
 
                 GridLayout:
                     cols: 2
@@ -255,80 +262,106 @@
                         id: chase1
                         main_color: 1, 0.5, 0.5
                         text: 'C1'
+                        name: 'C1'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase2
                         main_color: 1, 0.5, 0.5
                         text: 'C2'
+                        name: 'C2'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase3
                         main_color: 1, 0.5, 0.5
                         text: 'C3'
+                        name: 'C3'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase4
                         main_color: 1, 0.5, 0.5
                         text: 'C4'
+                        name: 'C4'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase5
                         main_color: 1, 0.5, 0.5
                         text: 'C5'
+                        name: 'C5'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase6
                         main_color: 1, 0.5, 0.5
                         text: 'C6'
+                        name: 'C6'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase7
                         main_color: 1, 0.5, 0.5
                         text: 'C7'
+                        name: 'C7'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase8
                         main_color: 1, 0.5, 0.5
                         text: 'C8'
+                        name: 'C8'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase9
                         main_color: 1, 0.5, 0.5
                         text: 'C9'
+                        name: 'C9'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase10
                         main_color: 1, 0.5, 0.5
                         text: 'C10'
+                        name: 'C10'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase11
                         main_color: 1, 0.5, 0.5
                         text: 'C11'
+                        name: 'C11'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
                     Toggle:
                         id: chase12
                         main_color: 1, 0.5, 0.5
                         text: 'C12'
+                        name: 'C12'
                         size_hint: 1, 1
                         # size: 34, 34
+                        target: root.target
 
                 Toggle:
                     id: blackout
                     main_color: 1, 1, 1
                     text: 'Blackout'
+                    name: 'Blackout'
                     size_hint: 1, 1
+                    target: root.target
 
        
 

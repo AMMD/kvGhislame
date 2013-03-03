@@ -317,8 +317,6 @@ class LightStrip(BoxLayout):
     button = ObjectProperty(Button)
     stencil = ObjectProperty(StencilView)
 
-
-
 class Qlc(Screen):
     barres = ObjectProperty(LightStrip)
     orl64 = ObjectProperty(LightStrip)
