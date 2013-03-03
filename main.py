@@ -552,7 +552,6 @@ class kvGhislame(OscServer, App):
             if isinstance(child, OscSender):
                 args_pattern = child.args_pattern[1:]
                 self.server.add_method(child.control_path, args_pattern, child.control_cb)
-                print child.control_path + " " + args_pattern
             self.recurse_children(child)
 
     def build_config(self, config):
@@ -595,7 +594,7 @@ class kvGhislame(OscServer, App):
         print config.get('OSC', 'host')
         mainkvg = MainKvG()
         for screen in mainkvg.sm.screen_names:
-            print screen
+            print screen + ": OSC ready"
             mainkvg.sm.current = screen
             self.recurse_children(mainkvg)
         mainkvg.sm.current = "Main Mix"
