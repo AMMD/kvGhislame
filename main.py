@@ -550,7 +550,9 @@ class kvGhislame(OscServer, App):
         for child in obj.children:
 #            print "New Child: " + str(type(child))
             if isinstance(child, OscSender):
-                    self.server.add_method(child.path, child.args_pattern, child.control_cb)
+                args_pattern = child.args_pattern[1:]
+                self.server.add_method(child.path, args_pattern, child.control_cb)
+                print args_pattern + " - " + child.path
             self.recurse_children(child)
 
     def build_config(self, config):
