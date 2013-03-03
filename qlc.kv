@@ -42,7 +42,7 @@
             y: self.parent.y
             x: self.parent.x
             args_pattern: "fff"
-            path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" + str(self.mode)
+            path: "/" + app.get_application_name().replace(" ", "_") + "/LightXYPad/" + str(self.mode)
             control_path: root.control_path if root.control_path else self.path
             target: "osc.udp://SCVideo:56414"
 
@@ -218,7 +218,7 @@
                     orientation: 'vertical'
                     size_hint: 1, 1
                     color: 0, 1, 1
-                    name: 'G4'
+                    name: 'WOII'
                     target: root.target
 
                 LightFader:
@@ -226,7 +226,7 @@
                     orientation: 'vertical'
                     size_hint: 1, 1
                     color: 0, 1, 1
-                    name: 'G5'
+                    name: 'Yula'
                     target: root.target
 
                 LightFader:
@@ -234,7 +234,7 @@
                     orientation: 'vertical'
                     size_hint: 1, 1
                     color: 0, 1, 1
-                    name: 'G6'
+                    name: 'Souv'
                     target: root.target
 
                 ValueFader:
