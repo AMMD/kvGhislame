@@ -1,3 +1,5 @@
+import os
+
 import kivy
 
 from kivy.uix.screenmanager import Screen, ScreenManager
@@ -416,7 +418,8 @@ class LoadDialog(FloatLayout):
 
 
 class SaveDialog(FloatLayout):
-    save = ObjectProperty(None)
+    save_all = ObjectProperty(None)
+    save_this = ObjectProperty(None)
     text_input = ObjectProperty(None)
     cancel = ObjectProperty(None)
 
@@ -424,9 +427,6 @@ class MainKvG(Widget):
     app_name = StringProperty()
 
     container = ObjectProperty()
-
-    save = ObjectProperty(Button)
-    load = ObjectProperty(Button)
 
     tunename = ObjectProperty()
 
@@ -466,7 +466,8 @@ class MainKvG(Widget):
 
 
     def dismiss_popup(self):
-        self._popup.dismiss()
+        pass
+#       self._popup.dismiss()
 
     def show_load(self):
         content = LoadDialog(load=self.load, cancel=self.dismiss_popup)
@@ -479,16 +480,38 @@ class MainKvG(Widget):
         self._popup.open()
 
     def load(self, path, filename):
-        with open(os.path.join(path, filename[0])) as stream:
-            self.text_input.text = stream.read()
+        with open(os.path.join(path, filename)) as stream:
+            print stream.readline().replace("%", "") + "read!"
+            header = stream.readline().rstrip('\n').split(" ")
+            target_idx = header.index("target")
+            path_idx = header.index("path")
+            args_idx = header.index("args")
+
+            for line in stream:
+                data = line.rstrip('\n').strip(" ")
+                print "target: " + data[target_idx] + " / path: " + data [path_idx] + " /  args: " + data[args_idx]
 
         self.dismiss_popup()
+
+    def recursively_save_children(self, obj, stream):
+        for child in obj.children:
+#           print "New Child: " + str(type(child))
+            if isinstance(child, OscSender):
+                if child.osc_name:
+                    stream.write(child.target + " " + child.path + " " + child.osc_name + " " + str(child.args) + "\n")
+                else:
+                    stream.write(child.target + " " + child.path + " " + str(child.args) + "\n")
+            self.recursively_save_children(child, stream)
 
     def save(self, path, filename):
         with open(os.path.join(path, filename), 'w') as stream:
-            stream.write(self.text_input.text)
+            stream.write("%%% " + filename + " %%%\n" + "target path args\n" )
+            self.recursively_save_children(self, stream)
+
 
         self.dismiss_popup()
+
+
 
 
 
@@ -499,7 +522,7 @@ class kvGhislame(OscServer, App):
         for child in obj.children:
 #            print "New Child: " + str(type(child))
             if isinstance(child, OscSender):
-                self.server.add_method(child.path, child.args_pattern, child.control_cb)
+                    self.server.add_method(child.path, child.args_pattern, child.control_cb)
             self.recurse_children(child)
 
     def build_config(self, config):
@@ -536,6 +559,8 @@ class kvGhislame(OscServer, App):
 """
         settings.add_json_panel('kvGhislame',
                                 self.config, data=jsondata)     
+
+
 
     def build(self):
         config = self.config

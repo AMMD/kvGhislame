@@ -40,6 +40,9 @@
 
 <SaveDialog>:
     text_input: text_input
+    save_all: save_all
+    save_this: save_this
+
     BoxLayout:
         size: root.size
         pos: root.pos
@@ -62,12 +65,18 @@
                 on_release: root.cancel()
 
             Button:
+                id: save_this
                 text: "Save This Tab"
-                on_release: root.save(filechooser.path, text_input.text)
+                on_release: 
+                    app.mainkvg.save(filechooser.path, text_input.text)
 
             Button:
+                id: save_all
                 text: "Save All Tabs"
-                on_release: root.save(filechooser.path, text_input.text)
+                on_release: 
+                    root.save(filechooser.path, text_input.text)
+
+
 
 
 <MainKvG>:
@@ -76,9 +85,6 @@
     container: container
 
     tunename: tunename
-
-    load: load
-    save: save
 
     sm: sm
     menu: menu
@@ -165,22 +171,20 @@
 #                height: 35
 
             Button:
-                id: save
                 text: 'Save'
                 size_hint: None, 1
                 width: 80
 #                size: 80, 35
                 on_release:
-                    root.show_save()
+                    root.save('./', root.sm.current.replace(" ", "_") + '.kvg')
 
             Button:
-                id: load
                 text: 'Load'
                 size_hint: None, 1
                 width: 80
 #                size: 80, 35
                 on_release:
-                    root.show_load()
+                    root.load('./', root.sm.current.replace(" ", "_") + '.kvg')
 
         Menu:
             id: menu
