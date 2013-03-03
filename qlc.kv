@@ -43,6 +43,7 @@
             args_pattern: "fff"
             path: self.ls.path # "/" + app.get_application_name().replace(" ", "_") + "/LightXYpad/" +  self.parent.name.replace(" ", "_") + "/" + str(self.mode)
             control_path: root.control_path if root.control_path else self.path
+            target: "osc.udp://SCVideo:56414"
 
 <Qlc>:
     lightsm: lightsm

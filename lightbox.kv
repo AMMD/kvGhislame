@@ -170,9 +170,10 @@
                 on_press:
                     root.old_hue = root.xypad.hsv[2]
                     root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 1
+                    root.xypad.send_message()
                 on_release:
                     root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], root.old_hue
-
+                    root.xypad.send_message()
 
 
 
@@ -181,6 +182,10 @@
         name: root.name
         size_hint: None, 1
         width: 2 * root.width / 3
+        path: root.path
+        control_path: root.control_path if root.control_path else self.path
+        target: root.target if root.target else self.target
+        osc_name: root.osc_name if root.osc_name else ''
 
     ValueFader:
         id: r_fader

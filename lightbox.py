@@ -57,6 +57,11 @@ class LightBox(BoxLayout):
     flash = ObjectProperty(Push)
     old_hue = NumericProperty()
 
+    path = StringProperty()
+    control_path = StringProperty()
+    osc_name = StringProperty()
+    target = StringProperty()
+
 # TODO Link
 
     # def on_touch_down(self, touch):
