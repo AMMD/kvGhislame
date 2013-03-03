@@ -168,13 +168,11 @@
                 text: "Sebkha-Chott Totalizm"
                 size_hint: 1, 1
                 font_size: 30
-#                height: 35
 
             Button:
                 text: 'Save'
                 size_hint: None, 1
                 width: 80
-#                size: 80, 35
                 on_release:
                     root.save('./', root.sm.current.replace(" ", "_") + '.kvg')
 
@@ -182,7 +180,6 @@
                 text: 'Load'
                 size_hint: None, 1
                 width: 80
-#                size: 80, 35
                 on_release:
                     root.load('./', root.sm.current.replace(" ", "_") + '.kvg')
 

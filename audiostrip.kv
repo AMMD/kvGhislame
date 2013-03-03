@@ -40,7 +40,7 @@
             min: 0
             step: 0.001
             path: root.base_path + "Gain" if (root.name) else "/missing_name/"
-            control_path: self.path + "/" + self.osc_name + "/" + self.name.replace(" ", "_") if self.osc_name !='' else self.path + "/" + self.name.replace(" ", "_")
+            control_path: self.path + "/" + self.osc_name + "/" + self.name.replace(" ", "_") if self.osc_name != '' else self.path + "/" + self.name.replace(" ", "_")
             osc_name: root.osc_name
             args_pattern: "sf"
 

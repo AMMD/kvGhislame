@@ -590,8 +590,6 @@ class kvGhislame(OscServer, App):
         settings.add_json_panel('kvGhislame',
                                 self.config, data=jsondata)     
 
-
-
     def build(self):
         config = self.config
         print config.get('OSC', 'host')
@@ -601,3 +599,5 @@ class kvGhislame(OscServer, App):
 
 if __name__ == "__main__":
     kvGhislame().run()
+
+
