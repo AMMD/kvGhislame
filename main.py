@@ -1,5 +1,7 @@
 import os
 
+import re
+
 import liblo as _liblo
 
 import kivy
@@ -511,21 +513,27 @@ class MainKvG(Widget):
     def recursively_save_children(self, obj, stream):
         for child in obj.children:
             if isinstance(child, OscSender):
-                if child.osc_name != '':
-                    args_pattern = child.args_pattern[2:]
+                if re.search("Tune", child.path):
+                    pass
                 else:
-                    args_pattern = child.args_pattern[1:]
-                print args_pattern + " /  " + child.args_pattern + " / " + str(child.args)
-                stream.write(child.target + " " + child.control_path + " " + args_pattern + " ")
-                i = 0
-                for a in child.args:
-                    if i > 0:
-                        if (i != len(child.args) - 1):
-                            stream.write(str(a) + ",")
-                        else:
-                            stream.write(str(a))
-                    i = i+1
-                stream.write("\n")
+                    if child.osc_name != '':
+                        args_pattern = child.args_pattern[2:]
+                    else:
+                        args_pattern = child.args_pattern[1:]
+#                    print args_pattern + " /  " + child.args_pattern + " / " + str(child.args)
+                    stream.write(child.target + " " + child.control_path + " " + args_pattern + " ")
+
+                    i = 0
+                    for a in child.args:
+#                    if (a == '') & (child.args_pattern[i] != 's'):
+#                        a = 0
+                        if i > 0:
+                            if (i != len(child.args) - 1):
+                                stream.write(str(a) + ",")
+                            else:
+                                stream.write(str(a))
+                        i = i+1
+                    stream.write("\n")
             self.recursively_save_children(child, stream)
 
     def save(self, path, filename):

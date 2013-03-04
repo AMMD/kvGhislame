@@ -13,6 +13,9 @@
 
     args_pattern: 'ssi'
 
+    on_parent:
+        self.state_to_args()
+
     on_press:
         self.state_to_args()
         self.send_message()
