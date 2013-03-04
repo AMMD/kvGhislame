@@ -25,7 +25,13 @@ class Toggle(ToggleButton, OscSender):
             print "self-incoming message"
         else:
             print "OSC controlled"
-            if float(args[0]):
+            if int(args[0]):
+                self.state = 'down'
+            else:
+                self.state = 'normal'
+        if re.search('load', path):
+            print 'OSC controlled (Load)'
+            if int(args[0]):
                 self.state = 'down'
             else:
                 self.state = 'normal'
