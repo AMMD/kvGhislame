@@ -481,6 +481,7 @@ class MainKvG(Widget):
         self._popup = Popup(title="Save file", content=content, size_hint=(0.9, 0.9))
         self._popup.open()
 
+
     def load(self, path, filename):
         with open(os.path.join(path, filename)) as stream:
             print stream.readline().rstrip('\n').replace("%", "") + "read!"
@@ -503,6 +504,7 @@ class MainKvG(Widget):
                         format_args.append(float(arg))
                     i = i+1
                 _liblo.send("6666", data[path_idx], *format_args)
+                _liblo.send("9999", data[path_idx] + "/load", *format_args)
 
         self.dismiss_popup()
 
@@ -510,25 +512,22 @@ class MainKvG(Widget):
         for child in obj.children:
             if isinstance(child, OscSender):
                 if child.osc_name != '':
-                    stream.write(child.target + " " + child.path + " s" + child.args_pattern + " " + child.osc_name + ",")
-                    i = 0
-                    for a in child.args:
-                        if i != len(child.args) - 1:
-                            stream.write(str(a) + ",")
-                        else:
-                            stream.write(str(a))
-                        i = i+1
-                    stream.write("\n")
+                    args_pattern = child.args_pattern[2:]
+                    limit = 0
                 else:
-                    stream.write(child.target + " " + child.path + " " + child.args_pattern + " ")
-                    i = 0
-                    for a in child.args:
-                        if i != len(child.args) - 1:
+                    limit = 1
+                    args_pattern = child.args_pattern[1:]
+                print args_pattern + " /  " + child.args_pattern + " / " + str(child.args)
+                stream.write(child.target + " " + child.control_path + " " + args_pattern + " ")
+                i = 0
+                for a in child.args:
+                    if i > limit:
+                        if (i != len(child.args) - 1):
                             stream.write(str(a) + ",")
                         else:
                             stream.write(str(a))
-                        i = i+1
-                    stream.write("\n")
+                    i = i+1
+                stream.write("\n")
             self.recursively_save_children(child, stream)
 
     def save(self, path, filename):
@@ -552,6 +551,7 @@ class kvGhislame(OscServer, App):
             if isinstance(child, OscSender):
                 args_pattern = child.args_pattern[1:]
                 self.server.add_method(child.control_path, args_pattern, child.control_cb)
+                self.server.add_method(child.control_path + "/load", args_pattern, child.control_cb)
             self.recurse_children(child)
 
     def build_config(self, config):

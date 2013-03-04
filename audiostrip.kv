@@ -28,7 +28,7 @@
             path: root.base_path + "Pan" if (root.name) else "/missing_name/"
             control_path: self.path + "/" + self.osc_name + "/" + self.name.replace(" ", "_") if self.osc_name !='' else self.path + "/" + self.name.replace(" ", "_")
             osc_name: root.osc_name
-            args_pattern: "sf"
+            args_pattern: "sf" if self.osc_name =='' else "ssf"
 
         ValueFader:
             id: gainfader
@@ -42,7 +42,7 @@
             path: root.base_path + "Gain" if (root.name) else "/missing_name/"
             control_path: self.path + "/" + self.osc_name + "/" + self.name.replace(" ", "_") if self.osc_name != '' else self.path + "/" + self.name.replace(" ", "_")
             osc_name: root.osc_name
-            args_pattern: "sf"
+            args_pattern: "sf" if self.osc_name =='' else "ssf"
 
         FloatLayout:
             size_hint: 1, None
@@ -57,7 +57,7 @@
                 name: root.name
                 one_on_down: False if root.mute_mode == 'mute' else True
                 path: root.base_path + "On" if (root.name) else "/missing_name/"
-                args_pattern: "si"
+                args_pattern: "si" if self.osc_name =='' else "ssi"
                 control_path: self.path + "/" + self.osc_name + "/" + self.name.replace(" ", "_") if self.osc_name !='' else self.path + "/" + self.name.replace(" ", "_")
                 osc_name: root.osc_name
 
