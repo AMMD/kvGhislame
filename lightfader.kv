@@ -6,7 +6,7 @@
     subpad: 40
 
     path: "/" + app.get_application_name().replace(" ", "_") + "/LightFader"
-    control_path: self.path
+    control_path: self.path + "/" + self.osc_name.replace(" ", "_") + "/" + self.name.replace(" ", "_") if self.osc_name !='' else self.path + "/" + self.name.replace(" ", "_")
 
     max: 1
     min: 0

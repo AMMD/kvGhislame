@@ -9,8 +9,7 @@
     border: 15, 15, 15, 15
 
     path: "/" + app.get_application_name().replace(" ", "_") + "/Toggle"
-    control_path: self.path
-
+    control_path: self.path + "/" + self.osc_name.replace(" ", "_") + "/" + self.name.replace(" ", "_") if self.osc_name !='' else self.path + "/" + self.name.replace(" ", "_")
     args_pattern: 'ssi'
 
     on_parent:

@@ -44,7 +44,7 @@
     args_pattern: 'sf'
 
     path: "/" + app.get_application_name().replace(" ", "_") + "/Fader"
-    control_path: self.path + "/" + self.osc_name + "/" + self.name.replace(" ", "_") if self.osc_name !='' else self.path + "/" + self.name.replace(" ", "_")
+    control_path: self.path + "/" + self.osc_name.replace(" ", "_") + "/" + self.name.replace(" ", "_") if self.osc_name !='' else self.path + "/" + self.name.replace(" ", "_")
 
     args: [root.name.replace(" ", "_"), self.value]
 

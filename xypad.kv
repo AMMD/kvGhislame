@@ -9,7 +9,7 @@
 
 
     path: "/" + self.app_name.replace(" ", "_") + "/XYpad/" + self.name.replace(" ", "_") + "/" + self.x_name.replace(" ", "_") + "_" + self.y_name.replace(" ", "_")
-    control_path: self.path
+    control_path: self.path + "/" + self.osc_name.replace(" ", "_") + "/" + self.name.replace(" ", "_") if self.osc_name !='' else self.path + "/" + self.name.replace(" ", "_")
 
     args_pattern: "ff"
     args: self.value if self.value_type == 'normal' else self.alt_value
