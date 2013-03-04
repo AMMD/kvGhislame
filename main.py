@@ -513,15 +513,13 @@ class MainKvG(Widget):
             if isinstance(child, OscSender):
                 if child.osc_name != '':
                     args_pattern = child.args_pattern[2:]
-                    limit = 0
                 else:
-                    limit = 1
                     args_pattern = child.args_pattern[1:]
                 print args_pattern + " /  " + child.args_pattern + " / " + str(child.args)
                 stream.write(child.target + " " + child.control_path + " " + args_pattern + " ")
                 i = 0
                 for a in child.args:
-                    if i > limit:
+                    if i > 0:
                         if (i != len(child.args) - 1):
                             stream.write(str(a) + ",")
                         else:
