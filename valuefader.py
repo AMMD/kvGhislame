@@ -70,6 +70,7 @@ class Fader(Slider, OscSender):
             return True
 
     def control_cb(self, path, args, types, src):
+        print "OSC method caught:" + path + " ," + types + " " + args + " [from: " + src +"]"
         if re.search('127.0.0.1', src.get_url()):
             print "Self-incoming message"
         else:

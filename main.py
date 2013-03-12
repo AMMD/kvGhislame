@@ -558,7 +558,11 @@ class kvGhislame(OscServer, App):
         for child in obj.children:
             #            print "New Child: " + str(type(child))
             if isinstance(child, OscSender):
-                args_pattern = child.args_pattern[1:]
+
+                if child.osc_name != "":
+                    args_pattern = child.args_pattern[2:]
+                else:
+                    args_pattern = child.args_pattern[1:]
                 self.osc_methods_file.write("\n--\n")
                 self.server.add_method(child.control_path, args_pattern, child.control_cb)
                 self.osc_methods_file.write(child.control_path + " , " + args_pattern + "\n")
