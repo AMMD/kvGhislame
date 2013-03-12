@@ -550,20 +550,21 @@ class MainKvG(Widget):
 
 class kvGhislame(OscServer, App):
     title = "kvGhislame"
+    osc_methods_file = open(os.path.join("./", "osc_methods.kvg"), 'w')
+    osc_methods_file.write("%%% List of OSC methods registered %%%\n")
 
     def recurse_children(self, obj):
-        with open(os.path.join("./", "osc_methods.kvg"), 'w') as stream:
-            stream.write("%%% List of OSC methods registered %%%\n")
-            for child in obj.children:
-                #            print "New Child: " + str(type(child))
-                if isinstance(child, OscSender):
-                    args_pattern = child.args_pattern[1:]
-                    stream.write("\n--\n")
-                    self.server.add_method(child.control_path, args_pattern, child.control_cb)
-                    stream.write(child.control_path + " , " + args_pattern + "\n")
-                    self.server.add_method(child.control_path + "/load", args_pattern, child.control_cb).
-                    stream.write(child.control_path + "/load , " + args_pattern + "\n")
-                self.recurse_children(child)
+
+        for child in obj.children:
+            #            print "New Child: " + str(type(child))
+            if isinstance(child, OscSender):
+                args_pattern = child.args_pattern[1:]
+                self.osc_methods_file.write("\n--\n")
+                self.server.add_method(child.control_path, args_pattern, child.control_cb)
+                self.osc_methods_file.write(child.control_path + " , " + args_pattern + "\n")
+                self.server.add_method(child.control_path + "/load", args_pattern, child.control_cb)
+                self.osc_methods_file.write(child.control_path + "/load , " + args_pattern + "\n")
+            self.recurse_children(child)
 
     def build_config(self, config):
         config.setdefaults('OSC', {
