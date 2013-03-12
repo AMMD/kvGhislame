@@ -9,7 +9,7 @@
         spacing: 10
 
         ValueFader:
-            name: 'Tune'
+            name: 'Tune_' + root.name.replace(" ", "_")
             orientation: 'horizontal'
             color: root.color
             size_hint: 1, None
@@ -57,7 +57,7 @@
                 text: '7'
 
         ValueFader:
-            name: 'Harmonics'
+            name: 'Harmonics_' + root.name.replace(" ", "_")
             orientation: 'horizontal'
             color: self.parent.parent.color
             size_hint: 1, None

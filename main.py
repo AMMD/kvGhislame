@@ -505,7 +505,7 @@ class MainKvG(Widget):
                     if data[args_pattern_idx][i] == 'f':
                         format_args.append(float(arg))
                     i = i+1
-                _liblo.send("6666", data[path_idx], *format_args)
+                _liblo.send(data[target_idx], data[path_idx], *format_args)
                 _liblo.send("9999", data[path_idx] + "/load", *format_args)
 
         self.dismiss_popup()
