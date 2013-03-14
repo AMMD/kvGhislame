@@ -80,6 +80,11 @@
 
 
 <MainKvG>:
+    on_organicdrums_gain:
+        self.mainmix.organicdrums.gainfader.value = args[1]
+
+
+
     target: app.config.get('OSC', 'dest_host') + ":" + str(app.config.get('OSC', 'dest_port'))
 
     container: container
@@ -151,6 +156,8 @@
 
     liv_b: liv_b
     lives: lives
+
+    organicdrums_gain: self.organicdrums.organicdrums.gainfader.value
 
     BoxLayout:
         id: container

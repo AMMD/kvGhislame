@@ -35,8 +35,6 @@ class AudioStrip(Widget):
     b = NumericProperty()
     color = ReferenceListProperty(r, g, b)
 
-
-
 class AudioStripApp(App):
     name = StringProperty()
     name = 'kvGhislame'

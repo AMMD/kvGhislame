@@ -383,6 +383,7 @@ class Qlc(Screen):
     main_s = ObjectProperty(Screen)
     front_s = ObjectProperty(Screen)
 
+
     def zoom_strip(self, obj):
         parent = obj.parent
         obj.parent.remove_widget(obj)
@@ -458,7 +459,14 @@ class MainKvG(Widget):
     vocalsfx = ObjectProperty(VocalsFx)
     qlc = ObjectProperty(Qlc)
     lives = ObjectProperty(Lives)
-    
+
+# Internal binds
+    organicdrums_gain = NumericProperty()
+
+
+
+#    def bind_strips(self, obj1, obj2):
+#        obj2.gainfader.value = obj1.gainfader.value
 
     def change_tab(self, tab_name):
         self.sm.current = tab_name
