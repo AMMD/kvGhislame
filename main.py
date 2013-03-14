@@ -455,15 +455,32 @@ class MainKvG(Widget):
     mxlead = ObjectProperty(MxLead)
     mxctlead = ObjectProperty(MxCtLead)
     sooperlooper = ObjectProperty(SooperLooper)
-    bassxx = ObjectProperty(BassFx)
+    bassfx = ObjectProperty(BassFx)
     vocalsfx = ObjectProperty(VocalsFx)
     qlc = ObjectProperty(Qlc)
     lives = ObjectProperty(Lives)
 
 # Internal binds
-    organicdrums_gain = NumericProperty()
+    m2o_organicdrums_gain = NumericProperty()
+    o2m_organicdrums_gain = NumericProperty()
 
+    m2b_basses_gain = NumericProperty()
+    b2m_basses_gain = NumericProperty()
 
+    m2s_saxophones_gain = NumericProperty()
+    s2m_saxophones_gain = NumericProperty()
+
+    m2v_vocals_gain = NumericProperty()
+    v2m_vocals_gain = NumericProperty()
+
+    m2s_mxsynths_gain = NumericProperty()
+    s2m_mxsynths_gain = NumericProperty()
+
+    m2d_mxdrums_gain = NumericProperty()
+    d2m_mxdrums_gain = NumericProperty()
+
+    m2s_sooperlooper_drums_gain = NumericProperty()
+    s2m_sooperlooper_drums_gain = NumericProperty()
 
 #    def bind_strips(self, obj1, obj2):
 #        obj2.gainfader.value = obj1.gainfader.value

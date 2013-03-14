@@ -80,10 +80,40 @@
 
 
 <MainKvG>:
-    on_organicdrums_gain:
+    on_o2m_organicdrums_gain:
         self.mainmix.organicdrums.gainfader.value = args[1]
+    on_m2o_organicdrums_gain:
+        self.organicdrums.organicdrums.gainfader.value = args[1]
 
+    on_b2m_basses_gain:
+        self.mainmix.basses.gainfader.value = args[1]
+    on_m2b_basses_gain:
+        self.basses.basses.gainfader.value = args[1]
 
+    on_s2m_saxophones_gain:
+        self.mainmix.saxophones.gainfader.value = args[1]
+    on_m2s_saxophones_gain:
+        self.saxophones.saxophones.gainfader.value = args[1]
+
+    on_v2m_vocals_gain:
+        self.mainmix.vocals.gainfader.value = args[1]
+    on_m2v_vocals_gain:
+        self.vocals.vocals.gainfader.value = args[1]
+
+    on_s2m_mxsynths_gain:
+        self.mainmix.mxsynths.gainfader.value = args[1]
+    on_m2s_mxsynths_gain:
+        self.mxsynths.mxsynths.gainfader.value = args[1]
+
+    on_d2m_mxdrums_gain:
+        self.mainmix.mxdrums.gainfader.value = args[1]
+    on_m2d_mxdrums_gain:
+        self.mxdrums.mxdrums.gainfader.value = args[1]
+
+    on_s2m_sooperlooper_drums_gain:
+        self.mainmix.drumloop.gainfader.value = args[1]
+    on_m2s_sooperlooper_drums_gain:
+        self.sooperlooper.drums.wet.value = args[1]
 
     target: app.config.get('OSC', 'dest_host') + ":" + str(app.config.get('OSC', 'dest_port'))
 
@@ -157,7 +187,26 @@
     liv_b: liv_b
     lives: lives
 
-    organicdrums_gain: self.organicdrums.organicdrums.gainfader.value
+    o2m_organicdrums_gain: self.organicdrums.organicdrums.gainfader.value
+    m2o_organicdrums_gain: self.mainmix.organicdrums.gainfader.value
+
+    b2m_basses_gain: self.basses.basses.gainfader.value
+    m2b_basses_gain: self.mainmix.basses.gainfader.value
+
+    s2m_saxophones_gain: self.saxophones.saxophones.gainfader.value
+    m2s_saxophones_gain: self.mainmix.saxophones.gainfader.value
+
+    v2m_vocals_gain: self.vocals.vocals.gainfader.value
+    m2v_vocals_gain: self.mainmix.vocals.gainfader.value
+
+    s2m_mxsynths_gain: self.mxsynths.mxsynths.gainfader.value
+    m2s_mxsynths_gain: self.mainmix.mxsynths.gainfader.value
+
+    d2m_mxdrums_gain: self.mxdrums.mxdrums.gainfader.value
+    m2d_mxdrums_gain: self.mainmix.mxdrums.gainfader.value
+
+    s2m_sooperlooper_drums_gain: self.sooperlooper.drums.wet.value
+    m2s_sooperlooper_drums_gain: self.mainmix.drumloop.gainfader.value
 
     BoxLayout:
         id: container
