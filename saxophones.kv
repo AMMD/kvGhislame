@@ -10,6 +10,7 @@
         orientation: 'horizontal'
         size_hint: (1, 1)
         pos_hint: {'x': 0, 'y': 0}
+        spacing: 5
 
         AudioStrip:
             id: saxophone
@@ -24,11 +25,13 @@
         BoxLayout:
             orientation: 'vertical'
             size_hint: (1, 1)
+            spacing: 5
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 50
                 group: 'tabs'
                 text: 'Main Mix'
+                main_color: 1, 1, 1
             AudioStrip:
                 id: saxophones
                 name: "Saxophones"
