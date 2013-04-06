@@ -13,15 +13,17 @@
         orientation: 'horizontal'
         size_hint: (1, 1)
         pos_hint: {'x': 0, 'y': 0}
+        spacing: 5
 
         BoxLayout:
             orientation: 'vertical'
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'MxBass'
+                main_color: 1, 0.5, 0.1
             AudioStrip:
                 id: mxbass
                 name: "MxBass"
@@ -33,9 +35,10 @@
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'MxChords'
+                main_color: 1, 0.5, 0.15
             AudioStrip:
                 id: mxchords
                 name: "MxChords"
@@ -47,23 +50,26 @@
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'MxLead'
+                main_color: 1, 0.5, 0.2
             AudioStrip:
                 id: mxlead
                 name: "MxLead"
                 color: 1, 0.5, 0.2
                 size_hint: (1, 1)
+                main_color: 1, 0.5, 0.2
 
         BoxLayout:
             orientation: 'vertical'
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'MxCtLead'
+                main_color: 1, 0.5, 0.25
             AudioStrip:
                 id: mxctlead
                 name: "MxCtLead"
@@ -79,11 +85,13 @@
         BoxLayout:
             orientation: 'vertical'
             size_hint: (1, 1)
+            spacing: 5
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 50
                 group: 'tabs'
                 text: 'Main Mix'
+                main_color: 1, 1, 1
             AudioStrip:
                 id: mxsynths
                 name: "MxSynths"
