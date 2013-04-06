@@ -12,6 +12,7 @@
         orientation: 'horizontal'
         size_hint: (1, 1)
         pos_hint: {'x': 0, 'y': 0}
+        spacing: 5
 
         AudioStrip:
             id: basse
@@ -30,9 +31,10 @@
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'MxBass'
+                main_color: 1, 1, 0.2
             AudioStrip:
                 id: mxbass
                 name: "MxBass"
@@ -56,11 +58,13 @@
         BoxLayout:
             orientation: 'vertical'
             size_hint: (1, 1)
+            spacing: 5
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 50
                 group: 'tabs'
                 text: 'Main Mix'
+                main_color: 1, 1, 1
             AudioStrip:
                 id: basses
                 name: "Basses"
