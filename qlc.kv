@@ -15,16 +15,17 @@
             Color:
                 rgb: root.color
                 a: 0.5
+            Line:
+                rectangle: self.x + 2, self.y + 1, self.width - 2, self.height - 2
             Rectangle:
-                pos: self.pos
-                size: self.size
-            Rectangle:
-                pos: self.x + self.width / 2, self.y
+                pos: self.x + self.width / 2, self.y + 7
                 size: 10, 10
                 source:  'atlas://data/images/defaulttheme/tree_closed'
         size_hint: (None, None)
+        color: 1, 1, 1
+        text: 'Zoom'
         y: self.parent.height - self.height
-        size: self.width, 10
+        size: self.width, 35
 
     StencilView:
         id: stencil
@@ -468,11 +469,22 @@
             size_hint: 1, 1
             name: 'front'
             Button:
-                color: 0, 1, 1
+                canvas:
+                    Clear
+                    Color:
+                        rgb: 0,0,1
+                        a: 0.5
+                    Line:
+                        rectangle: self.x + 2, self.y + 1, self.width - 2, self.height - 2
+                    Rectangle:
+                        pos: self.x + self.width / 2, self.y + 7
+                        size: 10, 10
+                        source:  'atlas://data/images/defaulttheme/tree_closed'
                 size_hint: (None, None)
-                pos: 0, root.height - self.height
-                size: 30, 30
-                text: 'E'
+                color: 1, 1, 1
+                text: 'DeZoom'
+                y: self.parent.height - self.height
+                size: 35, 35                
                 on_press: 
                     root.restore_zoomed_strip()
 
@@ -481,5 +493,5 @@
                 x: root.x
                 y: root.y
                 size_hint: (None, None)
-                height: root.height - 30 # - root.vb.height - 10
+                height: root.height - 50 # - root.vb.height - 10
                 width: root.width        
