@@ -42,7 +42,10 @@ Builder.load_file('lightfader.kv')
 
 
 class MenuButton(ToggleButton):
-    pass
+    r = NumericProperty()
+    g = NumericProperty()
+    b = NumericProperty()
+    main_color = ReferenceListProperty(r, g, b)
 
 class Menu(BoxLayout):
     mix_b = ObjectProperty(MenuButton)

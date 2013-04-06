@@ -11,6 +11,13 @@
     valign: 'middle'
     halign: 'center'
 #    shorten: True
+    background_color: self.r, self.g, self.b, 1 #(0, 0, 0, 1) if self.state == 'normal' else (self.r, self.g, self.b, 1)
+    color: (self.r, self.g, self.b, 0.7) if self.state == 'normal' else (self.r, self.g, self.b, 1)
+
+    background_normal: 'data/button_normal.png'
+    background_down: 'data/button_down.png'
+    border: 15, 15, 15, 15
+
     on_press:
         app._app_window.children[0].change_tab(self.text)
         self.state = 'down'
@@ -246,97 +253,118 @@
             pos: root.x, root.y + root.height - self.height
             height: 50
 
-            canvas.before:
-                Color:
-                    rgba: 0.2, 0.2, 0.2, 0.7
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
+#            canvas.before:
+#                Color:
+#                    rgba: 0.2, 0.2, 0.2, 0.7
+#                Rectangle:
+#                    pos: self.pos
+#                    size: self.size
 
             MenuButton:
                 id: mix_b
                 text: "Main Mix"
+                main_color: 1, 1, 1
                 on_parent: self.state = 'down'
 
             MenuButton:
                 id: odr_b
                 text: "Organic Drums"
+                main_color: 1, 0, 1
 
             MenuButton:
                 id: bss_b
                 text: "Basses"
+                main_color: 1, 1, 0
 
             MenuButton:
                 id: gtr_b
                 text: "Guitares"
+                main_color: 0, 0, 1
 
             MenuButton:
                 id: sax_b
                 text: "Saxophones"
+                main_color: 0, 1, 0
 
             MenuButton:
                 id: vox_b
                 text: "Vocals"
+                main_color: 1, 1, 1
 
             MenuButton:
                 id: mxs_b
                 text: "MxSynths"
+                main_color: 1, 0.5, 1
 
             MenuButton:
                 id: mxd_b
                 text: "MxDrums"
+                main_color: 1, 0.5, 1
 
             MenuButton:
                 id: fxs_b
                 text: "FXs"
+                main_color: 1, 0.5, 1
 
             MenuButton:
                 id: mno_b
                 text: "Monitor ORL"
+                main_color: 0.2, 1, 1
 
             MenuButton:
                 id: mns_b
                 text: "Monitor Souv"
+                main_color: 0.4, 1, 1
 
             MenuButton:
                 id: mny_b
                 text: "Monitor Yula"
+                main_color: 0.6, 1, 1
 
             MenuButton:
                 id: mxb_b
                 text: "MxBass"
+                main_color: 1, 1, 0
 
             MenuButton:
                 id: mxc_b
                 text: "MxChords"
+                main_color: 1, 0.5, 1
 
             MenuButton:
                 id: mxl_b
                 text: "MxLead"
+                main_color: 1, 0.5, 1
 
             MenuButton:
                 id: mxd_b
                 text: "MxCtLead"
+                main_color: 1, 0.5, 1
 
             MenuButton:
                 id: slo_b
                 text: "SooperLooper"
+                main_color: 0, 1, 0
 
             MenuButton:
                 id: bfx_b
                 text: "Bass FX"
+                main_color: 1, 1, 0
 
             MenuButton:
                 id: vfx_b
                 text: "Vocals FX"
+                main_color: 1, 1, 1
 
             MenuButton:
                 id: qlc_b
                 text: "QLC"
+                main_color: 0.5, 1, 0.5
 
             MenuButton:
                 id: liv_b
                 text: "Lives"
+                main_color: 1, 0.5, 0.5
 
       
         ScreenManager:
