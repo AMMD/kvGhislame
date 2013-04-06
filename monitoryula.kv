@@ -12,15 +12,17 @@
         orientation: 'horizontal'
         size_hint: (1, 1)
         pos_hint: {'x': 0, 'y': 0}
+        spacing: 5
 
         BoxLayout:
             orientation: 'vertical'
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'Main Mix'
+                main_color: 1, 0.5, 0.1
             AudioStrip:
                 id: mainmix
                 name: "Main Mix"
@@ -40,13 +42,14 @@
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'Organic Drums'
+                main_color: 1, 0.5, 0.2
             AudioStrip:
                 id: organicdrums
                 name: "OrganicDrums"
-                color: 1, 0.5, 0.25
+                color: 1, 0.5, 0.2
                 size_hint: (1, 1)
                 osc_name: root.osc_name
 
