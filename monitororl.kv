@@ -14,15 +14,17 @@
         orientation: 'horizontal'
         size_hint: (1, 1)
         pos_hint: {'x': 0, 'y': 0}
+        spacing: 5
 
         BoxLayout:
             orientation: 'vertical'
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'Main Mix'
+                main_color: 1, 0.5, 0.1
             AudioStrip:
                 id: mainmix
                 name: "Main Mix"
@@ -35,9 +37,10 @@
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'Basses'
+                main_color: 1, 0.5, 0.15
             AudioStrip:
                 id: basse
                 name: "Basse"
@@ -50,9 +53,10 @@
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'Guitares'
+                main_color: 1, 0.5, 0.2
             AudioStrip:
                 id: guitares
                 name: "Guitares"
@@ -65,9 +69,10 @@
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'Vocals'
+                main_color: 1, 0.5, 0.25
             AudioStrip:
                 id: vocals
                 name: "Vocals"
@@ -80,9 +85,10 @@
             size_hint: (1, 1)
             MenuButton:
                 size_hint: 1, None
-                height: 20
+                height: 35
                 group: 'tabs'
                 text: 'Organic Drums'
+                main_color: 1, 0.5, 0.25
             AudioStrip:
                 id: organicdrums
                 name: "OrganicDrums"
