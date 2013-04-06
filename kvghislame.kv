@@ -3,14 +3,14 @@
 <MenuButton>:
     font_size: 10
     size_hint: (1, None)
-    height: 20
+    height: 50
 #    width: 50
     group: 'tabs'
     text_size: self.width - 10, self.texture_size[1]
     texture_size: self.texture_size[0], self.height / 2 + 6
-    valign: 'top'
+    valign: 'middle'
     halign: 'center'
-    shorten: True
+#    shorten: True
     on_press:
         app._app_window.children[0].change_tab(self.text)
         self.state = 'down'
@@ -244,7 +244,7 @@
             orientation: 'horizontal'
             size_hint: (1, None)
             pos: root.x, root.y + root.height - self.height
-            height: 30
+            height: 50
 
             canvas.before:
                 Color:
