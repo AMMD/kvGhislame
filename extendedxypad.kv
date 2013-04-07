@@ -25,7 +25,7 @@
         subpad: 0
         on_touch_move:
             root.value_pos = (self.value_pos[0], root.value_pos[1])
-            if args[1].grab_current == self: root.send_message()
+            root.send_message()
         step: root.step[0]
         min: root.min[0]
         max: root.max[0]
@@ -42,7 +42,7 @@
         subpad: 0
         on_touch_move:
             root.value_pos = (root.value_pos[0], self.value_pos[1])
-            if args[1].grab_current == self: root.send_message()
+            root.send_message()
         step: root.step[1]
         min: root.min[1]
         max: root.max[1]
