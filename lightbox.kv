@@ -58,6 +58,7 @@
                 on_press:
                     root.rgb = self.main_color
                     root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
+                    if args[1].grab_current == self: root.xypad.send_message()
 
             Push:
                 id: cc2
@@ -68,6 +69,7 @@
                 on_press:
                     root.rgb = self.main_color
                     root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
+                    if args[1].grab_current == self: root.xypad.send_message()
 
             Push:
                 id: cc3
@@ -78,6 +80,7 @@
                 on_press:
                     root.rgb = self.main_color
                     root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
+                    if args[1].grab_current == self: root.xypad.send_message()
 
             Push:
                 id: cc4
@@ -88,6 +91,7 @@
                 on_press:
                     root.rgb = self.main_color
                     root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
+                    if args[1].grab_current == self: root.xypad.send_message()
 
             Push:
                 id: cc5
@@ -98,6 +102,7 @@
                 on_press:
                     root.rgb = self.main_color
                     root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
+                    if args[1].grab_current == self: root.xypad.send_message()
 
             Push:
                 id: cc6
@@ -108,6 +113,7 @@
                 on_press:
                     root.rgb = self.main_color
                     root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
+                    if args[1].grab_current == self: root.xypad.send_message()
 
             Push:
                 id: cc7
@@ -118,6 +124,7 @@
                 on_press:
                     root.rgb = self.main_color
                     root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
+                    if args[1].grab_current == self: root.xypad.send_message()
 
             Push:
                 id: cc8
@@ -128,7 +135,7 @@
                 on_press:
                     root.rgb = self.main_color
                     root.xypad.hsv = root.xypad.hsv[0], root.xypad.hsv[1], 0
-    
+                    if args[1].grab_current == self: root.xypad.send_message()
 
         ValueFader:
             id: main_dimmer_fader
