@@ -17,7 +17,7 @@ class OscSender(Widget):
 
     def send_message(self):
         if self.path != '':
-            print self.path + " " + str(self.args)
+            print "[OSC]" + self.path + " " + str(self.args)
             # if self.osc_name:
             #     _liblo.send(self.target, self.path, self.osc_name.replace(" ", "_"), *self.args)
             # else:
