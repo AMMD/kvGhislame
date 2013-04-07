@@ -143,6 +143,7 @@
             on_touch_move:
                 root.xypad.value = (root.xypad.value[0], self.value)
                 root.xypad.yfader.value_pos = root.xypad.value_pos
+                if args[1].grab_current == self: root.xypad.send_message()
 
         # BoxLayout:
         #     orientation: 'horizontal'
