@@ -329,9 +329,15 @@ class LightStrip(BoxLayout):
     stencil = ObjectProperty(StencilView)
 
     def on_touch_down(self, touch):
-        if self.collide_point(*touch.pos):
-            print "Touch " + self.name + ": True"
+         if self.collide_point(*touch.pos):
+#             print "Touch " + self.name + ": True"
+#             touch.grab(self.lightbox.xypad)
+#             self.lightbox.xypad.on_touch_down(touch)
+#             print touch.grab_current
+# #            return True
+#         else:
             return super(BoxLayout, self).on_touch_down(touch)
+    
 
 class Qlc(Screen):
     barres = ObjectProperty(LightStrip)

@@ -19,8 +19,12 @@
     pad_pos: 20, 40
     pad_size: self.width - self.pad_x, self.height - self.pad_y
 
+    on_value:
+        self.modified = True
+
     on_touch_move:
-        self.send_message()
+        if self.modified == True: self.send_message()
+        if self.modified == True: self.modified = False
 
 
     x_name_pad_pos: root.x + root.pad_x, root.y + root.pad_y - x_name_w.height - 5

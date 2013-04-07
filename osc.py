@@ -14,6 +14,7 @@ class OscSender(Widget):
     args_pattern = StringProperty()
     osc_name = StringProperty()
     app_name = StringProperty()
+    modified = BooleanProperty(False)
 
     def send_message(self):
         if self.path != '':
