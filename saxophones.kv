@@ -16,6 +16,9 @@
             id: saxophone
             name: "Saxophone"
             color: 0.1, 1, 0.1
+            on_parent:
+                self.gainfader.value = 0.84828921423310435217
+                self.gainfader.send_message()
 
         AudioStrip:
             id: saxfx
@@ -37,6 +40,8 @@
                 name: "Saxophones"
                 color: 0, 1, 0
                 size_hint: (1, 1)
+                on_parent:
+                    self.gainfader.value = 0.36179147520445495910
                 canvas.before:
                     Color:
                         rgba: 0.1, 0.1, 0.1, 0.5

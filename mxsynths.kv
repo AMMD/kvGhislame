@@ -29,6 +29,8 @@
                 name: "MxBass"
                 color: 1, 0.5, 0.1
                 size_hint: (1, 1)
+                on_parent:
+                    self.gainfader.value = 0.41654099772134220687
 
         BoxLayout:
             orientation: 'vertical'
@@ -44,6 +46,9 @@
                 name: "MxChords"
                 color: 1, 0.5, 0.15
                 size_hint: (1, 1)
+                on_parent:
+                    self.gainfader.value = 0.76226918495060533897
+                    self.gainfader.send_message()
 
         BoxLayout:
             orientation: 'vertical'
@@ -60,6 +65,9 @@
                 color: 1, 0.5, 0.2
                 size_hint: (1, 1)
                 main_color: 1, 0.5, 0.2
+                on_parent:
+                    self.gainfader.value = 0.71494391109141592947
+                    self.gainfader.send_message()
 
         BoxLayout:
             orientation: 'vertical'
@@ -75,12 +83,19 @@
                 name: "MxCtLead"
                 color: 1, 0.5, 0.25
                 size_hint: (1, 1)
+                on_parent:
+                    self.gainfader.value = 0.66864922025033024941
+                    self.gainfader.send_message()
+
 
         AudioStrip:
             id: mxsamples
             name: "MxSamples"
             color: 1, 0.5, 0.25
             size_hint: (1, 1)
+            on_parent:
+                self.gainfader.value = 0.72588363945949360485
+                self.gainfader.send_message()
 
         BoxLayout:
             orientation: 'vertical'
@@ -97,6 +112,8 @@
                 name: "MxSynths"
                 color: 1, 1, 1
                 size_hint: (1, 1)
+                on_parent:
+                    self.gainfader.value = 0.24794269013002419473
                 canvas.before:
                     Color:
                         rgba: 0.1, 0.1, 0.1, 0.5

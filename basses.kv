@@ -19,6 +19,9 @@
             name: "Basse"
             color: 1, 1, 0.1
             size_hint: 1, 1
+            on_parent:
+                self.gainfader.value = 0.60171078576689564781
+                self.gainfader.send_message()
 
         AudioStrip:
             id: grotterie
@@ -40,6 +43,10 @@
                 name: "MxBass"
                 color: 1, 1, 0.2
                 size_hint: (1, 1)
+                on_parent:
+                    self.gainfader.value = 0.41654099772134220687
+                    self.gainfader.send_message()
+
 
         BoxLayout:
             orientation: 'vertical'
@@ -54,6 +61,7 @@
                 name: "Bass FX"
                 color: 1, 1, 0.25
                 size_hint: (1, 1)
+
 
         BoxLayout:
             orientation: 'vertical'
@@ -70,6 +78,8 @@
                 name: "Basses"
                 color: 1, 1, 0
                 size_hint: (1, 1)
+                on_parent:
+                    self.gainfader.value = 0.68764423602998282299
                 canvas.before:
                     Color:
                         rgba: 0.1, 0.1, 0.1, 0.5

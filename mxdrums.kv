@@ -18,22 +18,34 @@
             id: mxkicks
             name: "MxKicks"
             color: 1, 0.5, 0.1
+            on_parent:
+                self.gainfader.value = 0.76226918495060533897
+                self.gainfader.send_message()
 
         AudioStrip:
             id: mxsnares
             name: "MxSnares"
             color: 1, 0.5, 0.15
+            on_parent:
+                self.gainfader.value = 0.52062552856249023624
+                self.gainfader.send_message()
 
         AudioStrip:
             id: mxcymbs
             name: "MxCymbs"
             color: 1, 0.5, 0.2
+            on_parent:
+                self.gainfader.value = 0.62959076756359573581
+                self.gainfader.send_message()
 
         AudioStrip:
             id: mxcont
             name: "MxContinua"
             color: 1, 0.5, 0.25
             size_hint: (1, 1)
+            on_parent:
+                self.gainfader.value = 0.59343955263802650018
+                self.gainfader.send_message()
 
         BoxLayout:
             orientation: 'vertical'
@@ -50,6 +62,8 @@
                 name: "MxDrums"
                 color: 1, 0.5, 0
                 size_hint: (1, 1)
+                on_parent:
+                    self.gainfader.value = 0.27891032175013815007
                 canvas.before:
                     Color:
                         rgba: 0.1, 0.1, 0.1, 0.5
