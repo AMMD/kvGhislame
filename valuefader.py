@@ -1,5 +1,5 @@
 #import liblo as _liblo
-
+import math
 import re
 
 import kivy
@@ -52,6 +52,13 @@ class Fader(Slider, OscSender):
     value_pos = AliasProperty(get_value_pos, set_value_pos,
                               bind=('x', 'y', 'width', 'height', 'min',
                                     'max', 'value_normalized', 'orientation'))
+
+    # def get_value_displayed(self):
+    #     return round(3.0/20.0*(math.log(self.value_normalized)/math.log(2.0)+16.0/3.0),2)
+
+    # def set_value_displayed(self, value):
+    #     self.value_normalized = math.pow(2, (20.0 / 3.0) * value - 16.0 / 3.0)
+    # value_displayed = AliasProperty(get_value_displayed, set_value_displayed, bind=('value_normalized',))
 
 
     def on_touch_down(self, touch):
